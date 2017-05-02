@@ -1,0 +1,30 @@
+{
+  "name": "barber-wild-wp",
+  "version": "1.0.0",
+  "description": "Wordpress theme for Barber WILD",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nigel-riss/barber-wild-wp.git"
+  },
+  "author": "Yuriy Kurenkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nigel-riss/barber-wild-wp/issues"
+  },
+  "homepage": "https://github.com/nigel-riss/barber-wild-wp#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-pug2": "0.0.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11",
+    "sass-module-importer": "^1.4.0"
+  },
+  "dependencies": {
+    "normalize.css": "^6.0.0"
+  }
+}
