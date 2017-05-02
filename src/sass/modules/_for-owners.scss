@@ -1,0 +1,14 @@
+.for-owners {
+    // positioning
+    position: absolute;
+    right: 50px;
+    top: 100px;
+
+    // box model
+    width: 200px;
+
+    img {
+        // box model
+        width: 100%;
+    }
+}

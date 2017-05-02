@@ -8,3 +8,15 @@
 @import "base/global";
 
 // modules
+//      header
+@import "modules/site-header";
+@import "modules/main-nav";
+@import "modules/logo";
+@import "modules/main-menu";
+@import "modules/cart";
+@import "modules/for-owners";
+@import "modules/hero";
+@import "modules/scene";
+
+//      main
+@import "modules/shop-item-main";

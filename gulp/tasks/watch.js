@@ -20,8 +20,16 @@ gulp.task('watch', function() {
     })
 
     // styles
+    watch('./src/**/*.scss', function() {
+        gulp.start('cssInject');
+    });
 
     // scripts
 
     // wordpress
 });
+
+gulp.task('cssInject', ['styles'], function() {
+    gulp.src('./dist/styles.css')
+        .pipe(browserSync.stream());
+})

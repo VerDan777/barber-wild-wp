@@ -1,0 +1,16 @@
+.main-nav {
+    // positioning
+    position: absolute;
+    z-index: 2;
+
+    // box model
+    width: 100%;
+    padding: 40px 50px;
+
+    &__menu-icon {
+        @include atTabletsLandscape {
+            // box model
+            display: none;
+        }
+    }
+}

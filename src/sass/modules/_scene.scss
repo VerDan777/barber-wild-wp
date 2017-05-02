@@ -1,0 +1,14 @@
+.scene {
+    // positioning
+    position: relative;
+    z-index: 1;
+
+    // box model
+    height: 100%;
+    width: 100%;
+
+    // visual
+    background-image: url('./img/main-hero-bg.jpg');
+    background-position: center top;
+    background-size: cover;
+}

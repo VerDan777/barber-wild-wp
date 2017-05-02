@@ -1,0 +1,41 @@
+.hero {
+    // positioning
+    position: absolute;
+    z-index: 1;
+
+    // box model
+    width: 100%;
+    height: 46.7vw;
+
+    &__text-content {
+        // positioning
+        position: absolute;
+        bottom: 40px;
+        right: 50px;
+        z-index: 2;
+    }
+
+    &__title {
+        // box model
+        margin: 0;
+        padding: 0;
+
+        // typography
+        color: $darkSand;
+        font-family: $titleFont;
+        font-size: 4.25rem;
+        text-transform: uppercase;
+    }
+
+    &__subtitle {
+        // box model
+        margin: 0;
+        padding: 0;
+
+        // typography
+        color: $darkSand;
+        font-family: $titleFont;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+}
