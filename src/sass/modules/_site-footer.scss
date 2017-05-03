@@ -1,0 +1,67 @@
+.site-footer {
+    // positioning
+    position: relative;
+
+    // box model
+    height: 375px;
+
+    // visual
+    background-color: $lightSand;
+    background-image: url('./img/footer-bg-m.jpg');
+    background-position: center bottom;
+
+    @include atDesktop {
+        // box model
+        height: 600px;
+
+        // visual
+        background-image: url('./img/footer-bg.jpg');
+    }
+
+    &__social {
+        // positioning
+        position: absolute;
+        bottom: 80px;
+
+        // box model
+        width: 100%;
+
+        // typography
+        text-align: center;
+
+        a {
+            // box model
+            // margin: 0 5px;
+
+            // typography
+            font-size: 0;
+
+            &:before {
+                // box model
+                height: 40px;
+                width: 40px;
+                padding-top: 8px;
+
+                // typography
+                color: $white;
+                font-size: 1.5rem;
+                text-decoration: none;
+
+                // visual
+                // background-color: $darkSand;
+                border-radius: 50%;
+                transition: all 0.3s ease-out;
+            }
+
+            &:hover {
+                &:before {
+                    // typography
+                    color: $darkSand;
+
+                    // visual
+                    background-color: $white;
+                }
+            }
+        }
+    }
+}

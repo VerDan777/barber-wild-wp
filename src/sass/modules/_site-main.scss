@@ -1,0 +1,10 @@
+.site-main {
+    // visual
+    background-color: $lightSand;
+
+    @include atDesktop {
+        // box model
+        padding-bottom: 1px;
+        padding-top: 100px;
+    }
+}

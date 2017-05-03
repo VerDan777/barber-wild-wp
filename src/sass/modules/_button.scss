@@ -1,0 +1,26 @@
+.button {
+    // box model
+    padding: 7px 25px;
+
+    // typography
+    color: $white;
+    font-family: $titleFont;
+    font-size: 1.125rem;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    // visual
+    background-color: $darkSand;
+    border-radius: 20px;
+    border: 1px solid $darkSand;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        // typography
+        color: $darkSand;
+
+        // visual
+        background-color: $white;
+    }
+}

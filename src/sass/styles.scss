@@ -1,6 +1,7 @@
 @import "normalize.css";
 
 // fonts
+@import "fonts/icons";
 
 // globals
 @import "base/vars";
@@ -19,4 +20,15 @@
 @import "modules/scene";
 
 //      main
+@import "modules/site-main";
 @import "modules/shop-item-main";
+
+@import "modules/video";
+
+//      footer
+@import "modules/site-footer";
+@import "modules/social";
+@import "modules/footer-nav";
+
+//      elements
+@import "modules/button";
