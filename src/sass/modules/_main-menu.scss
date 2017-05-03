@@ -34,5 +34,12 @@
         // font-weight: 100;
         text-decoration: none;
         text-transform: uppercase;
+
+        // visual
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            color: $darkSand;
+        }
     }
 }

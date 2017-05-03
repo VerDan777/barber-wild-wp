@@ -47,8 +47,17 @@
         color: $white;
         font-family: $titleFont;
         font-size: 1.25rem;
-        font-weight: 100;
+        font-size: 1rem;
+        // font-weight: 100;
         text-decoration: none;
         text-transform: uppercase;
+
+        // visual
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            // typography
+            color: $darkSand;
+        }
     }
 }
