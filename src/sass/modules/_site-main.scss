@@ -1,4 +1,7 @@
 .site-main {
+    // positioning
+    position: relative;
+
     // visual
     background-color: $lightSand;
 
@@ -6,5 +9,34 @@
         // box model
         padding-bottom: 1px;
         padding-top: 100px;
+
+        &::before {
+            content: "";
+
+            // positioning
+            position: absolute;
+            top: 0;
+            // z-index: -1;
+
+            // box model
+            height: 1500px;
+            width: 100%;
+
+            // border: 1px solid red;
+
+            // visual
+            background-image: url("./img/bg-top-left.jpg"),
+                              url("./img/bg-top-right.jpg");
+            background-position: top left, top right;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &--no-bg {
+
+        &::before {
+            // visual
+            background-image: none;
+        }
     }
 }

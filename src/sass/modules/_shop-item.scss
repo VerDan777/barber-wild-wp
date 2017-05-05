@@ -1,0 +1,142 @@
+.shop-item {
+
+    // box model
+    width: 330px;
+
+    @include atDesktop {
+        // box model
+        height: 460px;
+        margin-bottom: 60px;
+    }
+
+    &__wrapper {
+        // positioning
+        position: relative;
+        left: 0;
+        top: 0;
+
+        // box model
+        height: 100%;
+        width: 330px;
+        padding: 0 20px;
+
+        // visual
+        background-color: $white;
+        border: 1px solid $justSand;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+    }
+
+    &__image {
+        // box model
+        padding-bottom: 30px;
+
+        // visual
+        transition: all 0.3s ease-out;
+
+        img {
+            // box model
+            width: 100%;
+        }
+    }
+
+    &__description {
+        // box model
+        padding: 0 10px;
+    }
+
+    &__title {
+        // box model
+        margin: 0;
+        padding-bottom: 15px;
+
+        // typography
+        color: $darkBlue;
+        font-family: $mainFont;
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.4;
+    }
+
+    &__volume {
+        // box model
+        margin: 0;
+
+        // typography
+        color: $darkBlue;
+        font-family: $mainFont;
+        font-size: 1.125rem;
+        font-weight: 300;
+    }
+
+    &__price {
+        // positioning
+        position: absolute;
+        bottom: 150px;
+        right: 30px;
+
+        // box model
+        margin: 0;
+        padding: 5px 20px;
+        padding-right: 17px;
+
+        // typography
+        color: $darkBlue;
+        font-family: $titleFont;
+        font-weight: 400;
+        font-size: 2rem;
+
+        // visual
+        background-color: $justSand;
+        transition: all 0.3s ease-out;
+    }
+
+    &__buttons {
+        // positioning
+        position: absolute;
+        left: 0;
+        top: 600px;
+
+        // box model
+        width: 100%;
+
+        // typography
+        text-align: center;
+
+        // visual
+        transition: top 0.3s 0.3s ease-in-out;
+    }
+
+    @include atDesktop {
+        &:hover {
+            .shop-item__wrapper {
+                // positioning
+                left: -50px;
+                top: -40px;
+                z-index: 5;
+
+                // box model
+                height: 550px;
+                width: 460px;
+                padding: 0 30px;
+            }
+
+            .shop-item__image {
+                // box model
+                margin: -20px;
+                margin-top: -50px;
+                padding: 30px;
+            }
+
+            .shop-item__price {
+                // positioning
+                bottom: 190px;
+            }
+
+            .shop-item__buttons {
+                // positioning
+                top: 500px;
+            }
+        }
+    }
+}

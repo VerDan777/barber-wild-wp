@@ -1,6 +1,7 @@
 .site-header {
     // positioning
     position: relative;
+    z-index: 1;
 
     // box model
     height: 46.7vw;
@@ -9,4 +10,10 @@
     // visual
     background-color: $darkGrey;
     box-shadow: 0 2px 21px 0 rgba($darkestSand, 0.9);
+    overflow: hidden;
+
+    &--inner {
+        // box model
+        height: 450px;
+    }
 }

@@ -1,0 +1,70 @@
+doctype html
+
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Barber Wild
+
+        link(rel="stylesheet" href="styles.css")
+
+    body
+        header.site-header.site-header--inner
+            nav.main-nav
+                .logo: a(href="#") Barber WILD
+                    img(src="./img/logo.png")
+                    p.logo__motto всё, что нужно для твоей головы
+
+                .main-nav__menu-icon
+                    .main-nav__menu-icon__middle
+
+                ul.main-menu
+                    - var list = ["Каталог", "Сотрудничество", "О компании"];
+                    - var links = ["about.html", "shop.html", "partners.html"];
+                    - for (var i = 0; i < 3; i++)
+                        li: a(href=links[i])= list[i]
+
+                .cart: a(href="order.html") Оформить заказ
+            
+            .hero
+                //- .hero__scene.scene
+
+                .hero__text-content
+                    h1.hero__title Магазин «Barber WILD»
+                    p.hero__text Barber WILD — это не только высококачественные средства ухода за бородой, усами и волосами для настоящих мужчин, но и истинный брутальный дух Дикого Запада. Это то, что мы с особым старанием создали для самих себя — от барбера для барбера, и решили поделиться отличным результатом с вами!
+
+        main.site-main
+            .wrapper.wrapper--flex
+                mixin shop-item(title1, title2, volume, price, imgUrl)
+                    article.shop-item: .shop-item__wrapper
+                        .shop-item__image: img(src=imgUrl)
+                        .shop-item__description
+                            h2.shop-item__title #{title1} <br> #{title2}
+                            p.shop-item__volume= volume
+                            p.shop-item__price #{price} -
+                            .shop-item__buttons
+                                a(href="#").button Подробнее
+
+                +shop-item("Матирующая глина", "«Barber WILD»", "Объем: 3.5 oz. | 100 g.", "990", "./img/items/matt-clay.png")
+                +shop-item("Помада для волос", "«Barber WILD» (Juicy)", "Объем: 3.5 oz. | 100 g.", "990", "./img/items/pomade-juicy.png")
+                +shop-item("Помада для волос", "«Barber WILD» (Ice Melon)", "Объем: 3.5 oz. | 100 g.", "990", "./img/items/pomade-ice-melon.png")
+                +shop-item("Масло для бороды", "«Barber WILD» (Idaho)", "Объем: 0.85 oz. | 25 ml.", "990", "./img/items/beard-oil-idaho.png")
+                +shop-item("Масло для бороды", "«Barber WILD» (Tennessee)", "Объем: 0.85 oz. | 25 ml.", "990", "./img/items/beard-oil-tennessee.png")
+                +shop-item("Масло для подбривания", "«Barber WILD»", "Объем: 1.86 oz. | 55 ml.", "990", "./img/items/shave-oil.png")
+                +shop-item("Бальзам после бритья", "«Barber WILD»", "Объем: 3.38 oz. | 100 ml.", "990", "./img/items/balm.png")
+                +shop-item("Мыло для бритья", "«Barber WILD»", "Объем: 3,5 oz. | 100 g.", "890", "./img/items/soap.png")
+        
+        footer.site-footer
+            .site-footer__social
+                a(href="#").icon-vkontakte VKontakte
+                a(href="#").icon-facebook Faceboot
+                a(href="#").icon-instagram Instagram
+                a(href="#").icon-youtube-play YouTube
+                a(href="#").icon-mail-alt Email
+
+            nav.footer-nav: ul
+                - var list = ["Каталог", "Сотрудничество", "О компании"];
+                - var links = ["about.html", "shop.html", "partners.html"];
+                - for (var i = 0; i < 3; i++)
+                    li: a(href=links[i])= list[i]

@@ -22,8 +22,12 @@
 //      main
 @import "modules/site-main";
 @import "modules/shop-item-main";
+@import "modules/wrapper";
 
 @import "modules/video";
+
+//      shop
+@import "modules/shop-item";
 
 //      footer
 @import "modules/site-footer";

@@ -1,0 +1,17 @@
+.wrapper {
+    // box model
+
+    @include atDesktop {
+        // box model
+        width: 1080px;
+        margin: 0 auto;
+    }
+
+    &--flex {
+        // box model
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        // border: 1px solid red;
+    }
+}

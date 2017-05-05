@@ -6,6 +6,7 @@
     // box model
     width: 100%;
     height: 46.7vw;
+    height: 100%;
 
     &__text-content {
         // positioning
@@ -13,6 +14,9 @@
         bottom: 40px;
         right: 50px;
         z-index: 2;
+        
+        // box model
+        width: 40%;
     }
 
     &__title {
@@ -37,5 +41,14 @@
         font-family: $titleFont;
         font-size: 1.5rem;
         text-transform: uppercase;
+    }
+
+    &__text {
+        // typography
+        color: $justSand;
+        color: $white;
+        color: $darkSand;
+        font-family: $titleFont;
+        line-height: 1.4;
     }
 }
