@@ -1,0 +1,94 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Barber WILD
+        meta(property='og:type', content='website')
+        meta(property='og:site_name', content='BarberWild')
+        meta(property='og:title', content='Матирующая глина')
+        meta(property='og:description', content='— то, что нужно для твоей головы')
+        meta(property='og:url', content='http://barberwild.com/matt-clay-page.html')
+        meta(property='og:locale', content='ru_RU')
+        meta(content='https://barberwild.com/assets/img/bnew_clay.png', property='og:image')
+        meta(property='og:image:width', content='1200')
+        meta(property='og:image:height', content='700')
+        link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400&subset=cyrillic', rel='stylesheet')
+        link(rel='stylesheet', href='./temp/styles/styles.css')
+        link(rel='import', href='header.html')
+        link(rel='import', href='footer.html')
+        link(rel='icon', href='./assets/img/favicon.png', type='image/png')
+
+    body
+        header.site-header
+            a(href="index.html")
+                .site-header__logo: a Barber WILD
+
+            .site-header__menu-icon
+                .site-header__menu-icon__middle
+
+            nav.main-nav
+                ul
+                    - var menuItems=["О Компании","Каталог","Сотрудничество"]
+                    - var menulinks=["about.html","shop.html","partners.html"]
+                    - for (var i=0;i<3;i++)
+                        li: a(href=menulinks[i])= menuItems[i]
+                           
+            .cart
+                a(href="order.html") Оформить заказ  
+        div.hero.hero--partners
+            div.hero__scene.scene.scene--partners
+            div.hero__text-content
+                p.hero__text  Созданная профессиональными барберами, высококачественная линия мужской косметики Barber Wild имеет свою развивающуюся сеть продвижения, и активно распространяется по всей России уже два года. Несмотря на этот недолгий срок, аналоги косметики конкурентов уже отстают от нашего качества, при этом цены Barber Wild значительно выгоднее и гибче.
+                p.hero__text  Почти полсотни барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.
+                p.hero__text Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.
+        main.site-main
+            section.site-section.site-section--selling-features
+                div.wrapper 
+                    header.site-section__header
+                        h2.site-section__title Почему нас выбирают
+                    mixin feature(title,text,imgURL)
+                        article.feature
+                            div.feature__image
+                                img(src=imgURL)
+                            h2.feature__title=title
+                            p.feature__text=text
+                    +feature("Выгодное партнерство","Особые условия для постоянных партнеров, которые вас приятно удивят.","./img/haircut-srv.jpg")
+                    +feature("Бесплатная доставка","От 13000 р. Оперативно отправляем заказ транспортной компанией или Почтой России .","./img/haircut-srv.jpg")
+                    +feature("Запоминаемый бренд","Барбершопы по всей России регулярно применяют Barber Wild в своей работе.","./img/haircut-srv.jpg")
+                    +feature("Высокое качество","Наша продукция занимает достойное место среди лучших брендов мужской косметики.","./img/haircut-srv.jpg")
+                    +feature("Растущий ассортимент","Постоянное расширение линейки продукции, включая создание новых ароматов.","./img/haircut-srv.jpg")
+                    +feature("Выгодные цены","Прайс на продукцию Barber Wild значительно выгоднее и гибче, чем цены конкурентов.","./img/haircut-srv.jpg")
+
+            section.site-section.site-section--partner-form
+                form.form(action='https://formspree.io/bwildorders@gmail.com',method="POST")
+                    fieldset.form__fieldset
+                        legend.form__legend Заявка на сотрудничество 
+                        
+                        div.form__input-group
+                            label.form__icon 1
+                            input.form__input(type="text",name="fullname",placeholder="Имя Фамилия") 
+
+                        div.form__input-group
+                            label.form__icon 2
+                            input.form__input(type="text",name="phone",placeholder="Номер телефона")     
+                            
+                        div.form__input-group
+                            label.form__icon 3
+                            input.form__input(type="text",name="email",placeholder="Электропочта") 
+
+                        div.form__input-group
+                            label.form__icon 4
+                            input.form__input(type="text",name="address",placeholder="Адрес") 
+
+                        div.form__input-group
+                            label.form__icon 5
+                            input.form__input(type="text",name="company",placeholder="Организация (барбершоп")
+
+                    button.button(type="submit") Подтвердить
+        nav.footer-nav
+            ul 
+                - var menuItems=["О Компании","Каталог","Сотрудничество"]
+                - var menulinks=["about.html","shop.html","partners.html"]
+                - for (var i=0;i<3;i++)
+                    li: a(href=menulinks[i])=menuItems[i]
