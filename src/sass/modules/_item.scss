@@ -11,6 +11,7 @@
         // box model
         margin-bottom: 40px;
         padding: 40px 30px;
+        padding-top: 0;
 
         // visual
         background-color: rgba($white, 0.8);
@@ -19,11 +20,14 @@
         @include atDesktop {
             // box model
             padding-left: 45%;
+            padding-top: 40px;
         }
     }
 
     &__image {
         // box model
+        width: 220px;
+        margin: 0 auto;
 
         img {
             // box model
@@ -53,6 +57,9 @@
         line-height: 1.4;
 
         @include atDesktop {
+            // box model
+            margin-top: 0;
+
             // typography
             font-size: 2rem;
         }
@@ -66,6 +73,20 @@
     }
 
     &__price {
+        // box model
+        display: inline-block;
+        margin: 0;
+        margin-bottom: 30px;
+        padding: 5px 20px;
+
+        // typography
+        color: $darkBlue;
+        font-family: $titleFont;
+        font-weight: 400;
+        font-size: 2rem;
+
+        // visual
+        background-color: $justSand;
 
     }
 
@@ -135,7 +156,7 @@
             // positioning
             position: absolute;
             left: 0;
-            bottom: -80px;
+            bottom: -70px;
 
             // box model
             display: block;

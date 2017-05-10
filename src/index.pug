@@ -33,7 +33,7 @@ html
             .hero
                 .hero__scene.scene
 
-                .hero__text-content
+                .hero__text-content.hero__text-content--main
                     h1.hero__title «Barber WILD»
                     p.hero__subtitle — Мужская косметика с характером
 
@@ -41,12 +41,12 @@ html
             mixin shop-item-main(subClass, title1, title2, text, imgUrl, decoUrl)
                 article.shop-item-main(class= subClass)
                     .shop-item-main__wrapper
+                        .shop-item-main__image: img(src= imgUrl)
                         .shop-item-main__description
                             h2.shop-item-main__title #{title1} <br> #{title2} 
                             p.shop-item-main__text= text
                             .shop-item-main__buttons
                                 a(href="#").button.button--right-m Подробнее
-                        .shop-item-main__image: img(src= imgUrl)
                         .shop-item-main__deco: img(src= decoUrl)
 
             +shop-item-main("shop-item-main--clay", "Матирующая глина", "«Barber WILD»", "Глина  Barber Wild создана на водной основе, поэтому не только несет пользу здоровью кожи и волос, но и значительно легче смывается водой. Пчелиный воск обладает влагоотталкивающей структурой, а исцеляющая энергия ценного масла арганы благотворно влияет на волосы и кожу головы, насыщая их питательными ингредиентами. Уникальная текстура помады Barber Wild после высыхания придает волосам роскошный матовый оттенок, сохраняющийся в течение всего дня.", "./img/items/matt-clay.png", "./img/items/clay-machine.jpg")

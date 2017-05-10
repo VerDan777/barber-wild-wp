@@ -2,14 +2,31 @@
     // positioning
     position: absolute;
     right: 50px;
-    // right: 40px;
-    top: 40px;
+    top: 33px;
 
     // box model
     width: 200px;
 
     // typography
     text-align: center;
+
+    @include atDesktop {
+        // positioning
+        right: 30px;
+        top: 20px;
+
+        // box model
+        width: 180px;
+    }
+
+    @include atDesktopLarge {
+        // positioning
+        right: 50px;
+        top: 33px;
+
+        // box model
+        width: 200px;
+    }
 
     a {
         // box model
@@ -27,6 +44,23 @@
         border: 1px solid rgba($white, 0.8);
         border-radius: 20px;
         transition: all 0.3s ease-out;
+
+        @include atDesktop {
+            // box model
+            padding: 8px;
+            padding-bottom: 7px;
+
+            // typography
+            font-size: 1rem;
+        }
+
+        @include atDesktopLarge {
+            // box model
+            padding: 10px 20px;
+
+            // typography
+            font-size: 1.125rem;
+        }
 
         &:hover {
             // visual

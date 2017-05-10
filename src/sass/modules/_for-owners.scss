@@ -7,6 +7,24 @@
     // box model
     width: 200px;
 
+    @include atDesktop {
+        // positioning
+        right: 30px;
+        top: 90px;
+
+        // box model
+        width: 180px;
+    }
+
+    @include atDesktopLarge {
+        // positioning
+        right: 50px;
+        top: 120px;
+
+        // box model
+        width: 200px;
+    }
+
     img {
         // box model
         width: 100%;

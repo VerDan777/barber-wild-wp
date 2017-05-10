@@ -7,6 +7,16 @@
     padding: 0;
     padding-left: 50px;
 
+    @include atDesktop {
+        // box model
+        padding-left: 20px;
+    }
+
+    @include atDesktopLarge {
+        // box model
+        padding-left: 50px;
+    }
+
     // visual
     list-style: none;
 
@@ -40,6 +50,22 @@
 
         &:hover {
             color: $darkSand;
+        }
+
+        @include atDesktop {
+            // box model
+            padding: 15px;
+
+            // typography
+            font-size: 1rem;
+        }
+
+        @include atDesktopLarge {
+            // box model
+            padding: 15px 20px;
+
+            // typography
+            font-size: 1.25rem;
         }
     }
 }

@@ -10,12 +10,22 @@ $paddingLeft: 70px;
     z-index: 1;
 
     // box model
+    margin-bottom: 40px;
 
-    margin-bottom: 250px;
     // border: 1px solid red;
 
     // typography
     font-size: 0;
+
+    @include atDesktop {
+        // box model
+        margin-bottom: 120px;
+    }
+
+    @include atDesktopLarge {
+        // box model
+        margin-bottom: 200px;
+    }
 
 
     &__wrapper {
@@ -23,68 +33,117 @@ $paddingLeft: 70px;
         position: relative;
 
         // box model
-        width: 1000px;
-
         margin: 0 auto;
-        padding: $paddingTop $paddingLeft;
-        padding-right: $paddingRight;
+        padding: 40px;
 
         // visual
         background-color: rgba($white, 0.8);
         border: 1px solid $justSand;
+
+        @include atDesktop {
+            // box model
+            padding: $paddingTop $paddingLeft;
+            padding-right: $paddingRight;
+            width: 1000px;
+        }
     }
 
     &__description {
         // box model
         display: inline-block;
         vertical-align: top;
-        width: 480px;
         // border: 1px solid red;
+
+        @include atDesktop {
+            // box model
+            width: 480px;
+        }
     }
 
     &__title {
         // box model
         margin: 0;
         padding: 0;
-        margin-left: -25px;
 
         // typography
         font-family: $mainFont;
-        font-size: 3rem;
-        font-weight: 300;
-        line-height: 1.2;
-        text-indent: 20px;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1.4;
+        text-align: center;
+
+        @include atDesktop {
+            // box model
+            margin-left: -25px;
+
+            // typography
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1.2;
+            text-indent: 20px;
+            text-align: left;
+        }
     }
 
     &__text {
         // typography
         font-family: $mainFont;
-        font-size: 1.125rem;
+        font-size: 1rem;
         font-weight: 300;
         line-height: 1.5;
+
+        @include atDesktop {
+            // typography
+            font-size: 1.125rem;
+        }
     }
 
     &__buttons {
-        // positioning
-        position: absolute;
-        right: $paddingRight;
-        bottom: $paddingBottom + 18px;
+        // box model
+        margin-top: 40px;
 
-        // border: 1px solid red;
+        // typography
+        text-align: center;
+
+        @include atDesktop {
+            // positioning
+            position: absolute;
+            right: $paddingRight;
+            bottom: $paddingBottom + 18px;
+
+            // box model
+            margin-top: 0;
+
+            // typography
+            text-align: left;
+        }
     }
 
     &__image {
         // border: 1px solid red;
         // box model
-        display: inline-block;
-        vertical-align: top;
-        width: 330px;
-        margin-left: 45px;
-        margin-top: -20px;
+        width: 220px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        margin-top: -40px;
 
         img {
             // box model
             width: 100%;
+        }
+
+        @include atDesktop {
+            // positioning
+            position: absolute;
+            right: $paddingRight;
+            top: $paddingTop;
+
+            // box model
+            display: inline-block;
+            vertical-align: top;
+            width: 330px;
+            margin-left: 45px;
+            margin-top: -20px;
         }
     }
 
@@ -92,6 +151,14 @@ $paddingLeft: 70px;
         // positioning
         position: absolute;
         z-index: -1;
+
+        // box model
+        display: none;
+
+        @include atDesktop {
+            // box model
+            display: block;
+        }
     }
 
     &--clay {

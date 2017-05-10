@@ -7,6 +7,16 @@
     width: 100%;
     padding: 40px 50px;
 
+    @include atDesktop {
+        // box model
+        padding: 20px 30px;
+    }
+
+    @include atDesktopLarge {
+        // box model
+        padding: 40px 50px;
+    }
+
     &__menu-icon {
         @include atTabletsLandscape {
             // box model
