@@ -1,0 +1,30 @@
+.site-section {
+    &--partners-text {
+        // box model
+        display: inline-block;
+        vertical-align: top;
+
+        width: 50%;
+    }
+
+    &--partners-form {
+        // box model
+        display: inline-block;
+        vertical-align: top;
+
+        width: 50%;
+    }
+
+    &--selling-features {
+        // typography
+        text-align: center;
+    }
+
+    p {
+        // typography
+        font-family: $mainFont;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.5;
+    }
+}

@@ -675,6 +675,7 @@ body {
 
 .site-main {
   position: relative;
+  font-size: 0;
   background-color: #fffaf0; }
   @media (min-width: 1200px) {
     .site-main {
@@ -802,6 +803,25 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap; }
+
+.site-section--partners-text {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%; }
+
+.site-section--partners-form {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%; }
+
+.site-section--selling-features {
+  text-align: center; }
+
+.site-section p {
+  font-family: "Roboto Slab", serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5; }
 
 .video {
   position: relative;
@@ -1092,6 +1112,7 @@ body {
   background-color: #c7a166;
   border-radius: 20px;
   border: 1px solid #c7a166;
+  cursor: pointer;
   transition: all 0.3s ease-out; }
   .button:hover {
     color: #c7a166;
@@ -1101,3 +1122,31 @@ body {
     border-color: #d11500; }
     .button--red:hover {
       color: #d11500; }
+
+.feature {
+  display: inline-block;
+  vertical-align: top;
+  width: 260px;
+  margin: 20px;
+  font-family: "Roboto Slab", serif; }
+  @media (min-width: 1200px) {
+    .feature {
+      width: 300px; } }
+  .feature__image {
+    display: inline-block;
+    height: 164px;
+    width: 164px; }
+    .feature__image img {
+      height: 100%;
+      width: 100%; }
+    @media (min-width: 1200px) {
+      .feature__image {
+        height: 246px;
+        width: 246px; } }
+  .feature__title {
+    font-size: 1.25rem;
+    font-weight: 700; }
+  .feature__text {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    font-weight: 300; }

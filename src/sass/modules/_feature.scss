@@ -1,0 +1,48 @@
+.feature {
+    // box model
+    display: inline-block;
+    vertical-align: top;
+
+    width: 260px;
+    margin: 20px;
+
+    // typography
+    font-family: $mainFont;
+    
+    @include atDesktop {
+        // box model
+        width: 300px;
+    }
+
+    &__image {
+        // box model
+        display: inline-block;
+        height: 164px;
+        width: 164px;
+
+        img {
+            // box model
+            height: 100%;
+            width: 100%;
+        }
+
+        @include atDesktop {
+            // box model
+            height: 246px;
+            width: 246px;
+        }
+    }
+
+    &__title {
+        // typography
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    &__text {
+        // typography
+        font-size: 1.125rem;
+        line-height: 1.5;
+        font-weight: 300;
+    }
+}
