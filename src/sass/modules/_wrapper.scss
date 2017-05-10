@@ -2,6 +2,10 @@
     // box model
 
     @include atDesktop {
+        // positioning
+        position: relative;
+        z-index: 1;
+        
         // box model
         width: 1080px;
         margin: 0 auto;

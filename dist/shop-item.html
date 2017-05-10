@@ -3,43 +3,38 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Barber WILD</title>
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="BarberWild">
-    <meta property="og:title" content="Матирующая глина">
-    <meta property="og:description" content="— то, что нужно для твоей головы">
-    <meta property="og:url" content="http://barberwild.com/matt-clay-page.html">
-    <meta property="og:locale" content="ru_RU">
-    <meta content="https://barberwild.com/assets/img/bnew_clay.png" property="og:image">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="700">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="./temp/styles/styles.css">
-    <link rel="import" href="header.html">
-    <link rel="import" href="footer.html">
-    <link rel="icon" href="./assets/img/favicon.png" type="image/png">
+    <title>Barber Wild</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="site-header"><a href="index.html">
-        <div class="site-header__logo"><a>Barber WILD</a></div></a>
-      <div class="site-header__menu-icon">
-        <div class="site-header__menu-icon__middle"></div>
-      </div>
+    <header class="site-header site-header--inner">
       <nav class="main-nav">
-        <ul>
-          <li><a href="about.html">О Компании</a></li>
+        <div class="logo"><a href="#">Barber WILD<img src="./img/logo.png">
+            <p class="logo__motto">всё, что нужно для твоей головы</p></a></div>
+        <div class="main-nav__menu-icon">
+          <div class="main-nav__menu-icon__middle"></div>
+        </div>
+        <ul class="main-menu">
           <li><a href="shop.html">Каталог</a></li>
           <li><a href="partners.html">Сотрудничество</a></li>
+          <li><a href="about.html">О компании</a></li>
         </ul>
+        <div class="cart"><a href="order.html">Оформить заказ</a></div>
       </nav>
-      <div class="cart"><a href="order.html">Оформить заказ    </a></div>
+      <div class="hero">
+        <div class="hero__scene scene" style="background-image: url('./img/matt-clay-bg.jpg'); background-position: center center; background-atachment: fixed;"></div>
+        <div class="hero__text-content">
+          <h1 class="hero__title">Матирующая глина «Barber WILD»</h1>
+          <p class="hero__text">Глина Barber Wild создана на водной основе, поэтому не только несет пользу здоровью кожи и волос, но и значительно легче смывается водой. Пчелиный воск обладает влагоотталкивающей структурой, а исцеляющая энергия ценного масла арганы благотворно влияет на волосы и кожу головы, насыщая их питательными ингредиентами. Уникальная текстура помады Barber Wild после высыхания придает волосам роскошный матовый оттенок, сохраняющийся в течение всего дня.</p>
+        </div>
+      </div>
     </header>
     <main class="site-main">
       <div class="wrapper">
-        <article class="item item--clay">
+        <article class="item">
           <header class="item__header">
-            <div class="item__image"><img src="./dist/img/bnew_clay.png" alt=""></div>
-            <h1 class="item__title">Матирующая глина «Barber WILD»</h1><br>
+            <div class="item__image"><img src="./img/items/matt-clay.png"></div>
+            <h1 class="item__title">Матирующая глина<br>«Barber WILD»</h1>
             <p class="item__volume">Объем: 3.5 oz. | 100 g.</p>
             <p class="item__price">990 Р</p><a class="button button--red" href="order.html">Оформить заказ</a>
           </header>
@@ -58,11 +53,12 @@
       </div>
     </main>
     <footer class="site-footer">
+      <div class="site-footer__social"><a class="icon-vkontakte" href="#">VKontakte</a><a class="icon-facebook" href="#">Faceboot</a><a class="icon-instagram" href="#">Instagram</a><a class="icon-youtube-play" href="#">YouTube</a><a class="icon-mail-alt" href="#">Email</a></div>
       <nav class="footer-nav">
-        <ul> 
-          <li><a href="about.html">О Компании</a></li>
-          <li><a href="shop.html">Каталог</a></li>
-          <li><a href="partners.html">Сотрудничество</a></li>
+        <ul>
+          <li><a href="about.html">Каталог</a></li>
+          <li><a href="shop.html">Сотрудничество</a></li>
+          <li><a href="partners.html">О компании</a></li>
         </ul>
       </nav>
     </footer>

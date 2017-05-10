@@ -1,64 +1,68 @@
 doctype html
+
 html
     head
-        meta(charset='UTF-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1')
-        title Barber WILD
-        meta(property='og:type', content='website')
-        meta(property='og:site_name', content='BarberWild')
-        meta(property='og:title', content='Матирующая глина')
-        meta(property='og:description', content='— то, что нужно для твоей головы')
-        meta(property='og:url', content='http://barberwild.com/matt-clay-page.html')
-        meta(property='og:locale', content='ru_RU')
-        meta(content='https://barberwild.com/assets/img/bnew_clay.png', property='og:image')
-        meta(property='og:image:width', content='1200')
-        meta(property='og:image:height', content='700')
-        link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400&subset=cyrillic', rel='stylesheet')
-        link(rel='stylesheet', href='./temp/styles/styles.css')
-        link(rel='import', href='header.html')
-        link(rel='import', href='footer.html')
-        link(rel='icon', href='./assets/img/favicon.png', type='image/png')
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Barber Wild
+
+        link(rel="stylesheet" href="styles.css")
 
     body
-        header.site-header
-            a(href="index.html")
-                .site-header__logo: a Barber WILD
-
-            .site-header__menu-icon
-                .site-header__menu-icon__middle
+        header.site-header.site-header--inner
             nav.main-nav
-                ul
-                    - var menuItems=["О Компании","Каталог","Сотрудничество"]
-                    - var menulinks=["about.html","shop.html","partners.html"]
-                    - for (var i=0;i<3;i++)
-                        li: a(href=menulinks[i])= menuItems[i]
-                           
-            .cart
-                a(href="order.html") Оформить заказ    
+                .logo: a(href="#") Barber WILD
+                    img(src="./img/logo.png")
+                    p.logo__motto всё, что нужно для твоей головы
+
+                .main-nav__menu-icon
+                    .main-nav__menu-icon__middle
+
+                ul.main-menu
+                    - var list = ["Каталог", "Сотрудничество", "О компании"];
+                    - var links = ["shop.html", "partners.html", "about.html"];
+                    - for (var i = 0; i < 3; i++)
+                        li: a(href=links[i])= list[i]
+
+                .cart: a(href="order.html") Оформить заказ
+            
+            .hero
+                .hero__scene.scene(style="background-image: url('./img/matt-clay-bg.jpg'); background-position: center center; background-atachment: fixed;")
+
+                .hero__text-content
+                    h1.hero__title Матирующая глина «Barber WILD»
+                    p.hero__text Глина Barber Wild создана на водной основе, поэтому не только несет пользу здоровью кожи и волос, но и значительно легче смывается водой. Пчелиный воск обладает влагоотталкивающей структурой, а исцеляющая энергия ценного масла арганы благотворно влияет на волосы и кожу головы, насыщая их питательными ингредиентами. Уникальная текстура помады Barber Wild после высыхания придает волосам роскошный матовый оттенок, сохраняющийся в течение всего дня.
+
         main.site-main
-            div.wrapper
-                article.item.item--clay
+            .wrapper
+                article.item
                     header.item__header
-                        div.item__image
-                            img(src='./dist/img/bnew_clay.png',alt='')
-                        h1.item__title Матирующая глина «Barber WILD»
-                        br
+                        .item__image: img(src="./img/items/matt-clay.png")
+                        h1.item__title Матирующая глина<br>«Barber WILD»
                         p.item__volume Объем: 3.5 oz. | 100 g.
                         p.item__price 990 Р
-                        a.button.button--red(href='order.html') Оформить заказ
-                    div.item__description
+                        a(href='order.html').button.button--red Оформить заказ
+
+                    .item__description
                         h2.item__subheading Описание:
                         p.item__text Матирующая глина Barber Wild на водной основе естественно и ровно ложится на волосы, легко смывается водой и любым шампунем, благодаря чему волосы быстро восстанавливают свежий здоровый облик. Смесь из пчелиного и карнаубского воска обеспечивет прическе надежную фиксацию, не склеивая волосы и не утяжеляя их, дополняя свое действие уникальным матовым эффектом благодаря белой глине. Касторовое масло питает волосы, восстанавливая их и укрепляя, а пальмовая кислота, известная своим увлажняющим и смягчающим воздействием на кожу головы, при смывании бережно очищает ее.
                         p.item__text Парфюмерная композиция с кумарином запоминается своим приятным сладковато-горьким ароматом, создающим едва ощутимый манящий шлейф. Глина Barber Wild имеет невероятную текстуру, позволяет просто и быстро придать прическе желаемую форму. Волосы выглядят ухоженными, при этом сохраняя естественный и натуральный вид. Проходит для волос и бороды любой длины.
-                            div.item__ingredients
-                                div.item__ingredients-deco
+                            .item__ingredients
+                                .item__ingredients-deco
                                 h2.item__subheading Состав:
                                 p.item__text Вода, вазелин, белая глина, пчелиный воск, карнаубский воск, цетеарет-27, касторовое масло, масло семян, озокерит, глицерил стеарат, VP/VA, сополимеры PVP, гидрогенезированная пальмовая кислота, цетеарет-12, аскорбилпальмитат, бензоат натрия, дегидроацетовая кислота, метилпарабен, феноксиэтанол, краситель, парфюм, кумарин.
                                      
         footer.site-footer
-            nav.footer-nav
-                ul  
-                    - var menuItems=["О Компании","Каталог","Сотрудничество"]
-                    - var menulinks=["about.html","shop.html","partners.html"]
-                    - for (var i=0;i<3;i++)
-                      li: a(href=menulinks[i])= menuItems[i]
+            .site-footer__social
+                a(href="#").icon-vkontakte VKontakte
+                a(href="#").icon-facebook Faceboot
+                a(href="#").icon-instagram Instagram
+                a(href="#").icon-youtube-play YouTube
+                a(href="#").icon-mail-alt Email
+
+            nav.footer-nav: ul
+                - var list = ["Каталог", "Сотрудничество", "О компании"];
+                - var links = ["about.html", "shop.html", "partners.html"];
+                - for (var i = 0; i < 3; i++)
+                    li: a(href=links[i])= list[i]

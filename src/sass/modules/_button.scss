@@ -23,4 +23,15 @@
         // visual
         background-color: $white;
     }
+
+    &--red {
+        // visual
+        background-color: $accentRed;
+        border-color: $accentRed;
+
+        &:hover {
+            // typography
+            color: $accentRed;
+        }
+    }
 }

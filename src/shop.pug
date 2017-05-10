@@ -21,7 +21,7 @@ html
 
                 ul.main-menu
                     - var list = ["Каталог", "Сотрудничество", "О компании"];
-                    - var links = ["about.html", "shop.html", "partners.html"];
+                    - var links = ["shop.html", "partners.html", "about.html"];
                     - for (var i = 0; i < 3; i++)
                         li: a(href=links[i])= list[i]
 
@@ -44,7 +44,7 @@ html
                             p.shop-item__volume= volume
                             p.shop-item__price #{price} -
                             .shop-item__buttons
-                                a(href="#").button Подробнее
+                                a(href="shop-item.html").button Подробнее
 
                 +shop-item("Матирующая глина", "«Barber WILD»", "Объем: 3.5 oz. | 100 g.", "990", "./img/items/matt-clay.png")
                 +shop-item("Помада для волос", "«Barber WILD» (Juicy)", "Объем: 3.5 oz. | 100 g.", "990", "./img/items/pomade-juicy.png")
