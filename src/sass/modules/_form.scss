@@ -1,0 +1,92 @@
+.form {
+    // border: 1px solid red;
+    // box model
+    padding: 40px;
+    padding-bottom: 20px;
+
+    // typography
+    text-align: center;
+
+    // visual
+    background-color: rgba($white, 0.8);
+    border: 1px solid $justSand;
+
+    &--partners {
+        // box model
+        margin: 0 -20px;
+
+        @include atDesktop {
+            // positioning
+            position: absolute;
+            right: 60px;
+            top: 60px;
+            // border: 1px solid red !important;
+
+            // box model
+            width: 500px;
+            margin: 0;
+
+            // visual
+            box-shadow: 0 2px 14px 0 rgba($darkestSand, 0.1);
+        }
+    }
+
+    &__fieldset {
+        // visual
+        border: none;
+    }
+
+    &__legend {
+        // box model
+        display: block;
+        margin: 0;
+        margin-bottom: 20px;
+        padding: 0;
+
+        // typography
+        color: $darkSand;
+        font-family: $titleFont;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__input-group {
+        // box model
+        padding: 10px 0;
+    }
+
+    &__icon {
+
+    }
+
+    &__input {
+        // box model
+        height: 50px;
+        width: 100%;
+        padding: 0 15px;
+
+        // typography
+        font-family: $titleFont;
+        font-size: 1rem;
+
+        &:focus {
+            // visual
+            outline: none;
+        }
+    }
+
+    &__text {
+        // box model
+        margin-top: 20px;
+        // typography
+        font-family: $titleFont;
+        font-size: 0.8rem;
+        line-height: 1.4;
+
+        a {
+            // typography
+            color: $darkSand;
+        }
+    }
+}

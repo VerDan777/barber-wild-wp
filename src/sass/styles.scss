@@ -24,12 +24,16 @@
 @import "modules/shop-item-main";
 @import "modules/wrapper";
 @import "modules/site-section";
+@import "modules/description";
 
 @import "modules/video";
 
 //      shop
 @import "modules/shop-item";
 @import "modules/item";
+
+//      partners
+@import "modules/partners";
 
 //      footer
 @import "modules/site-footer";
@@ -39,3 +43,4 @@
 //      elements
 @import "modules/button";
 @import "modules/feature";
+@import "modules/form";

@@ -34,19 +34,14 @@ html
                     p.hero__text Созданная профессиональными барберами, высококачественная линия мужской косметики Barber Wild имеет свою развивающуюся сеть продвижения, и активно распространяется по всей России уже два года. Несмотря на этот недолгий срок, аналоги косметики конкурентов уже отстают от нашего качества, при этом цены Barber Wild значительно выгоднее и гибче.
 
         main.site-main: .wrapper
-            section.site-section.site-section--partners-text
-                p Почти полсотни барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.
-
-                p Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.
-
-            section.site-section.site-section--partners-form
-                form.form(action='https://formspree.io/bwildorders@gmail.com',method="POST")
+            section.site-section.description.description--partners
+                form(action='https://formspree.io/bwildorders@gmail.com',method="POST").form.form--partners
                     fieldset.form__fieldset
                         legend.form__legend Заявка на сотрудничество 
                         
                         .form__input-group
                             label.form__icon 1
-                            input.form__input(type="text",name="fullname",placeholder="Имя Фамилия") 
+                            input.form__input(type="text",name="fullname",placeholder="Фамилия Имя Отчество") 
 
                         .form__input-group
                             label.form__icon 2
@@ -54,17 +49,24 @@ html
 
                         .form__input-group
                             label.form__icon 3
-                            input.form__input(type="text",name="email",placeholder="Электропочта") 
+                            input.form__input(type="text",name="email",placeholder="Электронная почта") 
 
                         .form__input-group
                             label.form__icon 4
-                            input.form__input(type="text",name="address",placeholder="Адрес") 
+                            input.form__input(type="text",name="address",placeholder="Город") 
 
                         .form__input-group
                             label.form__icon 5
-                            input.form__input(type="text",name="company",placeholder="Организация (барбершоп")
+                            input.form__input(type="text",name="company",placeholder="Организация (барбершоп)")
+                        .form__input-group
+                            button.button(type="submit") Подтвердить
 
-                        button.button(type="submit") Подтвердить
+                        .form__text Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> #[a(href="#") политикой конфиденциальности]
+
+                p Почти полсотни барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.
+
+                p Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.
+
 
             section.site-section.site-section--selling-features
                 header.site-section__header
@@ -80,6 +82,15 @@ html
                 +feature("Высокое качество","Наша продукция занимает достойное место среди лучших брендов мужской косметики.","./img/features/premium-quality.png")
                 +feature("Растущий ассортимент","Постоянное расширение линейки продукции, включая создание новых ароматов.","./img/features/growing-stock.png")
                 +feature("Выгодные цены","Прайс на продукцию Barber Wild значительно выгоднее и гибче, чем цены конкурентов.","./img/features/good-prices.png")
+            
+            section.site-section
+                header.site-section__header
+                    h2.site-section__title Наши партнеры
+
+                .partners
+                    a(href="#").partners__item: img(src="./img/partners/oldboy.png")
+                    a(href="#").partners__item: img(src="./img/partners/ceh.png")
+                    a(href="#").partners__item: img(src="./img/partners/magnum.png")
 
         footer.site-footer
             .site-footer__social

@@ -1,0 +1,27 @@
+.description {
+    // box model
+    margin-bottom: 40px;
+    padding: 30px;
+
+    // visual
+    background-color: rgba($white, 0.8);
+    border: 1px solid $justSand;
+
+    @include atDesktop {
+        // box model
+        margin-bottom: 80px;
+        padding: 40px 80px;
+    }
+
+    &--partners {
+        @include atDesktop {
+            // positioning
+            position: relative;
+
+            // box model
+            // margin-right: 60px;
+            padding-right: 55%;
+            margin-bottom: 310px;
+        }
+    }
+}

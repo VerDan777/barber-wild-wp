@@ -1,4 +1,28 @@
 .site-section {
+    // box model
+    margin-bottom: 40px;
+
+    @include atDesktop {
+        // box model
+        margin-bottom: 120px;
+    }
+
+    &__title {
+        // typography
+        color: $darkBlue;
+        color: $darkestSand;
+        color: rgba($darkestSand, 0.84);
+        font-family: $titleFont;
+        font-size: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+
+        @include atDesktop {
+            // typography
+            font-size: 3rem;
+        }
+    }
+
     &--partners-text {
         // box model
         display: inline-block;
