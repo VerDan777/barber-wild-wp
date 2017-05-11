@@ -27,6 +27,13 @@ gulp.task('watch', function() {
     // scripts
 
     // wordpress
+    watch('./wp/*.php', function() {
+        gulp.start('copyPHP');
+    });
+
+    watch('./dist/styles.css', function() {
+        gulp.start('copyCSS');
+    });
 });
 
 gulp.task('cssInject', ['styles'], function() {
