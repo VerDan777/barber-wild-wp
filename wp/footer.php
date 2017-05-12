@@ -3,11 +3,15 @@
         <a class="icon-instagram"
             href="#">Instagram</a><a class="icon-youtube-play" href="#">YouTube</a><a class="icon-mail-alt" href="#">Email</a></div>
     <nav class="footer-nav">
-        <ul>
-            <li><a href="about.html">Каталог</a></li>
-            <li><a href="shop.html">Сотрудничество</a></li>
-            <li><a href="partners.html">О компании</a></li>
-        </ul>
+        <?php
+            $args = array(
+                'theme_location'    => 'primary',
+                'container'         => ''
+                // 'menu_class'        => 'main-menu'
+            );
+
+            wp_nav_menu($args);
+        ?>
     </nav>
 </footer>
 

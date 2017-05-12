@@ -1,6 +1,4 @@
 <?php
-    get_header();
-
     // vars
     $item_name      = get_field('item-name');
     $item_image     = get_field('item-image');
@@ -9,6 +7,18 @@
     $description    = get_field('description');
     $ingredients    = get_field('ingredients');
 ?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Barber WILD</title>
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+
+    <?php wp_head(); ?>
+</head>
 
 <body>
     <header class="site-header site-header--inner">
@@ -24,11 +34,15 @@
                 <div class="main-nav__menu-icon__middle"></div>
             </div>
 
-            <ul class="main-menu">
-                <li><a href="shop.html">Каталог</a></li>
-                <li><a href="partners.html">Сотрудничество</a></li>
-                <li><a href="about.html">О компании</a></li>
-            </ul>
+            <?php
+                $args = array(
+                    'theme_location'    => 'primary',
+                    'container'         => '',
+                    'menu_class'        => 'main-menu'
+                );
+
+                wp_nav_menu($args);
+            ?>
 
             <div class="cart">
                 <a href="order.html">Оформить заказ</a>
@@ -62,7 +76,7 @@
                     <p class="item__price">
                         <?php echo $price; ?> -
                     </p>
-                    <div class="item__buttons"><a class="button button--red" href="order.html">Оформить заказ</a></div>
+                    <div class="item__buttons"><a class="button" href="order.html">Оформить заказ</a></div>
                 </header>
 
                 <div class="item__description">
