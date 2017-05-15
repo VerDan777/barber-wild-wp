@@ -66,15 +66,15 @@ html
                             th Цена
                             th Стоимость
 
-                        mixin table-item(number, photoURL, name, price)
+                        mixin table-item(number, photoURL, title, price)
                             tr.table-item
                                 td.table-item__number= number
                                 td.table-item__image: img(src=photoURL)
-                                td.table-item__name= name
+                                td.table-item__name= title
                                 td.table-item__count
                                     .spinner
-                                        button(type="button").spnner__minus -
-                                        input(type="input" value="0" min="0" max="90")
+                                        button(type="button").spinner__minus -
+                                        input(type="input" value="0")
                                         button(type="button").spinner__plus +
                                 td.table-item__price= price
                                 td.table-item__cost 0

@@ -78,9 +78,14 @@
 	    function OrderCalculator() {
 	        _classCallCheck(this, OrderCalculator);
 
+	        // table elements
 	        this.countInputs = (0, _jquery2.default)('.table-item__count input');
 	        this.costLabels = (0, _jquery2.default)('.table-item__cost');
 	        this.summLabel = (0, _jquery2.default)('.table-item__summ');
+
+	        // spinner elemtents
+	        this.decButtons = (0, _jquery2.default)('.spinner__minus');
+	        this.incButtons = (0, _jquery2.default)('.spinner__plus');
 	        this.events();
 	    }
 
@@ -90,13 +95,25 @@
 	            this.countInputs.on('change', function (event) {
 	                this.calcTotal((0, _jquery2.default)(event.target));
 	            }.bind(this));
+
+	            this.decButtons.click(function () {
+	                var input = (0, _jquery2.default)(this).parent().children('input');
+	                input.val(parseInt(input.val()) - 1);
+	                input.trigger('change');
+	            });
+
+	            this.incButtons.click(function () {
+	                var input = (0, _jquery2.default)(this).parent().children('input');
+	                input.val(parseInt(input.val()) + 1);
+	                input.trigger('change');
+	            });
 	        }
 	    }, {
 	        key: 'calcTotal',
 	        value: function calcTotal(input) {
-	            var price = parseInt(input.parent().parent().children('.table-item__price').html());
+	            var price = parseInt(input.parent().parent().parent().children('.table-item__price').html());
 	            var count = parseInt(input.val());
-	            var cost = input.parent().parent().children('.table-item__cost');
+	            var cost = input.parent().parent().parent().children('.table-item__cost');
 	            cost.html(price * count);
 
 	            var summ = 0;
