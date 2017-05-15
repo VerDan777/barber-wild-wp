@@ -1114,6 +1114,13 @@ body {
   padding: 0 15px;
   text-align: left; }
 
+.table-item__total {
+  font-weight: 700; }
+
+.table-item__summ {
+  padding: 10px;
+  font-weight: 700; }
+
 .table-item td {
   font-family: "Roboto Condensed", sans-serif;
   border-bottom: 1px solid #e9dcca; }

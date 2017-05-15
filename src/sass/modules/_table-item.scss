@@ -28,6 +28,19 @@
         // border-right: 1px solid $justSand;
     }
 
+    &__total {
+        // typography
+        font-weight: 700;
+    }
+
+    &__summ {
+        // box model
+        padding: 10px;
+
+        // typography
+        font-weight: 700;
+    }
+
     td {
         // border: 1px solid red;
         // typography

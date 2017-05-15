@@ -42,11 +42,11 @@ html
                 
                     div.form__input-group
                         label.form__icon 1
-                        input.form__input(type="text",name="fullname",placeholder="Фамилия Имя Отчество",required) 
+                        input.form__input(type="text",name="fullname",placeholder="Фамилия Имя Отчество") 
 
                     div.form__input-group
                         label.form__icon 2
-                        input.form__input(type="text",name="phone",placeholder="Номер телефона",required)     
+                        input.form__input(type="text",name="phone",placeholder="Номер телефона")     
                         
                     div.form__input-group
                         label.form__icon 3
@@ -72,9 +72,12 @@ html
                                 td.table-item__image: img(src=photoURL)
                                 td.table-item__name= name
                                 td.table-item__count
-                                    input(type="number")
+                                    .spinner
+                                        button(type="button").spnner__minus -
+                                        input(type="input" value="0" min="0" max="90")
+                                        button(type="button").spinner__plus +
                                 td.table-item__price= price
-                                td.table-item__cost 990
+                                td.table-item__cost 0
                         +table-item("1", "./img/items/matt-clay.png", "Матирующая глина «Barber WILD»", "990")
                         +table-item("2", "./img/items/pomade-juicy.png", "Помада для волос «Barber WILD» (Juicy)", "990")
                         +table-item("3", "./img/items/pomade-ice-melon.png", "Помада для волос «Barber WILD» (Ice Melon)", "990")
@@ -84,10 +87,10 @@ html
                         +table-item("7", "./img/items/balm.png", "Бальзам после бритья «Barber WILD»", "990")
                         +table-item("8", "./img/items/soap.png", "Мыло для бритья «Barber WILD»", "890")
 
-                        tr
+                        tr.table-item
                             td(colspan="4")
-                            td ИТОГ
-                            td 112312
+                            td.table-item__total ИТОГО
+                            td.table-item__summ 0
 
                 .form__input-group
                     button.button(type="submit") Подтвердить
