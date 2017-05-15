@@ -4,44 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Barber WILD</title>
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="BarberWild">
-    <meta property="og:title" content="Матирующая глина">
-    <meta property="og:description" content="— то, что нужно для твоей головы">
-    <meta property="og:url" content="http://barberwild.com/matt-clay-page.html">
-    <meta property="og:locale" content="ru_RU">
-    <meta content="https://barberwild.com/assets/img/bnew_clay.png" property="og:image">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="700">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="./temp/styles/styles.css">
-    <link rel="import" href="header.html">
-    <link rel="import" href="footer.html">
-    <link rel="icon" href="./assets/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="site-header"><a href="index.html">
-        <div class="site-header__logo"><a>Barber WILD</a></div></a>
-      <div class="site-header__menu-icon">
-        <div class="site-header__menu-icon__middle"></div>
-      </div>
+    <header class="site-header site-header--inner">
       <nav class="main-nav">
-        <ul>
-          <li><a href="about.html">О Компании</a></li>
+        <div class="logo"><a href="index.html">Barber WILD<img src="./img/logo.png">
+            <p class="logo__motto">всё, что нужно для твоей головы</p></a></div>
+        <div class="main-nav__menu-icon">
+          <div class="main-nav__menu-icon__middle"></div>
+        </div>
+        <ul class="main-menu">
           <li><a href="shop.html">Каталог</a></li>
           <li><a href="partners.html">Сотрудничество</a></li>
+          <li><a href="about.html">О компании</a></li>
         </ul>
+        <div class="cart"><a href="order.html">Оформить заказ</a></div>
       </nav>
-      <div class="cart"><a href="order.html">Оформить заказ  </a></div>
+      <div class="hero">
+        <div class="hero__text-content">
+          <h1 class="hero__title">Оформить заказ косметики</h1>
+        </div>
+      </div>
     </header>
-    <main class="site-main">
+  </body>
+  <main class="site-main">
+    <div class="wrapper">
       <section class="site-section site-section--partner-form">
-        <form class="form" action="https://formspree.io/bwildorders@gmail.com" method="POST">
+        <form class="form form--order">
           <fieldset class="form__fieldset">
-            <legend class="form__legend">Заявка на сотрудничество </legend>
+            <legend class="form__legend">Заказ </legend>
             <div class="form__input-group">
               <label class="form__icon">1</label>
-              <input class="form__input" type="text" name="fullname" placeholder="Имя Фамилия" required>
+              <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество" required>
             </div>
             <div class="form__input-group">
               <label class="form__icon">2</label>
@@ -49,128 +44,127 @@
             </div>
             <div class="form__input-group">
               <label class="form__icon">3</label>
-              <input class="form__input" type="text" name="email" placeholder="Электропочта">
+              <input class="form__input" type="text" name="email" placeholder="Электронная почта">
             </div>
             <div class="form__input-group">
               <label class="form__icon">4</label>
               <input class="form__input" type="text" name="address" placeholder="Адрес">
             </div>
-            <div class="form__input-group">
-              <label class="form__icon">5</label>
-              <input class="form__input" type="text" name="company" placeholder="Организация (барбершоп">
-            </div>
           </fieldset>
-          <button class="button" type="submit">Подтвердить</button>
-          <table class="order-table">
-            <tr>
-              <th>#</th>
-              <th>Наименование </th>
-              <th>Кол-во</th>
-              <th>Цена</th>
-            </tr>
-            <tr>
-              <td>1.</td>
-              <td>
-                <label class="form__input" for="">«Barber WILD» Pomade "Juicy"</label>
-              </td>
-              <td>
-                <input class="form__input form__input__quantity--Juicy" type="number" name="Juicy" value="1">
-              </td>
-              <td><span class="item__price--Juicy">600</span></td>
-              <td> <span class="total__price--Juicy">600</span></td>
-            </tr>
-            <tr>
-              <td class="form__number">2.</td>
-              <td>
-                <label class="form__label" for="">«Barber WILD» Pomade "Ice Melon"</label>
-              </td>
-              <td>
-                <input class="form__input form__input__quantity--Ice-melon" type="number" name="Ice-melon" min="0" value="0">
-              </td>
-              <td><span class="item__price--Ice-melon">600</span></td>
-              <td><span class="total__price--Ice-melon">600</span></td>
-            </tr>
-            <tr>
-              <td>3.</td>
-              <td>
-                <label class="form__label" for="">«Barber WILD» Pomade Mate Clay</label>
-              </td>
-              <td>
-                <input class="form__input form__input__quantity--Clay" type="number" name="Clay" min="0" value="0">
-              </td>
-              <td><span class="item__price--Clay">600</span></td>
-              <td><span class="total__price--Clay">600</span></td>
-            </tr>
-            <tr>
-              <td>4.</td>
-              <td>
-                <label class="form__label" for="">«Barber WILD» Shave Oil</label>
-              </td>
-              <td>
-                <input class="form__input form__input__quantity--Shave-Oil" type="number" name="Shave-Oil" min="0" value="0">
-              </td>
-              <td><span class="item__price--Shave-Oil">600</span></td>
-              <td><span class="total__price--Shave-Oil">600</span></td>
-            </tr>
-            <tr> 
-              <td>5.</td>
-              <td>
-                <label class="form__label" for="">«Barber WILD» Beard Oil "Idaho"</label>
-              </td>
-              <td>
-                <input class="form__input form__input__quantity--Beard-Oil-Idaho" type="number" name="Beard-Oil-Idaho" min="0" value="0">
-              </td>
-              <td><span class="item__price--Beard-Oil-Idaho">600</span></td>
-              <td><span class="total__price--Beard-Oil-Idaho">600</span></td>
-            </tr>
-            <tr> 
-              <td>6.</td>
-              <td>
-                <label class="form__label" for="">«Barber WILD» Beard Oil "Tennesee"</label>
-              </td>
-              <td>
-                <input class="form__input form__input__quantity--Beard-Oil-Tennesee" type="number" name="Beard-Oil-Tennesee" min="0" value="0">
-              </td>
-              <td><span class="item__price--Beard-Oil-Tennesee">600</span></td>
-              <td><span class="total__price--Beard-Oil-Tennesee">600  </span></td>
-            </tr>
-            <tr>
-              <td>6.</td>
-              <td>
-                <label class="form__label" for="">«Barber WILD» Pomade Shaving soap</label>
-              </td>
-              <td>
-                <input class="form__input form__input__quantity--Soap" type="number" name="Soap" min="0" value="0">
-              </td>
-              <td><span class="item__price--Soap">600</span></td>
-              <td><span class="total__price--Soap">600</span></td>
-            </tr>
-            <tr>
-              <td>7.</td>
-              <td>
-                <label class="form__label" for="">«Barber WILD» After Shave Balm</label>
-              </td>
-              <td>
-                <input class="form__input form__input__quantity--AfterShaveBalm" type="number" name="AfterShaveBalm" min="0" value="0">
-              </td>
-              <td><span class="item__price--AfterShaveBalm">600</span></td>
-              <td><span class="total__price--AfterShaveBalm">600</span></td>
-            </tr>
+          <fieldset class="form__fieldset">
+            <table class="order-table">
+              <tr>
+                <th>#</th>
+                <th></th>
+                <th>Наименование</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Стоимость</th>
+              </tr>
+                            <tr class="table-item">
+                              <td class="table-item__number">1</td>
+                              <td class="table-item__image"><img src="./img/items/matt-clay.png"></td>
+                              <td class="table-item__name">Матирующая глина «Barber WILD»</td>
+                              <td class="table-item__count">
+                                <input type="number">
+                              </td>
+                              <td class="table-item__price">990</td>
+                              <td class="table-item__cost">990</td>
+                            </tr>
+                            <tr class="table-item">
+                              <td class="table-item__number">2</td>
+                              <td class="table-item__image"><img src="./img/items/pomade-juicy.png"></td>
+                              <td class="table-item__name">Помада для волос «Barber WILD» (Juicy)</td>
+                              <td class="table-item__count">
+                                <input type="number">
+                              </td>
+                              <td class="table-item__price">990</td>
+                              <td class="table-item__cost">990</td>
+                            </tr>
+                            <tr class="table-item">
+                              <td class="table-item__number">3</td>
+                              <td class="table-item__image"><img src="./img/items/pomade-ice-melon.png"></td>
+                              <td class="table-item__name">Помада для волос «Barber WILD» (Ice Melon)</td>
+                              <td class="table-item__count">
+                                <input type="number">
+                              </td>
+                              <td class="table-item__price">990</td>
+                              <td class="table-item__cost">990</td>
+                            </tr>
+                            <tr class="table-item">
+                              <td class="table-item__number">4</td>
+                              <td class="table-item__image"><img src="./img/items/beard-oil-idaho.png"></td>
+                              <td class="table-item__name">Масло для бороды «Barber WILD» (Idaho)</td>
+                              <td class="table-item__count">
+                                <input type="number">
+                              </td>
+                              <td class="table-item__price">990</td>
+                              <td class="table-item__cost">990</td>
+                            </tr>
+                            <tr class="table-item">
+                              <td class="table-item__number">5</td>
+                              <td class="table-item__image"><img src="./img/items/beard-oil-tennessee.png"></td>
+                              <td class="table-item__name">Масло для бороды «Barber WILD» (Tennessee)</td>
+                              <td class="table-item__count">
+                                <input type="number">
+                              </td>
+                              <td class="table-item__price">990</td>
+                              <td class="table-item__cost">990</td>
+                            </tr>
+                            <tr class="table-item">
+                              <td class="table-item__number">6</td>
+                              <td class="table-item__image"><img src="./img/items/shave-oil.png"></td>
+                              <td class="table-item__name">Масло для подбривания «Barber WILD»</td>
+                              <td class="table-item__count">
+                                <input type="number">
+                              </td>
+                              <td class="table-item__price">990</td>
+                              <td class="table-item__cost">990</td>
+                            </tr>
+                            <tr class="table-item">
+                              <td class="table-item__number">7</td>
+                              <td class="table-item__image"><img src="./img/items/balm.png"></td>
+                              <td class="table-item__name">Бальзам после бритья «Barber WILD»</td>
+                              <td class="table-item__count">
+                                <input type="number">
+                              </td>
+                              <td class="table-item__price">990</td>
+                              <td class="table-item__cost">990</td>
+                            </tr>
+                            <tr class="table-item">
+                              <td class="table-item__number">8</td>
+                              <td class="table-item__image"><img src="./img/items/soap.png"></td>
+                              <td class="table-item__name">Мыло для бритья «Barber WILD»</td>
+                              <td class="table-item__count">
+                                <input type="number">
+                              </td>
+                              <td class="table-item__price">890</td>
+                              <td class="table-item__cost">990</td>
+                            </tr>
+              <tr>
+                <td colspan="4"></td>
+                <td>ИТОГ</td>
+                <td>112312</td>
+              </tr>
+            </table>
+          </fieldset>
+          <div class="form__input-group">
             <button class="button" type="submit">Подтвердить</button>
-          </table>
+          </div>
+          <div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с <a href="#">политикой конфиденциальности</a></div>
         </form>
       </section>
-    </main>
-    <footer class="site-footer">
-      <nav class="footer-nav">
-        <ul> 
-          <li><a href="about.html">О Компании</a></li>
-          <li><a href="shop.html">Каталог</a></li>
-          <li><a href="partners.html">Сотрудничество</a></li>
-        </ul>
-      </nav>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="./scripts/script.js"></script>
-  </body>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__social"><a class="icon-vkontakte" href="#">VKontakte</a><a class="icon-facebook" href="#">Faceboot</a><a class="icon-instagram" href="#">Instagram</a><a class="icon-youtube-play" href="#">YouTube</a><a class="icon-mail-alt" href="#">Email</a></div>
+    <nav class="footer-nav">
+      <ul>
+        <li><a href="about.html">Каталог</a></li>
+        <li><a href="shop.html">Сотрудничество</a></li>
+        <li><a href="partners.html">О компании</a></li>
+      </ul>
+    </nav>
+  </footer>
+  <script src="app.js"></script>
 </html>

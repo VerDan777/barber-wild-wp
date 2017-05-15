@@ -20,11 +20,14 @@ gulp.task('watch', function() {
     // })
 
     // styles
-    watch('./src/**/*.scss', function() {
+    watch('./src/sass/**/*.scss', function() {
         gulp.start('cssInject');
     });
 
     // scripts
+    watch('./src/js/**/*.js', function() {
+        gulp.start('jsChanged');
+    });
 
     // wordpress
     watch('./wp/*.php', function() {
@@ -36,11 +39,15 @@ gulp.task('watch', function() {
     });
 });
 
+gulp.task('jsChanged', ['scripts'], function() {
+    browserSync.reload();
+});
+
 gulp.task('pugChanged', ['pugRender'], function() {
     browserSync.reload();
-})
+});
 
 gulp.task('cssInject', ['styles'], function() {
     gulp.src('./dist/styles.css')
         .pipe(browserSync.stream());
-})
+});

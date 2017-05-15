@@ -1091,6 +1091,7 @@ body {
 
 .order-table {
   width: 100%;
+  margin-bottom: 40px;
   margin-top: 25px;
   border-collapse: collapse; }
   .order-table th {
