@@ -97,9 +97,9 @@
             <header class="site-section__header">
                 <h2 class="site-section__title">Наши партнеры</h2>
             </header>
-            
+
             <div class="partners">
-                <a class="partners__item" href="#"><img src="./img/partners/oldboy.png"></a>
+                <a class="partners__item" href=""><img src="./img/partners/oldboy.png"></a>
                 <a class="partners__item" href="#"><img src="./img/partners/ceh.png"></a>
                 <a class="partners__item" href="#"><img src="./img/partners/magnum.png"></a>
             </div>

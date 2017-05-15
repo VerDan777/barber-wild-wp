@@ -11,13 +11,13 @@ gulp.task('watch', function() {
 
     // pug
     watch('./src/*.pug', function() {
-        gulp.start('pugRender');
+        gulp.start('pugChanged');
     });
 
     // html
-    watch('./dist/*.html', function() {
-        browserSync.reload();
-    })
+    // watch('./dist/*.html', function() {
+    //     browserSync.reload();
+    // })
 
     // styles
     watch('./src/**/*.scss', function() {
@@ -35,6 +35,10 @@ gulp.task('watch', function() {
         gulp.start('copyCSS');
     });
 });
+
+gulp.task('pugChanged', ['pugRender'], function() {
+    browserSync.reload();
+})
 
 gulp.task('cssInject', ['styles'], function() {
     gulp.src('./dist/styles.css')

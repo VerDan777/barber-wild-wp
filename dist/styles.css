@@ -1089,6 +1089,34 @@ body {
     .partners__item img {
       width: 100%; }
 
+.order-table {
+  width: 100%;
+  margin-top: 25px;
+  border-collapse: collapse; }
+  .order-table th {
+    padding: 10px;
+    color: #c7a166;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 1rem;
+    border-bottom: 1px solid #e9dcca; }
+  .order-table td {
+    font-size: 1rem; }
+
+.table-item__image img {
+  height: 64px;
+  width: 64px; }
+
+.table-item__number {
+  padding: 0 20px; }
+
+.table-item__name {
+  padding: 0 15px;
+  text-align: left; }
+
+.table-item td {
+  font-family: "Roboto Condensed", sans-serif;
+  border-bottom: 1px solid #e9dcca; }
+
 .site-footer {
   position: relative;
   height: 375px;
@@ -1217,6 +1245,9 @@ body {
         width: 500px;
         margin: 0;
         box-shadow: 0 2px 14px 0 rgba(55, 48, 37, 0.1); } }
+  @media (min-width: 1200px) {
+    .form--order {
+      padding: 40px 160px; } }
   .form__fieldset {
     border: none; }
   .form__legend {

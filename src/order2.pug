@@ -1,0 +1,108 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+
+        title Barber WILD
+        
+        link(rel="stylesheet" href="styles.css")
+
+
+    body
+        header.site-header.site-header--inner
+            nav.main-nav
+                .logo: a(href="index.html") Barber WILD
+                    img(src="./img/logo.png")
+                    p.logo__motto всё, что нужно для твоей головы
+
+                .main-nav__menu-icon
+                    .main-nav__menu-icon__middle
+
+                ul.main-menu
+                    - var list = ["Каталог", "Сотрудничество", "О компании"];
+                    - var links = ["shop.html", "partners.html", "about.html"];
+                    - for (var i = 0; i < 3; i++)
+                        li: a(href=links[i])= list[i]
+
+                .cart: a(href="order.html") Оформить заказ
+
+            .hero
+                //- .hero__scene.scene
+
+                .hero__text-content
+                    h1.hero__title Оформить заказ косметики
+                    //- p.hero__text Barber WILD — это не только высококачественные средства ухода за бородой, усами и волосами для настоящих мужчин, но и истинный брутальный Дух Дикого Запада. Это то, что мы с особым старанием создали для самих себя — от барбера для барбера, и решили поделиться отличным результатом с вами!
+
+    main.site-main: .wrapper
+        section.site-section.site-section--partner-form
+            form.form.form--order()
+                fieldset.form__fieldset
+                    legend.form__legend Заказ 
+                
+                    div.form__input-group
+                        label.form__icon 1
+                        input.form__input(type="text",name="fullname",placeholder="Фамилия Имя Отчество",required) 
+
+                    div.form__input-group
+                        label.form__icon 2
+                        input.form__input(type="text",name="phone",placeholder="Номер телефона",required)     
+                        
+                    div.form__input-group
+                        label.form__icon 3
+                        input.form__input(type="text",name="email",placeholder="Электронная почта") 
+
+                    div.form__input-group
+                        label.form__icon 4
+                        input.form__input(type="text",name="address",placeholder="Адрес") 
+
+                fieldset.form__fieldset
+                    table.order-table
+                        tr
+                            th #
+                            th
+                            th Наименование
+                            th Количество
+                            th Цена
+                            th Стоимость
+
+                        mixin table-item(number, photoURL, name, price)
+                            tr.table-item
+                                td.table-item__number= number
+                                td.table-item__image: img(src=photoURL)
+                                td.table-item__name= name
+                                td.table-item__count
+                                    input(type="number")
+                                td.table-item__price= price
+                                td.table-item__cost 990
+                        +table-item("1", "./img/items/matt-clay.png", "Матирующая глина «Barber WILD»", "990")
+                        +table-item("2", "./img/items/pomade-juicy.png", "Помада для волос «Barber WILD» (Juicy)", "990")
+                        +table-item("3", "./img/items/pomade-ice-melon.png", "Помада для волос «Barber WILD» (Ice Melon)", "990")
+                        +table-item("4", "./img/items/beard-oil-idaho.png", "Масло для бороды «Barber WILD» (Idaho)", "990")
+                        +table-item("5", "./img/items/beard-oil-tennessee.png", "Масло для бороды «Barber WILD» (Tennessee)", "990")
+                        +table-item("6", "./img/items/shave-oil.png", "Масло для подбривания «Barber WILD»", "990")
+                        +table-item("7", "./img/items/balm.png", "Бальзам после бритья «Barber WILD»", "990")
+                        +table-item("8", "./img/items/soap.png", "Мыло для бритья «Barber WILD»", "890")
+
+                .form__input-group
+                    button.button(type="submit") Подтвердить
+
+                .form__text Нажимая кнопку «Подтвердить» вы соглашаетесь с #[a(href="#") политикой конфиденциальности]
+                
+    
+    footer.site-footer
+        .site-footer__social
+            a(href="#").icon-vkontakte VKontakte
+            a(href="#").icon-facebook Faceboot
+            a(href="#").icon-instagram Instagram
+            a(href="#").icon-youtube-play YouTube
+            a(href="#").icon-mail-alt Email
+
+        nav.footer-nav: ul
+            - var list = ["Каталог", "Сотрудничество", "О компании"];
+            - var links = ["about.html", "shop.html", "partners.html"];
+            - for (var i = 0; i < 3; i++)
+                li: a(href=links[i])= list[i]
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+    script(src="./scripts/App.js")

@@ -31,6 +31,13 @@
         }
     }
 
+    &--order {
+        @include atDesktop {
+            // box model
+            padding: 40px 160px;
+        }
+    }
+
     &__fieldset {
         // visual
         border: none;

@@ -1,0 +1,39 @@
+.table-item {
+
+
+
+    &__image {
+        img {
+            // box model
+            height: 64px;
+            width: 64px;
+        }
+    }
+
+    &__number {
+        // box model
+        padding: 0 20px;
+    }
+
+    &__name {
+        // box model
+        padding: 0 15px;
+
+        // typography
+        text-align: left;
+    }
+
+    &__price {
+        // visual
+        // border-right: 1px solid $justSand;
+    }
+
+    td {
+        // border: 1px solid red;
+        // typography
+        font-family: $titleFont;
+
+        // visual
+        border-bottom: 1px solid $justSand;
+    }
+}
