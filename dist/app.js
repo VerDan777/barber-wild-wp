@@ -86,27 +86,77 @@
 	        // spinner elemtents
 	        this.decButtons = (0, _jquery2.default)('.spinner__minus');
 	        this.incButtons = (0, _jquery2.default)('.spinner__plus');
+
 	        this.events();
 	    }
 
 	    _createClass(OrderCalculator, [{
 	        key: 'events',
 	        value: function events() {
+	            var calc = this;
+	            var incInterval = void 0;
+	            var decInterval = void 0;
+
 	            this.countInputs.on('change', function (event) {
 	                this.calcTotal((0, _jquery2.default)(event.target));
 	            }.bind(this));
 
-	            this.decButtons.click(function () {
+	            // this.decButtons.click(function() {
+	            //     let input = $(this).parent().children('input');
+	            //     calc.decInput(input);
+	            // });
+
+	            // this.incButtons.click(function() {
+	            //     let input = $(this).parent().children('input');
+	            // });
+
+	            this.incButtons.on('mousedown', function () {
 	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
-	                input.trigger('change');
+	                calc.incInput(input);
+	                incInterval = setInterval(function () {
+	                    calc.incInput(input);
+	                }, 250);
 	            });
 
-	            this.incButtons.click(function () {
+	            this.incButtons.on('mouseup', function () {
 	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
-	                input.trigger('change');
+	                clearInterval(incInterval);
 	            });
+
+	            this.incButtons.on('mouseout', function () {
+	                var input = (0, _jquery2.default)(this).parent().children('input');
+	                clearInterval(incInterval);
+	            });
+
+	            this.decButtons.on('mousedown', function () {
+	                var input = (0, _jquery2.default)(this).parent().children('input');
+	                calc.decInput(input);
+	                decInterval = setInterval(function () {
+	                    calc.decInput(input);
+	                }, 250);
+	            });
+
+	            this.decButtons.on('mouseup', function () {
+	                var input = (0, _jquery2.default)(this).parent().children('input');
+	                clearInterval(decInterval);
+	            });
+
+	            this.decButtons.on('mouseout', function () {
+	                var input = (0, _jquery2.default)(this).parent().children('input');
+	                clearInterval(decInterval);
+	            });
+	        }
+	    }, {
+	        key: 'decInput',
+	        value: function decInput(input) {
+	            input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
+	            input.trigger('change');
+	        }
+	    }, {
+	        key: 'incInput',
+	        value: function incInput(input) {
+	            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
+	            input.trigger('change');
 	        }
 	    }, {
 	        key: 'calcTotal',
