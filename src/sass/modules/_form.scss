@@ -77,8 +77,14 @@
         font-family: $titleFont;
         font-size: 1rem;
 
+        // visual
+        border: 1px solid #999999;
+        transition: all 0.3s ease-out;
+
         &:focus {
             // visual
+            border: 1px solid $darkSand;
+            background-color: rgba($justSand, 0.4);
             outline: none;
         }
     }
@@ -86,14 +92,27 @@
     &__text {
         // box model
         margin-top: 20px;
+
         // typography
         font-family: $titleFont;
         font-size: 0.8rem;
         line-height: 1.4;
 
+        &--right {
+            // box model
+            margin-top: 0;
+            margin-top: -30px;
+            text-align: right;
+        }
+
         a {
             // typography
             color: $darkSand;
+
+            &:hover {
+                // typography
+                text-decoration: none;
+            }
         }
     }
 }

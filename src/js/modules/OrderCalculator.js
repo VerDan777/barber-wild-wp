@@ -20,13 +20,13 @@ class OrderCalculator {
 
         this.decButtons.click(function() {
             let input = $(this).parent().children('input');
-            input.val(parseInt(input.val()) - 1);
+            input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
             input.trigger('change');
         });
 
         this.incButtons.click(function() {
             let input = $(this).parent().children('input');
-            input.val(parseInt(input.val()) + 1);
+            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
             input.trigger('change');
         })
     }

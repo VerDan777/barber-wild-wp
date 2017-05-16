@@ -1,0 +1,94 @@
+.spinner {
+    // box model
+    width: 165px;
+
+    // typography
+    font-size: 0;
+    // border: 1px solid red;
+
+    &__button {
+        // box model
+        display: inline-block;
+        vertical-align: top;
+        height: 32px;
+        width: 36px;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 2px;
+
+        // typography
+        color: $white;
+        font-family: $titleFont;
+        font-family: $mainFont;
+        font-size: 1.25rem;
+        font-weight: 400;
+        // text-align: left;
+        // line-height: 32px;
+
+        // visual
+        background-color: $darkSand;
+        border: 1px solid $darkSand;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+        outline: none;
+
+        &:hover {
+            // typography
+            // color: $darkSand;
+
+            // visual
+            background-color: $justSand;
+            border-color: $justSand;
+        }
+
+        &:active {
+            color: $darkSand;
+            // visual
+            background-color: $white;
+        }
+    }
+
+    &__minus {
+        // box model
+        margin-right: -1px;
+        padding-left: 3px;
+
+        // visual
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    &__plus {
+        // box model
+        margin-left: -1px;
+        padding-right: 3px;
+
+        // visual
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+
+    &__input {
+        // box model
+        display: inline-block;
+        vertical-align: top;
+        height: 32px;
+        width: calc(100% - 64px);
+        width: 60px;
+
+        // typography
+        color: $darkestSand;
+        font-size: 1.125rem;
+        text-align: center;
+
+        // visual
+        border: 1px solid $justSand;
+
+        &:focus {
+            // visual
+            border-color: $darkSand;
+            outline: none;
+        }
+    }
+}

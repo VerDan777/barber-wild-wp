@@ -98,13 +98,13 @@
 
 	            this.decButtons.click(function () {
 	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                input.val(parseInt(input.val()) - 1);
+	                input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
 	                input.trigger('change');
 	            });
 
 	            this.incButtons.click(function () {
 	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                input.val(parseInt(input.val()) + 1);
+	                input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
 	                input.trigger('change');
 	            });
 	        }

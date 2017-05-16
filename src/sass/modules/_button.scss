@@ -16,13 +16,21 @@
     border: 1px solid $darkSand;
     cursor: pointer;
     transition: all 0.3s ease-out;
+    outline: none;
 
     &:hover {
+        // visual
+        background-color: $justSand;
+        border-color: $justSand;
+    }
+
+    &:active {
         // typography
         color: $darkSand;
 
         // visual
         background-color: $white;
+        border-color: $darkSand;
     }
 
     &--red {

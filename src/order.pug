@@ -73,9 +73,9 @@ html
                                 td.table-item__name= title
                                 td.table-item__count
                                     .spinner
-                                        button(type="button").spinner__minus -
-                                        input(type="input" value="0")
-                                        button(type="button").spinner__plus +
+                                        button(type="button").spinner__button.spinner__minus –
+                                        input(type="text" value="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57;").spinner__input
+                                        button(type="button").spinner__button.spinner__plus +
                                 td.table-item__price= price
                                 td.table-item__cost 0
                         +table-item("1", "./img/items/matt-clay.png", "Матирующая глина «Barber WILD»", "990")
@@ -92,10 +92,11 @@ html
                             td.table-item__total ИТОГО
                             td.table-item__summ 0
 
+                //- .form__text.form__text--right * Доставка от 13 000 рублей бесплатно.
                 .form__input-group
                     button.button(type="submit") Подтвердить
 
-                .form__text Нажимая кнопку «Подтвердить» вы соглашаетесь с #[a(href="#") политикой конфиденциальности]
+                .form__text Доставка от 13 000 рублей бесплатно.<br>Нажимая кнопку «Подтвердить» вы соглашаетесь с #[a(href="#") политикой конфиденциальности]
                 
     
     footer.site-footer

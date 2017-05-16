@@ -1198,10 +1198,15 @@ body {
   border-radius: 20px;
   border: 1px solid #c7a166;
   cursor: pointer;
-  transition: all 0.3s ease-out; }
+  transition: all 0.3s ease-out;
+  outline: none; }
   .button:hover {
+    background-color: #e9dcca;
+    border-color: #e9dcca; }
+  .button:active {
     color: #c7a166;
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    border-color: #c7a166; }
   .button--red {
     background-color: #d11500;
     border-color: #d11500; }
@@ -1275,13 +1280,75 @@ body {
     width: 100%;
     padding: 0 15px;
     font-family: "Roboto Condensed", sans-serif;
-    font-size: 1rem; }
+    font-size: 1rem;
+    border: 1px solid #999999;
+    transition: all 0.3s ease-out; }
     .form__input:focus {
+      border: 1px solid #c7a166;
+      background-color: rgba(233, 220, 202, 0.4);
       outline: none; }
   .form__text {
     margin-top: 20px;
     font-family: "Roboto Condensed", sans-serif;
     font-size: 0.8rem;
     line-height: 1.4; }
+    .form__text--right {
+      margin-top: 0;
+      margin-top: -30px;
+      text-align: right; }
     .form__text a {
       color: #c7a166; }
+      .form__text a:hover {
+        text-decoration: none; }
+
+.spinner {
+  width: 165px;
+  font-size: 0; }
+  .spinner__button {
+    display: inline-block;
+    vertical-align: top;
+    height: 32px;
+    width: 36px;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 2px;
+    color: #ffffff;
+    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto Slab", serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    background-color: #c7a166;
+    border: 1px solid #c7a166;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    outline: none; }
+    .spinner__button:hover {
+      background-color: #e9dcca;
+      border-color: #e9dcca; }
+    .spinner__button:active {
+      color: #c7a166;
+      background-color: #ffffff; }
+  .spinner__minus {
+    margin-right: -1px;
+    padding-left: 3px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0; }
+  .spinner__plus {
+    margin-left: -1px;
+    padding-right: 3px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0; }
+  .spinner__input {
+    display: inline-block;
+    vertical-align: top;
+    height: 32px;
+    width: calc(100% - 64px);
+    width: 60px;
+    color: #373025;
+    font-size: 1.125rem;
+    text-align: center;
+    border: 1px solid #e9dcca; }
+    .spinner__input:focus {
+      border-color: #c7a166;
+      outline: none; }
