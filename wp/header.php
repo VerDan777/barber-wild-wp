@@ -40,7 +40,7 @@
             ?>
         
             <div class="cart">
-                <a href="order.html">Оформить заказ</a>
+                <a href="<?php echo esc_url(home_url('/')); ?>order">Оформить заказ</a>
             </div>
         </nav>
 
