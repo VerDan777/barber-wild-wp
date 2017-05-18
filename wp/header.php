@@ -2,6 +2,7 @@
     // vars
     $main_title         = get_field('main-title');
     $main_description   = get_field('main-description');
+    $hero_background    = get_field('hero-background');
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,6 +46,8 @@
         </nav>
 
         <div class="hero">
+            <div class="hero__scene scene" style="background-image: url('<?php echo $hero_background; ?>'); background-position: center bottom; background-size: cover;"></div>
+
             <div class="hero__text-content">
                 <h1 class="hero__title">
                     <?php echo $main_title; ?>

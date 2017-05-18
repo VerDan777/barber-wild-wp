@@ -78,6 +78,12 @@
                     $item_short_desc    = get_field('short-description');
                     $item_image         = get_field('item-image');
 
+                    // decoration
+                    $deco_image         = get_field('deco-image');
+                    $deco_top           = get_field('deco-top');
+                    $deco_right         = get_field('deco-right');
+                    $deco_widht         = get_field('deco-width');
+                    $deco_height        = get_field('deco-height');
         ?>
 
         <article class="shop-item-main">
@@ -92,10 +98,12 @@
                     <p class="shop-item-main__text">
                         <?php echo $item_short_desc; ?>
                     </p>
-                    <div class="shop-item-main__buttons"><a class="button button--right-m" href="#">Подробнее</a></div>
+                    <div class="shop-item-main__buttons">
+                        <a class="button button--right-m" href="#">Подробнее</a>
+                    </div>
                 </div>
-                <div class="shop-item-main__deco">
-                    
+                <div class="shop-item-main__deco" style="top:<?php echo $deco_top; ?>px;">
+                    <img src="<?php echo $deco_image; ?>">
                 </div>
             </div>
         </article>

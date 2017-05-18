@@ -1,11 +1,12 @@
 <?php
     // vars
-    $item_name      = get_field('item-name');
-    $item_image     = get_field('item-image');
-    $volume         = get_field('volume');
-    $price          = get_field('price');
-    $description    = get_field('description');
-    $ingredients    = get_field('ingredients');
+    $item_name          = get_field('item-name');
+    $item_image         = get_field('item-image');
+    $volume             = get_field('volume');
+    $price              = get_field('price');
+    $description        = get_field('description');
+    $ingredients        = get_field('ingredients');
+    $hero_background    = get_field('hero-background');
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +51,7 @@
         </nav>
 
         <div class="hero">
-            <div class="hero__scene scene" style="background-image: url('./img/matt-clay-bg.jpg'); background-position: center center; background-atachment: fixed;"></div>
+            <div class="hero__scene scene" style="background-image: url('<?php echo $hero_background; ?>'); background-position: center center; background-atachment: fixed;"></div>
 
             <div class="hero__text-content">
                 <h1 class="hero__title">
