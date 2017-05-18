@@ -1,6 +1,7 @@
 .wrapper {
     // box model
-
+    margin: 0 15px;
+    
     @include atDesktop {
         // positioning
         position: relative;

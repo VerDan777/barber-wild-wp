@@ -1,15 +1,14 @@
 .shop-item {
-
     // box model
+    display: inline-block;
+    vertical-align: top;
     width: 330px;
+    margin: 0 15px;
     margin-bottom: 40px;
 
     @include atDesktop {
         // box model
-        display: inline-block;
-        vertical-align: top;
         height: 460px;
-        margin: 0 15px;
         margin-bottom: 60px;
     }
 

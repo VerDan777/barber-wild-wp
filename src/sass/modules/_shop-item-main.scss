@@ -10,9 +10,8 @@ $paddingLeft: 70px;
     z-index: 1;
 
     // box model
+    margin: 0 15px;
     margin-bottom: 40px;
-
-    // border: 1px solid red;
 
     // typography
     font-size: 0;
@@ -24,7 +23,7 @@ $paddingLeft: 70px;
 
     @include atDesktopLarge {
         // box model
-        margin-bottom: 200px;
+        margin-bottom: 160px;
     }
 
 
@@ -40,82 +39,16 @@ $paddingLeft: 70px;
         background-color: rgba($white, 0.8);
         border: 1px solid $justSand;
 
+        @include atTabletsLandscape {
+            // box model
+            width: 860px;
+        }
+
         @include atDesktop {
             // box model
             padding: $paddingTop $paddingLeft;
             padding-right: $paddingRight;
             width: 1000px;
-        }
-    }
-
-    &__description {
-        // box model
-        display: inline-block;
-        vertical-align: top;
-        // border: 1px solid red;
-
-        @include atDesktop {
-            // box model
-            width: 480px;
-        }
-    }
-
-    &__title {
-        // box model
-        margin: 0;
-        padding: 0;
-
-        // typography
-        font-family: $mainFont;
-        font-size: 1.5rem;
-        font-weight: 400;
-        line-height: 1.4;
-        text-align: center;
-
-        @include atDesktop {
-            // box model
-            margin-left: -25px;
-
-            // typography
-            font-size: 3rem;
-            font-weight: 300;
-            line-height: 1.2;
-            text-indent: 20px;
-            text-align: left;
-        }
-    }
-
-    &__text {
-        // typography
-        font-family: $mainFont;
-        font-size: 1rem;
-        font-weight: 300;
-        line-height: 1.5;
-
-        @include atDesktop {
-            // typography
-            font-size: 1.125rem;
-        }
-    }
-
-    &__buttons {
-        // box model
-        margin-top: 40px;
-
-        // typography
-        text-align: center;
-
-        @include atDesktop {
-            // positioning
-            position: absolute;
-            right: $paddingRight;
-            bottom: $paddingBottom + 18px;
-
-            // box model
-            margin-top: 0;
-
-            // typography
-            text-align: left;
         }
     }
 
@@ -132,19 +65,115 @@ $paddingLeft: 70px;
             width: 100%;
         }
 
-        @include atDesktop {
+        @include atTabletsPortrait {
             // positioning
             position: absolute;
-            right: $paddingRight;
-            top: $paddingTop;
+            right: 20px;
+            top: 80px;
 
             // box model
             display: inline-block;
             vertical-align: top;
-            width: 330px;
+            width: 220px;
+        }
+
+        @include atDesktop {
+            // positioning
+            position: absolute;
+            right: $paddingRight - 20px;
+            top: $paddingTop;
+
+            // box model
+            width: 300px;
             margin-left: 45px;
             margin-top: -20px;
         }
+    }
+
+    &__description {
+        // box model
+        // border: 1px solid red;
+
+        @include atTabletsPortrait {
+            // box model
+            display: inline-block;
+            vertical-align: top;
+            width: 360px;
+            width: calc(100% - 220px);
+        }
+
+        @include atDesktop {
+            // box model
+            width: 560px;
+        }
+    }
+
+    &__title {
+        // box model
+        margin: 0;
+        padding: 0;
+
+        // typography
+        font-family: $mainFont;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1.4;
+        text-align: center;
+
+        @include atTabletsLandscape {
+            text-align: left;
+        }
+
+        @include atDesktop {
+            // box model
+            margin-left: -22px;
+
+            // typography
+            font-size: 2.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            text-indent: 18px;
+            text-align: left;
+        }
+    }
+
+    &__text {
+        // typography
+        font-family: $mainFont;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.5;
+
+        @include atDesktop {
+            // typography
+            // font-size: 1.125rem;
+        }
+    }
+
+    &__buttons {
+        // box model
+        margin-top: 40px;
+
+        // typography
+        text-align: center;
+
+        @include atTabletsLandscape {
+            text-align: left;
+        }
+
+        // @include atDesktop {
+        //     // positioning
+        //     position: absolute;
+        //     right: $paddingRight;
+        //     bottom: $paddingBottom + 18px;
+        //     // bottom: $paddingBottom + 28px;
+
+        //     // box model
+        //     margin-top: 0;
+
+        //     // typography
+        //     text-align: left;
+        // }
     }
 
     &__deco {
@@ -164,7 +193,7 @@ $paddingLeft: 70px;
     &--clay {
         .shop-item-main__deco {
             // positioning
-            top: 180px;
+            top: 120px;
             right: -400px;
         }
     }
@@ -172,7 +201,7 @@ $paddingLeft: 70px;
     &--oil {
         .shop-item-main__deco {
             // positioning
-            top: -40px;
+            top: -100px;
             left: -460px;
         }
     }
@@ -180,7 +209,7 @@ $paddingLeft: 70px;
     &--pomade {
         .shop-item-main__deco {
             // positioning
-            top: 140px;
+            top: 100px;
             right: -380px;
         }
     }
@@ -188,7 +217,7 @@ $paddingLeft: 70px;
     &--soap {
         .shop-item-main__deco {
             // positioning
-            top: 40px;
+            top: 0;
             left: -360px;
         }
     }

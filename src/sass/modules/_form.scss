@@ -14,19 +14,36 @@
     &--partners {
         // box model
         margin: 0 -20px;
+        padding: 20px;
 
-        @include atDesktop {
+        // visual
+        background-color: transparent;
+        border: none;
+
+        @include atTabletsLandscape {
             // positioning
             position: absolute;
             right: 60px;
-            top: 60px;
+            top: 30px;
+
+            // box model
+            width: 440px;
+        }
+
+        @include atDesktop {
+            // positioning
+            right: 40px;
+            top: 40px;
             // border: 1px solid red !important;
 
             // box model
             width: 500px;
             margin: 0;
+            padding: 40px;
 
             // visual
+            background-color: rgba($white, 0.8);
+            border: 1px solid $justSand;
             box-shadow: 0 2px 14px 0 rgba($darkestSand, 0.1);
         }
     }
