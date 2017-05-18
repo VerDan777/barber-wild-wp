@@ -6,7 +6,10 @@
 
     @include atDesktop {
         // box model
+        display: inline-block;
+        vertical-align: top;
         height: 460px;
+        margin: 0 15px;
         margin-bottom: 60px;
     }
 
@@ -77,6 +80,7 @@
         font-size: 1.25rem;
         font-weight: 400;
         line-height: 1.4;
+        text-align: left;
     }
 
     &__volume {
@@ -88,6 +92,7 @@
         font-family: $mainFont;
         font-size: 1.125rem;
         font-weight: 300;
+        text-align: left;
     }
 
     &__price {
