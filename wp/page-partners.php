@@ -42,7 +42,7 @@
                         <button class="button" type="submit">Подтвердить</button>
                     </div>
 
-                    <div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> <a href="#">политикой конфиденциальности</a></div>
+                    <div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></div>
                 </fieldset>
             </form>
 
