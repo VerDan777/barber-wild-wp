@@ -57,37 +57,37 @@
             </header>
 
             <article class="feature">
-                <div class="feature__image"><img src="./img/features/partner-benefits.png"></div>
+                <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/partner-benefits.png"></div>
                 <h2 class="feature__title">Выгодное партнерство</h2>
                 <p class="feature__text">Особые условия для постоянных партнеров, которые вас приятно удивят.</p>
             </article>
 
             <article class="feature">
-                <div class="feature__image"><img src="./img/features/free-shipping.png"></div>
+                <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/free-shipping.png"></div>
                 <h2 class="feature__title">Бесплатная доставка</h2>
                 <p class="feature__text">От 13000 р. Оперативно отправляем заказ транспортной компанией или Почтой России.</p>
             </article>
 
             <article class="feature">
-                <div class="feature__image"><img src="./img/features/memorable-brand.png"></div>
+                <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/memorable-brand.png"></div>
                 <h2 class="feature__title">Запоминаемый бренд</h2>
                 <p class="feature__text">Барбершопы по всей России регулярно применяют Barber Wild в своей работе.</p>
             </article>
 
             <article class="feature">
-                <div class="feature__image"><img src="./img/features/premium-quality.png"></div>
+                <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/premium-quality.png"></div>
                 <h2 class="feature__title">Высокое качество</h2>
                 <p class="feature__text">Наша продукция занимает достойное место среди лучших брендов мужской косметики.</p>
             </article>
 
             <article class="feature">
-                <div class="feature__image"><img src="./img/features/growing-stock.png"></div>
+                <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/growing-stock.png"></div>
                 <h2 class="feature__title">Растущий ассортимент</h2>
                 <p class="feature__text">Постоянное расширение линейки продукции, включая создание новых ароматов.</p>
             </article>
 
             <article class="feature">
-                <div class="feature__image"><img src="./img/features/good-prices.png"></div>
+                <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/good-prices.png"></div>
                 <h2 class="feature__title">Выгодные цены</h2>
                 <p class="feature__text">Прайс на продукцию Barber Wild значительно выгоднее и гибче, чем цены конкурентов.</p>
             </article>
@@ -99,9 +99,9 @@
             </header>
 
             <div class="partners">
-                <a class="partners__item" href=""><img src="./img/partners/oldboy.png"></a>
-                <a class="partners__item" href="#"><img src="./img/partners/ceh.png"></a>
-                <a class="partners__item" href="#"><img src="./img/partners/magnum.png"></a>
+                <a class="partners__item" href="http://oldboybarbershop.com/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/oldboy.png"></a>
+                <a class="partners__item" href="http://barberceh.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/ceh.png"></a>
+                <a class="partners__item" href="http://barbershopmagnum.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/magnum.png"></a>
             </div>
         </section>
     </div>

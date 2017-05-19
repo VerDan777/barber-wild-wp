@@ -23,7 +23,7 @@
 
             <article class="feature">
                 <div class="feature__image">
-                    <img src="./img/features/barber-friendly.png">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/barber-friendly.png">
                 </div>
                 <h2 class="feature__title">От барбера для барбера</h2>
                 <p class="feature__text">В создании продукции принимают участие профессиональные барберы.</p>
@@ -31,7 +31,7 @@
 
             <article class="feature">
                 <div class="feature__image">
-                    <img src="./img/features/natural-components.png">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/natural-components.png">
                 </div>
                 <h2 class="feature__title">Натуральные компоненты</h2>
                 <p class="feature__text">Косметика оздоравливает кожу и волосы, насыщая их питательными ингредиентами.</p>
@@ -39,7 +39,7 @@
 
             <article class="feature">
                 <div class="feature__image">
-                    <img src="./img/features/ergonomic-pack.png">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/ergonomic-pack.png">
                 </div>
                 <h2 class="feature__title">Удобная упаковка</h2>
                 <p class="feature__text">Оптимально эргономичная емкость, практичная для использования и хранения.</p>
@@ -47,15 +47,15 @@
 
             <article class="feature">
                 <div class="feature__image">
-                    <img src="./img/features/wholesale-discounts.png">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/wholesale-discounts.png">
                 </div>
-                <h2 class="feature__title">Оптовые скидки</h2>
+                <h2 class="feature__title">Оптовые скидки</h2>      
                 <p class="feature__text">Выгодные условия для наших постоянных партнеров и покупателей.</p>
             </article>
 
             <article class="feature">
                 <div class="feature__image">
-                    <img src="./img/features/growing-popularity.png">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/growing-popularity.png">
                 </div>
                 <h2 class="feature__title">Растущая популярность</h2>
                 <p class="feature__text">Узнаваемый мужской бренд, получивший широкое распространение в барбершопах</p>
@@ -63,7 +63,7 @@
 
             <article class="feature">
                 <div class="feature__image">
-                    <img src="./img/features/wild-west.png">
+                    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/wild-west.png">
                 </div>
                 <h2 class="feature__title">Дух дикого запада</h2>
                 <p class="feature__text">Эффектный ореол свободы и мужественности, идеально подходящий каждому мужчине.</p>
