@@ -5,6 +5,7 @@
     top: 120px;
 
     // box model
+    // display: none;
     width: 200px;
 
     @include atDesktop {
@@ -22,7 +23,7 @@
         top: 120px;
 
         // box model
-        width: 200px;
+        width: 310px;
     }
 
     img {
