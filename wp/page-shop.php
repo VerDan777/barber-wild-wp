@@ -7,7 +7,7 @@
 ?>
 
 <main class="site-main">
-    <div class="wrapper wrapper--flex">
+    <div class="wrapper wrapper--center">
 
         <?php
             $args = array(

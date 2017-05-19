@@ -25,7 +25,7 @@
     <header class="site-header site-header--inner">
         <nav class="main-nav">
             <div class="logo">
-                <a href="#">Barber WILD
+                <a href="<?php echo esc_url(home_url('/')); ?>">Barber WILD
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png">
                     <p class="logo__motto">всё, что нужно для твоей головы</p>
                 </a>

@@ -82,6 +82,7 @@
                     $deco_image         = get_field('deco-image');
                     $deco_top           = get_field('deco-top');
                     $deco_right         = get_field('deco-right');
+                    $deco_left          = get_field('deco-left');
                     $deco_widht         = get_field('deco-width');
                     $deco_height        = get_field('deco-height');
         ?>
@@ -99,10 +100,17 @@
                         <?php echo $item_short_desc; ?>
                     </p>
                     <div class="shop-item-main__buttons">
-                        <a class="button button--right-m" href="#">Подробнее</a>
+                        <a class="button button--right-m" href="<?php the_permalink(); ?>">Подробнее</a>
                     </div>
                 </div>
-                <div class="shop-item-main__deco" style="top:<?php echo $deco_top; ?>px;">
+                <div class="shop-item-main__deco" style="top:
+                <?php   echo $deco_top . 'px;'; 
+                        if($deco_right!='') {
+                            echo 'right:' . $deco_right . 'px';
+                        } else if ($deco_left!='') {
+                            echo 'left: ', $deco_left . 'px';
+                        }
+                ?>">
                     <img src="<?php echo $deco_image; ?>">
                 </div>
             </div>
