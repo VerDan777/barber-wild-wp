@@ -10,7 +10,9 @@
 
     th {
         // box model
+        display: none;
         padding: 10px;
+
 
         // typography
         color: $darkSand;
@@ -19,6 +21,11 @@
 
         // visual
         border-bottom: 1px solid $justSand;
+
+        @include atTabletsPortrait {
+            // box model
+            display: table-cell;
+        }
     }
 
     td {

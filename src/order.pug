@@ -71,13 +71,13 @@ html
                                 td.table-item__number= number
                                 td.table-item__image: img(src=photoURL)
                                 td.table-item__name= title
-                                td.table-item__count
+                                td(data-th="Количество").table-item__count
                                     .spinner
                                         button(type="button").spinner__button.spinner__minus –
                                         input(type="text" value="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57;").spinner__input
                                         button(type="button").spinner__button.spinner__plus +
-                                td.table-item__price= price
-                                td.table-item__cost 0
+                                td(data-th="Цена").table-item__price= price
+                                td(data-th="Стоимость").table-item__cost 0
                         +table-item("1", "./img/items/matt-clay.png", "Матирующая глина «Barber WILD»", "990")
                         +table-item("2", "./img/items/pomade-juicy.png", "Помада для волос «Barber WILD» (Juicy)", "990")
                         +table-item("3", "./img/items/pomade-ice-melon.png", "Помада для волос «Barber WILD» (Ice Melon)", "990")

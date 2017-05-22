@@ -1,7 +1,7 @@
 .form {
     // border: 1px solid red;
     // box model
-    padding: 40px;
+    padding: 25px;
     padding-bottom: 20px;
 
     // typography
@@ -10,6 +10,11 @@
     // visual
     background-color: rgba($white, 0.8);
     border: 1px solid $justSand;
+
+    @include atTabletsLandscape {
+        // box model
+        padding: 40px;
+    }
 
     &--partners {
         // box model
