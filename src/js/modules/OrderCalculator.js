@@ -12,6 +12,8 @@ class OrderCalculator {
         this.incButtons = $('.spinner__plus');
 
         this.events();
+
+        alert('works');
     }
 
     events() {

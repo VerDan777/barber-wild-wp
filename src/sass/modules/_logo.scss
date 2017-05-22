@@ -1,4 +1,8 @@
 .logo {
+    // positioning
+    position: relative;
+    z-index: 4;
+    
     // box model
     display: inline-block;
     vertical-align: top;
@@ -27,7 +31,7 @@
         // typography
         color: rgba($white, 0.6);
         font-family: $titleFont;
-        font-size: 1.375rem;
+        font-size: 1rem;
 
         @include atDesktop {
             // typography

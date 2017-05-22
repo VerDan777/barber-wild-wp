@@ -16,6 +16,7 @@ html
                     img(src="./img/logo.png")
                     p.logo__motto всё, что нужно для твоей головы
 
+                //- .main-nav__menu-icon.main-nav__menu-icon--close-x
                 .main-nav__menu-icon
                     .main-nav__menu-icon__middle
 
@@ -25,9 +26,16 @@ html
                     - for (var i = 0; i < 3; i++)
                         li: a(href=links[i])= list[i]
 
+                    .main-menu__social.social
+                        a(href="#").icon-vkontakte VKontakte
+                        a(href="#").icon-facebook Faceboot
+                        a(href="#").icon-instagram Instagram
+                        a(href="#").icon-youtube-play YouTube
+                        a(href="#").icon-mail-alt Email
+
                 .cart: a(href="order.html") Оформить заказ
 
-                .for-owners: a(href="#")
+                .for-owners: a(href="partners.html")
                     img(src="./img/for-owners.gif")
         
             .hero
@@ -74,3 +82,5 @@ html
                 - var links = ["about.html", "shop.html", "partners.html"];
                 - for (var i = 0; i < 3; i++)
                     li: a(href=links[i])= list[i]
+        
+        script(src="scripts.js")

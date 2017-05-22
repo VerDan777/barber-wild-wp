@@ -11,12 +11,22 @@
     &__text-content {
         // positioning
         position: absolute;
-        bottom: 40px;
-        right: 50px;
+        left: 20px;
+        bottom: 20px;
         z-index: 2;
         
         // box model
-        width: 45%;
+        // width: 45%;
+
+        @include atTabletsLandscape {
+            // positioning
+            bottom: 40px;
+            left: auto;
+            right: 50px;
+
+            // box model
+            width: 45%;
+        }
 
         @include atDesktop {
             // positioning
@@ -31,8 +41,10 @@
         }
 
         &--main {
-            // box model
-            text-align: right;
+            @include atTabletsLandscape {
+                // box model
+                text-align: right;
+            }
         }
     }
 
@@ -40,11 +52,12 @@
         // box model
         margin: 0;
         padding: 0;
+        padding-bottom: 5px;
 
         // typography
         color: $darkSand;
         font-family: $titleFont;
-        font-size: 4.25rem;
+        font-size: 2.25rem;
         text-transform: uppercase;
 
         @include atDesktop {
@@ -66,7 +79,7 @@
         // typography
         color: $darkSand;
         font-family: $titleFont;
-        font-size: 1.5rem;
+        font-size: 1rem;
         text-transform: uppercase;
 
         @include atDesktop {

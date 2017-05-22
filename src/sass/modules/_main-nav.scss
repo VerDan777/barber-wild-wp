@@ -5,7 +5,13 @@
 
     // box model
     width: 100%;
-    padding: 40px 50px;
+    padding: 20px;
+    padding-right: 80px;
+
+    @include atTabletsLandscape {
+        // box model
+        padding: 40px 50px;
+    }
 
     @include atDesktop {
         // box model
@@ -18,9 +24,124 @@
     }
 
     &__menu-icon {
-        @include atTabletsLandscape {
+        // positioning
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        z-index: 3;
+        
+        // box model
+        height: 30px;
+        width: 30px;
+        // border: 1px solid red;
+
+        // visual
+        cursor: pointer;
+
+        @include atDesktop {
             // box model
             display: none;
+        }
+
+        &::before {
+            content: "";
+
+            // positioning
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform-origin: 0 50%;
+
+            // box model
+            height: 3px;
+            width: 30px;
+
+            // visual
+            background-color: #d3d1d1;
+            border-bottom: 1px solid #4f5554;
+            border-left: 1px solid #adaba8;
+            border-right: 1px solid #adaba8;
+            transition: all 0.3s ease-out;
+        }
+
+        &__middle {
+            // positioning
+            position: absolute;
+            left: 0;
+            top: 10px;
+            z-index: 1;
+            transform-origin: 0 50%;
+
+            // box model
+            height: 3px;
+            width: 30px;
+
+            // visual
+            background-color: #d3d1d1;
+            border-bottom: 1px solid #4f5554;
+            border-left: 1px solid #adaba8;
+            border-right: 1px solid #adaba8;
+            transition: all 0.3s ease-out;
+        }
+
+        &::after {
+            content: "";
+
+            // positioning
+            position: absolute;
+            left: 0;
+            top: 20px;
+            transform-origin: 0 50%;
+
+            // box model
+            height: 3px;
+            width: 30px;
+
+            // visual
+            background-color: #d3d1d1;
+            border-bottom: 1px solid #4f5554;
+            border-left: 1px solid #adaba8;
+            border-right: 1px solid #adaba8;
+            transition: all 0.3s ease-out;
+        }
+
+        &--close-x {
+            &::before {
+                // positioning
+                transform: rotate(45deg) scaleX(0.94);
+
+                // visual
+                background-color: $accentRed;
+                border-bottom: 1px solid #900000;
+                border-left: 1px solid #be6161;
+                border-right: 1px solid #5a0e0f;
+            }
+
+            .main-nav__menu-icon__middle {
+                // positioning
+                left: 7px;
+                transform: scaleX(0.1) scaleY(0.8);
+                
+                // visual
+                // opacity: 0;
+                background-color: $accentRed;
+                border-bottom: none;
+                border-left: none;
+                border-right: none;
+            }
+
+            &::after {
+                // positioning
+                transform: rotate(-45deg) scaleX(0.95);
+
+                // visual
+                background-color: $accentRed;
+                border-bottom: none;
+                border-left: 1px solid #5a0e0f;
+                border-right: 1px solid #be6161;
+                border-right: none;
+                border-top: 1px solid #be6161;
+            }
         }
     }
 }

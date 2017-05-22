@@ -46,13 +46,13 @@
 
 	'use strict';
 
-	var _OrderCalculator = __webpack_require__(1);
+	var _MobileMenu = __webpack_require__(1);
 
-	var _OrderCalculator2 = _interopRequireDefault(_OrderCalculator);
+	var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var orderCalc = new _OrderCalculator2.default();
+	var mobileMenu = new _MobileMenu2.default();
 
 /***/ }),
 /* 1 */
@@ -74,110 +74,32 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var OrderCalculator = function () {
-	    function OrderCalculator() {
-	        _classCallCheck(this, OrderCalculator);
+	var MobileMenu = function () {
+	    function MobileMenu() {
+	        _classCallCheck(this, MobileMenu);
 
-	        // table elements
-	        this.countInputs = (0, _jquery2.default)('.table-item__count input');
-	        this.costLabels = (0, _jquery2.default)('.table-item__cost');
-	        this.summLabel = (0, _jquery2.default)('.table-item__summ');
-
-	        // spinner elemtents
-	        this.decButtons = (0, _jquery2.default)('.spinner__minus');
-	        this.incButtons = (0, _jquery2.default)('.spinner__plus');
-
+	        this.mainMenu = (0, _jquery2.default)('.main-menu');
+	        this.menuButton = (0, _jquery2.default)('.main-nav__menu-icon');
 	        this.events();
 	    }
 
-	    _createClass(OrderCalculator, [{
+	    _createClass(MobileMenu, [{
 	        key: 'events',
 	        value: function events() {
-	            var calc = this;
-	            var incInterval = void 0;
-	            var decInterval = void 0;
-
-	            this.countInputs.on('change', function (event) {
-	                this.calcTotal((0, _jquery2.default)(event.target));
-	            }.bind(this));
-
-	            // this.decButtons.click(function() {
-	            //     let input = $(this).parent().children('input');
-	            //     calc.decInput(input);
-	            // });
-
-	            // this.incButtons.click(function() {
-	            //     let input = $(this).parent().children('input');
-	            // });
-
-	            this.incButtons.on('mousedown', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                calc.incInput(input);
-	                incInterval = setInterval(function () {
-	                    calc.incInput(input);
-	                }, 250);
-	            });
-
-	            this.incButtons.on('mouseup', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                clearInterval(incInterval);
-	            });
-
-	            this.incButtons.on('mouseout', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                clearInterval(incInterval);
-	            });
-
-	            this.decButtons.on('mousedown', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                calc.decInput(input);
-	                decInterval = setInterval(function () {
-	                    calc.decInput(input);
-	                }, 250);
-	            });
-
-	            this.decButtons.on('mouseup', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                clearInterval(decInterval);
-	            });
-
-	            this.decButtons.on('mouseout', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                clearInterval(decInterval);
-	            });
+	            this.menuButton.click(this.toggleMenu.bind(this));
 	        }
 	    }, {
-	        key: 'decInput',
-	        value: function decInput(input) {
-	            input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
-	            input.trigger('change');
-	        }
-	    }, {
-	        key: 'incInput',
-	        value: function incInput(input) {
-	            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
-	            input.trigger('change');
-	        }
-	    }, {
-	        key: 'calcTotal',
-	        value: function calcTotal(input) {
-	            var price = parseInt(input.parent().parent().parent().children('.table-item__price').html());
-	            var count = parseInt(input.val());
-	            var cost = input.parent().parent().parent().children('.table-item__cost');
-	            cost.html(price * count);
-
-	            var summ = 0;
-	            _jquery2.default.each(this.costLabels, function (i, val) {
-	                summ += parseInt((0, _jquery2.default)(val).html());
-	            });
-	            this.summLabel.html(summ);
+	        key: 'toggleMenu',
+	        value: function toggleMenu() {
+	            this.mainMenu.toggleClass('main-menu--shown');
+	            this.menuButton.toggleClass('main-nav__menu-icon--close-x');
 	        }
 	    }]);
 
-	    return OrderCalculator;
+	    return MobileMenu;
 	}();
 
-	exports.default = OrderCalculator;
+	exports.default = MobileMenu;
 
 /***/ }),
 /* 2 */

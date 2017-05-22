@@ -1,15 +1,62 @@
 .main-menu {
+    // positioning
+    position: absolute;
+    // position: fixed;
+    left: 0;
+    top: 0;
+
     // box model
-    display: inline-block;
-    vertical-align: top;
+    height: 95vh;
+    width: 100%;
+
     margin: 0;
-    margin-top: -12px;
     padding: 0;
-    padding-left: 50px;
+    padding-top: 150px;
+// 59149187
+    // typography
+    text-align: center;
+
+    // visual
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+
+    // visual
+    background-color: rgba($darkGrey, 0.95);
+    // background-color: $darkGrey;
+    z-index: 2;
+
+    &--shown {
+        // visual
+        visibility: visible;
+        opacity: 1;
+    }
+
+    @include atTabletsLandscape {
+        // box model
+        height: 46.7vw;
+    }
 
     @include atDesktop {
+        // positioning
+        position: relative;
+
         // box model
+        display: inline-block;
+        vertical-align: top;
+
+        height: auto;
+        width: auto;
+        
+        margin: 0;
+        margin-top: -12px;
+        padding: 0;
         padding-left: 20px;
+
+        // visual
+        background-color: transparent;
+        visibility: visible;
+        opacity: 1;
     }
 
     @include atDesktopLarge {
@@ -66,6 +113,25 @@
 
             // typography
             font-size: 1.25rem;
+        }
+    }
+
+    &__social {
+        // positioning
+        position: absolute;
+        bottom: 50px;
+
+        // box model
+        width: 100%;
+
+        @include atTabletsLandscape {
+            // positioning
+            bottom: 20px;
+        }
+
+        @include atDesktop {
+            // box model
+            display: none;
         }
     }
 }
