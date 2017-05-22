@@ -9,11 +9,18 @@
 
     // visual
     background-image: url('./img/main-hero-s-bg.jpg');
-    background-position: center top;
+    background-position: center center;
     background-size: cover;
+
+    @include atTabletsPortrait {
+        // visual
+        background-image: url('./img/main-hero-m-bg.jpg');
+        background-position: center bottom;
+    }
 
     @include atTabletsLandscape {
         // visual
         background-image: url('./img/main-hero-bg.jpg');
+        background-position: center top;
     }
 }

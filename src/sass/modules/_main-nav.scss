@@ -8,6 +8,11 @@
     padding: 20px;
     padding-right: 80px;
 
+    @include atTabletsPortrait {
+        // box model
+        padding: 30px 40px;
+    }
+
     @include atTabletsLandscape {
         // box model
         padding: 40px 50px;

@@ -2,10 +2,13 @@
     // positioning
     position: relative;
     z-index: 4;
-    
+
     // box model
     display: inline-block;
     vertical-align: top;
+
+    max-height: 75.2px;
+    max-width: 380.8px;
 
     // typography
     font-size: 0;

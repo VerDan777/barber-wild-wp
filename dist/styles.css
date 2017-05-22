@@ -480,6 +480,9 @@ body {
   width: 100%;
   padding: 20px;
   padding-right: 80px; }
+  @media (min-width: 700px) {
+    .main-nav {
+      padding: 30px 40px; } }
   @media (min-width: 900px) {
     .main-nav {
       padding: 40px 50px; } }
@@ -566,6 +569,8 @@ body {
   z-index: 4;
   display: inline-block;
   vertical-align: top;
+  max-height: 75.2px;
+  max-width: 380.8px;
   font-size: 0; }
   @media (min-width: 1200px) {
     .logo {
@@ -671,15 +676,18 @@ body {
 
 .cart {
   position: absolute;
-  right: 50px;
-  top: 33px;
+  right: 20px;
+  top: 185px;
+  top: 65vh;
   width: 200px;
-  text-align: center; }
+  text-align: center;
+  visibility: hidden; }
   @media (min-width: 1200px) {
     .cart {
       right: 30px;
       top: 20px;
-      width: 180px; } }
+      width: 180px;
+      visibility: visible; } }
   @media (min-width: 1500px) {
     .cart {
       right: 50px;
@@ -714,6 +722,11 @@ body {
   right: 20px;
   top: 100px;
   width: 140px; }
+  @media (min-width: 700px) {
+    .for-owners {
+      right: 40px;
+      top: 110px;
+      width: 180px; } }
   @media (min-width: 1200px) {
     .for-owners {
       right: 30px;
@@ -796,11 +809,16 @@ body {
   height: 100%;
   width: 100%;
   background-image: url("./img/main-hero-s-bg.jpg");
-  background-position: center top;
+  background-position: center center;
   background-size: cover; }
+  @media (min-width: 700px) {
+    .scene {
+      background-image: url("./img/main-hero-m-bg.jpg");
+      background-position: center bottom; } }
   @media (min-width: 900px) {
     .scene {
-      background-image: url("./img/main-hero-bg.jpg"); } }
+      background-image: url("./img/main-hero-bg.jpg");
+      background-position: center top; } }
 
 .site-main {
   position: relative;
