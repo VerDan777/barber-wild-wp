@@ -16,6 +16,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Barber WILD</title>
+    
+    <!--OG-->
+
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 
     <?php wp_head(); ?>
@@ -46,7 +49,7 @@
             ?>
 
             <div class="cart">
-                <a href="order.html">Оформить заказ</a>
+                <a href="<?php echo esc_url(home_url('/')); ?>order">Оформить заказ</a>
             </div>
         </nav>
 
@@ -77,7 +80,9 @@
                     <p class="item__price">
                         <?php echo $price; ?> -
                     </p>
-                    <div class="item__buttons"><a class="button" href="order.html">Оформить заказ</a></div>
+                    <div class="item__buttons">
+                        <a class="button" href="<?php echo esc_url(home_url('/')); ?>order">Оформить заказ</a>
+                    </div>
                 </header>
 
                 <div class="item__description">

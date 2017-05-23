@@ -15,6 +15,15 @@
     // visual
     visibility: hidden;
 
+    @include atTabletsLandscape {
+        // positioning
+        right: 80px;
+        top: 15px;
+
+        // visual
+        visibility: visible;
+    }
+
     @include atDesktop {
         // positioning
         right: 30px;
@@ -22,9 +31,6 @@
 
         // box model
         width: 180px;
-
-        // visual
-        visibility: visible;
     }
 
     @include atDesktopLarge {

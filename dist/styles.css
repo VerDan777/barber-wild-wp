@@ -471,8 +471,9 @@ body {
   @media (min-width: 1200px) {
     .site-header {
       margin-bottom: 0; } }
-  .site-header--inner {
-    height: 450px; }
+  @media (min-width: 900px) {
+    .site-header--inner {
+      height: 450px; } }
 
 .main-nav {
   position: absolute;
@@ -485,7 +486,7 @@ body {
       padding: 30px 40px; } }
   @media (min-width: 900px) {
     .main-nav {
-      padding: 40px 50px; } }
+      padding: 20px 50px; } }
   @media (min-width: 1200px) {
     .main-nav {
       padding: 20px 30px; } }
@@ -682,12 +683,16 @@ body {
   width: 200px;
   text-align: center;
   visibility: hidden; }
+  @media (min-width: 900px) {
+    .cart {
+      right: 80px;
+      top: 15px;
+      visibility: visible; } }
   @media (min-width: 1200px) {
     .cart {
       right: 30px;
       top: 20px;
-      width: 180px;
-      visibility: visible; } }
+      width: 180px; } }
   @media (min-width: 1500px) {
     .cart {
       right: 50px;

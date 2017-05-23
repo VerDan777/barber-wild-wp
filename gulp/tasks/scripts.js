@@ -18,6 +18,23 @@ const commonCfg = {
     }
 }
 
+const ordersCfg = {
+    entry: './src/js/scripts.js',
+    output: {
+        filename: 'order.js'
+    },
+    module: {
+        loaders: [{
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015']
+            },
+            test: /\.js$/,
+            exclude: /node_modules/
+        }]
+    }
+}
+
 gulp.task('scripts', function() {
     return gulp.src('./src/js/scripts.js')
         .pipe(webpack(commonCfg))

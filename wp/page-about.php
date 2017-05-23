@@ -70,13 +70,13 @@
             </article>
         </section>
 
-        <section class="site-section">
+        <!--<section class="site-section">
             <header class="site-section__header">
                 <h2 class="site-section__title">
                     Контакты
                 </h2>
             </header>
-        </section>
+        </section>-->
     </div>
 </main>
 

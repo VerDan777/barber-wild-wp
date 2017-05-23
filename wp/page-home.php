@@ -11,6 +11,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Barber WILD</title>
+
+    <!--OG-->
+
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 </head>
 
@@ -41,7 +44,7 @@
             ?>
 
             <div class="cart">
-                <a href="order.html">Оформить заказ</a>
+                <a href="<?php echo esc_url(home_url('/')); ?>order">Оформить заказ</a>
             </div>
 
             <div class="for-owners">

@@ -20,6 +20,8 @@
 
 <?php wp_footer(); ?>
 
+<script src="<?php bloginfo('stylesheet_directory'); ?>/scripts.js"></script>
+
 </body>
 
 </html>

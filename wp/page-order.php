@@ -10,7 +10,7 @@
     <div class="wrapper">
 
         <section class="site-section site-section--partner-form">
-            <form class="form form--order">
+            <form class="form form--order" action="https://formspree.io/bwildorders@gmail.com" method="POST">
                 <fieldset class="form__fieldset">
                     <legend class="form__legend">Заказ </legend>
                     <div class="form__input-group">
@@ -55,6 +55,7 @@
 
                                     // vars
                                     $item_name          = get_field('item-name');
+                                    $item_form_name     = get_field('item-form-name');
                                     $item_image         = get_field('item-image');
                                     $price              = get_field('price');
                         ?>
@@ -72,7 +73,7 @@
                             <td class="table-item__count">
                                 <div class="spinner">
                                     <button class="spinner__button spinner__minus" type="button">–</button>
-                                    <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
+                                    <input class="spinner__input" name="<?php echo $item_form_name; ?>" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
                                     <button class="spinner__button spinner__plus" type="button">+</button>
                                 </div>
                             </td>

@@ -25,7 +25,12 @@
 
     &--inner {
         // box model
-        height: 450px;
+        // height: auto;
+
+        @include atTabletsLandscape {
+            // box model
+            height: 450px;
+        }
     }
 
 }

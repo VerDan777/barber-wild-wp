@@ -13,5 +13,6 @@ gulp.task('copyCSS', function() {
 });
 
 gulp.task('copyJS', function() {
-    // TODO: copy javascript
+    gulp.src('./dist/*.js')
+        .pipe(gulp.dest('C:/xampp/htdocs/bw/wp-content/themes/barberwild'));
 });
