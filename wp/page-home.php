@@ -55,7 +55,7 @@
         </nav>
         
         <div class="hero">
-            <div class="hero__scene scene"></div>
+            <div class="hero__scene  scene  scene--main"></div>
             <div class="hero__text-content hero__text-content--main">
                 <h1 class="hero__title">«Barber WILD»</h1>
                 <p class="hero__subtitle">— Мужская косметика с характером</p>

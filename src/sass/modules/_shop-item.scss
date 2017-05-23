@@ -3,8 +3,12 @@
     display: inline-block;
     vertical-align: top;
     width: 330px;
-    margin: 0 15px;
     margin-bottom: 40px;
+
+    @include atTabletsPortrait {
+        // box model
+        margin: 0 15px;
+    }
 
     @include atDesktop {
         // box model

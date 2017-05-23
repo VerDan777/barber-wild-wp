@@ -15,19 +15,19 @@
                     <legend class="form__legend">Заказ </legend>
                     <div class="form__input-group">
                         <label class="form__icon">1</label>
-                        <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество">
+                        <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество" required>
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">2</label>
-                        <input class="form__input" type="text" name="phone" placeholder="Номер телефона">
+                        <input class="form__input" type="text" name="phone" placeholder="Номер телефона" required>
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">3</label>
-                        <input class="form__input" type="text" name="email" placeholder="Электронная почта">
+                        <input class="form__input" type="text" name="email" placeholder="Электронная почта" required>
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">4</label>
-                        <input class="form__input" type="text" name="address" placeholder="Адрес">
+                        <input class="form__input" type="text" name="address" placeholder="Адрес" required>
                     </div>
                 </fieldset>
                 <fieldset class="form__fieldset">

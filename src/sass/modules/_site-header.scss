@@ -26,6 +26,7 @@
     &--inner {
         // box model
         // height: auto;
+        height: 450px;
 
         @include atTabletsLandscape {
             // box model
