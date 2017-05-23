@@ -60,28 +60,45 @@
         }
     }
 
-    h2 {
-        // typography
-        color: rgba($darkestSand, 0.84);
-        font-size: 2rem;
-    }
+    &--simple {
 
-    h3 {
-        // typography
-        color: rgba($darkestSand, 0.84);
-        font-family: $titleFont;
-        font-size: 2rem;
-        text-transform: uppercase;
-    }
+        h2 {
+            // typography
+            color: rgba($darkestSand, 0.84);
+            font-size: 2rem;
+        }
 
-    h4 {
-        // typography
-        color: rgba($darkestSand, 0.84);
-        font-family: $titleFont;
-        font-size: 1.25rem;
-        text-transform: uppercase;
-    }
+        h3 {
+            // typography
+            color: rgba($darkestSand, 0.84);
+            font-family: $titleFont;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
 
+        h4 {
+            // typography
+            color: rgba($darkestSand, 0.84);
+            font-family: $titleFont;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+        }
+
+        a {
+            // typography
+            color: $accentRed;
+            color: $darkSand;
+            text-decoration: none;
+
+            &:hover {
+                // typography
+                text-decoration: underline;
+            }
+        }
+
+
+    }
+    
     p {
         // typography
         font-family: $mainFont;
@@ -91,15 +108,4 @@
         line-height: 1.5;
     }
 
-    a {
-        // typography
-        color: $accentRed;
-        color: $darkSand;
-        text-decoration: none;
-
-        &:hover {
-            // typography
-            text-decoration: underline;
-        }
-    }
 }

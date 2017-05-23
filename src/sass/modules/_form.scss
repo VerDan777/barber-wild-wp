@@ -71,12 +71,14 @@
         margin: 0;
         margin-bottom: 20px;
         padding: 0;
+        width: 100%;
 
         // typography
         color: $darkSand;
         font-family: $titleFont;
         font-size: 1.5rem;
         font-weight: 700;
+        text-align: center;
         text-transform: uppercase;
     }
 
