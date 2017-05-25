@@ -17,9 +17,15 @@
         background-color: rgba($white, 0.8);
         border: 1px solid $justSand;
 
+        @include atTabletsPortrait {
+            // box model
+            padding-left: 350px;
+            padding-top: 20px;
+        }
+
         @include atDesktop {
             // box model
-            padding-left: 45%;
+            padding-left: 450px;
             padding-top: 40px;
         }
     }
@@ -35,7 +41,7 @@
             width: 100%;
         }
         
-        @include atDesktop {
+        @include atTabletsPortrait {
             // positioning
             position: absolute;
             left: 40px;
@@ -43,6 +49,12 @@
 
             // box model
             margin: 0;
+            height: 260px;
+            width: 260px;
+        }
+
+        @include atDesktop {
+            // box model
             height: 300px;
             width: 300px;
         }

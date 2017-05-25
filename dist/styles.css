@@ -1227,9 +1227,13 @@ body {
   padding-top: 0;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #e9dcca; }
+  @media (min-width: 700px) {
+    .item__header {
+      padding-left: 350px;
+      padding-top: 20px; } }
   @media (min-width: 1200px) {
     .item__header {
-      padding-left: 45%;
+      padding-left: 450px;
       padding-top: 40px; } }
 
 .item__image {
@@ -1238,12 +1242,16 @@ body {
   .item__image img {
     height: 100%;
     width: 100%; }
-  @media (min-width: 1200px) {
+  @media (min-width: 700px) {
     .item__image {
       position: absolute;
       left: 40px;
       top: -10px;
       margin: 0;
+      height: 260px;
+      width: 260px; } }
+  @media (min-width: 1200px) {
+    .item__image {
       height: 300px;
       width: 300px; } }
 
