@@ -1084,11 +1084,12 @@ body {
 .shop-item {
   display: inline-block;
   vertical-align: top;
-  width: 330px;
+  max-width: 330px;
   margin-bottom: 40px; }
   @media (min-width: 700px) {
     .shop-item {
-      margin: 0 15px; } }
+      margin: 0 15px;
+      margin-bottom: 40px; } }
   @media (min-width: 1200px) {
     .shop-item {
       height: 460px;
@@ -1152,6 +1153,12 @@ body {
     font-size: 2rem;
     background-color: #e9dcca;
     transition: all 0.3s ease-out; }
+    @media (max-width: 340px) {
+      .shop-item__price {
+        top: 200px; } }
+    @media (min-width: 700px) {
+      .shop-item__price {
+        top: 240px; } }
     @media (min-width: 1200px) {
       .shop-item__price {
         bottom: 150px;

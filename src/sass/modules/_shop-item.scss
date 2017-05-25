@@ -2,12 +2,13 @@
     // box model
     display: inline-block;
     vertical-align: top;
-    width: 330px;
+    max-width: 330px;
     margin-bottom: 40px;
 
     @include atTabletsPortrait {
         // box model
         margin: 0 15px;
+        margin-bottom: 40px;
     }
 
     @include atDesktop {
@@ -118,6 +119,16 @@
         // visual
         background-color: $justSand;
         transition: all 0.3s ease-out;
+
+        @include atSmall {
+            // positioning
+            top: 200px;
+        }
+
+        @include atTabletsPortrait {
+            // positioning
+            top: 240px;
+        }
 
         @include atDesktop {
             // positioning
