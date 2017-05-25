@@ -64,23 +64,28 @@
                             <td class="table-item__number">
                                 <?php echo $counter; ?>
                             </td>
+
                             <td class="table-item__image">
                                 <img src="<?php echo $item_image; ?>">
                             </td>
+
                             <td class="table-item__name">
                                 <?php echo $item_name; ?>
                             </td>
-                            <td class="table-item__count">
+
+                            <td class="table-item__count" data-th="Количество">
                                 <div class="spinner">
                                     <button class="spinner__button spinner__minus" type="button">–</button>
                                     <input class="spinner__input" name="<?php echo $item_form_name; ?>" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
                                     <button class="spinner__button spinner__plus" type="button">+</button>
                                 </div>
                             </td>
-                            <td class="table-item__price">
+
+                            <td class="table-item__price" data-th="Цена">
                                 <?php echo $price; ?>
                             </td>
-                            <td class="table-item__cost">0</td>
+
+                            <td class="table-item__cost" data-th="Стоимость">0</td>
                         </tr>
 
                         <?php
