@@ -36,6 +36,11 @@
         font-family: $titleFont;
         font-size: 1rem;
 
+        @include atSmall {
+            // typography
+            font-size: 0.875rem;
+        }
+
         @include atDesktop {
             // typography
             font-size: 1rem;

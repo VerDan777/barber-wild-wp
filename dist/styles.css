@@ -590,6 +590,9 @@ body {
     color: rgba(255, 255, 255, 0.6);
     font-family: "Roboto Condensed", sans-serif;
     font-size: 1rem; }
+    @media (max-width: 340px) {
+      .logo__motto {
+        font-size: 0.875rem; } }
     @media (min-width: 1200px) {
       .logo__motto {
         font-size: 1rem; } }
@@ -666,6 +669,16 @@ body {
       .main-menu a {
         padding: 15px 20px;
         font-size: 1.25rem; } }
+  .main-menu__order {
+    margin: 30px auto;
+    margin-top: 10px;
+    padding: 0;
+    max-width: 300px; }
+    .main-menu__order a {
+      padding: 10px 0; }
+    @media (min-width: 1200px) {
+      .main-menu__order {
+        display: none; } }
   .main-menu__social {
     position: absolute;
     bottom: 50px;
