@@ -1080,6 +1080,17 @@ body {
       padding-top: 40px;
       margin-bottom: 340px; } }
 
+.show-all {
+  position: relative;
+  z-index: 5;
+  height: 200px;
+  padding-top: 90px;
+  text-align: center;
+  background-image: url("./img/guns2.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat; }
+
 .video {
   position: relative;
   z-index: 1;
