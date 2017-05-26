@@ -5,6 +5,7 @@
     $volume             = get_field('volume');
     $price              = get_field('price');
     $description        = get_field('description');
+    $og_description     = get_field('og-description');
     $ingredients        = get_field('ingredients');
     $hero_background    = get_field('hero-background');
 ?>
@@ -18,6 +19,13 @@
     <title>Barber WILD</title>
     
     <!--OG-->
+    <meta property="og:title" content="<?php the_title(); ?> - Barber WILD">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="<?php echo $hero_background; ?>">
+    <meta propepty="og:url" content="<?php the_permalink(); ?>">
+    <meta property="og:description" content="<?php echo $og_description; ?>">
+    <meta propepty="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Barber WILD">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('stylesheet_directory'); ?>/apple-touch-icon.png">

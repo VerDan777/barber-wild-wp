@@ -13,6 +13,13 @@
     <title>Barber WILD</title>
 
     <!-- OG -->
+    <meta property="og:title" content="<?php the_title(); ?> - Barber WILD">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="<?php bloginfo('stylesheet_directory'); ?>/img/main-hero-bg.jpg">
+    <meta propepty="og:url" content="<?php the_permalink(); ?>">
+    <meta property="og:description" content="Barber WILD - всё, что нужно для твоей головы. Мужская косметика с характером">
+    <meta propepty="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Barber WILD">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('stylesheet_directory'); ?>/apple-touch-icon.png">
@@ -137,7 +144,7 @@
             <a class="button button--red" href="<?php echo esc_url(home_url('/')); ?>shop">Все товары</a>
         </div>
     </main>
-    
+
     <section class="video">
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uho9zCQJc9M?autoplay=0&amp;showinfo=0&amp;controls=0"
             frameborder="0" allowfullscreen></iframe>

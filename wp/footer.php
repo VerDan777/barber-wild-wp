@@ -8,7 +8,7 @@
     <nav class="footer-nav">
         <?php
             $args = array(
-                'theme_location'    => 'primary',
+                'theme_location'    => 'footer',
                 'container'         => ''
                 // 'menu_class'        => 'main-menu'
             );
