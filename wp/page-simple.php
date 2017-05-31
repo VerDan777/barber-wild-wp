@@ -8,7 +8,7 @@
 
 <main class="site-main">
     <div class="wrapper">
-        <section class="site-section  site-section--text">
+        <section class="site-section  site-section--text  site-section--simple">
 
             <?php
                 if(have_posts()) {

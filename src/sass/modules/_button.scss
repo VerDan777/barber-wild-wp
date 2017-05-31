@@ -1,10 +1,12 @@
 .button {
     // box model
-    padding: 7px 25px;
+    padding: 8px 25px;
+    padding-bottom: 6px;
 
     // typography
     color: $white;
     font-family: $titleFont;
+    // font-family: $mainFont;
     font-size: 1.125rem;
     line-height: 1;
     text-decoration: none;

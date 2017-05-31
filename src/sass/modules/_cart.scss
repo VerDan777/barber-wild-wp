@@ -39,7 +39,7 @@
         top: 33px;
 
         // box model
-        width: 200px;
+        width: 240px;
     }
 
     a {
@@ -70,7 +70,8 @@
 
         @include atDesktopLarge {
             // box model
-            padding: 10px 20px;
+            padding: 11px 20px;
+            padding-bottom: 9px;
 
             // typography
             font-size: 1.125rem;

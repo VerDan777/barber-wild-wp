@@ -4,8 +4,8 @@
     z-index: 5;
 
     // box model
-    height: 200px;
-    padding-top: 90px;
+    height: 300px;
+    padding-top: 160px;
 
     // typography
     text-align: center;
@@ -15,4 +15,9 @@
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
+
+    @include atDesktop {
+        // box model
+        margin-top: -80px;
+    }
 }

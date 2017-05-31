@@ -41,6 +41,7 @@ $paddingLeft: 70px;
 
         @include atTabletsLandscape {
             // box model
+            padding-left: 60px;
             width: 860px;
         }
 
@@ -77,6 +78,11 @@ $paddingLeft: 70px;
             width: 220px;
         }
 
+        @include atTabletsLandscape {
+            // positioning
+            right: 40px;
+        }
+
         @include atDesktop {
             // positioning
             position: absolute;
@@ -99,7 +105,7 @@ $paddingLeft: 70px;
             display: inline-block;
             vertical-align: top;
             width: 360px;
-            width: calc(100% - 220px);
+            width: calc(100% - 260px);
         }
 
         @include atDesktop {
@@ -114,7 +120,7 @@ $paddingLeft: 70px;
         padding: 0;
 
         // typography
-        font-family: $mainFont;
+        font-family: $titleFont;
         font-size: 1.5rem;
         font-weight: 400;
         line-height: 1.4;
@@ -126,13 +132,15 @@ $paddingLeft: 70px;
 
         @include atDesktop {
             // box model
-            margin-left: -22px;
+            margin-left: -26px;
 
             // typography
+            font-family: $mainFont;
             font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 300;
             line-height: 1.2;
-            text-indent: 18px;
+            text-indent: 22px;
             text-align: left;
         }
     }
@@ -141,6 +149,9 @@ $paddingLeft: 70px;
         // typography
         font-family: $mainFont;
         font-size: 1rem;
+        font-size: 1rem;
+        font-size: 1.25rem;
+        // letter-spacing: -1px;
         font-weight: 300;
         line-height: 1.5;
 

@@ -6,9 +6,10 @@
     height: 375px;
 
     // visual
-    background-color: $lightSand;
+    background-color: $background;
     background-image: url('./img/footer-bg-m.jpg');
     background-position: center bottom;
+    background-repeat: no-repeat;
 
     @include atDesktop {
         // box model

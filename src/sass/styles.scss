@@ -1,9 +1,11 @@
 @import "base/wordpress";
-@import "normalize.css";
 
 // fonts
 @import "fonts/fonts";
 @import "fonts/icons";
+
+// normalize
+@import "normalize.css";
 
 // globals
 @import "base/vars";

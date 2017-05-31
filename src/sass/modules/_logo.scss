@@ -15,14 +15,17 @@
 
     @include atDesktop {
         // box model
-        height: 75.2px;
-        width: 380.8px;
+        // height: 75.2px;
+        width: 320px;
     }
 
     @include atDesktopLarge {
         // box model
-        height: 94px;
-        width: 476px;
+        // max-height: 94px;
+        // max-width: 476px;
+        // height: 94px;
+        width: 320px;
+        // border: 1px solid red;
     }
 
     &__motto {
@@ -32,9 +35,12 @@
         padding-top: 5px;
 
         // typography
-        color: rgba($white, 0.6);
+        color: rgba($lightSand, 0.6);
+        color: $lightSand;
         font-family: $titleFont;
+        // font-family: $mainFont;
         font-size: 1rem;
+        text-align: center;
 
         @include atSmall {
             // typography
@@ -43,12 +49,13 @@
 
         @include atDesktop {
             // typography
-            font-size: 1rem;
+            text-align: left;
+            font-size: 1.23rem;
         }
 
         @include atDesktopLarge {
             // typography
-            font-size: 1.375rem;
+            // font-size: 1.375rem;
         }
     }
 

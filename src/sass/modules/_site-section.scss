@@ -72,6 +72,7 @@
             // typography
             color: rgba($darkestSand, 0.84);
             font-family: $titleFont;
+            font-family: $mainFont;
             font-size: 2rem;
             text-transform: uppercase;
         }
@@ -81,7 +82,7 @@
             color: rgba($darkestSand, 0.84);
             font-family: $titleFont;
             font-size: 1.25rem;
-            text-transform: uppercase;
+            // text-transform: uppercase;
         }
 
         a {

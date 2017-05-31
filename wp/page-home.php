@@ -141,7 +141,7 @@
         ?>
 
         <div class="show-all">
-            <a class="button button--red" href="<?php echo esc_url(home_url('/')); ?>shop">Все товары</a>
+            <a class="button" href="<?php echo esc_url(home_url('/')); ?>shop">Все товары</a>
         </div>
     </main>
 
