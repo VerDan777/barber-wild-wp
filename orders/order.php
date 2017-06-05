@@ -2,20 +2,36 @@
 
 echo 'start<br>';
 
-// require('./mail/PHPMailerAutoload');
-require_once('./mail/class.phpmailer.php');
+require('./mail/PHPMailerAutoload.php');
+// require_once('./mail/class.phpmailer.php');
 require_once('./mail/config.php');
 
 $mail = new PHPMailer;
 
-$mail->IsSMTP();
+$mail->isSMTP();
 
 try {
     $subject            = $_POST['subject'];
     $content            = $_POST['content'];
 
+    $to                 = $__smtp['mailto'];
     $mail->Host         = $__smtp['host'];
     $mail->SMTPDebug    = $__smtp['debug'];
+    $mail->SMTPAuth     = $__smtp['auth'];
+    $mail->Port         = $__smtp['port'];
+    $mail->Username     = $__smtp['username'];
+    $mail->Password     = $__smtp['password'];
+
+    $mail->AddReplyTo($__smtp['addreply'], $__smtp['nickname']);
+    $mail->AddAddress($to);
+    $mail->SetFrom($__smtp['addreply'], $__smtp['nickname']);
+
+    $mail->isHTML(true);
+    $mail->Subject = htmlspecialchars($subject);
+    $mail->Body = $content;
+//   $mail->MsgHTML($content);
+//   if($attach)  $mail->AddAttachment($attach);
+    $mail->Send();
 
 } catch(phpmailerException $e) {
     echo $e->errorMessage();
