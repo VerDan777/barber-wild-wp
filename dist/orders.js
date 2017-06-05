@@ -50,9 +50,14 @@
 
 	var _OrderCalculator2 = _interopRequireDefault(_OrderCalculator);
 
+	var _OrderFormSender = __webpack_require__(3);
+
+	var _OrderFormSender2 = _interopRequireDefault(_OrderFormSender);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var orderCalc = new _OrderCalculator2.default();
+	var orderSender = new _OrderFormSender2.default();
 
 /***/ }),
 /* 1 */
@@ -10437,6 +10442,84 @@
 	return jQuery;
 	} );
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var OrderFormSender = function () {
+	    function OrderFormSender() {
+	        _classCallCheck(this, OrderFormSender);
+
+	        this.submitButton = (0, _jquery2.default)('#order-submit');
+	        this.orderForm = (0, _jquery2.default)('#order-form');
+
+	        this.events();
+	    }
+
+	    _createClass(OrderFormSender, [{
+	        key: 'events',
+	        value: function events() {
+	            var self = this;
+	            this.submitButton.on('click', function (event) {
+	                self.parseForm();
+	                event.preventDefault();
+	                event.stopPropagation();
+	                return false;
+	            });
+
+	            this.orderForm.on('submint', function (event) {
+	                event.preventDefault();
+	                event.stopPropagation();
+	                return false;
+	            });
+	        }
+	    }, {
+	        key: 'parseForm',
+	        value: function parseForm() {
+	            var $orderTable = (0, _jquery2.default)('<table></table>');
+	            $orderTable.css('font-size', '32px');
+	            (0, _jquery2.default)('#order-form .table-item').each(function (index, row) {
+	                var $row = (0, _jquery2.default)(row);
+	                var $rowInput = $row.find('.spinner__input');
+	                if ($rowInput.val() && $rowInput.val() * 1 > 0) {
+	                    $orderTable.append('<tr><td>' + $row.find('.table-item__name').html() + '</td><td>' + (0, _jquery2.default)(row).find('.spinner__input').val() + '</td></tr>');
+	                }
+	            });
+	            // $('#form-output').html($orderTable);
+	            _jquery2.default.ajax({
+	                type: 'POST',
+	                url: 'http://localhost/bw/order.php',
+	                data: $orderTable,
+	                success: onSuccsess
+	            });
+
+	            function onSuccsess() {
+	                alert('hey! form sent');
+	            }
+	        }
+	    }]);
+
+	    return OrderFormSender;
+	}();
+
+	exports.default = OrderFormSender;
 
 /***/ })
 /******/ ]);

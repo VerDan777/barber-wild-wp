@@ -31,7 +31,7 @@
   <main class="site-main">
     <div class="wrapper">
       <section class="site-section site-section--partner-form">
-        <form class="form form--order">
+        <form class="form form--order" id="order-form">
           <fieldset class="form__fieldset">
             <legend class="form__legend">Заказ </legend>
             <div class="form__input-group">
@@ -181,10 +181,11 @@
             </table>
           </fieldset>
           <div class="form__input-group">
-            <button class="button" id="order-submit" type="submit">Подтвердить</button>
+            <input class="button" id="order-submit" type="submit" value="Подтвердить">
           </div>
           <div class="form__text">Доставка от 13 000 рублей бесплатно.<br>Нажимая кнопку «Подтвердить» вы соглашаетесь с <a href="#">политикой конфиденциальности</a></div>
         </form>
+        <div id="form-output"></div>
       </section>
     </div>
   </main>

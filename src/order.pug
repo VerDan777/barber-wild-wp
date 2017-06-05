@@ -36,7 +36,7 @@ html
 
     main.site-main: .wrapper
         section.site-section.site-section--partner-form
-            form.form.form--order()
+            form#order-form.form.form--order()
                 fieldset.form__fieldset
                     legend.form__legend Заказ 
                 
@@ -94,9 +94,11 @@ html
 
                 //- .form__text.form__text--right * Доставка от 13 000 рублей бесплатно.
                 .form__input-group
-                    button#order-submit.button(type="submit") Подтвердить
+                    input#order-submit.button(type="submit" value="Подтвердить")
 
                 .form__text Доставка от 13 000 рублей бесплатно.<br>Нажимая кнопку «Подтвердить» вы соглашаетесь с #[a(href="#") политикой конфиденциальности]
+
+            #form-output
                 
     
     footer.site-footer

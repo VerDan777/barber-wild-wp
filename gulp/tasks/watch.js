@@ -31,12 +31,17 @@ gulp.task('watch', function() {
 
     // wordpress
     watch('./wp/*.php', function() {
-        gulp.start('copyPHP');
+        gulp.start('copyWpPHP');
     });
 
     watch('./dist/styles.css', function() {
-        gulp.start('copyCSS');
+        gulp.start('copyWpCSS');
     });
+
+    // other php
+    watch('./orders/**/*.php', function() {
+        gulp.start('copyPHP');
+    })
 });
 
 gulp.task('jsChanged', ['scripts'], function() {
