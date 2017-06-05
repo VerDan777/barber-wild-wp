@@ -10502,13 +10502,23 @@
 	                    $orderTable.append('<tr><td>' + $row.find('.table-item__name').html() + '</td><td>' + (0, _jquery2.default)(row).find('.spinner__input').val() + '</td></tr>');
 	                }
 	            });
-	            // $('#form-output').html($orderTable);
+	            (0, _jquery2.default)('#form-output').html($orderTable);
+
+	            var dataToSend = {
+	                'subject': "Now from JS",
+	                'content': $orderTable.html()
+	            };
+
 	            _jquery2.default.ajax({
 	                type: 'POST',
 	                url: 'http://localhost/bw/order.php',
-	                data: $orderTable,
+	                data: dataToSend,
 	                success: onSuccsess
 	            });
+
+	            // $.post('http://localhost/bw/order.php', toString($orderTable)).succsess(function() {
+	            //     alert('hey go!');
+	            // })
 
 	            function onSuccsess() {
 	                alert('hey! form sent');

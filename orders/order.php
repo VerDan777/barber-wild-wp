@@ -29,6 +29,8 @@ try {
     $mail->isHTML(true);
     $mail->Subject = htmlspecialchars($subject);
     $mail->Body = $content;
+    // $mail->Subject = 'Ajax subject';
+    // $mail->Body = 'Test content';
 //   $mail->MsgHTML($content);
 //   if($attach)  $mail->AddAttachment($attach);
     $mail->Send();

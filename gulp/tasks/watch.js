@@ -38,6 +38,10 @@ gulp.task('watch', function() {
         gulp.start('copyWpCSS');
     });
 
+    watch('./dist/*.js', function() {
+        gulp.start('copyWpJS');
+    })
+
     // other php
     watch('./orders/**/*.php', function() {
         gulp.start('copyPHP');

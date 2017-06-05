@@ -37,13 +37,23 @@ class OrderFormSender {
                                     + '</td></tr>');
             }
         });
-        // $('#form-output').html($orderTable);
+        $('#form-output').html($orderTable);
+
+        let dataToSend = {
+            'subject': "Now from JS",
+            'content': $orderTable.html()
+        };
+
         $.ajax({
             type: 'POST',
             url: 'http://localhost/bw/order.php',
-            data: $orderTable,
+            data: dataToSend,
             success: onSuccsess
         });
+
+        // $.post('http://localhost/bw/order.php', toString($orderTable)).succsess(function() {
+        //     alert('hey go!');
+        // })
 
         function onSuccsess() {
             alert('hey! form sent');

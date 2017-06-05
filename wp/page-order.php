@@ -10,7 +10,7 @@
     <div class="wrapper">
 
         <section class="site-section site-section--partner-form">
-            <form class="form form--order" action="https://formspree.io/bwildorders@gmail.com" method="POST">
+            <form id="order-form" class="form form--order" action="https://formspree.io/bwildorders@gmail.com" method="POST">
                 <fieldset class="form__fieldset">
                     <legend class="form__legend">Заказ </legend>
                     <div class="form__input-group">
@@ -103,18 +103,21 @@
                 </fieldset>
 
                 <div class="form__input-group">
-                    <button class="button" type="submit">Подтвердить</button>
+                    <input class="button" id="order-submit" type="submit" value="Подтвердить">
                 </div>
 
                 <div class="form__text">Доставка от 13 000 рублей бесплатно.<br>Нажимая кнопку «Подтвердить» вы соглашаетесь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></div>
             </form>
+
+            <div id="form-output"></div>
+            
         </section>
 
     </div>
 </main>
 
-<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>
-<!--<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>-->
+<!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
+<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>
 
 <?php 
     get_footer();
