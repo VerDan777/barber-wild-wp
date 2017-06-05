@@ -114,6 +114,7 @@
 </main>
 
 <script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>
+<!--<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>-->
 
 <?php 
     get_footer();

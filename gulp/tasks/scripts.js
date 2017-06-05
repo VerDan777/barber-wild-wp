@@ -2,26 +2,12 @@ const gulp = require('gulp');
 const webpack = require('webpack-stream');
 
 const commonCfg = {
-    entry: './src/js/scripts.js',
-    output: {
-        filename: 'scripts.js'
+    entry: {
+        scripts: './src/js/scripts.js',
+        orders: './src/js/orders.js'
     },
-    module: {
-        loaders: [{
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015']
-            },
-            test: /\.js$/,
-            exclude: /node_modules/
-        }]
-    }
-}
-
-const ordersCfg = {
-    entry: './src/js/scripts.js',
     output: {
-        filename: 'order.js'
+        filename: '[name].js'
     },
     module: {
         loaders: [{
