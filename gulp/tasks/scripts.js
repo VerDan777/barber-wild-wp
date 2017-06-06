@@ -4,7 +4,8 @@ const webpack = require('webpack-stream');
 const commonCfg = {
     entry: {
         scripts: './src/js/scripts.js',
-        orders: './src/js/orders.js'
+        orders: './src/js/orders.js',
+        test: './src/js/test.js'
     },
     output: {
         filename: '[name].js'

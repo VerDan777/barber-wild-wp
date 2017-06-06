@@ -46,145 +46,33 @@
 
 	'use strict';
 
-	var _OrderCalculator = __webpack_require__(1);
-
-	var _OrderCalculator2 = _interopRequireDefault(_OrderCalculator);
-
-	var _OrderFormSender = __webpack_require__(3);
-
-	var _OrderFormSender2 = _interopRequireDefault(_OrderFormSender);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var orderCalc = new _OrderCalculator2.default();
-	var orderSender = new _OrderFormSender2.default();
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _jquery = __webpack_require__(2);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
+	var _jqueryValidation = __webpack_require__(4);
+
+	var _jqueryValidation2 = _interopRequireDefault(_jqueryValidation);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var OrderCalculator = function () {
-	    function OrderCalculator() {
-	        _classCallCheck(this, OrderCalculator);
-
-	        // table elements
-	        this.countInputs = (0, _jquery2.default)('.table-item__count input');
-	        this.costLabels = (0, _jquery2.default)('.table-item__cost');
-	        this.summLabel = (0, _jquery2.default)('.table-item__summ');
-
-	        // spinner elemtents
-	        this.decButtons = (0, _jquery2.default)('.spinner__minus');
-	        this.incButtons = (0, _jquery2.default)('.spinner__plus');
-
-	        this.events();
-	    }
-
-	    _createClass(OrderCalculator, [{
-	        key: 'events',
-	        value: function events() {
-	            var calc = this;
-	            var incInterval = void 0;
-	            var decInterval = void 0;
-
-	            this.countInputs.on('change', function (event) {
-	                this.calcTotal((0, _jquery2.default)(event.target));
-	            }.bind(this));
-
-	            // this.decButtons.click(function() {
-	            //     let input = $(this).parent().children('input');
-	            //     calc.decInput(input);
-	            // });
-
-	            // this.incButtons.click(function() {
-	            //     let input = $(this).parent().children('input');
-	            // });
-
-	            this.incButtons.on('mousedown', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                calc.incInput(input);
-	                incInterval = setInterval(function () {
-	                    calc.incInput(input);
-	                }, 250);
-	            });
-
-	            this.incButtons.on('mouseup', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                clearInterval(incInterval);
-	            });
-
-	            this.incButtons.on('mouseout', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                clearInterval(incInterval);
-	            });
-
-	            this.decButtons.on('mousedown', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                calc.decInput(input);
-	                decInterval = setInterval(function () {
-	                    calc.decInput(input);
-	                }, 250);
-	            });
-
-	            this.decButtons.on('mouseup', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                clearInterval(decInterval);
-	            });
-
-	            this.decButtons.on('mouseout', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
-	                clearInterval(decInterval);
-	            });
+	(0, _jquery2.default)(document).ready(function () {
+	    // console.log($('#order-form').validate());
+	    (0, _jquery2.default)('#order-form').validate({
+	        rules: {
+	            fullname: 'required',
+	            phone: 'required',
+	            email: {
+	                required: true,
+	                email: true
+	            },
+	            address: 'required'
 	        }
-	    }, {
-	        key: 'decInput',
-	        value: function decInput(input) {
-	            input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
-	            input.trigger('change');
-	        }
-	    }, {
-	        key: 'incInput',
-	        value: function incInput(input) {
-	            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
-	            input.trigger('change');
-	        }
-	    }, {
-	        key: 'calcTotal',
-	        value: function calcTotal(input) {
-	            var price = parseInt(input.parent().parent().parent().children('.table-item__price').html());
-	            var count = parseInt(input.val());
-	            var cost = input.parent().parent().parent().children('.table-item__cost');
-	            cost.html(price * count);
-
-	            var summ = 0;
-	            _jquery2.default.each(this.costLabels, function (i, val) {
-	                summ += parseInt((0, _jquery2.default)(val).html());
-	            });
-	            this.summLabel.html(summ);
-	        }
-	    }]);
-
-	    return OrderCalculator;
-	}();
-
-	exports.default = OrderCalculator;
+	    });
+	});
 
 /***/ }),
+/* 1 */,
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10444,125 +10332,7 @@
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _jquery = __webpack_require__(2);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _jqueryValidation = __webpack_require__(4);
-
-	var _jqueryValidation2 = _interopRequireDefault(_jqueryValidation);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var OrderFormSender = function () {
-	    function OrderFormSender() {
-	        _classCallCheck(this, OrderFormSender);
-
-	        this.submitButton = (0, _jquery2.default)('#order-submit');
-	        this.orderForm = (0, _jquery2.default)('#order-form');
-
-	        this.validateForm();
-	    }
-
-	    _createClass(OrderFormSender, [{
-	        key: 'validateForm',
-	        value: function validateForm() {
-	            var self = this;
-
-	            (0, _jquery2.default)('#order-form').validate({
-	                rules: {
-	                    fullname: 'required',
-	                    phone: 'required',
-	                    email: {
-	                        required: true,
-	                        email: true
-	                    },
-	                    address: 'required'
-	                },
-	                messages: {
-	                    fullname: "Пожалуйста введите свое имя",
-	                    phone: "Пожалуйста введите номер телефона",
-	                    email: "Пожалуйста введите адрес электронной почты",
-	                    address: "Пожалуйста введите адрес доставки"
-	                },
-	                submitHandler: function submitHandler(form) {
-	                    self.parseForm();
-	                }
-	            });
-	        }
-	    }, {
-	        key: 'parseForm',
-	        value: function parseForm() {
-	            var $orderTable = (0, _jquery2.default)('<table></table>');
-
-	            (0, _jquery2.default)('#form-output').css('font-size', '32px');
-
-	            // Creating customer info
-	            var customer = {
-	                name: this.orderForm.find('input[name="fullname"]').val(),
-	                phone: this.orderForm.find('input[name="phone"]').val(),
-	                email: this.orderForm.find('input[name="email"]').val(),
-	                address: this.orderForm.find('input[name="address"]').val()
-	            };
-
-	            console.log(customer);
-
-	            // Creating table: (Item name, Quantity)
-	            (0, _jquery2.default)('#order-form .table-item').each(function (index, row) {
-	                var $row = (0, _jquery2.default)(row);
-	                var $rowInput = $row.find('.spinner__input');
-	                if ($rowInput.val() && $rowInput.val() * 1 > 0) {
-	                    $orderTable.append('<tr><td>' + $row.find('.table-item__name').html() + '</td><td>' + (0, _jquery2.default)(row).find('.spinner__input').val() + '</td></tr>');
-	                }
-	            });
-
-	            var $fullOrder = (0, _jquery2.default)('<div></div>');
-	            $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>' + customer.name + '</div>');
-	            $fullOrder.append('<div><span>Номер телефона: </span>' + customer.phone + '</div>');
-	            $fullOrder.append('<div><span>Электронная почта: </span>' + customer.email + '</div>');
-	            $fullOrder.append('<div><span>Адрес доставки: </span>' + customer.address + '</div>');
-	            $fullOrder.append($orderTable);
-
-	            // $('#form-output').html($orderTable);
-	            // $('#form-output').html($fullOrder);
-
-	            var dataToSend = {
-	                'subject': "Now from JS",
-	                'content': $fullOrder.html()
-	            };
-
-	            _jquery2.default.ajax({
-	                type: 'POST',
-	                url: 'http://localhost/bw/order.php',
-	                data: dataToSend,
-	                success: onSuccsess
-	            });
-
-	            function onSuccsess() {
-	                alert('hey! form sent');
-	            }
-	        }
-	    }]);
-
-	    return OrderFormSender;
-	}();
-
-	exports.default = OrderFormSender;
-
-/***/ }),
+/* 3 */,
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 

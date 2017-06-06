@@ -85,6 +85,18 @@
     &__input-group {
         // box model
         padding: 10px 0;
+
+        .error {
+            // box model
+            display: block;
+            padding-top: 5px;
+
+            // typography
+            color: red;
+            font-family: $mainFont;
+            font-size: 1rem;
+            text-align: left;
+        }
     }
 
     &__icon {

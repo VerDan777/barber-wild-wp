@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _MobileMenu = __webpack_require__(4);
+	var _MobileMenu = __webpack_require__(5);
 
 	var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 
@@ -10316,7 +10316,8 @@
 
 /***/ }),
 /* 3 */,
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

@@ -27,7 +27,7 @@
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">4</label>
-                        <input class="form__input" type="text" name="address" placeholder="Адрес" required>
+                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
                     </div>
                 </fieldset>
                 <fieldset class="form__fieldset">

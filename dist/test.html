@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Barber WILD</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body></body>
+  <main class="site-main">
+    <div class="wrapper">
+      <section class="site-section site-section--partner-form">
+        <form class="form form--order" id="order-form">
+          <fieldset class="form__fieldset">
+            <legend class="form__legend">Заказ </legend>
+            <div class="form__input-group">
+              <label class="form__icon">1</label>
+              <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество" data-validation="required">
+            </div>
+            <div class="form__input-group">
+              <label class="form__icon">2</label>
+              <input class="form__input" type="text" name="phone" placeholder="Номер телефона" data-validation="required">
+            </div>
+            <div class="form__input-group">
+              <label class="form__icon">3</label>
+              <input class="form__input" type="text" name="email" placeholder="Электронная почта" data-validation="email required">
+            </div>
+            <div class="form__input-group">
+              <label class="form__icon">4</label>
+              <input class="form__input" type="text" name="address" placeholder="Адрес доставки" data-validation="required">
+            </div>
+          </fieldset>
+          <fieldset class="form__fieldset">
+            <input class="button" id="order-submit" type="submit" value="Подтвердить">
+          </fieldset>
+        </form>
+        <div id="form-output"></div>
+      </section>
+    </div>
+  </main>
+  <script src="test.js"></script>
+</html>
