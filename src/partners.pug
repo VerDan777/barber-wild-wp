@@ -39,7 +39,7 @@ html
 
                 p Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.
                 
-                form(action='https://formspree.io/bwildorders@gmail.com',method="POST").form.form--partners
+                form(action='https://formspree.io/bwildorders@gmail.com',method="POST")#partners-form.form.form--partners
                     fieldset.form__fieldset
                         legend.form__legend Заявка на сотрудничество 
                         
@@ -63,7 +63,7 @@ html
                             label.form__icon 5
                             input.form__input(type="text",name="company",placeholder="Организация (барбершоп)")
                         .form__input-group
-                            button.button(type="submit") Подтвердить
+                            input#partners-submit.button(type="submit" value="Подтвердить")
 
                         .form__text Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> #[a(href="#") политикой конфиденциальности]
 
@@ -105,3 +105,11 @@ html
                 - var links = ["about.html", "shop.html", "partners.html"];
                 - for (var i = 0; i < 3; i++)
                     li: a(href=links[i])= list[i]
+        
+        #order-popup.order-popup
+            .order-popup__content
+                h2.order-popup__title Отправка заявки
+                .order-popup__progress: img(src="./img/drum.png")
+                a(href="#" hidden).button.order-popup__button OK
+        
+        script(src="partners.js")

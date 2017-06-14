@@ -9,28 +9,27 @@
 <main class="site-main">
     <div class="wrapper">
         <section class="site-section description description--partners">
-            <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST">
+            <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST" id="partners-form">
                 <fieldset class="form__fieldset">
                     <legend class="form__legend">Заявка на сотрудничество </legend>
-
                     <div class="form__input-group">
                         <label class="form__icon">1</label>
-                        <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество">
+                        <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество" required>
                     </div>
 
                     <div class="form__input-group">
                         <label class="form__icon">2</label>
-                        <input class="form__input" type="text" name="phone" placeholder="Номер телефона">
+                        <input class="form__input" type="text" name="phone" placeholder="Номер телефона" required>
                     </div>
 
                     <div class="form__input-group">
                         <label class="form__icon">3</label>
-                        <input class="form__input" type="text" name="email" placeholder="Электронная почта">
+                        <input class="form__input" type="text" name="email" placeholder="Электронная почта" required>
                     </div>
-
+                    
                     <div class="form__input-group">
                         <label class="form__icon">4</label>
-                        <input class="form__input" type="text" name="address" placeholder="Город">
+                        <input class="form__input" type="text" name="address" placeholder="Город" required>
                     </div>
 
                     <div class="form__input-group">
@@ -39,10 +38,10 @@
                     </div>
 
                     <div class="form__input-group">
-                        <button class="button" type="submit">Подтвердить</button>
+                        <input class="button" id="partners-submit" type="submit" value="Подтвердить">
                     </div>
 
-                    <div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></div>
+                    <div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> <a href="#">политикой конфиденциальности</a></div>
                 </fieldset>
             </form>
 
@@ -106,6 +105,16 @@
         </section>
     </div>
 </main>
+
+<div class="order-popup" id="order-popup">
+    <div class="order-popup__content">
+        <h2 class="order-popup__title">Отправка заказа</h2>
+        <div class="order-popup__progress"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/drum.png"></div>
+        <a class="button order-popup__button" href="#" hidden>OK</a>
+    </div>
+</div>
+
+<script src="<?php bloginfo('stylesheet_directory'); ?>/partners.js"></script>
 
 <?php 
     get_footer();

@@ -33,7 +33,7 @@
         <section class="site-section description description--partners">
           <p>Почти полсотни барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.</p>
           <p>Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.</p>
-          <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST">
+          <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST" id="partners-form">
             <fieldset class="form__fieldset">
               <legend class="form__legend">Заявка на сотрудничество </legend>
               <div class="form__input-group">
@@ -57,7 +57,7 @@
                 <input class="form__input" type="text" name="company" placeholder="Организация (барбершоп)">
               </div>
               <div class="form__input-group">
-                <button class="button" type="submit">Подтвердить</button>
+                <input class="button" id="partners-submit" type="submit" value="Подтвердить">
               </div>
               <div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> <a href="#">политикой конфиденциальности</a></div>
             </fieldset>
@@ -116,5 +116,12 @@
         </ul>
       </nav>
     </footer>
+    <div class="order-popup" id="order-popup">
+      <div class="order-popup__content">
+        <h2 class="order-popup__title">Отправка заявки </h2>
+        <div class="order-popup__progress"><img src="./img/drum.png"></div><a class="button order-popup__button" href="#" hidden>OK</a>
+      </div>
+    </div>
+    <script src="partners.js"></script>
   </body>
 </html>

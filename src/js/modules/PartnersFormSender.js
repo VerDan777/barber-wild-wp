@@ -1,10 +1,11 @@
 import $ from 'jquery';
 import Validator from 'jquery-validation';
+// import Base64 from './Base64.js';
 
-class OrderFormSender {
+class PartnersFormSender {
     constructor() {
-        this.submitButton = $('#order-submit');
-        this.orderForm = $('#order-form');
+        this.submitButton = $('#partners-submit');
+        this.partnersForm = $('#partners-form');
 
         this.okButton = $('#order-popup .order-popup__button');
 
@@ -13,14 +14,14 @@ class OrderFormSender {
     }
 
     setupPopup() {
-        let $orderProgress = $('#order-popup .order-popup__progress');
-        $orderProgress.show();
+        let $ordersProgress = $('#order-popup .order-popup__progress');
+        $ordersProgress.show();
 
         function rotate() {
-            $orderProgress.css({transform: 'rotate('+ rotate.degree + 'deg)'});
+            $ordersProgress.css({transform: 'rotate(' + rotate.degree +'deg)'});
             rotate.degree += 5;
             setTimeout(rotate, 25);
-        };
+        }
         rotate.degree = 0;
         rotate();
 
@@ -36,7 +37,6 @@ class OrderFormSender {
         let $orderPopupContent = $('#order-popup .order-popup__content');
         $orderPopup.addClass('order-popup--shown');
         $orderPopupContent.addClass('order-popup__content--shown');
-        $('#order-popup .order-popup__button').hide();
     }
 
     hidePopup() {
@@ -49,7 +49,7 @@ class OrderFormSender {
     setupValidator() {
         let self = this;
 
-        $('#order-form').validate({
+        this.partnersForm.validate({
             rules: {
                 fullname: 'required',
                 phone: 'required',
@@ -60,11 +60,12 @@ class OrderFormSender {
                 address: 'required'
             },
             messages: {
-                fullname: "Пожалуйста введите свое имя",
-                phone: "Пожалуйста введите номер телефона",
-                email: "Пожалуйста введите адрес электронной почты",
-                address: "Пожалуйста введите адрес доставки"
+                fullname: 'Пожалуйста введите свое имя',
+                phone: 'Пожалуйста введите номер телефона',
+                email: 'Пожалуйста введите адрес электронной почты',
+                address: 'Пожалуйста введите название города'
             },
+            // submitHandler: self.parseForm
             submitHandler: function(form) {
                 self.parseForm();
             }
@@ -76,36 +77,25 @@ class OrderFormSender {
 
         this.showPopup();
 
-        let $orderTable = $('<table></table>');
-
-        $('#form-output').css('font-size', '32px');
-
-        // Creating customer info
-        let customer = {
-            name: this.orderForm.find('input[name="fullname"]').val(),
-            phone: this.orderForm.find('input[name="phone"]').val(),
-            email: this.orderForm.find('input[name="email"]').val(),
-            address: this.orderForm.find('input[name="address"]').val()
-        }
-
-        // Creating table: (Item name, Quantity)
-        $('#order-form .table-item').each(function(index, row) {
-            let $row = $(row);
-            let $rowInput = $row.find('.spinner__input')
-            if ($rowInput.val() && $rowInput.val() * 1 > 0) {
-                $orderTable.append('<tr><td>'+ $row.find('.table-item__name').html() + '</td><td>' + $(row).find('.spinner__input').val() + '</td></tr>');
-            }
-        });
+        // creating partner info
+        let partner = {
+            name: this.partnersForm.find('input[name="fullname"]').val(),
+            phone: this.partnersForm.find('input[name="phone"]').val(),
+            email: this.partnersForm.find('input[name="email"]').val(),
+            address: this.partnersForm.find('input[name="address"]').val(),
+            company: this.partnersForm.find('input[name="company"]').val()
+        };
 
         let $fullOrder = $('<div></div>');
-        $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>'+ customer.name +'</div>');
-        $fullOrder.append('<div><span>Номер телефона: </span>'+ customer.phone +'</div>');
-        $fullOrder.append('<div><span>Электронная почта: </span>'+ customer.email +'</div>');
-        $fullOrder.append('<div><span>Адрес доставки: </span>'+ customer.address +'</div>');
-        $fullOrder.append($orderTable);
-
+        $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>'+ partner.name +'</div>');
+        $fullOrder.append('<div><span>Номер телефона: </span>'+ partner.phone +'</div>');
+        $fullOrder.append('<div><span>Электронная почта: </span>'+ partner.email +'</div>');
+        $fullOrder.append('<div><span>Город: </span>'+ partner.address +'</div>');
+        $fullOrder.append('<div><span>Организация (барбершоп): </span>'+ partner.сompany +'</div>');
+        
         let dataToSend = {
-            'subject': "Products order",
+            // 'subject': this.base64.encode('Заявка на сотрудничество'),
+            'subject': 'Partnership order',
             'content': $fullOrder.html()
         };
 
@@ -119,20 +109,20 @@ class OrderFormSender {
         });
 
         function onSuccess() {
-            $('#order-popup .order-popup__title').text('Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.');
+            $('#order-popup .order-popup__title').html('Спасибо! Ваша заявка успешно принята. <br> В скором времени мы с вами свяжемся.');
             // setTimeout(self.hidePopup, 2000);
             $('#order-popup .order-popup__progress').hide();
             $('#order-popup .order-popup__button').show();
-            self.orderForm[0].reset();
+            self.partnersForm[0].reset();
         }
 
         function onError() {
             $('#order-popup .order-popup__title').text('Ошибка отправки. Проверьте соединение или попробуйте позже.');
             $('#order-popup .order-popup__progress').hide();
             $('#order-popup .order-popup__button').show();
-            setTimeout(self.hidePopup, 2000);
+            // setTimeout(self.hidePopup, 2000);
         }
     }
 }
 
-export default OrderFormSender;
+export default PartnersFormSender;

@@ -10474,13 +10474,15 @@
 	        this.submitButton = (0, _jquery2.default)('#order-submit');
 	        this.orderForm = (0, _jquery2.default)('#order-form');
 
-	        this.setup();
-	        this.validateForm();
+	        this.okButton = (0, _jquery2.default)('#order-popup .order-popup__button');
+
+	        this.setupPopup();
+	        this.setupValidator();
 	    }
 
 	    _createClass(OrderFormSender, [{
-	        key: 'setup',
-	        value: function setup() {
+	        key: 'setupPopup',
+	        value: function setupPopup() {
 	            var $orderProgress = (0, _jquery2.default)('#order-popup .order-popup__progress');
 	            $orderProgress.show();
 
@@ -10491,6 +10493,12 @@
 	            };
 	            rotate.degree = 0;
 	            rotate();
+
+	            var self = this;
+	            this.okButton.on('click', function (event) {
+	                self.hidePopup();
+	                event.preventDefault();
+	            });
 	        }
 	    }, {
 	        key: 'showPopup',
@@ -10510,19 +10518,19 @@
 	            $orderPopupContent.removeClass('order-popup__content--shown');
 	        }
 	    }, {
-	        key: 'validateForm',
-	        value: function validateForm() {
+	        key: 'setupValidator',
+	        value: function setupValidator() {
 	            var self = this;
 
 	            (0, _jquery2.default)('#order-form').validate({
 	                rules: {
-	                    // fullname: 'required',
-	                    // phone: 'required',
-	                    // email: {
-	                    //     required: true,
-	                    //     email: true
-	                    // },
-	                    // address: 'required'
+	                    fullname: 'required',
+	                    phone: 'required',
+	                    email: {
+	                        required: true,
+	                        email: true
+	                    },
+	                    address: 'required'
 	                },
 	                messages: {
 	                    fullname: "Пожалуйста введите свое имя",
@@ -10571,7 +10579,7 @@
 	            $fullOrder.append($orderTable);
 
 	            var dataToSend = {
-	                'subject': "Now from JS",
+	                'subject': "Products order",
 	                'content': $fullOrder.html()
 	            };
 
@@ -10579,23 +10587,24 @@
 	                type: 'POST',
 	                url: 'http://localhost/bw/order.php',
 	                data: dataToSend,
-	                success: onSuccsess,
+	                success: onSuccess,
 	                error: onError
 	                // complete: onComplete
 	            });
 
-	            function onSuccsess() {
-	                (0, _jquery2.default)('#order-popup .order-popup__title').text('Спасибо! Ваша заявка успешно принята.');
+	            function onSuccess() {
+	                (0, _jquery2.default)('#order-popup .order-popup__title').text('Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.');
 	                // setTimeout(self.hidePopup, 2000);
 	                (0, _jquery2.default)('#order-popup .order-popup__progress').hide();
 	                (0, _jquery2.default)('#order-popup .order-popup__button').show();
+	                self.orderForm[0].reset();
 	            }
 
 	            function onError() {
 	                (0, _jquery2.default)('#order-popup .order-popup__title').text('Ошибка отправки. Проверьте соединение или попробуйте позже.');
-	                // setTimeout(self.hidePopup, 2000);
 	                (0, _jquery2.default)('#order-popup .order-popup__progress').hide();
 	                (0, _jquery2.default)('#order-popup .order-popup__button').show();
+	                setTimeout(self.hidePopup, 2000);
 	            }
 	        }
 	    }]);

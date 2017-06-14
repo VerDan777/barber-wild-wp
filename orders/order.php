@@ -3,7 +3,6 @@
 echo 'start<br>';
 
 require('./mail/PHPMailerAutoload.php');
-// require_once('./mail/class.phpmailer.php');
 require_once('./mail/config.php');
 
 $mail = new PHPMailer;
@@ -27,7 +26,10 @@ try {
     $mail->SetFrom($__smtp['addreply'], $__smtp['nickname']);
 
     $mail->isHTML(true);
-    $mail->Subject = htmlspecialchars($subject);
+    // $mail->Subject = "?utf-8?b?" . base64_encode(htmlspecialchars($subject));
+    // $mail->Subject = "?utf-8?b?" . utf8_encode(htmlspecialchars($subject));
+    $mail->Subject = utf8_encode(htmlspecialchars($subject));
+    // $mail->Subject = utf8_encode($subject);
     $mail->Body = $content;
     // $mail->Subject = 'Ajax subject';
     // $mail->Body = 'Test content';
