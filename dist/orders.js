@@ -10474,23 +10474,55 @@
 	        this.submitButton = (0, _jquery2.default)('#order-submit');
 	        this.orderForm = (0, _jquery2.default)('#order-form');
 
+	        this.setup();
 	        this.validateForm();
 	    }
 
 	    _createClass(OrderFormSender, [{
+	        key: 'setup',
+	        value: function setup() {
+	            var $orderProgress = (0, _jquery2.default)('#order-popup .order-popup__progress');
+	            $orderProgress.show();
+
+	            function rotate() {
+	                $orderProgress.css({ transform: 'rotate(' + rotate.degree + 'deg)' });
+	                rotate.degree += 5;
+	                setTimeout(rotate, 25);
+	            };
+	            rotate.degree = 0;
+	            rotate();
+	        }
+	    }, {
+	        key: 'showPopup',
+	        value: function showPopup() {
+	            var $orderPopup = (0, _jquery2.default)('#order-popup');
+	            var $orderPopupContent = (0, _jquery2.default)('#order-popup .order-popup__content');
+	            $orderPopup.addClass('order-popup--shown');
+	            $orderPopupContent.addClass('order-popup__content--shown');
+	            (0, _jquery2.default)('#order-popup .order-popup__button').hide();
+	        }
+	    }, {
+	        key: 'hidePopup',
+	        value: function hidePopup() {
+	            var $orderPopup = (0, _jquery2.default)('#order-popup');
+	            var $orderPopupContent = (0, _jquery2.default)('#order-popup .order-popup__content');
+	            $orderPopup.removeClass('order-popup--shown');
+	            $orderPopupContent.removeClass('order-popup__content--shown');
+	        }
+	    }, {
 	        key: 'validateForm',
 	        value: function validateForm() {
 	            var self = this;
 
 	            (0, _jquery2.default)('#order-form').validate({
 	                rules: {
-	                    fullname: 'required',
-	                    phone: 'required',
-	                    email: {
-	                        required: true,
-	                        email: true
-	                    },
-	                    address: 'required'
+	                    // fullname: 'required',
+	                    // phone: 'required',
+	                    // email: {
+	                    //     required: true,
+	                    //     email: true
+	                    // },
+	                    // address: 'required'
 	                },
 	                messages: {
 	                    fullname: "Пожалуйста введите свое имя",
@@ -10506,6 +10538,10 @@
 	    }, {
 	        key: 'parseForm',
 	        value: function parseForm() {
+	            var self = this;
+
+	            this.showPopup();
+
 	            var $orderTable = (0, _jquery2.default)('<table></table>');
 
 	            (0, _jquery2.default)('#form-output').css('font-size', '32px');
@@ -10517,8 +10553,6 @@
 	                email: this.orderForm.find('input[name="email"]').val(),
 	                address: this.orderForm.find('input[name="address"]').val()
 	            };
-
-	            console.log(customer);
 
 	            // Creating table: (Item name, Quantity)
 	            (0, _jquery2.default)('#order-form .table-item').each(function (index, row) {
@@ -10536,9 +10570,6 @@
 	            $fullOrder.append('<div><span>Адрес доставки: </span>' + customer.address + '</div>');
 	            $fullOrder.append($orderTable);
 
-	            // $('#form-output').html($orderTable);
-	            // $('#form-output').html($fullOrder);
-
 	            var dataToSend = {
 	                'subject': "Now from JS",
 	                'content': $fullOrder.html()
@@ -10548,11 +10579,23 @@
 	                type: 'POST',
 	                url: 'http://localhost/bw/order.php',
 	                data: dataToSend,
-	                success: onSuccsess
+	                success: onSuccsess,
+	                error: onError
+	                // complete: onComplete
 	            });
 
 	            function onSuccsess() {
-	                alert('hey! form sent');
+	                (0, _jquery2.default)('#order-popup .order-popup__title').text('Спасибо! Ваша заявка успешно принята.');
+	                // setTimeout(self.hidePopup, 2000);
+	                (0, _jquery2.default)('#order-popup .order-popup__progress').hide();
+	                (0, _jquery2.default)('#order-popup .order-popup__button').show();
+	            }
+
+	            function onError() {
+	                (0, _jquery2.default)('#order-popup .order-popup__title').text('Ошибка отправки. Проверьте соединение или попробуйте позже.');
+	                // setTimeout(self.hidePopup, 2000);
+	                (0, _jquery2.default)('#order-popup .order-popup__progress').hide();
+	                (0, _jquery2.default)('#order-popup .order-popup__button').show();
 	            }
 	        }
 	    }]);

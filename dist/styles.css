@@ -1793,3 +1793,49 @@ body {
     .spinner__input:focus {
       border-color: #c7a166;
       outline: none; }
+
+.order-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: rgba(233, 220, 202, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-out; }
+  .order-popup--shown {
+    opacity: 1;
+    visibility: visible; }
+  .order-popup__content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    margin: 0 auto;
+    max-width: 0;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #c7a166;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out; }
+    .order-popup__content--shown {
+      max-width: 800px;
+      opacity: 1;
+      visibility: visible; }
+  .order-popup__title {
+    color: #252525;
+    font-family: "IntroBold";
+    text-transform: uppercase; }
+  .order-popup__progress {
+    height: 64px;
+    width: 64px;
+    margin: 0 auto; }
+    .order-popup__progress img {
+      height: 100%;
+      width: 100%; }

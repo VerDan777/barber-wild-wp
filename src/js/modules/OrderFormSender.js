@@ -6,7 +6,37 @@ class OrderFormSender {
         this.submitButton = $('#order-submit');
         this.orderForm = $('#order-form');
 
+        this.setup();
         this.validateForm();
+    }
+
+    setup() {
+        let $orderProgress = $('#order-popup .order-popup__progress');
+        $orderProgress.show();
+
+        function rotate() {
+            $orderProgress.css({transform: 'rotate('+ rotate.degree + 'deg)'});
+            rotate.degree += 5;
+            setTimeout(rotate, 25);
+        };
+        rotate.degree = 0;
+        rotate();
+    }
+
+    showPopup() {
+        let $orderPopup = $('#order-popup');
+        let $orderPopupContent = $('#order-popup .order-popup__content');
+        $orderPopup.addClass('order-popup--shown');
+        $orderPopupContent.addClass('order-popup__content--shown');
+        $('#order-popup .order-popup__button').hide();
+    }
+
+    hidePopup() {
+        let $orderPopup = $('#order-popup');
+        let $orderPopupContent = $('#order-popup .order-popup__content');
+        $orderPopup.removeClass('order-popup--shown');
+        $orderPopupContent.removeClass('order-popup__content--shown');
+        
     }
 
     validateForm() {
@@ -14,13 +44,13 @@ class OrderFormSender {
 
         $('#order-form').validate({
             rules: {
-                fullname: 'required',
-                phone: 'required',
-                email: {
-                    required: true,
-                    email: true
-                },
-                address: 'required'
+                // fullname: 'required',
+                // phone: 'required',
+                // email: {
+                //     required: true,
+                //     email: true
+                // },
+                // address: 'required'
             },
             messages: {
                 fullname: "Пожалуйста введите свое имя",
@@ -35,6 +65,10 @@ class OrderFormSender {
     }
 
     parseForm() {
+        let self = this;
+
+        this.showPopup();
+
         let $orderTable = $('<table></table>');
 
         $('#form-output').css('font-size', '32px');
@@ -46,8 +80,6 @@ class OrderFormSender {
             email: this.orderForm.find('input[name="email"]').val(),
             address: this.orderForm.find('input[name="address"]').val()
         }
-
-        console.log(customer);
 
         // Creating table: (Item name, Quantity)
         $('#order-form .table-item').each(function(index, row) {
@@ -65,10 +97,6 @@ class OrderFormSender {
         $fullOrder.append('<div><span>Адрес доставки: </span>'+ customer.address +'</div>');
         $fullOrder.append($orderTable);
 
-
-        // $('#form-output').html($orderTable);
-        // $('#form-output').html($fullOrder);
-
         let dataToSend = {
             'subject': "Now from JS",
             'content': $fullOrder.html()
@@ -78,11 +106,23 @@ class OrderFormSender {
             type: 'POST',
             url: 'http://localhost/bw/order.php',
             data: dataToSend,
-            success: onSuccsess
+            success: onSuccsess,
+            error: onError
+            // complete: onComplete
         });
 
         function onSuccsess() {
-            alert('hey! form sent');
+            $('#order-popup .order-popup__title').text('Спасибо! Ваша заявка успешно принята.');
+            // setTimeout(self.hidePopup, 2000);
+            $('#order-popup .order-popup__progress').hide();
+            $('#order-popup .order-popup__button').show();
+        }
+
+        function onError() {
+            $('#order-popup .order-popup__title').text('Ошибка отправки. Проверьте соединение или попробуйте позже.');
+            // setTimeout(self.hidePopup, 2000);
+            $('#order-popup .order-popup__progress').hide();
+            $('#order-popup .order-popup__button').show();
         }
     }
 }

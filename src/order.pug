@@ -119,4 +119,10 @@ html
             - for (var i = 0; i < 3; i++)
                 li: a(href=links[i])= list[i]
 
+    #order-popup.order-popup
+        .order-popup__content
+            h2.order-popup__title Отправка заказа
+            .order-popup__progress: img(src="./img/drum.png")
+            a(href="#" hidden).button.order-popup__button OK
+
     script(src="orders.js")
