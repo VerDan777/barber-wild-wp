@@ -46,13 +46,13 @@
 
 	'use strict';
 
-	var _PartnersFormSender = __webpack_require__(5);
+	var _SamplesFormSender = __webpack_require__(6);
 
-	var _PartnersFormSender2 = _interopRequireDefault(_PartnersFormSender);
+	var _SamplesFormSender2 = _interopRequireDefault(_SamplesFormSender);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var partnersFormSender = new _PartnersFormSender2.default();
+	var samplesFormSender = new _SamplesFormSender2.default();
 
 /***/ }),
 /* 1 */,
@@ -11895,7 +11895,8 @@
 	}));
 
 /***/ }),
-/* 5 */
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11920,9 +11921,9 @@
 
 	// import Base64 from './Base64.js';
 
-	var PartnersFormSender = function () {
-	    function PartnersFormSender() {
-	        _classCallCheck(this, PartnersFormSender);
+	var SamplesFormSender = function () {
+	    function SamplesFormSender() {
+	        _classCallCheck(this, SamplesFormSender);
 
 	        this.submitButton = (0, _jquery2.default)('#partners-submit');
 	        this.partnersForm = (0, _jquery2.default)('#partners-form');
@@ -11933,7 +11934,7 @@
 	        this.setupValidator();
 	    }
 
-	    _createClass(PartnersFormSender, [{
+	    _createClass(SamplesFormSender, [{
 	        key: 'setupPopup',
 	        value: function setupPopup() {
 	            var $ordersProgress = (0, _jquery2.default)('#order-popup .order-popup__progress');
@@ -11982,13 +11983,15 @@
 	                        required: true,
 	                        email: true
 	                    },
-	                    address: 'required'
+	                    address: 'required',
+	                    company: 'required'
 	                },
 	                messages: {
 	                    fullname: 'Пожалуйста введите свое имя',
 	                    phone: 'Пожалуйста введите номер телефона',
 	                    email: 'Пожалуйста введите адрес электронной почты',
-	                    address: 'Пожалуйста введите название города'
+	                    address: 'Пожалуйста введите название города',
+	                    company: 'Пожалуйста введите название организации'
 	                },
 	                // submitHandler: self.parseForm
 	                submitHandler: function submitHandler(form) {
@@ -12013,6 +12016,7 @@
 	            };
 
 	            var $fullOrder = (0, _jquery2.default)('<div></div>');
+	            $fullOrder.append('<h1>Заявка на халявную косметику</h1>');
 	            $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>' + partner.name + '</div>');
 	            $fullOrder.append('<div><span>Номер телефона: </span>' + partner.phone + '</div>');
 	            $fullOrder.append('<div><span>Электронная почта: </span>' + partner.email + '</div>');
@@ -12021,7 +12025,7 @@
 
 	            var dataToSend = {
 	                // 'subject': this.base64.encode('Заявка на сотрудничество'),
-	                'subject': 'Partnership order',
+	                'subject': 'Free samples',
 	                'content': $fullOrder.html()
 	            };
 
@@ -12052,10 +12056,10 @@
 	        }
 	    }]);
 
-	    return PartnersFormSender;
+	    return SamplesFormSender;
 	}();
 
-	exports.default = PartnersFormSender;
+	exports.default = SamplesFormSender;
 
 /***/ })
 /******/ ]);

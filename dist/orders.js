@@ -10585,7 +10585,8 @@
 
 	            _jquery2.default.ajax({
 	                type: 'POST',
-	                url: 'http://localhost/bw/order.php',
+	                // url: 'http://localhost/bw/order.php',
+	                url: 'http://barberwild.com/order.php',
 	                data: dataToSend,
 	                success: onSuccess,
 	                error: onError
@@ -10593,7 +10594,7 @@
 	            });
 
 	            function onSuccess() {
-	                (0, _jquery2.default)('#order-popup .order-popup__title').text('Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.');
+	                (0, _jquery2.default)('#order-popup .order-popup__title').html('Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.');
 	                // setTimeout(self.hidePopup, 2000);
 	                (0, _jquery2.default)('#order-popup .order-popup__progress').hide();
 	                (0, _jquery2.default)('#order-popup .order-popup__button').show();

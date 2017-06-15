@@ -111,7 +111,8 @@ class OrderFormSender {
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/bw/order.php',
+            // url: 'http://localhost/bw/order.php',
+            url: 'http://barberwild.com/order.php',
             data: dataToSend,
             success: onSuccess,
             error: onError
@@ -119,7 +120,7 @@ class OrderFormSender {
         });
 
         function onSuccess() {
-            $('#order-popup .order-popup__title').text('Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.');
+            $('#order-popup .order-popup__title').html('Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.');
             // setTimeout(self.hidePopup, 2000);
             $('#order-popup .order-popup__progress').hide();
             $('#order-popup .order-popup__button').show();

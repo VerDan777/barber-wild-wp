@@ -5,7 +5,8 @@ const commonCfg = {
     entry: {
         scripts: './src/js/scripts.js',
         orders: './src/js/orders.js',
-        partners: './src/js/partners.js'
+        partners: './src/js/partners.js',
+        samples: './src/js/samples.js'
     },
     output: {
         filename: '[name].js'

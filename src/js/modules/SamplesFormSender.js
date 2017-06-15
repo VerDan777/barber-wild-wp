@@ -2,7 +2,7 @@ import $ from 'jquery';
 import Validator from 'jquery-validation';
 // import Base64 from './Base64.js';
 
-class PartnersFormSender {
+class SamplesFormSender {
     constructor() {
         this.submitButton = $('#partners-submit');
         this.partnersForm = $('#partners-form');
@@ -57,13 +57,15 @@ class PartnersFormSender {
                     required: true,
                     email: true
                 },
-                address: 'required'
+                address: 'required',
+                company: 'required'
             },
             messages: {
                 fullname: 'Пожалуйста введите свое имя',
                 phone: 'Пожалуйста введите номер телефона',
                 email: 'Пожалуйста введите адрес электронной почты',
-                address: 'Пожалуйста введите название города'
+                address: 'Пожалуйста введите название города',
+                company: 'Пожалуйста введите название организации'
             },
             // submitHandler: self.parseForm
             submitHandler: function(form) {
@@ -87,6 +89,7 @@ class PartnersFormSender {
         };
 
         let $fullOrder = $('<div></div>');
+        $fullOrder.append('<h1>Заявка на халявную косметику</h1>');
         $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>'+ partner.name +'</div>');
         $fullOrder.append('<div><span>Номер телефона: </span>'+ partner.phone +'</div>');
         $fullOrder.append('<div><span>Электронная почта: </span>'+ partner.email +'</div>');
@@ -95,7 +98,7 @@ class PartnersFormSender {
         
         let dataToSend = {
             // 'subject': this.base64.encode('Заявка на сотрудничество'),
-            'subject': 'Partnership order',
+            'subject': 'Free samples',
             'content': $fullOrder.html()
         };
 
@@ -126,4 +129,4 @@ class PartnersFormSender {
     }
 }
 
-export default PartnersFormSender;
+export default SamplesFormSender;

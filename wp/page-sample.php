@@ -1,6 +1,6 @@
 <?php 
     /*
-        Template Name: Partners Page
+        Template Name: Sample Order Page
     */
 
     get_header();
@@ -9,13 +9,14 @@
 <main class="site-main">
     <div class="wrapper">
         <section class="site-section description description--partners">
-            <p>Уже несколько сотен барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.</p>
+            <p>Уже несколько сотен барбершопов в разных городах России и СНГ используют косметику Barber WILD в своей работе и с успехом распространяют её среди своих клиентов. Низкая стоимость, хорошее качество и удобство использования продукции Barber WILD полюбились многим.</p>
 
-            <p>Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.</p>
+            <p>Наша цель — развить бренд Barber WILD по всей России, рассказать о нём повсюду. И сейчас мы предлагаем вам присоединиться к нам.</p>
 
             <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST" id="partners-form">
+            <!--<form class="form form--partners" action="http://localhost/bw/order.php" method="POST" id="partners-form">-->
                 <fieldset class="form__fieldset">
-                    <legend class="form__legend">Заявка на сотрудничество </legend>
+                    <legend class="form__legend">Заявка на пробный комплект </legend>
                     <div class="form__input-group">
                         <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество" required>
                     </div>
@@ -29,11 +30,11 @@
                     </div>
                     
                     <div class="form__input-group">
-                        <input class="form__input" type="text" name="address" placeholder="Город" required>
+                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
                     </div>
 
                     <div class="form__input-group">
-                        <input class="form__input" type="text" name="company" placeholder="Организация (барбершоп)">
+                        <input class="form__input" type="text" name="company" placeholder="Организация (барбершоп)" required>
                     </div>
 
                     <div class="form__input-group">
@@ -43,6 +44,7 @@
                     <div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> <a href="#">политикой конфиденциальности</a></div>
                 </fieldset>
             </form>
+
         </section>
 
         <section class="site-section site-section--selling-features">
@@ -109,7 +111,7 @@
     </div>
 </div>
 
-<script src="<?php bloginfo('stylesheet_directory'); ?>/partners.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/samples.js"></script>
 
 <?php 
     get_footer();
