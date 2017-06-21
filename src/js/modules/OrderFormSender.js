@@ -76,9 +76,8 @@ class OrderFormSender {
 
         this.showPopup();
 
-        let $orderTable = $('<table></table>');
-
         $('#form-output').css('font-size', '32px');
+
 
         // Creating customer info
         let customer = {
@@ -88,21 +87,63 @@ class OrderFormSender {
             address: this.orderForm.find('input[name="address"]').val()
         }
 
-        // Creating table: (Item name, Quantity)
+        let phoneClean = customer.phone.replace(/[^0-9 +]+/g, "");
+
+        let $fullOrder = $(`
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:0; padding:0; background-color: #e0ddd9; padding: 20px; font-family: Arial, sans-serif;">
+      <tr>
+        <td height="100%">
+          <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto; padding:0;">
+            <tr>
+              <td id="table-container" style="background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;">
+                <h1>Заказ продуктов</h1>
+                <table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Фамилия Имя Отчество</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">${customer.name}</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Номер телефона</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;"><a href="tel:${phoneClean}">${customer.phone}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Электронная почта</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;"><a href="mailto:${customer.email}">${customer.email}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Адрес доставки</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">${customer.address}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+        `);
+
+        // Creating order table
+        let $orderTable = $('<table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width: 100%; border-collapse: collapse; margin-top: 20px;"></table>');
+
+        // Adding items: (Item name, Quantity)
         $('#order-form .table-item').each(function(index, row) {
             let $row = $(row);
             let $rowInput = $row.find('.spinner__input')
-            if ($rowInput.val() && $rowInput.val() * 1 > 0) {
-                $orderTable.append('<tr><td>'+ $row.find('.table-item__name').html() + '</td><td>' + $(row).find('.spinner__input').val() + '</td></tr>');
+            // if ($rowInput.val() && $rowInput.val() * 1 > 0) {
+            if ($rowInput.val()) {
+                $orderTable.append(`
+                    <tr>
+                        <td style="border: 1px solid #999999; padding: 5px 10px;">${$row.find('.table-item__name').html()}</td>
+                        <td style="border: 1px solid #999999; padding: 5px 10px;">${$(row).find('.spinner__input').val()}</td>
+                    </tr>
+                `);
             }
         });
 
-        let $fullOrder = $('<div></div>');
-        $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>'+ customer.name +'</div>');
-        $fullOrder.append('<div><span>Номер телефона: </span>'+ customer.phone +'</div>');
-        $fullOrder.append('<div><span>Электронная почта: </span>'+ customer.email +'</div>');
-        $fullOrder.append('<div><span>Адрес доставки: </span>'+ customer.address +'</div>');
-        $fullOrder.append($orderTable);
+        $fullOrder.find('#table-container').append($orderTable);
+
+
 
         let dataToSend = {
             'subject': "Products order",

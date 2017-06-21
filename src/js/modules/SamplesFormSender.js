@@ -88,13 +88,53 @@ class SamplesFormSender {
             company: this.partnersForm.find('input[name="company"]').val()
         };
 
-        let $fullOrder = $('<div></div>');
-        $fullOrder.append('<h1>Заявка на халявную косметику</h1>');
-        $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>'+ partner.name +'</div>');
-        $fullOrder.append('<div><span>Номер телефона: </span>'+ partner.phone +'</div>');
-        $fullOrder.append('<div><span>Электронная почта: </span>'+ partner.email +'</div>');
-        $fullOrder.append('<div><span>Город: </span>'+ partner.address +'</div>');
-        $fullOrder.append('<div><span>Организация (барбершоп): </span>'+ partner.company +'</div>');
+        // let $fullOrder = $('<div></div>');
+        // $fullOrder.append('<h1>Заявка на халявную косметику</h1>');
+        // $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>'+ partner.name +'</div>');
+        // $fullOrder.append('<div><span>Номер телефона: </span>'+ partner.phone +'</div>');
+        // $fullOrder.append('<div><span>Электронная почта: </span>'+ partner.email +'</div>');
+        // $fullOrder.append('<div><span>Город: </span>'+ partner.address +'</div>');
+        // $fullOrder.append('<div><span>Организация (барбершоп): </span>'+ partner.company +'</div>');
+
+        let phoneClean = partner.phone.replace(/[^0-9 +]+/g, "");
+
+        let $fullOrder = $(`
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:0; padding:0; background-color: #e0ddd9; padding: 20px; font-family: Arial, sans-serif;">
+      <tr>
+        <td height="100%">
+          <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto; padding:0;">
+            <tr>
+              <td id="table-container" style="background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;">
+                <h1>Заявка на бесплатный пробник</h1>
+                <table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Фамилия Имя Отчество</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">${partner.name}</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Номер телефона</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;"><a href="tel:${phoneClean}">${partner.phone}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Электронная почта</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;"><a href="mailto:${partner.email}">${partner.email}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Город</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">${partner.address}</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Организация (барбершоп)</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">${partner.company}</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+        `);
         
         let dataToSend = {
             // 'subject': this.base64.encode('Заявка на сотрудничество'),
