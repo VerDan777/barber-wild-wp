@@ -34,4 +34,13 @@
         }
     }
 
+    &--map {
+        // box model
+        height: 450px;
+
+        @include atDesktop {
+            // box model
+            height: 100vh;
+        }
+    }
 }

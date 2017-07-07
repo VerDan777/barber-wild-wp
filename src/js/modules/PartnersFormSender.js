@@ -50,6 +50,12 @@ class PartnersFormSender {
         let self = this;
 
         this.partnersForm.validate({
+            errorPlacement: function(error, element) {
+                error.appendTo(element.parent('.form__input-group'));
+            },
+            highlight: function(element, errorClass, validClass) {
+                // element.parent('input[type="checkbox"').css('display', 'inline-block');
+            },
             rules: {
                 fullname: 'required',
                 phone: 'required',
@@ -57,15 +63,16 @@ class PartnersFormSender {
                     required: true,
                     email: true
                 },
-                address: 'required'
+                address: 'required',
+                policy: 'required'
             },
             messages: {
                 fullname: 'Пожалуйста введите свое имя',
                 phone: 'Пожалуйста введите номер телефона',
                 email: 'Пожалуйста введите адрес электронной почты',
-                address: 'Пожалуйста введите название города'
+                address: 'Пожалуйста введите название города',
+                policy: 'Вы должны согласиться с политикой конфиденциальности'
             },
-            // submitHandler: self.parseForm
             submitHandler: function(form) {
                 self.parseForm();
             }
@@ -85,13 +92,6 @@ class PartnersFormSender {
             address: this.partnersForm.find('input[name="address"]').val(),
             company: this.partnersForm.find('input[name="company"]').val()
         };
-
-        // let $fullOrder = $('<div></div>');
-        // $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>'+ partner.name +'</div>');
-        // $fullOrder.append('<div><span>Номер телефона: </span>'+ partner.phone +'</div>');
-        // $fullOrder.append('<div><span>Электронная почта: </span>'+ partner.email +'</div>');
-        // $fullOrder.append('<div><span>Город: </span>'+ partner.address +'</div>');
-        // $fullOrder.append('<div><span>Организация (барбершоп): </span>'+ partner.company +'</div>');
 
         let phoneClean = partner.phone.replace(/[^0-9 +]+/g, "");
 

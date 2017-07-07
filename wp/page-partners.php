@@ -36,11 +36,15 @@
                         <input class="form__input" type="text" name="company" placeholder="Организация (барбершоп)">
                     </div>
 
+                    <label class="form__input-group form__input-group--policy form__label">
+                        <input class="form__checkbox" type="checkbox" name="policy" required> <span>Я соглашаюсь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></span>
+                    </label>
+
                     <div class="form__input-group">
                         <input class="button" id="partners-submit" type="submit" value="Подтвердить">
                     </div>
 
-                    <div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> <a href="#">политикой конфиденциальности</a></div>
+                    <!--<div class="form__text">Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> <a href="#">политикой конфиденциальности</a></div>-->
                 </fieldset>
             </form>
         </section>

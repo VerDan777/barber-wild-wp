@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _SamplesFormSender = __webpack_require__(6);
+	var _SamplesFormSender = __webpack_require__(7);
 
 	var _SamplesFormSender2 = _interopRequireDefault(_SamplesFormSender);
 
@@ -56,7 +56,8 @@
 
 /***/ }),
 /* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10315,8 +10316,8 @@
 
 
 /***/ }),
-/* 3 */,
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10329,7 +10330,7 @@
 	 */
 	(function( factory ) {
 		if ( true ) {
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else if (typeof module === "object" && module.exports) {
 			module.exports = factory( require( "jquery" ) );
 		} else {
@@ -11895,8 +11896,8 @@
 	}));
 
 /***/ }),
-/* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11907,11 +11908,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _jquery = __webpack_require__(2);
+	var _jquery = __webpack_require__(3);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _jqueryValidation = __webpack_require__(4);
+	var _jqueryValidation = __webpack_require__(5);
 
 	var _jqueryValidation2 = _interopRequireDefault(_jqueryValidation);
 
@@ -11976,6 +11977,12 @@
 	            var self = this;
 
 	            this.partnersForm.validate({
+	                errorPlacement: function errorPlacement(error, element) {
+	                    error.appendTo(element.parent('.form__input-group'));
+	                },
+	                highlight: function highlight(element, errorClass, validClass) {
+	                    // element.parent('input[type="checkbox"').css('display', 'inline-block');
+	                },
 	                rules: {
 	                    fullname: 'required',
 	                    phone: 'required',
@@ -11984,14 +11991,16 @@
 	                        email: true
 	                    },
 	                    address: 'required',
-	                    company: 'required'
+	                    company: 'required',
+	                    policy: 'required'
 	                },
 	                messages: {
 	                    fullname: 'Пожалуйста введите свое имя',
 	                    phone: 'Пожалуйста введите номер телефона',
 	                    email: 'Пожалуйста введите адрес электронной почты',
 	                    address: 'Пожалуйста введите название города',
-	                    company: 'Пожалуйста введите название организации'
+	                    company: 'Пожалуйста введите название организации',
+	                    policy: 'Вы должны согласиться с политикой конфиденциальности'
 	                },
 	                // submitHandler: self.parseForm
 	                submitHandler: function submitHandler(form) {

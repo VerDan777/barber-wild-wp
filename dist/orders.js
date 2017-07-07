@@ -46,11 +46,11 @@
 
 	'use strict';
 
-	var _OrderCalculator = __webpack_require__(1);
+	var _OrderCalculator = __webpack_require__(2);
 
 	var _OrderCalculator2 = _interopRequireDefault(_OrderCalculator);
 
-	var _OrderFormSender = __webpack_require__(3);
+	var _OrderFormSender = __webpack_require__(4);
 
 	var _OrderFormSender2 = _interopRequireDefault(_OrderFormSender);
 
@@ -60,7 +60,8 @@
 	var orderSender = new _OrderFormSender2.default();
 
 /***/ }),
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -71,7 +72,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _jquery = __webpack_require__(2);
+	var _jquery = __webpack_require__(3);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -185,7 +186,7 @@
 	exports.default = OrderCalculator;
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10444,7 +10445,7 @@
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10455,11 +10456,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _jquery = __webpack_require__(2);
+	var _jquery = __webpack_require__(3);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _jqueryValidation = __webpack_require__(4);
+	var _jqueryValidation = __webpack_require__(5);
 
 	var _jqueryValidation2 = _interopRequireDefault(_jqueryValidation);
 
@@ -10523,6 +10524,12 @@
 	            var self = this;
 
 	            (0, _jquery2.default)('#order-form').validate({
+	                errorPlacement: function errorPlacement(error, element) {
+	                    error.appendTo(element.parent('.form__input-group'));
+	                },
+	                highlight: function highlight(element, errorClass, validClass) {
+	                    // element.parent('input[type="checkbox"').css('display', 'inline-block');
+	                },
 	                rules: {
 	                    fullname: 'required',
 	                    phone: 'required',
@@ -10530,13 +10537,15 @@
 	                        required: true,
 	                        email: true
 	                    },
-	                    address: 'required'
+	                    address: 'required',
+	                    policy: 'required'
 	                },
 	                messages: {
 	                    fullname: "Пожалуйста введите свое имя",
 	                    phone: "Пожалуйста введите номер телефона",
 	                    email: "Пожалуйста введите адрес электронной почты",
-	                    address: "Пожалуйста введите адрес доставки"
+	                    address: "Пожалуйста введите адрес доставки",
+	                    policy: 'Вы должны согласиться с политикой конфиденциальности'
 	                },
 	                submitHandler: function submitHandler(form) {
 	                    self.parseForm();
@@ -10617,7 +10626,7 @@
 	exports.default = OrderFormSender;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10630,7 +10639,7 @@
 	 */
 	(function( factory ) {
 		if ( true ) {
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else if (typeof module === "object" && module.exports) {
 			module.exports = factory( require( "jquery" ) );
 		} else {

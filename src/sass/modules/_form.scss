@@ -86,6 +86,9 @@
         // box model
         padding: 10px 0;
 
+        // typography
+        font-family: $mainFont;
+
         .error {
             // box model
             display: block;
@@ -96,6 +99,12 @@
             font-family: $mainFont;
             font-size: 1rem;
             text-align: left;
+        }
+
+        &--policy {
+            // box model
+            padding-top: 0;
+            margin-top: 0px;
         }
     }
 
@@ -126,6 +135,16 @@
         }
     }
 
+    &__label {
+        // typography
+        font-size: 1rem;
+    }
+
+    &__checkbox {
+        // box model
+        margin-right: 10px;
+    }
+
     &__text {
         // box model
         margin-top: 20px;
@@ -143,14 +162,15 @@
             text-align: right;
         }
 
-        a {
-            // typography
-            color: $darkSand;
+    }
 
-            &:hover {
-                // typography
-                text-decoration: none;
-            }
+    a {
+        // typography
+        color: $darkSand;
+
+        &:hover {
+            // typography
+            text-decoration: none;
         }
     }
 }

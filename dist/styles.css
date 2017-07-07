@@ -486,6 +486,11 @@ body {
     @media (min-width: 900px) {
       .site-header--inner {
         height: 450px; } }
+  .site-header--map {
+    height: 450px; }
+    @media (min-width: 1200px) {
+      .site-header--map {
+        height: 100vh; } }
 
 .main-nav {
   position: absolute;
@@ -1705,7 +1710,8 @@ body {
     text-align: center;
     text-transform: uppercase; }
   .form__input-group {
-    padding: 10px 0; }
+    padding: 10px 0;
+    font-family: "IntroLight"; }
     .form__input-group .error {
       display: block;
       padding-top: 5px;
@@ -1713,6 +1719,9 @@ body {
       font-family: "IntroLight";
       font-size: 1rem;
       text-align: left; }
+    .form__input-group--policy {
+      padding-top: 0;
+      margin-top: 0px; }
   .form__input {
     height: 50px;
     width: 100%;
@@ -1726,6 +1735,10 @@ body {
       border: 1px solid #c7a166;
       background-color: rgba(233, 220, 202, 0.4);
       outline: none; }
+  .form__label {
+    font-size: 1rem; }
+  .form__checkbox {
+    margin-right: 10px; }
   .form__text {
     margin-top: 20px;
     font-family: "IntroBold";
@@ -1736,10 +1749,10 @@ body {
       margin-top: 0;
       margin-top: -30px;
       text-align: right; }
-    .form__text a {
-      color: #c7a166; }
-      .form__text a:hover {
-        text-decoration: none; }
+  .form a {
+    color: #c7a166; }
+    .form a:hover {
+      text-decoration: none; }
 
 .spinner {
   display: inline-block;
@@ -1839,3 +1852,6 @@ body {
     .order-popup__progress img {
       height: 100%;
       width: 100%; }
+
+.map {
+  height: 100%; }

@@ -50,6 +50,12 @@ class OrderFormSender {
         let self = this;
 
         $('#order-form').validate({
+            errorPlacement: function(error, element) {
+                error.appendTo(element.parent('.form__input-group'));
+            },
+            highlight: function(element, errorClass, validClass) {
+                // element.parent('input[type="checkbox"').css('display', 'inline-block');
+            },
             rules: {
                 fullname: 'required',
                 phone: 'required',
@@ -57,13 +63,15 @@ class OrderFormSender {
                     required: true,
                     email: true
                 },
-                address: 'required'
+                address: 'required',
+                policy: 'required'
             },
             messages: {
                 fullname: "Пожалуйста введите свое имя",
                 phone: "Пожалуйста введите номер телефона",
                 email: "Пожалуйста введите адрес электронной почты",
-                address: "Пожалуйста введите адрес доставки"
+                address: "Пожалуйста введите адрес доставки",
+                policy: 'Вы должны согласиться с политикой конфиденциальности'
             },
             submitHandler: function(form) {
                 self.parseForm();

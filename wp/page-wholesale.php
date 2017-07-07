@@ -1,6 +1,6 @@
 <?php 
     /*
-        Template Name: Order Page
+        Template Name: Wholesale Page
     */
 
     get_header();
@@ -57,7 +57,8 @@
                                     $item_name          = get_field('item-name');
                                     $item_form_name     = get_field('item-form-name');
                                     $item_image         = get_field('item-image');
-                                    $price              = get_field('price');
+                                    // $price              = get_field('price');
+                                    $price              = get_field('wholesale');
                         ?>
 
                         <tr class="table-item">

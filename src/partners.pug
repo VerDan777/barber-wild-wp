@@ -44,28 +44,28 @@ html
                         legend.form__legend Заявка на сотрудничество 
                         
                         .form__input-group
-                            label.form__icon 1
                             input.form__input(type="text",name="fullname",placeholder="Фамилия Имя Отчество") 
 
                         .form__input-group
-                            label.form__icon 2
                             input.form__input(type="text",name="phone",placeholder="Номер телефона") 
 
                         .form__input-group
-                            label.form__icon 3
                             input.form__input(type="text",name="email",placeholder="Электронная почта") 
 
                         .form__input-group
-                            label.form__icon 4
                             input.form__input(type="text",name="address",placeholder="Город") 
 
                         .form__input-group
-                            label.form__icon 5
                             input.form__input(type="text",name="company",placeholder="Организация (барбершоп)")
+                        .form__input-group.form__input-group--policy
+                            label.form__label: p
+                                input.form__checkbox(type="checkbox", name="policy", required) 
+                                span Я соглашаюсь с #[a(href="#") политикой конфиденциальности]
+
                         .form__input-group
                             input#partners-submit.button(type="submit" value="Подтвердить")
 
-                        .form__text Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> #[a(href="#") политикой конфиденциальности]
+                        //- .form__text Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> #[a(href="#") политикой конфиденциальности]
 
 
             section.site-section.site-section--selling-features

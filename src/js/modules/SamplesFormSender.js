@@ -50,6 +50,12 @@ class SamplesFormSender {
         let self = this;
 
         this.partnersForm.validate({
+            errorPlacement: function(error, element) {
+                error.appendTo(element.parent('.form__input-group'));
+            },
+            highlight: function(element, errorClass, validClass) {
+                // element.parent('input[type="checkbox"').css('display', 'inline-block');
+            },
             rules: {
                 fullname: 'required',
                 phone: 'required',
@@ -58,14 +64,16 @@ class SamplesFormSender {
                     email: true
                 },
                 address: 'required',
-                company: 'required'
+                company: 'required',
+                policy: 'required'
             },
             messages: {
                 fullname: 'Пожалуйста введите свое имя',
                 phone: 'Пожалуйста введите номер телефона',
                 email: 'Пожалуйста введите адрес электронной почты',
                 address: 'Пожалуйста введите название города',
-                company: 'Пожалуйста введите название организации'
+                company: 'Пожалуйста введите название организации',
+                policy: 'Вы должны согласиться с политикой конфиденциальности'
             },
             // submitHandler: self.parseForm
             submitHandler: function(form) {
