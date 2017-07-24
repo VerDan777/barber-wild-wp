@@ -98,6 +98,7 @@
 
             <div class="partners">
                 <a class="partners__item" href="http://oldboybarbershop.com/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/oldboy.png"></a>
+                <a class="partners__item" href="http://www.salonborodach.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/borodach.png"></a>
                 <a class="partners__item" href="http://barberceh.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/ceh.png"></a>
                 <a class="partners__item" href="http://barbershopmagnum.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/magnum.png"></a>
             </div>

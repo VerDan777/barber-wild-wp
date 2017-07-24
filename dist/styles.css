@@ -603,11 +603,13 @@ body {
     color: rgba(255, 250, 240, 0.6);
     color: #fffaf0;
     font-family: "IntroBold";
-    font-size: 1rem;
-    text-align: center; }
+    font-size: 0.9375rem; }
     @media (max-width: 340px) {
       .logo__motto {
         font-size: 0.875rem; } }
+    @media (min-width: 700px) {
+      .logo__motto {
+        font-size: 1rem; } }
     @media (min-width: 1200px) {
       .logo__motto {
         text-align: left;

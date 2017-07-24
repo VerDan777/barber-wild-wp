@@ -39,12 +39,17 @@
         color: $lightSand;
         font-family: $titleFont;
         // font-family: $mainFont;
-        font-size: 1rem;
-        text-align: center;
+        font-size: 0.9375rem;
+        // text-align: center;
 
         @include atSmall {
             // typography
             font-size: 0.875rem;
+        }
+
+        @include atTabletsPortrait {
+            // typography
+            font-size: 1rem;
         }
 
         @include atDesktop {
