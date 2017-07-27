@@ -93,7 +93,8 @@ class SamplesFormSender {
             phone: this.partnersForm.find('input[name="phone"]').val(),
             email: this.partnersForm.find('input[name="email"]').val(),
             address: this.partnersForm.find('input[name="address"]').val(),
-            company: this.partnersForm.find('input[name="company"]').val()
+            company: this.partnersForm.find('input[name="company"]').val(),
+            promoCode: this.partnersForm.find('input[name="promo"]').val()
         };
 
         // let $fullOrder = $('<div></div>');
@@ -135,6 +136,10 @@ class SamplesFormSender {
                     <td style="border: 1px solid #999999; padding: 5px 10px;">Организация (барбершоп)</td>
                     <td style="border: 1px solid #999999; padding: 5px 10px;">${partner.company}</td>
                   </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;"><p style="font-size: 24px; font-family: Arial, sans-serif;">Промокод</p></td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;"><p style="font-size: 24px; font-family: Arial, sans-serif;">${partner.promoCode}</p></td>
+                  </tr>
                 </table>
               </td>
             </tr>
@@ -142,6 +147,7 @@ class SamplesFormSender {
         </td>
       </tr>
     </table>
+    <p style="font-size: 32px; font-family: Arial, sans-serif;">КОД: ${partner.promoCode}</p>
         `);
         
         let dataToSend = {

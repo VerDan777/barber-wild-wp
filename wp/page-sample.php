@@ -4,6 +4,8 @@
     */
 
     get_header();
+
+    $promo_code = htmlspecialchars($_GET["r"]);
 ?>
 
 <main class="site-main">
@@ -40,6 +42,8 @@
                     <label class="form__input-group form__input-group--policy form__label">
                         <input class="form__checkbox" type="checkbox" name="policy" required> <span>Я соглашаюсь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></span>
                     </label>
+
+                    <input type="text" name="promo" hidden value="<?php echo $promo_code; ?>">
 
                     <div class="form__input-group">
                         <input class="button" id="partners-submit" type="submit" value="Подтвердить">
