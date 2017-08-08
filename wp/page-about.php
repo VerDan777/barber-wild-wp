@@ -17,7 +17,7 @@
         <section class="site-section site-section--selling-features">
             <header class="site-section__header">
                 <h2 class="site-section__title">
-                    Почему нас выбирают
+                    Наши преимущества
                 </h2>
             </header>
 

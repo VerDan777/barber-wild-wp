@@ -39,6 +39,12 @@
 //      partners
 @import "modules/partners";
 
+//      elements
+@import "modules/button";
+@import "modules/feature";
+@import "modules/form";
+@import "modules/spinner";
+
 //      order
 @import "modules/order-table";
 @import "modules/table-item";
@@ -48,11 +54,6 @@
 @import "modules/social";
 @import "modules/footer-nav";
 
-//      elements
-@import "modules/button";
-@import "modules/feature";
-@import "modules/form";
-@import "modules/spinner";
 
 //      popups
 @import "modules/order-popup";

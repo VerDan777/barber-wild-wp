@@ -27,7 +27,7 @@
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">4</label>
-                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
+                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки (индекс, город, улица, дом/квартира)" required>
                     </div>
                 </fieldset>
                 <fieldset class="form__fieldset">
@@ -70,7 +70,9 @@
                             </td>
 
                             <td class="table-item__name">
-                                <?php echo $item_name; ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php echo $item_name; ?>
+                                </a>
                             </td>
 
                             <td class="table-item__count" data-th="Количество">

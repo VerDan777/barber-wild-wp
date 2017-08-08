@@ -91,6 +91,18 @@
 
             padding: 0 15px;
         }
+
+        a {
+            // typography
+            color: #000000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            // typography
+            color: $darkSand;
+            text-decoration: underline;
+        }
     }
 
     &__count {

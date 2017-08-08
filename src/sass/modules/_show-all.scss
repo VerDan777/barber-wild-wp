@@ -4,20 +4,21 @@
     z-index: 5;
 
     // box model
-    height: 300px;
-    padding-top: 160px;
+    height: 400px;
+    padding-top: 140px;
 
     // typography
     text-align: center;
 
     // visual
-    // background-image: url('./img/guns2.png');
-    // background-size: contain;
-    // background-position: center center;
-    // background-repeat: no-repeat;
+    background-image: url('./img/gun.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
 
     @include atDesktop {
         // box model
-        margin-top: -80px;
+        margin-top: -140px;
+        margin-bottom: -100px;
     }
 }
