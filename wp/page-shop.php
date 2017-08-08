@@ -28,6 +28,7 @@
         ?>
 
         <article class="shop-item">
+        <a href="<?php the_permalink(); ?>">
             <div class="shop-item__wrapper">
                 <div class="shop-item__image">
                     <img src="<?php echo $item_image; ?>">
@@ -47,6 +48,7 @@
                     </div>
                 </div>
             </div>
+        </a>
         </article>
 
         <?php

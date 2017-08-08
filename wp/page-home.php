@@ -38,10 +38,10 @@
     <header class="site-header">
         <nav class="main-nav">
             <div class="logo">
-                <span>Barber WILD
+                <a href="<?php echo esc_url(home_url('/')); ?>">Barber WILD
                     <img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png">
                     <p class="logo__motto">всё, что нужно для твоей головы</p>
-                </span>
+                </a>
             </div>
 
             <div class="main-nav__menu-icon">
@@ -141,7 +141,7 @@
         ?>
 
         <div class="show-all">
-            <a class="button" href="<?php echo esc_url(home_url('/')); ?>shop">Все товары</a>
+            <a class="button button--red button--big" href="<?php echo esc_url(home_url('/')); ?>shop">Все товары</a>
         </div>
     </main>
 

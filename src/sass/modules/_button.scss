@@ -45,4 +45,15 @@
             color: $accentRed;
         }
     }
+
+    &--big {
+        // box model
+        padding: 18px 65px;
+
+        // typography
+        font-size: 1.5rem;
+
+        // visual
+        border-radius: 40px;
+    }
 }

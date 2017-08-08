@@ -1116,11 +1116,7 @@ body {
   z-index: 5;
   height: 300px;
   padding-top: 160px;
-  text-align: center;
-  background-image: url("./img/guns2.png");
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat; }
+  text-align: center; }
   @media (min-width: 1200px) {
     .show-all {
       margin-top: -80px; } }
@@ -1152,6 +1148,8 @@ body {
     .shop-item {
       height: 460px;
       margin-bottom: 60px; } }
+  .shop-item a {
+    text-decoration: none; }
   .shop-item__wrapper {
     position: relative;
     height: 100%;
@@ -1191,14 +1189,16 @@ body {
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.4;
-    text-align: left; }
+    text-align: left;
+    text-decoration: none; }
   .shop-item__volume {
     margin: 0;
     color: #152026;
     font-family: "IntroLight";
     font-size: 1.125rem;
     font-weight: 300;
-    text-align: left; }
+    text-align: left;
+    text-decoration: none; }
   .shop-item__price {
     position: absolute;
     right: 30px;
@@ -1633,6 +1633,10 @@ body {
     border-color: #d11500; }
     .button--red:hover {
       color: #d11500; }
+  .button--big {
+    padding: 18px 65px;
+    font-size: 1.5rem;
+    border-radius: 40px; }
 
 .feature {
   display: inline-block;
