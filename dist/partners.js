@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _PartnersFormSender = __webpack_require__(6);
+	var _PartnersFormSender = __webpack_require__(7);
 
 	var _PartnersFormSender2 = _interopRequireDefault(_PartnersFormSender);
 
@@ -10317,7 +10317,8 @@
 
 /***/ }),
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11896,7 +11897,7 @@
 	}));
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11911,7 +11912,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _jqueryValidation = __webpack_require__(5);
+	var _jqueryValidation = __webpack_require__(6);
 
 	var _jqueryValidation2 = _interopRequireDefault(_jqueryValidation);
 

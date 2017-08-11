@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _SamplesFormSender = __webpack_require__(7);
+	var _SamplesFormSender = __webpack_require__(8);
 
 	var _SamplesFormSender2 = _interopRequireDefault(_SamplesFormSender);
 
@@ -10317,7 +10317,8 @@
 
 /***/ }),
 /* 4 */,
-/* 5 */
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -11896,8 +11897,8 @@
 	}));
 
 /***/ }),
-/* 6 */,
-/* 7 */
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11912,7 +11913,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _jqueryValidation = __webpack_require__(5);
+	var _jqueryValidation = __webpack_require__(6);
 
 	var _jqueryValidation2 = _interopRequireDefault(_jqueryValidation);
 

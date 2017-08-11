@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import OrderStorage from './OrderStorage.js';
 
 class OrderCalculator {
     constructor() {
@@ -12,6 +13,12 @@ class OrderCalculator {
         this.incButtons = $('.spinner__plus');
 
         this.events();
+
+        // storage
+        this.storage = new OrderStorage();
+        this.storage.loadSession();
+
+        this.calcTotal();
     }
 
     events() {
@@ -22,15 +29,6 @@ class OrderCalculator {
         this.countInputs.on('change', function(event) {
             this.calcTotal($(event.target));
         }.bind(this));
-
-        // this.decButtons.click(function() {
-        //     let input = $(this).parent().children('input');
-        //     calc.decInput(input);
-        // });
-
-        // this.incButtons.click(function() {
-        //     let input = $(this).parent().children('input');
-        // });
 
         this.incButtons.on('mousedown', function() {
             let input = $(this).parent().children('input');
@@ -72,14 +70,29 @@ class OrderCalculator {
     decInput(input) {
         input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
         input.trigger('change');
+        this.storage.saveSession();
     }
 
     incInput(input) {
         input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
         input.trigger('change');
+        this.storage.saveSession();
     }
 
     calcTotal(input) {
+        if (input) {
+            this.calcInput(input);
+        } else {
+            // console.log($('.table-item__count input'));
+            var self = this;
+            $.each($('.table-item__count input'), function(index, value) {
+                // console.log(value);
+                self.calcInput($(value));
+            })
+        }
+    }
+
+    calcInput(input) {
         let price = parseInt(input.parent().parent().parent().children('.table-item__price').html());
         let count = parseInt( input.val() );
         let cost = input.parent().parent().parent().children('.table-item__cost');

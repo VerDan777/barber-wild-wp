@@ -50,7 +50,7 @@
 
 	var _OrderCalculator2 = _interopRequireDefault(_OrderCalculator);
 
-	var _OrderFormSender = __webpack_require__(4);
+	var _OrderFormSender = __webpack_require__(5);
 
 	var _OrderFormSender2 = _interopRequireDefault(_OrderFormSender);
 
@@ -76,6 +76,10 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
+	var _OrderStorage = __webpack_require__(4);
+
+	var _OrderStorage2 = _interopRequireDefault(_OrderStorage);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -94,6 +98,12 @@
 	        this.incButtons = (0, _jquery2.default)('.spinner__plus');
 
 	        this.events();
+
+	        // storage
+	        this.storage = new _OrderStorage2.default();
+	        this.storage.loadSession();
+
+	        this.calcTotal();
 	    }
 
 	    _createClass(OrderCalculator, [{
@@ -106,15 +116,6 @@
 	            this.countInputs.on('change', function (event) {
 	                this.calcTotal((0, _jquery2.default)(event.target));
 	            }.bind(this));
-
-	            // this.decButtons.click(function() {
-	            //     let input = $(this).parent().children('input');
-	            //     calc.decInput(input);
-	            // });
-
-	            // this.incButtons.click(function() {
-	            //     let input = $(this).parent().children('input');
-	            // });
 
 	            this.incButtons.on('mousedown', function () {
 	                var input = (0, _jquery2.default)(this).parent().children('input');
@@ -157,16 +158,32 @@
 	        value: function decInput(input) {
 	            input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
 	            input.trigger('change');
+	            this.storage.saveSession();
 	        }
 	    }, {
 	        key: 'incInput',
 	        value: function incInput(input) {
 	            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
 	            input.trigger('change');
+	            this.storage.saveSession();
 	        }
 	    }, {
 	        key: 'calcTotal',
 	        value: function calcTotal(input) {
+	            if (input) {
+	                this.calcInput(input);
+	            } else {
+	                // console.log($('.table-item__count input'));
+	                var self = this;
+	                _jquery2.default.each((0, _jquery2.default)('.table-item__count input'), function (index, value) {
+	                    // console.log(value);
+	                    self.calcInput((0, _jquery2.default)(value));
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'calcInput',
+	        value: function calcInput(input) {
 	            var price = parseInt(input.parent().parent().parent().children('.table-item__price').html());
 	            var count = parseInt(input.val());
 	            var cost = input.parent().parent().parent().children('.table-item__cost');
@@ -10460,7 +10477,80 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _jqueryValidation = __webpack_require__(5);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var OrderStorage = function () {
+	    function OrderStorage() {
+	        // saveSession();
+
+	        _classCallCheck(this, OrderStorage);
+	    }
+
+	    _createClass(OrderStorage, [{
+	        key: 'saveSession',
+	        value: function saveSession() {
+	            if (sessionStorage) {
+	                var elementIds = (0, _jquery2.default)('.table-item__number');
+	                var saveObj = {};
+	                console.log(elementIds);
+
+	                _jquery2.default.each(elementIds, function (index, value) {
+	                    var id = (0, _jquery2.default)(value).html();
+	                    var count = (0, _jquery2.default)(value).parent().find('.table-item__count input').val();
+	                    saveObj[id] = count;
+	                });
+
+	                sessionStorage.setItem('orderSave', JSON.stringify(saveObj));
+
+	                console.log(saveObj);
+	            } else {
+	                console.log('no LS');
+	            }
+	        }
+	    }, {
+	        key: 'loadSession',
+	        value: function loadSession() {
+	            if (sessionStorage && sessionStorage.getItem('orderSave')) {
+	                var saveObj = JSON.parse(sessionStorage.getItem('orderSave'));
+	                var elementIds = (0, _jquery2.default)('.table-item__number');
+
+	                _jquery2.default.each(elementIds, function (index, value) {
+	                    var id = (0, _jquery2.default)(value).html();
+	                    (0, _jquery2.default)(value).parent().find('.table-item__count input').val(saveObj[id]);
+	                });
+
+	                console.log(saveObj);
+	            }
+	        }
+	    }, {
+	        key: 'clearSession',
+	        value: function clearSession() {}
+	    }]);
+
+	    return OrderStorage;
+	}();
+
+	exports.default = OrderStorage;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(3);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _jqueryValidation = __webpack_require__(6);
 
 	var _jqueryValidation2 = _interopRequireDefault(_jqueryValidation);
 
@@ -10626,7 +10716,7 @@
 	exports.default = OrderFormSender;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!

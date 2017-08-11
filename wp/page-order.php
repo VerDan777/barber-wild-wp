@@ -30,6 +30,7 @@
                         <input class="form__input" type="text" name="address" placeholder="Адрес доставки (индекс, город, улица, дом/квартира)" required>
                     </div>
                 </fieldset>
+                
                 <fieldset class="form__fieldset">
                     <table class="order-table">
                         <tr>
