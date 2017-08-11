@@ -64,7 +64,7 @@
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -89,13 +89,13 @@
 	        _classCallCheck(this, OrderCalculator);
 
 	        // table elements
-	        this.countInputs = (0, _jquery2.default)('.table-item__count input');
-	        this.costLabels = (0, _jquery2.default)('.table-item__cost');
-	        this.summLabel = (0, _jquery2.default)('.table-item__summ');
+	        this.countInputs = (0, _jquery2.default)(".table-item__count input");
+	        this.costLabels = (0, _jquery2.default)(".table-item__cost");
+	        this.summLabel = (0, _jquery2.default)(".table-item__summ");
 
 	        // spinner elemtents
-	        this.decButtons = (0, _jquery2.default)('.spinner__minus');
-	        this.incButtons = (0, _jquery2.default)('.spinner__plus');
+	        this.decButtons = (0, _jquery2.default)(".spinner__minus");
+	        this.incButtons = (0, _jquery2.default)(".spinner__plus");
 
 	        this.events();
 
@@ -107,86 +107,87 @@
 	    }
 
 	    _createClass(OrderCalculator, [{
-	        key: 'events',
+	        key: "events",
 	        value: function events() {
 	            var calc = this;
 	            var incInterval = void 0;
 	            var decInterval = void 0;
 
-	            this.countInputs.on('change', function (event) {
+	            this.countInputs.on("change", function (event) {
 	                this.calcTotal((0, _jquery2.default)(event.target));
+	                this.storage.saveSession();
 	            }.bind(this));
 
-	            this.incButtons.on('mousedown', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
+	            this.incButtons.on("mousedown", function () {
+	                var input = (0, _jquery2.default)(this).parent().children("input");
 	                calc.incInput(input);
 	                incInterval = setInterval(function () {
 	                    calc.incInput(input);
 	                }, 250);
 	            });
 
-	            this.incButtons.on('mouseup', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
+	            this.incButtons.on("mouseup", function () {
+	                // let input = $(this).parent().children("input");
 	                clearInterval(incInterval);
 	            });
 
-	            this.incButtons.on('mouseout', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
+	            this.incButtons.on("mouseout", function () {
+	                // let input = $(this).parent().children("input");
 	                clearInterval(incInterval);
 	            });
 
-	            this.decButtons.on('mousedown', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
+	            this.decButtons.on("mousedown", function () {
+	                var input = (0, _jquery2.default)(this).parent().children("input");
 	                calc.decInput(input);
 	                decInterval = setInterval(function () {
 	                    calc.decInput(input);
 	                }, 250);
 	            });
 
-	            this.decButtons.on('mouseup', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
+	            this.decButtons.on("mouseup", function () {
+	                // let input = $(this).parent().children("input");
 	                clearInterval(decInterval);
 	            });
 
-	            this.decButtons.on('mouseout', function () {
-	                var input = (0, _jquery2.default)(this).parent().children('input');
+	            this.decButtons.on("mouseout", function () {
+	                // let input = $(this).parent().children("input");
 	                clearInterval(decInterval);
 	            });
 	        }
 	    }, {
-	        key: 'decInput',
+	        key: "decInput",
 	        value: function decInput(input) {
 	            input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
-	            input.trigger('change');
+	            input.trigger("change");
 	            this.storage.saveSession();
 	        }
 	    }, {
-	        key: 'incInput',
+	        key: "incInput",
 	        value: function incInput(input) {
 	            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
-	            input.trigger('change');
+	            input.trigger("change");
 	            this.storage.saveSession();
 	        }
 	    }, {
-	        key: 'calcTotal',
+	        key: "calcTotal",
 	        value: function calcTotal(input) {
 	            if (input) {
 	                this.calcInput(input);
 	            } else {
 	                // console.log($('.table-item__count input'));
 	                var self = this;
-	                _jquery2.default.each((0, _jquery2.default)('.table-item__count input'), function (index, value) {
+	                _jquery2.default.each((0, _jquery2.default)(".table-item__count input"), function (index, value) {
 	                    // console.log(value);
 	                    self.calcInput((0, _jquery2.default)(value));
 	                });
 	            }
 	        }
 	    }, {
-	        key: 'calcInput',
+	        key: "calcInput",
 	        value: function calcInput(input) {
-	            var price = parseInt(input.parent().parent().parent().children('.table-item__price').html());
+	            var price = parseInt(input.parent().parent().parent().children(".table-item__price").html());
 	            var count = parseInt(input.val());
-	            var cost = input.parent().parent().parent().children('.table-item__cost');
+	            var cost = input.parent().parent().parent().children(".table-item__cost");
 	            cost.html(price * count);
 
 	            var summ = 0;
@@ -10465,7 +10466,7 @@
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -10489,43 +10490,44 @@
 	    }
 
 	    _createClass(OrderStorage, [{
-	        key: 'saveSession',
+	        key: "saveSession",
 	        value: function saveSession() {
 	            if (sessionStorage) {
-	                var elementIds = (0, _jquery2.default)('.table-item__number');
+	                var elementIds = (0, _jquery2.default)(".table-item__number");
 	                var saveObj = {};
-	                console.log(elementIds);
+	                // console.log(elementIds);
 
 	                _jquery2.default.each(elementIds, function (index, value) {
 	                    var id = (0, _jquery2.default)(value).html();
-	                    var count = (0, _jquery2.default)(value).parent().find('.table-item__count input').val();
+	                    var count = (0, _jquery2.default)(value).parent().find(".table-item__count input").val();
+	                    count = Number(count) || 0;
 	                    saveObj[id] = count;
 	                });
 
-	                sessionStorage.setItem('orderSave', JSON.stringify(saveObj));
+	                sessionStorage.setItem("orderSave", JSON.stringify(saveObj));
 
-	                console.log(saveObj);
+	                // console.log(saveObj);
 	            } else {
-	                console.log('no LS');
-	            }
+	                    // console.log("no LS");
+	                }
 	        }
 	    }, {
-	        key: 'loadSession',
+	        key: "loadSession",
 	        value: function loadSession() {
-	            if (sessionStorage && sessionStorage.getItem('orderSave')) {
-	                var saveObj = JSON.parse(sessionStorage.getItem('orderSave'));
-	                var elementIds = (0, _jquery2.default)('.table-item__number');
+	            if (sessionStorage && sessionStorage.getItem("orderSave")) {
+	                var saveObj = JSON.parse(sessionStorage.getItem("orderSave"));
+	                var elementIds = (0, _jquery2.default)(".table-item__number");
 
 	                _jquery2.default.each(elementIds, function (index, value) {
 	                    var id = (0, _jquery2.default)(value).html();
-	                    (0, _jquery2.default)(value).parent().find('.table-item__count input').val(saveObj[id]);
+	                    (0, _jquery2.default)(value).parent().find(".table-item__count input").val(saveObj[id]);
 	                });
 
-	                console.log(saveObj);
+	                // console.log(saveObj);
 	            }
 	        }
 	    }, {
-	        key: 'clearSession',
+	        key: "clearSession",
 	        value: function clearSession() {}
 	    }]);
 
