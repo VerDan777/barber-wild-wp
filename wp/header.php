@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Barber WILD</title>
+    <title>Barber WILD — <?php the_title(); ?></title>
 
     <!--OG-->
     <meta property="og:title" content="<?php the_title(); ?> - Barber WILD">

@@ -7,7 +7,7 @@ class OrderStorage {
 
     saveSession() {
         if (sessionStorage) {
-            var elementIds = $(".table-item__number");
+            var elementIds = $(".table-item__id");
             var saveObj = {};
             // console.log(elementIds);
 
@@ -29,7 +29,7 @@ class OrderStorage {
     loadSession() {
         if (sessionStorage && sessionStorage.getItem("orderSave")) {
             var saveObj = JSON.parse(sessionStorage.getItem("orderSave"));
-            var elementIds = $(".table-item__number");
+            var elementIds = $(".table-item__id");
 
             $.each(elementIds, function(index, value) {
                 var id = $(value).html();

@@ -1,4 +1,8 @@
 .spinner {
+    // positioning
+    position: relative;
+    z-index: 1;
+
     // box model
     display: inline-block;
     width: 165px;
@@ -68,6 +72,36 @@
         // visual
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
+    }
+
+    &__clear {
+        // positioning
+        position: absolute;
+        left: -15px;
+        top: 0;
+        z-index: -1;
+
+        // box model
+        padding-left: 15px;
+        padding-right: 40px;
+
+        // typography
+        color: $justSand;
+        font-size: 1rem;
+        font-weight: 700;
+
+        // visual
+        background-color: transparent;
+        border-color: $justSand;
+
+        &:hover {
+            // typography
+            color: $white;
+
+            // visual
+            background-color: $accentRed;
+            border-color: $accentRed;
+        }
     }
 
     &__input {

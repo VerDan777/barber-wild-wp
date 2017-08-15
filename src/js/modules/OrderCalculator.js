@@ -8,9 +8,11 @@ class OrderCalculator {
         this.costLabels = $(".table-item__cost");
         this.summLabel = $(".table-item__summ");
 
-        // spinner elemtents
+        // spinner elements
         this.decButtons = $(".spinner__minus");
         this.incButtons = $(".spinner__plus");
+        this.clearButtons = $(".spinner__clear");
+        this.clearAllButton = $("#reset-form");
 
         this.events();
 
@@ -66,6 +68,21 @@ class OrderCalculator {
             // let input = $(this).parent().children("input");
             clearInterval(decInterval);
         });
+
+        this.clearButtons.on("click", function() {
+            let input = $(this).parent().children("input");
+            calc.clearInput(input);
+        });
+
+        this.clearAllButton.on("click", function(event) {
+            // alert("adsf");
+            event.preventDefault();
+            // alert(calc.countInputs);
+            $.each(calc.countInputs, function(index, value) {
+                calc.clearInput($(value));
+                // alert(value);
+            });
+        });
     }
 
     decInput(input) {
@@ -76,6 +93,12 @@ class OrderCalculator {
 
     incInput(input) {
         input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
+        input.trigger("change");
+        this.storage.saveSession();
+    }
+
+    clearInput(input) {
+        input.val(0);
         input.trigger("change");
         this.storage.saveSession();
     }

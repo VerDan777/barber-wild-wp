@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Barber WILD</title>
+    <title>Barber WILD — <?php the_title(); ?></title>
     
     <!--OG-->
     <meta property="og:title" content="<?php the_title(); ?> - Barber WILD">
@@ -95,6 +95,8 @@
                     </p>
                     <p class="item__price">
                         <?php echo $price; ?> -
+                        <!-- <br>
+                        <?php echo get_the_ID(); ?> -->
                     </p>
                     <div class="item__buttons">
                         <a class="button" href="<?php echo esc_url(home_url('/')); ?>order">Оформить заказ</a>

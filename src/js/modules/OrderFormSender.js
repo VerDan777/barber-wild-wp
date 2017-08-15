@@ -1,77 +1,77 @@
-import $ from 'jquery';
-import Validator from 'jquery-validation';
+import $ from "jquery";
+import Validator from "jquery-validation";
 
 class OrderFormSender {
     constructor() {
-        this.submitButton = $('#order-submit');
-        this.orderForm = $('#order-form');
+        this.submitButton = $("#order-submit");
+        this.orderForm = $("#order-form");
 
-        this.okButton = $('#order-popup .order-popup__button');
+        this.okButton = $("#order-popup .order-popup__button");
 
         this.setupPopup();
         this.setupValidator();
     }
 
     setupPopup() {
-        let $orderProgress = $('#order-popup .order-popup__progress');
+        let $orderProgress = $("#order-popup .order-popup__progress");
         $orderProgress.show();
 
         function rotate() {
-            $orderProgress.css({transform: 'rotate('+ rotate.degree + 'deg)'});
+            $orderProgress.css({transform: "rotate("+ rotate.degree + "deg)"});
             rotate.degree += 5;
             setTimeout(rotate, 25);
-        };
+        }
         rotate.degree = 0;
         rotate();
 
         let self = this;
-        this.okButton.on('click', function(event) {
+        this.okButton.on("click", function(event) {
             self.hidePopup();
             event.preventDefault();
         });
     }
 
     showPopup() {
-        let $orderPopup = $('#order-popup');
-        let $orderPopupContent = $('#order-popup .order-popup__content');
-        $orderPopup.addClass('order-popup--shown');
-        $orderPopupContent.addClass('order-popup__content--shown');
-        $('#order-popup .order-popup__button').hide();
+        let $orderPopup = $("#order-popup");
+        let $orderPopupContent = $("#order-popup .order-popup__content");
+        $orderPopup.addClass("order-popup--shown");
+        $orderPopupContent.addClass("order-popup__content--shown");
+        $("#order-popup .order-popup__button").hide();
     }
 
     hidePopup() {
-        let $orderPopup = $('#order-popup');
-        let $orderPopupContent = $('#order-popup .order-popup__content');
-        $orderPopup.removeClass('order-popup--shown');
-        $orderPopupContent.removeClass('order-popup__content--shown');
+        let $orderPopup = $("#order-popup");
+        let $orderPopupContent = $("#order-popup .order-popup__content");
+        $orderPopup.removeClass("order-popup--shown");
+        $orderPopupContent.removeClass("order-popup__content--shown");
     }
 
     setupValidator() {
         let self = this;
 
-        $('#order-form').validate({
+        $("#order-form").validate({
             errorPlacement: function(error, element) {
-                error.appendTo(element.parent('.form__input-group'));
+                error.appendTo(element.parent(".form__input-group"));
             },
-            highlight: function(element, errorClass, validClass) {
-                // element.parent('input[type="checkbox"').css('display', 'inline-block');
-            },
+            // highlight: function(element, errorClass, validClass) {
+            //     // element.parent('input[type="checkbox"').css('display', 'inline-block');
+            // },
             rules: {
-                fullname: 'required',
-                phone: 'required',
+                fullname: "required",
+                phone: "required",
                 email: {
                     required: true,
                     email: true
                 },
-                address: 'required',
-                policy: 'required'
+                address: "required",
+                policy: "required"
             },
             messages: {
                 fullname: "Пожалуйста введите свое имя",
                 phone: "Пожалуйста введите номер телефона",
                 email: "Пожалуйста введите адрес электронной почты",
                 address: "Пожалуйста введите адрес доставки",
-                policy: 'Вы должны согласиться с политикой конфиденциальности'
+                policy: "Вы должны согласиться с политикой конфиденциальности"
             },
             submitHandler: function(form) {
                 self.parseForm();
@@ -84,16 +84,17 @@ class OrderFormSender {
 
         this.showPopup();
 
-        $('#form-output').css('font-size', '32px');
+        $("#form-output").css("font-size", "32px");
 
 
         // Creating customer info
         let customer = {
-            name: this.orderForm.find('input[name="fullname"]').val(),
-            phone: this.orderForm.find('input[name="phone"]').val(),
-            email: this.orderForm.find('input[name="email"]').val(),
-            address: this.orderForm.find('input[name="address"]').val()
-        }
+            name: this.orderForm.find("input[name=\"fullname\"]").val(),
+            phone: this.orderForm.find("input[name=\"phone\"]").val(),
+            email: this.orderForm.find("input[name=\"email\"]").val(),
+            address: this.orderForm.find("input[name=\"address\"]").val(),
+            shipment: this.orderForm.find("input[name=\"delivery\"]:checked").val()
+        };
 
         let phoneClean = customer.phone.replace(/[^0-9 +]+/g, "");
 
@@ -122,6 +123,10 @@ class OrderFormSender {
                     <td style="border: 1px solid #999999; padding: 5px 10px;">Адрес доставки</td>
                     <td style="border: 1px solid #999999; padding: 5px 10px;">${customer.address}</td>
                   </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Способ доставки</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">${customer.shipment}</td>
+                  </tr>
                 </table>
               </td>
             </tr>
@@ -132,36 +137,36 @@ class OrderFormSender {
         `);
 
         // Creating order table
-        let $orderTable = $('<table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width: 100%; border-collapse: collapse; margin-top: 20px;"></table>');
+        let $orderTable = $("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse; margin-top: 20px;\"></table>");
 
         // Adding items: (Item name, Quantity)
-        $('#order-form .table-item').each(function(index, row) {
+        $("#order-form .table-item").each(function(index, row) {
             let $row = $(row);
-            let $rowInput = $row.find('.spinner__input')
+            let $rowInput = $row.find(".spinner__input");
             // if ($rowInput.val() && $rowInput.val() * 1 > 0) {
             if ($rowInput.val()) {
                 $orderTable.append(`
                     <tr>
-                        <td style="border: 1px solid #999999; padding: 5px 10px;">${$row.find('.table-item__name').html()}</td>
-                        <td style="border: 1px solid #999999; padding: 5px 10px;">${$(row).find('.spinner__input').val()}</td>
+                        <td style="border: 1px solid #999999; padding: 5px 10px;">${$row.find(".table-item__name").html()}</td>
+                        <td style="border: 1px solid #999999; padding: 5px 10px;">${$(row).find(".spinner__input").val()}</td>
                     </tr>
                 `);
             }
         });
 
-        $fullOrder.find('#table-container').append($orderTable);
+        $fullOrder.find("#table-container").append($orderTable);
 
 
 
         let dataToSend = {
-            'subject': "Products order",
-            'content': $fullOrder.html()
+            "subject": "Products order",
+            "content": $fullOrder.html()
         };
 
         $.ajax({
-            type: 'POST',
+            type: "POST",
             // url: 'http://localhost/bw/order.php',
-            url: 'http://barberwild.com/order.php',
+            url: "http://barberwild.com/order.php",
             data: dataToSend,
             success: onSuccess,
             error: onError
@@ -169,17 +174,17 @@ class OrderFormSender {
         });
 
         function onSuccess() {
-            $('#order-popup .order-popup__title').html('Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.');
+            $("#order-popup .order-popup__title").html("Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.");
             // setTimeout(self.hidePopup, 2000);
-            $('#order-popup .order-popup__progress').hide();
-            $('#order-popup .order-popup__button').show();
+            $("#order-popup .order-popup__progress").hide();
+            $("#order-popup .order-popup__button").show();
             self.orderForm[0].reset();
         }
 
         function onError() {
-            $('#order-popup .order-popup__title').text('Ошибка отправки. Проверьте соединение или попробуйте позже.');
-            $('#order-popup .order-popup__progress').hide();
-            $('#order-popup .order-popup__button').show();
+            $("#order-popup .order-popup__title").text("Ошибка отправки. Проверьте соединение или попробуйте позже.");
+            $("#order-popup .order-popup__progress").hide();
+            $("#order-popup .order-popup__button").show();
             setTimeout(self.hidePopup, 2000);
         }
     }

@@ -43,6 +43,11 @@
         }
     }
 
+    &__id {
+        // box model
+        display: none;
+    }
+
     &__image {
         // box model
         display: inline-block;
@@ -228,6 +233,32 @@
             &::before {
                 // box model
                 display: none;
+            }
+        }
+    }
+
+    &__reset {
+        a {
+            // box model
+            display: inline-block;
+            width: 130px;
+            padding: 5px 0;
+
+            // typography
+            text-decoration: none;
+
+            // visual
+            border: 1px solid $justSand;
+            border-radius: 15px;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+                // typography
+                color: $white;
+
+                // visual
+                background-color: $accentRed;
+                border: 1px solid $accentRed;
             }
         }
     }

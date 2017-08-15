@@ -93,9 +93,11 @@
 	        this.costLabels = (0, _jquery2.default)(".table-item__cost");
 	        this.summLabel = (0, _jquery2.default)(".table-item__summ");
 
-	        // spinner elemtents
+	        // spinner elements
 	        this.decButtons = (0, _jquery2.default)(".spinner__minus");
 	        this.incButtons = (0, _jquery2.default)(".spinner__plus");
+	        this.clearButtons = (0, _jquery2.default)(".spinner__clear");
+	        this.clearAllButton = (0, _jquery2.default)("#reset-form");
 
 	        this.events();
 
@@ -153,6 +155,21 @@
 	                // let input = $(this).parent().children("input");
 	                clearInterval(decInterval);
 	            });
+
+	            this.clearButtons.on("click", function () {
+	                var input = (0, _jquery2.default)(this).parent().children("input");
+	                calc.clearInput(input);
+	            });
+
+	            this.clearAllButton.on("click", function (event) {
+	                // alert("adsf");
+	                event.preventDefault();
+	                // alert(calc.countInputs);
+	                _jquery2.default.each(calc.countInputs, function (index, value) {
+	                    calc.clearInput((0, _jquery2.default)(value));
+	                    // alert(value);
+	                });
+	            });
 	        }
 	    }, {
 	        key: "decInput",
@@ -165,6 +182,13 @@
 	        key: "incInput",
 	        value: function incInput(input) {
 	            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
+	            input.trigger("change");
+	            this.storage.saveSession();
+	        }
+	    }, {
+	        key: "clearInput",
+	        value: function clearInput(input) {
+	            input.val(0);
 	            input.trigger("change");
 	            this.storage.saveSession();
 	        }
@@ -10493,7 +10517,7 @@
 	        key: "saveSession",
 	        value: function saveSession() {
 	            if (sessionStorage) {
-	                var elementIds = (0, _jquery2.default)(".table-item__number");
+	                var elementIds = (0, _jquery2.default)(".table-item__id");
 	                var saveObj = {};
 	                // console.log(elementIds);
 
@@ -10516,7 +10540,7 @@
 	        value: function loadSession() {
 	            if (sessionStorage && sessionStorage.getItem("orderSave")) {
 	                var saveObj = JSON.parse(sessionStorage.getItem("orderSave"));
-	                var elementIds = (0, _jquery2.default)(".table-item__number");
+	                var elementIds = (0, _jquery2.default)(".table-item__id");
 
 	                _jquery2.default.each(elementIds, function (index, value) {
 	                    var id = (0, _jquery2.default)(value).html();
@@ -10540,7 +10564,7 @@
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -10564,80 +10588,80 @@
 	    function OrderFormSender() {
 	        _classCallCheck(this, OrderFormSender);
 
-	        this.submitButton = (0, _jquery2.default)('#order-submit');
-	        this.orderForm = (0, _jquery2.default)('#order-form');
+	        this.submitButton = (0, _jquery2.default)("#order-submit");
+	        this.orderForm = (0, _jquery2.default)("#order-form");
 
-	        this.okButton = (0, _jquery2.default)('#order-popup .order-popup__button');
+	        this.okButton = (0, _jquery2.default)("#order-popup .order-popup__button");
 
 	        this.setupPopup();
 	        this.setupValidator();
 	    }
 
 	    _createClass(OrderFormSender, [{
-	        key: 'setupPopup',
+	        key: "setupPopup",
 	        value: function setupPopup() {
-	            var $orderProgress = (0, _jquery2.default)('#order-popup .order-popup__progress');
+	            var $orderProgress = (0, _jquery2.default)("#order-popup .order-popup__progress");
 	            $orderProgress.show();
 
 	            function rotate() {
-	                $orderProgress.css({ transform: 'rotate(' + rotate.degree + 'deg)' });
+	                $orderProgress.css({ transform: "rotate(" + rotate.degree + "deg)" });
 	                rotate.degree += 5;
 	                setTimeout(rotate, 25);
-	            };
+	            }
 	            rotate.degree = 0;
 	            rotate();
 
 	            var self = this;
-	            this.okButton.on('click', function (event) {
+	            this.okButton.on("click", function (event) {
 	                self.hidePopup();
 	                event.preventDefault();
 	            });
 	        }
 	    }, {
-	        key: 'showPopup',
+	        key: "showPopup",
 	        value: function showPopup() {
-	            var $orderPopup = (0, _jquery2.default)('#order-popup');
-	            var $orderPopupContent = (0, _jquery2.default)('#order-popup .order-popup__content');
-	            $orderPopup.addClass('order-popup--shown');
-	            $orderPopupContent.addClass('order-popup__content--shown');
-	            (0, _jquery2.default)('#order-popup .order-popup__button').hide();
+	            var $orderPopup = (0, _jquery2.default)("#order-popup");
+	            var $orderPopupContent = (0, _jquery2.default)("#order-popup .order-popup__content");
+	            $orderPopup.addClass("order-popup--shown");
+	            $orderPopupContent.addClass("order-popup__content--shown");
+	            (0, _jquery2.default)("#order-popup .order-popup__button").hide();
 	        }
 	    }, {
-	        key: 'hidePopup',
+	        key: "hidePopup",
 	        value: function hidePopup() {
-	            var $orderPopup = (0, _jquery2.default)('#order-popup');
-	            var $orderPopupContent = (0, _jquery2.default)('#order-popup .order-popup__content');
-	            $orderPopup.removeClass('order-popup--shown');
-	            $orderPopupContent.removeClass('order-popup__content--shown');
+	            var $orderPopup = (0, _jquery2.default)("#order-popup");
+	            var $orderPopupContent = (0, _jquery2.default)("#order-popup .order-popup__content");
+	            $orderPopup.removeClass("order-popup--shown");
+	            $orderPopupContent.removeClass("order-popup__content--shown");
 	        }
 	    }, {
-	        key: 'setupValidator',
+	        key: "setupValidator",
 	        value: function setupValidator() {
 	            var self = this;
 
-	            (0, _jquery2.default)('#order-form').validate({
+	            (0, _jquery2.default)("#order-form").validate({
 	                errorPlacement: function errorPlacement(error, element) {
-	                    error.appendTo(element.parent('.form__input-group'));
+	                    error.appendTo(element.parent(".form__input-group"));
 	                },
-	                highlight: function highlight(element, errorClass, validClass) {
-	                    // element.parent('input[type="checkbox"').css('display', 'inline-block');
-	                },
+	                // highlight: function(element, errorClass, validClass) {
+	                //     // element.parent('input[type="checkbox"').css('display', 'inline-block');
+	                // },
 	                rules: {
-	                    fullname: 'required',
-	                    phone: 'required',
+	                    fullname: "required",
+	                    phone: "required",
 	                    email: {
 	                        required: true,
 	                        email: true
 	                    },
-	                    address: 'required',
-	                    policy: 'required'
+	                    address: "required",
+	                    policy: "required"
 	                },
 	                messages: {
 	                    fullname: "Пожалуйста введите свое имя",
 	                    phone: "Пожалуйста введите номер телефона",
 	                    email: "Пожалуйста введите адрес электронной почты",
 	                    address: "Пожалуйста введите адрес доставки",
-	                    policy: 'Вы должны согласиться с политикой конфиденциальности'
+	                    policy: "Вы должны согласиться с политикой конфиденциальности"
 	                },
 	                submitHandler: function submitHandler(form) {
 	                    self.parseForm();
@@ -10645,50 +10669,51 @@
 	            });
 	        }
 	    }, {
-	        key: 'parseForm',
+	        key: "parseForm",
 	        value: function parseForm() {
 	            var self = this;
 
 	            this.showPopup();
 
-	            (0, _jquery2.default)('#form-output').css('font-size', '32px');
+	            (0, _jquery2.default)("#form-output").css("font-size", "32px");
 
 	            // Creating customer info
 	            var customer = {
-	                name: this.orderForm.find('input[name="fullname"]').val(),
-	                phone: this.orderForm.find('input[name="phone"]').val(),
-	                email: this.orderForm.find('input[name="email"]').val(),
-	                address: this.orderForm.find('input[name="address"]').val()
+	                name: this.orderForm.find("input[name=\"fullname\"]").val(),
+	                phone: this.orderForm.find("input[name=\"phone\"]").val(),
+	                email: this.orderForm.find("input[name=\"email\"]").val(),
+	                address: this.orderForm.find("input[name=\"address\"]").val(),
+	                shipment: this.orderForm.find("input[name=\"delivery\"]:checked").val()
 	            };
 
 	            var phoneClean = customer.phone.replace(/[^0-9 +]+/g, "");
 
-	            var $fullOrder = (0, _jquery2.default)('\n            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:0; padding:0; background-color: #e0ddd9; padding: 20px; font-family: Arial, sans-serif;">\n      <tr>\n        <td height="100%">\n          <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto; padding:0;">\n            <tr>\n              <td id="table-container" style="background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;">\n                <h1>\u0417\u0430\u043A\u0430\u0437 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u0432</h1>\n                <table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width: 100%; border-collapse: collapse;">\n                  <tr>\n                    <td style="border: 1px solid #999999; padding: 5px 10px;">\u0424\u0430\u043C\u0438\u043B\u0438\u044F \u0418\u043C\u044F \u041E\u0442\u0447\u0435\u0441\u0442\u0432\u043E</td>\n                    <td style="border: 1px solid #999999; padding: 5px 10px;">' + customer.name + '</td>\n                  </tr>\n                  <tr>\n                    <td style="border: 1px solid #999999; padding: 5px 10px;">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430</td>\n                    <td style="border: 1px solid #999999; padding: 5px 10px;"><a href="tel:' + phoneClean + '">' + customer.phone + '</a></td>\n                  </tr>\n                  <tr>\n                    <td style="border: 1px solid #999999; padding: 5px 10px;">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430</td>\n                    <td style="border: 1px solid #999999; padding: 5px 10px;"><a href="mailto:' + customer.email + '">' + customer.email + '</a></td>\n                  </tr>\n                  <tr>\n                    <td style="border: 1px solid #999999; padding: 5px 10px;">\u0410\u0434\u0440\u0435\u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style="border: 1px solid #999999; padding: 5px 10px;">' + customer.address + '</td>\n                  </tr>\n                </table>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n        ');
+	            var $fullOrder = (0, _jquery2.default)("\n            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin:0; padding:0; background-color: #e0ddd9; padding: 20px; font-family: Arial, sans-serif;\">\n      <tr>\n        <td height=\"100%\">\n          <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0 auto; padding:0;\">\n            <tr>\n              <td id=\"table-container\" style=\"background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;\">\n                <h1>\u0417\u0430\u043A\u0430\u0437 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u0432</h1>\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse;\">\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0424\u0430\u043C\u0438\u043B\u0438\u044F \u0418\u043C\u044F \u041E\u0442\u0447\u0435\u0441\u0442\u0432\u043E</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.name + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"tel:" + phoneClean + "\">" + customer.phone + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"mailto:" + customer.email + "\">" + customer.email + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0410\u0434\u0440\u0435\u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.address + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0421\u043F\u043E\u0441\u043E\u0431 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.shipment + "</td>\n                  </tr>\n                </table>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n        ");
 
 	            // Creating order table
-	            var $orderTable = (0, _jquery2.default)('<table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width: 100%; border-collapse: collapse; margin-top: 20px;"></table>');
+	            var $orderTable = (0, _jquery2.default)("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse; margin-top: 20px;\"></table>");
 
 	            // Adding items: (Item name, Quantity)
-	            (0, _jquery2.default)('#order-form .table-item').each(function (index, row) {
+	            (0, _jquery2.default)("#order-form .table-item").each(function (index, row) {
 	                var $row = (0, _jquery2.default)(row);
-	                var $rowInput = $row.find('.spinner__input');
+	                var $rowInput = $row.find(".spinner__input");
 	                // if ($rowInput.val() && $rowInput.val() * 1 > 0) {
 	                if ($rowInput.val()) {
-	                    $orderTable.append('\n                    <tr>\n                        <td style="border: 1px solid #999999; padding: 5px 10px;">' + $row.find('.table-item__name').html() + '</td>\n                        <td style="border: 1px solid #999999; padding: 5px 10px;">' + (0, _jquery2.default)(row).find('.spinner__input').val() + '</td>\n                    </tr>\n                ');
+	                    $orderTable.append("\n                    <tr>\n                        <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + $row.find(".table-item__name").html() + "</td>\n                        <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + (0, _jquery2.default)(row).find(".spinner__input").val() + "</td>\n                    </tr>\n                ");
 	                }
 	            });
 
-	            $fullOrder.find('#table-container').append($orderTable);
+	            $fullOrder.find("#table-container").append($orderTable);
 
 	            var dataToSend = {
-	                'subject': "Products order",
-	                'content': $fullOrder.html()
+	                "subject": "Products order",
+	                "content": $fullOrder.html()
 	            };
 
 	            _jquery2.default.ajax({
-	                type: 'POST',
+	                type: "POST",
 	                // url: 'http://localhost/bw/order.php',
-	                url: 'http://barberwild.com/order.php',
+	                url: "http://barberwild.com/order.php",
 	                data: dataToSend,
 	                success: onSuccess,
 	                error: onError
@@ -10696,17 +10721,17 @@
 	            });
 
 	            function onSuccess() {
-	                (0, _jquery2.default)('#order-popup .order-popup__title').html('Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.');
+	                (0, _jquery2.default)("#order-popup .order-popup__title").html("Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.");
 	                // setTimeout(self.hidePopup, 2000);
-	                (0, _jquery2.default)('#order-popup .order-popup__progress').hide();
-	                (0, _jquery2.default)('#order-popup .order-popup__button').show();
+	                (0, _jquery2.default)("#order-popup .order-popup__progress").hide();
+	                (0, _jquery2.default)("#order-popup .order-popup__button").show();
 	                self.orderForm[0].reset();
 	            }
 
 	            function onError() {
-	                (0, _jquery2.default)('#order-popup .order-popup__title').text('Ошибка отправки. Проверьте соединение или попробуйте позже.');
-	                (0, _jquery2.default)('#order-popup .order-popup__progress').hide();
-	                (0, _jquery2.default)('#order-popup .order-popup__button').show();
+	                (0, _jquery2.default)("#order-popup .order-popup__title").text("Ошибка отправки. Проверьте соединение или попробуйте позже.");
+	                (0, _jquery2.default)("#order-popup .order-popup__progress").hide();
+	                (0, _jquery2.default)("#order-popup .order-popup__button").show();
 	                setTimeout(self.hidePopup, 2000);
 	            }
 	        }

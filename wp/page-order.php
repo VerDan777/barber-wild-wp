@@ -29,6 +29,18 @@
                         <label class="form__icon">4</label>
                         <input class="form__input" type="text" name="address" placeholder="Адрес доставки (индекс, город, улица, дом/квартира)" required>
                     </div>
+
+                    <div class="form__input-group form__input-group--left">
+                        <label class="form__group-label">Способ доставки:</label>
+                        <label class="form__label">
+                            <input type="radio" name="delivery" value="Russian Post" checked>
+                            Почта России 
+                        </label>
+                        <label class="form__label">
+                            <input type="radio" name="delivery" value="EMS">
+                            Курьерская служба EMS
+                        </label>
+                    </div>
                 </fieldset>
                 
                 <fieldset class="form__fieldset">
@@ -59,11 +71,16 @@
                                     $item_form_name     = get_field('item-form-name');
                                     $item_image         = get_field('item-image');
                                     $price              = get_field('price');
+                                    $itemID             = get_the_ID();
                         ?>
 
                         <tr class="table-item">
                             <td class="table-item__number">
                                 <?php echo $counter; ?>
+                            </td>
+
+                            <td class="table-item__id">
+                                <?php echo $itemID; ?>
                             </td>
 
                             <td class="table-item__image">
@@ -81,6 +98,7 @@
                                     <button class="spinner__button spinner__minus" type="button">–</button>
                                     <input class="spinner__input" name="<?php echo $item_form_name; ?>" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
                                     <button class="spinner__button spinner__plus" type="button">+</button>
+                                    <button class="spinner__button spinner__clear" type="button">x</button>
                                 </div>
                             </td>
 
@@ -98,7 +116,8 @@
                         ?>
 
                         <tr class="table-item">
-                            <td colspan="4"></td>
+                            <td colspan="3"></td>
+                            <td class="table-item__reset"><a href="#" id="reset-form">Сбросить</a></td>
                             <td class="table-item__total">ИТОГО</td>
                             <td class="table-item__summ">0</td>
                         </tr>

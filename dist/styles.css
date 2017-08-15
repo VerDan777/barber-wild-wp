@@ -1506,6 +1506,8 @@ body {
     .form__input-group--policy {
       padding-top: 0;
       margin-top: 0px; }
+    .form__input-group--left {
+      text-align: left; }
   .form__input {
     height: 50px;
     width: 100%;
@@ -1519,7 +1521,13 @@ body {
       border: 1px solid #c7a166;
       background-color: rgba(233, 220, 202, 0.4);
       outline: none; }
+  .form__group-label {
+    padding-right: 10px;
+    color: #c7a166;
+    font-size: 1rem;
+    font-weight: 700; }
   .form__label {
+    padding-right: 10px;
     font-size: 1rem; }
   .form__checkbox {
     margin-right: 10px; }
@@ -1539,6 +1547,8 @@ body {
       text-decoration: none; }
 
 .spinner {
+  position: relative;
+  z-index: 1;
   display: inline-block;
   width: 165px;
   font-size: 0; }
@@ -1577,6 +1587,22 @@ body {
     padding-right: 3px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0; }
+  .spinner__clear {
+    position: absolute;
+    left: -15px;
+    top: 0;
+    z-index: -1;
+    padding-left: 15px;
+    padding-right: 40px;
+    color: #e9dcca;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: transparent;
+    border-color: #e9dcca; }
+    .spinner__clear:hover {
+      color: #ffffff;
+      background-color: #d11500;
+      border-color: #d11500; }
   .spinner__input {
     display: inline-block;
     vertical-align: top;
@@ -1629,6 +1655,8 @@ body {
     @media (min-width: 700px) {
       .table-item__number {
         display: table-cell; } }
+  .table-item__id {
+    display: none; }
   .table-item__image {
     display: inline-block;
     vertical-align: top;
@@ -1728,6 +1756,18 @@ body {
         padding-left: 0; }
         .table-item__cost::before {
           display: none; } }
+  .table-item__reset a {
+    display: inline-block;
+    width: 130px;
+    padding: 5px 0;
+    text-decoration: none;
+    border: 1px solid #e9dcca;
+    border-radius: 15px;
+    transition: all 0.3s ease-out; }
+    .table-item__reset a:hover {
+      color: #ffffff;
+      background-color: #d11500;
+      border: 1px solid #d11500; }
   .table-item__total {
     width: 40%;
     padding-left: 15px;
