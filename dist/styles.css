@@ -1901,6 +1901,10 @@ body {
     color: #252525;
     font-family: "IntroBold";
     text-transform: uppercase; }
+  .order-popup__text {
+    color: #252525;
+    font-family: "IntroLight";
+    font-size: 1.5rem; }
   .order-popup__progress {
     height: 64px;
     width: 64px;

@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _SamplesFormSender = __webpack_require__(8);
+	var _SamplesFormSender = __webpack_require__(9);
 
 	var _SamplesFormSender2 = _interopRequireDefault(_SamplesFormSender);
 
@@ -11898,7 +11898,8 @@
 
 /***/ }),
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

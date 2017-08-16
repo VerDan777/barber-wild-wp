@@ -174,7 +174,8 @@ class OrderFormSender {
         });
 
         function onSuccess() {
-            $("#order-popup .order-popup__title").html("Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.");
+            $("#order-popup .order-popup__title").text("Спасибо!");
+            $("order-popup .order-popup__text").html("Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.");
             // setTimeout(self.hidePopup, 2000);
             $("#order-popup .order-popup__progress").hide();
             $("#order-popup .order-popup__button").show();
@@ -182,10 +183,11 @@ class OrderFormSender {
         }
 
         function onError() {
-            $("#order-popup .order-popup__title").text("Ошибка отправки. Проверьте соединение или попробуйте позже.");
+            $("#order-popup .order-popup__title").text("Ошибка отправки.");
+            $("order-popup .order-popup__text").text("Проверьте соединение или попробуйте позже.");
             $("#order-popup .order-popup__progress").hide();
             $("#order-popup .order-popup__button").show();
-            setTimeout(self.hidePopup, 2000);
+            // setTimeout(self.hidePopup, 2000);
         }
     }
 }

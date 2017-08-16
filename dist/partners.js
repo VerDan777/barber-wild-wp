@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _PartnersFormSender = __webpack_require__(7);
+	var _PartnersFormSender = __webpack_require__(8);
 
 	var _PartnersFormSender2 = _interopRequireDefault(_PartnersFormSender);
 
@@ -11897,7 +11897,8 @@
 	}));
 
 /***/ }),
-/* 7 */
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

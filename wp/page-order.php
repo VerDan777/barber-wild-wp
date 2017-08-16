@@ -147,6 +147,7 @@
 <div class="order-popup" id="order-popup">
     <div class="order-popup__content">
         <h2 class="order-popup__title">Отправка заказа</h2>
+        <p class="order-popup__text">Проверьте соединение или попробуйте позже.</p>
         <div class="order-popup__progress"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/drum.png"></div>
         <a class="button order-popup__button" href="#" hidden>OK</a>
     </div>

@@ -3,14 +3,13 @@ import $ from "jquery";
 class OrderStorage {
     constructor() {
         // saveSession();
-        // saveContacts();
+        // this.saveContacts();
     }
 
     saveSession() {
         if (sessionStorage) {
             var elementIds = $(".table-item__id");
             var saveObj = {};
-            // console.log(elementIds);
 
             $.each(elementIds, function(index, value) {
                 var id = $(value).html();
@@ -36,27 +35,6 @@ class OrderStorage {
             });
         }
     }
-
-    // saveContacts() {
-    //     if (localStorage) {
-    //         var contacts = {
-    //             name: $(""),
-    //             phone: $(""),
-    //             email: $(""),
-    //             address: $(""),
-    //             delivery: $("")
-    //         };
-
-    //         localStorage.setItem("orderContacts", JSON.stringify(contacts));
-    //         console.log($(".form__input"));
-    //     }
-    // }
-
-    // loadContacts() {
-    //     if (localStorage && localStorage.getItem("orderContacts")) {
-    //         var contacts = JSON.parse(localStorage.getItem("orderContacts"));
-    //     }
-    // }
 }
 
 export default OrderStorage;

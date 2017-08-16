@@ -58,6 +58,13 @@
         text-transform: uppercase;
     }
 
+    &__text {
+        // typography
+        color: $justGrey;
+        font-family: $mainFont;
+        font-size: 1.5rem;
+    }
+
     &__progress {
         // box model
         height: 64px;

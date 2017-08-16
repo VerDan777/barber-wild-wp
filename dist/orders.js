@@ -44,7 +44,7 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _OrderCalculator = __webpack_require__(2);
 
@@ -54,10 +54,15 @@
 
 	var _OrderFormSender2 = _interopRequireDefault(_OrderFormSender);
 
+	var _ContactsStorage = __webpack_require__(7);
+
+	var _ContactsStorage2 = _interopRequireDefault(_ContactsStorage);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var orderCalc = new _OrderCalculator2.default();
 	var orderSender = new _OrderFormSender2.default();
+	var contactsStorage = new _ContactsStorage2.default();
 
 /***/ }),
 /* 1 */,
@@ -10509,7 +10514,7 @@
 	var OrderStorage = function () {
 	    function OrderStorage() {
 	        // saveSession();
-	        // saveContacts();
+	        // this.saveContacts();
 
 	        _classCallCheck(this, OrderStorage);
 	    }
@@ -10520,7 +10525,6 @@
 	            if (sessionStorage) {
 	                var elementIds = (0, _jquery2.default)(".table-item__id");
 	                var saveObj = {};
-	                // console.log(elementIds);
 
 	                _jquery2.default.each(elementIds, function (index, value) {
 	                    var id = (0, _jquery2.default)(value).html();
@@ -10547,28 +10551,6 @@
 	                });
 	            }
 	        }
-
-	        // saveContacts() {
-	        //     if (localStorage) {
-	        //         var contacts = {
-	        //             name: $(""),
-	        //             phone: $(""),
-	        //             email: $(""),
-	        //             address: $(""),
-	        //             delivery: $("")
-	        //         };
-
-	        //         localStorage.setItem("orderContacts", JSON.stringify(contacts));
-	        //         console.log($(".form__input"));
-	        //     }
-	        // }
-
-	        // loadContacts() {
-	        //     if (localStorage && localStorage.getItem("orderContacts")) {
-	        //         var contacts = JSON.parse(localStorage.getItem("orderContacts"));
-	        //     }
-	        // }
-
 	    }]);
 
 	    return OrderStorage;
@@ -10737,7 +10719,8 @@
 	            });
 
 	            function onSuccess() {
-	                (0, _jquery2.default)("#order-popup .order-popup__title").html("Спасибо! Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.");
+	                (0, _jquery2.default)("#order-popup .order-popup__title").text("Спасибо!");
+	                (0, _jquery2.default)("order-popup .order-popup__text").html("Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.");
 	                // setTimeout(self.hidePopup, 2000);
 	                (0, _jquery2.default)("#order-popup .order-popup__progress").hide();
 	                (0, _jquery2.default)("#order-popup .order-popup__button").show();
@@ -10745,10 +10728,11 @@
 	            }
 
 	            function onError() {
-	                (0, _jquery2.default)("#order-popup .order-popup__title").text("Ошибка отправки. Проверьте соединение или попробуйте позже.");
+	                (0, _jquery2.default)("#order-popup .order-popup__title").text("Ошибка отправки.");
+	                (0, _jquery2.default)("order-popup .order-popup__text").text("Проверьте соединение или попробуйте позже.");
 	                (0, _jquery2.default)("#order-popup .order-popup__progress").hide();
 	                (0, _jquery2.default)("#order-popup .order-popup__button").show();
-	                setTimeout(self.hidePopup, 2000);
+	                // setTimeout(self.hidePopup, 2000);
 	            }
 	        }
 	    }]);
@@ -12336,6 +12320,82 @@
 	}
 	return $;
 	}));
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(3);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var ContactsStorage = function () {
+	    function ContactsStorage() {
+	        _classCallCheck(this, ContactsStorage);
+
+	        this.loadContacts();
+
+	        this.inputs = (0, _jquery2.default)(".form__input");
+
+	        this.events();
+	    }
+
+	    _createClass(ContactsStorage, [{
+	        key: "events",
+	        value: function events() {
+	            var self = this;
+
+	            this.inputs.on("change", function () {
+	                self.saveContacts();
+	            });
+	        }
+	    }, {
+	        key: "saveContacts",
+	        value: function saveContacts() {
+	            if (localStorage) {
+	                console.log((0, _jquery2.default)("input.form__input[name='fullname']").val());
+	                var contacts = {
+	                    name: (0, _jquery2.default)("input.form__input[name='fullname']").val(),
+	                    phone: (0, _jquery2.default)("input.form__input[name='phone']").val(),
+	                    email: (0, _jquery2.default)("input.form__input[name='email']").val(),
+	                    address: (0, _jquery2.default)("input.form__input[name='address']").val(),
+	                    delivery: (0, _jquery2.default)("")
+	                };
+
+	                localStorage.setItem("orderContacts", JSON.stringify(contacts));
+	                // console.log(contacts);
+	            }
+	        }
+	    }, {
+	        key: "loadContacts",
+	        value: function loadContacts() {
+	            if (localStorage && localStorage.getItem("orderContacts")) {
+	                var contacts = JSON.parse(localStorage.getItem("orderContacts"));
+	                // console.log(contacts);
+	                (0, _jquery2.default)("input.form__input[name='fullname']").val(contacts.name);
+	                (0, _jquery2.default)("input.form__input[name='phone']").val(contacts.phone);
+	                (0, _jquery2.default)("input.form__input[name='email']").val(contacts.email);
+	                (0, _jquery2.default)("input.form__input[name='address']").val(contacts.address);
+	            }
+	        }
+	    }]);
+
+	    return ContactsStorage;
+	}();
+
+	exports.default = ContactsStorage;
 
 /***/ })
 /******/ ]);
