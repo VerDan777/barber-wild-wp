@@ -15,7 +15,7 @@
 
             <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST" id="partners-form">
                 <fieldset class="form__fieldset">
-                    <legend class="form__legend">Заявка на сотрудничество </legend>
+                    <legend class="form__legend">Заявка на сотрудничество</legend>
                     <div class="form__input-group">
                         <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество" required>
                     </div>
@@ -36,9 +36,11 @@
                         <input class="form__input" type="text" name="company" placeholder="Организация (барбершоп)">
                     </div>
 
-                    <label class="form__input-group form__input-group--policy form__label">
-                        <input class="form__checkbox" type="checkbox" name="policy" required> <span>Я соглашаюсь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></span>
-                    </label>
+                    <div class="form__input-group form__input-group--policy form__input-group--pt">
+                        <label class="form__label">
+                            <input class="form__checkbox" type="checkbox" name="policy" required> <span>Я соглашаюсь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
 
                     <div class="form__input-group">
                         <input class="button" id="partners-submit" type="submit" value="Подтвердить">
@@ -109,6 +111,7 @@
 <div class="order-popup" id="order-popup">
     <div class="order-popup__content">
         <h2 class="order-popup__title">Отправка заказа</h2>
+        <p class="order-popup__text"></p>
         <div class="order-popup__progress"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/drum.png"></div>
         <a class="button order-popup__button" href="#" hidden>OK</a>
     </div>
