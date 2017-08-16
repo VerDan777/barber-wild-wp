@@ -10509,6 +10509,7 @@
 	var OrderStorage = function () {
 	    function OrderStorage() {
 	        // saveSession();
+	        // saveContacts();
 
 	        _classCallCheck(this, OrderStorage);
 	    }
@@ -10529,11 +10530,9 @@
 	                });
 
 	                sessionStorage.setItem("orderSave", JSON.stringify(saveObj));
-
-	                // console.log(saveObj);
 	            } else {
-	                    // console.log("no LS");
-	                }
+	                console.log("NO sessionStorage!");
+	            }
 	        }
 	    }, {
 	        key: "loadSession",
@@ -10546,13 +10545,30 @@
 	                    var id = (0, _jquery2.default)(value).html();
 	                    (0, _jquery2.default)(value).parent().find(".table-item__count input").val(saveObj[id]);
 	                });
-
-	                // console.log(saveObj);
 	            }
 	        }
-	    }, {
-	        key: "clearSession",
-	        value: function clearSession() {}
+
+	        // saveContacts() {
+	        //     if (localStorage) {
+	        //         var contacts = {
+	        //             name: $(""),
+	        //             phone: $(""),
+	        //             email: $(""),
+	        //             address: $(""),
+	        //             delivery: $("")
+	        //         };
+
+	        //         localStorage.setItem("orderContacts", JSON.stringify(contacts));
+	        //         console.log($(".form__input"));
+	        //     }
+	        // }
+
+	        // loadContacts() {
+	        //     if (localStorage && localStorage.getItem("orderContacts")) {
+	        //         var contacts = JSON.parse(localStorage.getItem("orderContacts"));
+	        //     }
+	        // }
+
 	    }]);
 
 	    return OrderStorage;

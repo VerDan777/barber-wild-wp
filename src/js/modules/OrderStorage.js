@@ -3,6 +3,7 @@ import $ from "jquery";
 class OrderStorage {
     constructor() {
         // saveSession();
+        // saveContacts();
     }
 
     saveSession() {
@@ -19,10 +20,8 @@ class OrderStorage {
             });
             
             sessionStorage.setItem("orderSave", JSON.stringify(saveObj));
-
-            // console.log(saveObj);
         } else {
-            // console.log("no LS");
+            console.log("NO sessionStorage!");
         }
     }
 
@@ -35,14 +34,29 @@ class OrderStorage {
                 var id = $(value).html();
                 $(value).parent().find(".table-item__count input").val(saveObj[id]);
             });
-
-            // console.log(saveObj);
         }
     }
 
-    clearSession() {
+    // saveContacts() {
+    //     if (localStorage) {
+    //         var contacts = {
+    //             name: $(""),
+    //             phone: $(""),
+    //             email: $(""),
+    //             address: $(""),
+    //             delivery: $("")
+    //         };
 
-    }
+    //         localStorage.setItem("orderContacts", JSON.stringify(contacts));
+    //         console.log($(".form__input"));
+    //     }
+    // }
+
+    // loadContacts() {
+    //     if (localStorage && localStorage.getItem("orderContacts")) {
+    //         var contacts = JSON.parse(localStorage.getItem("orderContacts"));
+    //     }
+    // }
 }
 
 export default OrderStorage;
