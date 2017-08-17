@@ -2,6 +2,7 @@
     // vars
     $main_title         = get_field('main-title');
     $main_description   = get_field('main-description');
+    $meta_description   = get_field('meta-description');
     $hero_background    = get_field('hero-background');
 ?>
 <!DOCTYPE html>
@@ -10,6 +11,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="<?php echo $meta_description; ?>">
     <title>Barber WILD — <?php the_title(); ?></title>
 
     <!--OG-->

@@ -8,6 +8,7 @@
     $og_description     = get_field('og-description');
     $ingredients        = get_field('ingredients');
     $hero_background    = get_field('hero-background');
+    $meta_description   = get_field('meta-description');
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +17,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="<?php echo $meta_description; ?>">
     <title>Barber WILD — <?php the_title(); ?></title>
     
     <!--OG-->

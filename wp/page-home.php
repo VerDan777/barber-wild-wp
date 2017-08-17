@@ -2,6 +2,9 @@
     /*
         Template Name: Home Page
     */
+
+    // vars
+    $meta_description = get_field('meta-description');
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +13,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="<?php echo $meta_description; ?>">
     <title>Barber WILD — мужская косметика с характером</title>
 
     <!-- OG -->
