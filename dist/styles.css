@@ -1114,10 +1114,10 @@ body {
 .show-all {
   position: relative;
   z-index: 5;
-  height: 400px;
-  padding-top: 140px;
+  height: 534px;
+  padding-top: 302px;
   text-align: center;
-  background-image: url("./img/gun.png");
+  background-image: url("./img/all.png");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat; }
