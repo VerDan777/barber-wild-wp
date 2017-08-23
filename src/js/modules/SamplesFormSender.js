@@ -37,6 +37,8 @@ class SamplesFormSender {
         let $orderPopupContent = $("#order-popup .order-popup__content");
         $orderPopup.addClass("order-popup--shown");
         $orderPopupContent.addClass("order-popup__content--shown");
+        $("#order-popup .order-popup__title").text("Отправка заявки");
+        $("#order-popup .order-popup__text").html("");
     }
 
     hidePopup() {
@@ -96,14 +98,6 @@ class SamplesFormSender {
             company: this.partnersForm.find("input[name=\"company\"]").val(),
             promoCode: this.partnersForm.find("input[name=\"promo\"]").val()
         };
-
-        // let $fullOrder = $('<div></div>');
-        // $fullOrder.append('<h1>Заявка на халявную косметику</h1>');
-        // $fullOrder.append('<div><span>Фамилия Имя Отчество: </span>'+ partner.name +'</div>');
-        // $fullOrder.append('<div><span>Номер телефона: </span>'+ partner.phone +'</div>');
-        // $fullOrder.append('<div><span>Электронная почта: </span>'+ partner.email +'</div>');
-        // $fullOrder.append('<div><span>Город: </span>'+ partner.address +'</div>');
-        // $fullOrder.append('<div><span>Организация (барбершоп): </span>'+ partner.company +'</div>');
 
         let phoneClean = partner.phone.replace(/[^0-9 +]+/g, "");
 

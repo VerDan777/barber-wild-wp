@@ -36,6 +36,8 @@ class OrderFormSender {
         let $orderPopupContent = $("#order-popup .order-popup__content");
         $orderPopup.addClass("order-popup--shown");
         $orderPopupContent.addClass("order-popup__content--shown");
+        $("#order-popup .order-popup__title").text("Отправка заказа");
+        $("#order-popup .order-popup__text").html("");
         $("#order-popup .order-popup__button").hide();
     }
 
@@ -93,6 +95,7 @@ class OrderFormSender {
             phone: this.orderForm.find("input[name=\"phone\"]").val(),
             email: this.orderForm.find("input[name=\"email\"]").val(),
             address: this.orderForm.find("input[name=\"address\"]").val(),
+            bshop: this.orderForm.find("input[name=\"bshop\"]").val(),
             shipment: this.orderForm.find("input[name=\"delivery\"]:checked").val()
         };
 
@@ -122,6 +125,10 @@ class OrderFormSender {
                   <tr>
                     <td style="border: 1px solid #999999; padding: 5px 10px;">Адрес доставки</td>
                     <td style="border: 1px solid #999999; padding: 5px 10px;">${customer.address}</td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Барбершоп</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">${customer.bshop}</td>
                   </tr>
                   <tr>
                     <td style="border: 1px solid #999999; padding: 5px 10px;">Способ доставки</td>
@@ -175,7 +182,7 @@ class OrderFormSender {
 
         function onSuccess() {
             $("#order-popup .order-popup__title").text("Спасибо!");
-            $("order-popup .order-popup__text").html("Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.");
+            $("#order-popup .order-popup__text").html("Ваша заявка успешно принята.<br> В скором времени мы с вами свяжемся.");
             // setTimeout(self.hidePopup, 2000);
             $("#order-popup .order-popup__progress").hide();
             $("#order-popup .order-popup__button").show();
@@ -184,7 +191,7 @@ class OrderFormSender {
 
         function onError() {
             $("#order-popup .order-popup__title").text("Ошибка отправки.");
-            $("order-popup .order-popup__text").text("Проверьте соединение или попробуйте позже.");
+            $("#order-popup .order-popup__text").html("Проверьте соединение или попробуйте позже.");
             $("#order-popup .order-popup__progress").hide();
             $("#order-popup .order-popup__button").show();
             // setTimeout(self.hidePopup, 2000);

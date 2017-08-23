@@ -1511,6 +1511,8 @@ body {
       text-align: left; }
     .form__input-group--pt {
       padding-top: 10px; }
+    .form__input-group--hidden {
+      display: none; }
   .form__input {
     height: 50px;
     width: 100%;

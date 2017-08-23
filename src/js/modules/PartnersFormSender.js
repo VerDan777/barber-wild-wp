@@ -37,6 +37,8 @@ class PartnersFormSender {
         let $orderPopupContent = $("#order-popup .order-popup__content");
         $orderPopup.addClass("order-popup--shown");
         $orderPopupContent.addClass("order-popup__content--shown");
+        $("#order-popup .order-popup__title").text("Отправка заявки");
+        $("#order-popup .order-popup__text").html("");
     }
 
     hidePopup() {

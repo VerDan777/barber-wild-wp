@@ -29,6 +29,10 @@
                         <label class="form__icon">4</label>
                         <input class="form__input" type="text" name="address" placeholder="Адрес доставки (индекс, город, улица, дом/квартира)" required>
                     </div>
+                    <div class="form__input-group form__input-group--hidden" hidden>
+                        <label class="form__icon">5</label>
+                        <input class="form__input" type="text" name="bshop" placeholder="Барбершоп">
+                    </div>
 
                     <div class="form__input-group form__input-group--left">
                         <label class="form__group-label">Способ доставки:</label>
@@ -149,7 +153,7 @@
 <div class="order-popup" id="order-popup">
     <div class="order-popup__content">
         <h2 class="order-popup__title">Отправка заказа</h2>
-        <p class="order-popup__text">Проверьте соединение или попробуйте позже.</p>
+        <p class="order-popup__text">   </p>
         <div class="order-popup__progress"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/drum.png"></div>
         <a class="button order-popup__button" href="#" hidden>OK</a>
     </div>

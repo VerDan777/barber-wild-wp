@@ -11963,6 +11963,8 @@
 	            var $orderPopupContent = (0, _jquery2.default)("#order-popup .order-popup__content");
 	            $orderPopup.addClass("order-popup--shown");
 	            $orderPopupContent.addClass("order-popup__content--shown");
+	            (0, _jquery2.default)("#order-popup .order-popup__title").text("Отправка заявки");
+	            (0, _jquery2.default)("#order-popup .order-popup__text").html("");
 	        }
 	    }, {
 	        key: "hidePopup",

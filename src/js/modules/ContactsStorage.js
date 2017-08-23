@@ -25,6 +25,7 @@ class ContactsStorage {
                 phone: $("input.form__input[name='phone']").val(),
                 email: $("input.form__input[name='email']").val(),
                 address: $("input.form__input[name='address']").val(),
+                bshop: $("input.form__input[name='bshop']").val(),
                 delivery: $("")
             };
             
@@ -41,6 +42,7 @@ class ContactsStorage {
             $("input.form__input[name='phone']").val(contacts.phone);
             $("input.form__input[name='email']").val(contacts.email);
             $("input.form__input[name='address']").val(contacts.address);
+            $("input.form__input[name='bshop']").val(contacts.bshop);
         }
     }
 }

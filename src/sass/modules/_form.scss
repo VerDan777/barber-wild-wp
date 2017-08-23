@@ -115,6 +115,11 @@
             // box model
             padding-top: 10px;
         }
+
+        &--hidden {
+            // box model
+            display: none;
+        }
     }
 
     &__icon {
