@@ -176,9 +176,29 @@ class OrderFormSender {
             url: "http://barberwild.com/order.php",
             data: dataToSend,
             success: onSuccess,
-            error: onError
-            // complete: onComplete
+            error: onError,
+            complete: onComplete
         });
+
+        function onComplete() {
+            var sum = $(".table-item__summ").text();
+
+            ga("send", {
+                hitType: "event",
+                eventCategory: "SUBMIT_ORDER_FORM",
+                eventAction: "SUBMIT_ORDER_FORM",
+                eventLabel: sum
+            });
+            console.log("gaSend: SUBMIT_ORDER_FORM", sum);
+
+            var goalParams = {
+                order_price: sum,
+                currency: "RUB"
+            };
+
+            yaCounter45729837.reachGoal("SUBMIT_ORDER_FORM", goalParams);
+            console.log("yaReachGoal: SUBMIT_ORDER_FORM");
+        }
 
         function onSuccess() {
             $("#order-popup .order-popup__title").text("Спасибо!");

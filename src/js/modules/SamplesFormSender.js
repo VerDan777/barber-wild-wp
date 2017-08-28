@@ -156,9 +156,22 @@ class SamplesFormSender {
             url: "http://barberwild.com/order.php",
             data: dataToSend,
             success: onSuccess,
-            error: onError
-            // complete: onComplete
+            error: onError,
+            complete: onComplete
         });
+
+        function onComplete() {
+            // google analytics
+            ga("send", {
+                hitType: "event",
+                eventCategory: "SUBMIT_TEST_ORDER_FORM",
+                eventAction: "SUBMIT_TEST_ORDER_FORM"
+            });
+            console.log("gaSend: SUBMIT_TEST_ORDER_FORM");
+            
+            yaCounter45729837.reachGoal("SUBMIT_TEST_ORDER_FORM");
+            console.log("yaReachGoal: SUBMIT_TEST_ORDER_FORM");
+        }
 
         function onSuccess() {
             $("#order-popup .order-popup__title").text("Спасибо!");

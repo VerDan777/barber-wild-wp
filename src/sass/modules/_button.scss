@@ -35,6 +35,24 @@
         border-color: $darkSand;
     }
 
+    &--all {
+        // typography
+        color: rgba($darkestSand, 0.75);
+
+        // visual
+        background-color: $justSand;
+        border-color: rgba($darkestSand, 0.5);
+        
+        &:hover {
+            // typography
+            color: $white;
+            
+            // visual
+            border-color: rgba($darkSand, 1);
+            background-color: $darkSand;
+        }
+    }
+
     &--red {
         // visual
         background-color: $accentRed;

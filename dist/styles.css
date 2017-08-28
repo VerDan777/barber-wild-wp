@@ -1407,6 +1407,14 @@ body {
     color: #c7a166;
     background-color: #ffffff;
     border-color: #c7a166; }
+  .button--all {
+    color: rgba(55, 48, 37, 0.75);
+    background-color: #e9dcca;
+    border-color: rgba(55, 48, 37, 0.5); }
+    .button--all:hover {
+      color: #ffffff;
+      border-color: #c7a166;
+      background-color: #c7a166; }
   .button--red {
     background-color: #d11500;
     border-color: #d11500; }
