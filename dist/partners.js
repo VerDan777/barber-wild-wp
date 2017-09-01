@@ -12040,9 +12040,22 @@
 	                url: "http://barberwild.com/order.php",
 	                data: dataToSend,
 	                success: onSuccess,
-	                error: onError
-	                // complete: onComplete
+	                error: onError,
+	                complete: onComplete
 	            });
+
+	            function onComplete() {
+	                // google analytics
+	                ga("send", {
+	                    hitType: "event",
+	                    eventCategory: "SUBMIT_PARTNERSHIP_FORM",
+	                    eventAction: "SUBMIT_PARTNERSHIP_FORM"
+	                });
+	                console.log("gaSend: SUBMIT_PARTNERSHIP_FORM");
+
+	                yaCounter45729837.reachGoal("SUBMIT_PARTNERSHIP_FORM");
+	                console.log("yaReachGoal: SUBMIT_PARTNERSHIP_FORM");
+	            }
 
 	            function onSuccess() {
 	                (0, _jquery2.default)("#order-popup .order-popup__title").text("Спасибо!");
