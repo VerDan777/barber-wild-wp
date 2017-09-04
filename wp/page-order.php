@@ -76,6 +76,17 @@
                                     $item_image         = get_field('item-image');
                                     $price              = get_field('price');
                                     $itemID             = get_the_ID();
+                                    $ribbon             = get_field('ribbon');
+                                    
+                                    switch($ribbon) {
+                                        case "limited":
+                                            $item_name = $item_name ."<br><em>Limited Edition</em>";
+                                            break;
+                                        case "new":
+                                            break;
+                                        case "hot":
+                                            break;
+                                    }
                         ?>
 
                         <tr class="table-item">

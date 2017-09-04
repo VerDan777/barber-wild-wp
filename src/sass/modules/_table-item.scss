@@ -49,9 +49,12 @@
     }
 
     &__image {
+        // positioning
+        position: relative;
+
         // box model
         display: inline-block;
-        vertical-align: top;
+        vertical-align: middle;
         height: 64px;
         width: 64px;
         margin-left: 5px;
@@ -76,40 +79,46 @@
     &__name {
         // box model
         display: inline-block;
-        vertical-align: top;
-        height: 64px;
+        vertical-align: middle;
+        // height: 64px;
         width: calc(100% - 80px);
         padding: 0 15px;
         padding-left: 25px;
         padding-top: 17px;
-
+        
         // typography
         font-family: $mainFont;
         line-height: 1.4;
         text-align: left;
-
+        
         @include atTabletsPortrait {
             // box model
             display: table-cell;
             vertical-align: middle;
             width: auto;
-
+            
             padding: 0 15px;
         }
-
+        
         a {
             // typography
             color: #000000;
             text-decoration: none;
         }
-
+        
         a:hover {
             // typography
             color: $darkSand;
             text-decoration: underline;
         }
-    }
 
+        em {
+            // typography
+            color: $accentRed;
+            font-style: normal;
+        }
+    }
+    
     &__count {
         // positioning
         position: relative;

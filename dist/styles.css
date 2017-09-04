@@ -1687,8 +1687,9 @@ body {
   .table-item__id {
     display: none; }
   .table-item__image {
+    position: relative;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     height: 64px;
     width: 64px;
     margin-left: 5px;
@@ -1702,8 +1703,7 @@ body {
         width: auto; } }
   .table-item__name {
     display: inline-block;
-    vertical-align: top;
-    height: 64px;
+    vertical-align: middle;
     width: calc(100% - 80px);
     padding: 0 15px;
     padding-left: 25px;
@@ -1723,6 +1723,9 @@ body {
     .table-item__name a:hover {
       color: #c7a166;
       text-decoration: underline; }
+    .table-item__name em {
+      color: #d11500;
+      font-style: normal; }
   .table-item__count {
     position: relative;
     display: block;
