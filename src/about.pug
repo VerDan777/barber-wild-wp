@@ -56,7 +56,10 @@ html
 
             section.site-section
                 header.site-section__header
-                    h2.site-section__title Контакты
+                    h2.site-section__title Мы в инстаграме
+
+                .section__content
+                    .instafeed#instafeed
 
         footer.site-footer
             .site-footer__social
@@ -71,3 +74,5 @@ html
                 - var links = ["about.html", "shop.html", "partners.html"];
                 - for (var i = 0; i < 3; i++)
                     li: a(href=links[i])= list[i]
+
+        script(src="instagram.js")

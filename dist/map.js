@@ -51,7 +51,7 @@
 	window.initMap = function () {
 
 	    // Create object map
-	    var mapStyles = new google.maps.StyledMapType(__webpack_require__(1));
+	    var mapStyles = new google.maps.StyledMapType(__webpack_require__(2));
 
 	    var map = new google.maps.Map(document.getElementById('map'), {
 	        zoom: 4,
@@ -188,7 +188,8 @@
 	// }
 
 /***/ }),
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports) {
 
 	"use strict";

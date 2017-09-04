@@ -1928,3 +1928,19 @@ body {
 
 .map {
   height: 100%; }
+
+.instafeed {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0;
+  text-align: center; }
+  .instafeed__image {
+    display: inline-block;
+    height: 320px;
+    width: 320px;
+    padding: 10px; }
+    .instafeed__image img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover; }
