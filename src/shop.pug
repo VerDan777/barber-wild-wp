@@ -36,26 +36,79 @@ html
 
         main.site-main
             .wrapper.wrapper--center
-                mixin shop-item(title1, title2, volume, price, imgUrl)
-                    article.shop-item: .shop-item__wrapper
-                        .shop-item__image: img(src=imgUrl)
-                        .shop-item__description
-                            h2.shop-item__title #{title1} <br> #{title2}
-                            p.shop-item__volume= volume
-                            p.shop-item__price #{price} -
-                            //- p.shop-item__limited Limited Edition
-                            .shop-item__buttons
-                                a(href="shop-item.html").button Подробнее
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/matt-clay.png")
+                    .shop-item__description
+                        h2.shop-item__title Матирующая глина <br> «Barber WILD»
+                        p.shop-item__volume Объем: 3.5 oz. | 100 g.
+                        p.shop-item__price 990 -
+                        p.shop-item__limited Limited<br>Edition
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
 
-                +shop-item("Матирующая глина", "«Barber WILD»", "Объем: 3.5 oz. | 100 g.", "990", "./img/items/matt-clay.png")
-                +shop-item("Помада для волос", "«Barber WILD» (Juicy)", "Объем: 3.5 oz. | 100 g.", "990", "./img/items/pomade-juicy.png")
-                +shop-item("Помада для волос", "«Barber WILD» (Ice Melon)", "Объем: 3.5 oz. | 100 g.", "990", "./img/items/pomade-ice-melon.png")
-                +shop-item("Масло для бороды", "«Barber WILD» (Idaho)", "Объем: 0.85 oz. | 25 ml.", "990", "./img/items/beard-oil-idaho.png")
-                +shop-item("Масло для бороды", "«Barber WILD» (Tennessee)", "Объем: 0.85 oz. | 25 ml.", "990", "./img/items/beard-oil-tennessee.png")
-                +shop-item("Масло для подбривания", "«Barber WILD»", "Объем: 1.86 oz. | 55 ml.", "990", "./img/items/shave-oil.png")
-                +shop-item("Бальзам после бритья", "«Barber WILD»", "Объем: 3.38 oz. | 100 ml.", "990", "./img/items/balm.png")
-                +shop-item("Мыло для бритья", "«Barber WILD»", "Объем: 3,5 oz. | 100 g.", "890", "./img/items/soap.png")
-        
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/pomade-juicy.png")
+                    .shop-item__description
+                        h2.shop-item__title Помада для волос <br> «Barber WILD (Juicy)»
+                        p.shop-item__volume Объем: 3.5 oz. | 100 g.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/pomade-ice-melon.png")
+                    .shop-item__description
+                        h2.shop-item__title Помада для волос<br>«Barber WILD» (Ice Melon)
+                        p.shop-item__volume Объем: 3.5 oz. | 100 g.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/beard-oil-idaho.png")
+                    .shop-item__description Объем: 0.85 oz. | 25 ml.
+                        h2.shop-item__title Масло для бороды <br> «Barber WILD» (Idaho)
+                        p.shop-item__volume Объем: 0.85 oz. | 25 ml.
+                        p.shop-item__price 990 -
+                    .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/beard-oil-tennessee.png")
+                    .shop-item__description
+                        h2.shop-item__title Масло для бороды <br> «Barber WILD» (Tennessee)
+                        p.shop-item__volume бъем: 0.85 oz. | 25 ml.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/shave-oil.png")
+                    .shop-item__description
+                        h2.shop-item__title Масло для подбривания <br> «Barber WILD»
+                        p.shop-item__volume Объем: 1.86 oz. | 55 ml.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/balm.png")
+                    .shop-item__description
+                        h2.shop-item__title Бальзам после бритья <br> «Barber WILD»
+                        p.shop-item__volume Объем: 3.38 oz. | 100 ml.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/soap.png")
+                    .shop-item__description
+                        h2.shop-item__title Мыло для бритья <br> «Barber WILD»
+                        p.shop-item__volume Объем: 3,5 oz. | 100 g.
+                        p.shop-item__price 890 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+
         footer.site-footer
             .site-footer__social
                 a(href="#").icon-vkontakte VKontakte

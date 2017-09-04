@@ -70,14 +70,17 @@
             </article>
         </section>
 
-        <!--<section class="site-section">
+        <section class="site-section">
             <header class="site-section__header">
-                <h2 class="site-section__title">
-                    Контакты
-                </h2>
+                <h2 class="site-section__title">Мы в инстаграме</h2>
             </header>
-        </section>-->
+            <div class="section__content">
+                <div class="instafeed" id="instafeed"></div>
+            </div>
+        </section>
     </div>
+
+    <script src="<?php bloginfo('stylesheet_directory'); ?>/instagram.js"></script>
 </main>
 
 <?php 

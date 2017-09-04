@@ -25,6 +25,7 @@
                     $item_image         = get_field('item-image');
                     $volume             = get_field('volume');
                     $price              = get_field('price');
+                    $ribbon             = get_field('ribbon');
         ?>
 
         <article class="shop-item">
@@ -43,6 +44,19 @@
                     <p class="shop-item__price">
                         <?php echo $price; ?> -
                     </p>
+
+        <?php
+            switch($ribbon) {
+                case "limited":
+                    echo "<p class=\"shop-item__limited\">Limited<br>Edition</p>";
+                    break;
+                case "new":
+                    break;
+                case "hot":
+                    break;
+            }
+        ?>
+
                     <div class="shop-item__buttons">
                         <a class="button" href="<?php the_permalink(); ?>">Подробнее</a>
                     </div>
