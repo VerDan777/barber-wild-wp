@@ -168,6 +168,27 @@
         }
     }
 
+    .limited {
+        // styles here;
+
+        // positioning
+        position: absolute;
+        left: 0;
+        top: 20px;
+
+        // box model
+        padding-left: 30px;
+
+        // typography
+        color: $justSand;
+        font-family:$titleFont;
+
+        // visual
+        background-color: $accentRed;
+
+
+    }
+
     @include atDesktop {
         &:hover {
             .shop-item__wrapper {

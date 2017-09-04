@@ -1239,6 +1239,14 @@ body {
         left: 0;
         top: 600px;
         margin-top: 45px; } }
+  .shop-item .limited {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    padding-left: 30px;
+    color: #e9dcca;
+    font-family: "IntroBold";
+    background-color: #d11500; }
   @media (min-width: 1200px) {
     .shop-item:hover .shop-item__wrapper {
       left: -50px;
