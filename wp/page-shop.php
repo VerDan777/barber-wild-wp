@@ -51,8 +51,10 @@
                     echo "<p class=\"shop-item__limited\">Limited<br>Edition</p>";
                     break;
                 case "new":
+                    echo "<p class=\"shop-item__new\">New</p>";
                     break;
                 case "hot":
+                    echo "<p class=\"shop-item__hot\">Hot</p>";
                     break;
             }
         ?>

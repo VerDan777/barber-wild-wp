@@ -193,6 +193,32 @@
         box-shadow: 0 0 10px rgba($darkestSand, 0.5);
     }
 
+    &__new {
+        // positioning
+        position: absolute;
+        left: 0;
+        top: 20px;
+
+        // box model
+        display: block;
+        margin: 0;
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 12px;
+
+        // typography
+        color: $justSand;
+        font-family: $titleFont;
+        font-size: 2rem;
+        line-height: 1;
+        text-align: left;
+        text-transform: uppercase;
+
+        // visual
+        background-color: $accentRed;
+        box-shadow: 0 0 10px rgba($darkestSand, 0.5);
+    }
+
     @include atDesktop {
         &:hover {
             .shop-item__wrapper {

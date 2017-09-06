@@ -83,8 +83,10 @@
                                             $item_name = $item_name ."<br><em>Limited Edition</em>";
                                             break;
                                         case "new":
+                                            $item_name = $item_name ."<br><em>NEW</em>";
                                             break;
                                         case "hot":
+                                            $item_name = $item_name ."<br><em>HOT</em>";
                                             break;
                                     }
                         ?>

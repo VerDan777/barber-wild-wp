@@ -1255,6 +1255,23 @@ body {
     text-align: left;
     background-color: #d11500;
     box-shadow: 0 0 10px rgba(55, 48, 37, 0.5); }
+  .shop-item__new {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    display: block;
+    margin: 0;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 12px;
+    color: #e9dcca;
+    font-family: "IntroBold";
+    font-size: 2rem;
+    line-height: 1;
+    text-align: left;
+    text-transform: uppercase;
+    background-color: #d11500;
+    box-shadow: 0 0 10px rgba(55, 48, 37, 0.5); }
   @media (min-width: 1200px) {
     .shop-item:hover .shop-item__wrapper {
       left: -50px;
@@ -1346,6 +1363,11 @@ body {
     .item__description {
       padding: 80px;
       padding-left: 120px; } }
+  .item__description p {
+    font-family: "IntroLight";
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6; }
 
 .item__subheading {
   font-family: "IntroLight";

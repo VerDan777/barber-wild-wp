@@ -115,6 +115,14 @@
             padding: 80px;
             padding-left: 120px;
         }
+
+        p {
+            // typography
+            font-family: $mainFont;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
     }
 
     &__subheading {
