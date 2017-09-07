@@ -193,7 +193,8 @@
         box-shadow: 0 0 10px rgba($darkestSand, 0.5);
     }
 
-    &__new {
+    &__new,
+    &__hot {
         // positioning
         position: absolute;
         left: 0;
