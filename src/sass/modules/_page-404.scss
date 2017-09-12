@@ -1,0 +1,88 @@
+.page-404 {
+    //box model
+    height: 100%;
+    width: 100%;
+
+    //positioning
+    position: absolute;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    //visual
+    background-color: $lightSand;
+    
+
+    &__img {
+        // positioning
+        position: absolute;
+
+        //box model
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+
+        //visual
+        background-image: url('./img/404_mobile.png');
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: contain;
+        
+
+        @include atTabletsPortrait {
+            //box model
+            background-image: url('./img/404_tablet.png');
+        }
+        
+        @include atDesktop {
+            //box model
+            background-image: url('./img/404_new.png');
+        }
+
+    }
+    &__item {
+        //box model
+        text-align: left;
+
+        //typography
+        font-family: $mainFont;
+
+        a {
+            color: $darkSand;
+            text-decoration: none;
+        }
+    }
+    &__title {
+        // positioning
+        position: absolute;
+        top: 10%;
+        left: 50%; 
+        transform: translate(-50%,-50%);
+        margin: 0 0;
+
+        // typography
+        font-family: $titleFont;
+        font-size: 6rem;
+        
+        // visual
+        color: $darkSand;
+
+        @include atTabletsPortrait {
+
+            //typography
+            font-size: 15rem;
+        }
+        
+        @include atDesktop {
+            z-index: 0;
+            top: 49%;
+        }
+    }
+    &__subtitle {
+        //typography
+        font-family: $mainFont;
+    }
+
+}
