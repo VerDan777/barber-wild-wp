@@ -30,19 +30,28 @@
 </head>
 
 <body>
-    <header class="page-404">
-        <div class="page-404__img"></div>
-        <h1 class="page-404__title">404</h1>
-    </header>
-    <div class="order-popup order-popup--shown order-popup--404page"></div>
-    <div class="order-popup__content order-popup__content--shown order-popup__content--404page">
-        <ul class="page-404__list">
-            <h3 class="page-404__subtitle">Страница, на которую вы попали, не существует. <br> Вы можете попробовать следующее:</h3>
-            <li class="page-404__item"><a href="<?php bloginfo('stylesheet_url');?>">Перейти к главной странице сайта</a></li>
-            <li class="page-404__item">Проверить правильность введенного адреса</li>
-            <li class="page-404__item">Вернуться туда, откуда пришли (<em>нажать кнопку «Назад» в своем браузере</em>)</li>
-        </ul>
-    </div>
+    <section class="page-404">
+        <header class="page-404__header">
+            <h1 class="page-404__title">404</h1>
+        </header>
+
+        <div class="page-404__content">
+            <h2 class="page-404__subtitle">
+                Страница, на которую вы попали, не существует. 
+                <br> Вы можете попробовать следующее:
+            </h2>
+
+            <ul class="page-404__list">
+                <li class="page-404__item">
+                    <a href="<?php bloginfo('stylesheet_url');?>">Перейти к главной странице сайта</a>
+                </li>
+                <li class="page-404__item">Проверить правильность введенного адреса</li>
+                <li class="page-404__item">Вернуться туда, откуда пришли (<em>нажать кнопку «Назад» в своем браузере</em>)</li>
+            </ul>
+        </div>
+    </section>
 </body>
 
-</html>
+<?php 
+    get_footer();
+?>

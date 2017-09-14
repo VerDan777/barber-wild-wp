@@ -150,7 +150,8 @@
                     <input class="button" id="order-submit" type="submit" value="Подтвердить">
                 </div>
 
-                <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.</div>
+                <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br>
+                Минимальная сумма оптового заказа от 4000 рублей.</div>
             </form>
 
             <div id="form-output"></div>

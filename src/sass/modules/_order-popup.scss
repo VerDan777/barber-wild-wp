@@ -19,11 +19,6 @@
         visibility: visible;
     }
 
-    &--404page {
-        // box model
-        background: none;
-    }
-
     &__content {
         // positioning
         position: absolute;
@@ -48,29 +43,11 @@
         visibility: hidden;
         transition: all 0.3s ease-out;
 
-        
-
         &--shown {
             // box model
             max-width: 800px;
             opacity: 1;
             visibility: visible;
-        }
-
-        &--404page {
-            //positioning
-            position: absolute;
-            top: 60%;
-
-            @include atTabletsPortrait {
-                //positioning
-                top: 50%;
-            }
-
-            @include atDesktop {
-                //positioning
-                top: 75%;
-            }
         }
     }
 
