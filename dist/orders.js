@@ -94,10 +94,17 @@
 	    function OrderCalculator() {
 	        _classCallCheck(this, OrderCalculator);
 
+	        // general
+	        this.minOrderValue = 4000;
+
 	        // table elements
 	        this.countInputs = (0, _jquery2.default)(".table-item__count input");
 	        this.costLabels = (0, _jquery2.default)(".table-item__cost");
 	        this.summLabel = (0, _jquery2.default)(".table-item__summ");
+
+	        // other elements
+	        this.orderButton = (0, _jquery2.default)("#order-submit");
+	        this.priceWarning = (0, _jquery2.default)(".form__warning");
 
 	        // spinner elements
 	        this.decButtons = (0, _jquery2.default)(".spinner__minus");
@@ -204,10 +211,8 @@
 	            if (input) {
 	                this.calcInput(input);
 	            } else {
-	                // console.log($('.table-item__count input'));
 	                var self = this;
 	                _jquery2.default.each((0, _jquery2.default)(".table-item__count input"), function (index, value) {
-	                    // console.log(value);
 	                    self.calcInput((0, _jquery2.default)(value));
 	                });
 	            }
@@ -225,6 +230,18 @@
 	                summ += parseInt((0, _jquery2.default)(val).html());
 	            });
 	            this.summLabel.html(summ);
+
+	            if (summ < this.minOrderValue) {
+	                this.summLabel.addClass("table-item__summ--warn");
+	                this.orderButton.addClass("button--disabled");
+	                this.orderButton.attr("disabled", true);
+	                this.priceWarning.addClass("form__warning--warn");
+	            } else {
+	                this.summLabel.removeClass("table-item__summ--warn");
+	                this.orderButton.removeClass("button--disabled");
+	                this.orderButton.attr("disabled", false);
+	                this.priceWarning.removeClass("form__warning--warn");
+	            }
 	        }
 	    }]);
 

@@ -561,11 +561,17 @@ body {
     font-family: "IntroBold";
     font-family: "IntroLight";
     font-size: 0.8rem;
-    line-height: 1.4; }
+    line-height: 1.6; }
     .form__text--right {
       margin-top: 0;
       margin-top: -30px;
       text-align: right; }
+  .form__warning {
+    padding: 2px;
+    color: #121212; }
+    .form__warning--warn {
+      color: #d11500;
+      border: 2px solid #d11500; }
   .form a {
     color: #c7a166; }
     .form a:hover {
@@ -1568,6 +1574,8 @@ body {
   .button--big {
     padding: 18px 65px;
     border-radius: 40px; }
+  .button--disabled {
+    opacity: 0.5; }
 
 .feature {
   display: inline-block;
@@ -1694,11 +1702,17 @@ body {
     font-family: "IntroBold";
     font-family: "IntroLight";
     font-size: 0.8rem;
-    line-height: 1.4; }
+    line-height: 1.6; }
     .form__text--right {
       margin-top: 0;
       margin-top: -30px;
       text-align: right; }
+  .form__warning {
+    padding: 2px;
+    color: #121212; }
+    .form__warning--warn {
+      color: #d11500;
+      border: 2px solid #d11500; }
   .form a {
     color: #c7a166; }
     .form a:hover {
@@ -1945,6 +1959,8 @@ body {
     @media (min-width: 700px) {
       .table-item__summ {
         width: auto; } }
+    .table-item__summ--warn {
+      color: #d11500; }
 
 .spinner {
   position: relative;
@@ -2150,7 +2166,13 @@ body {
 
 .page-404 {
   position: relative;
-
+  z-index: 2;
+  height: calc(100vh - 480px);
+  margin-top: 80px;
+  margin-bottom: -200px; }
+  @media (min-width: 1200px) {
+    .page-404 {
+      height: calc(100vh - 480px); } }
   .page-404__title {
     margin: 0 0;
     font-family: "IntroBold";
@@ -2170,7 +2192,17 @@ body {
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #c7a166; }
-
+  .page-404__subtitle {
+    padding-bottom: 20px;
+    font-family: "IntroLight";
+    text-align: center; }
+  .page-404__item {
+    text-align: left;
+    font-family: "IntroLight";
+    font-size: 1.25rem; }
+    .page-404__item a {
+      color: #c7a166;
+      text-decoration: none; }
 
 .instafeed {
   display: flex;
