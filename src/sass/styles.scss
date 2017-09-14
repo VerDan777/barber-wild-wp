@@ -1,8 +1,9 @@
 @import "base/wordpress";
 
 // fonts
+
 @import "fonts/fonts";
-@import "fonts/icons";
+
 
 // normalize
 @import "normalize.css";
@@ -13,6 +14,9 @@
 @import "base/global";
 
 // modules
+
+@import "modules/_form";
+
 //      header
 @import "modules/site-header";
 @import "modules/main-nav";
@@ -31,6 +35,7 @@
 @import "modules/description";
 @import "modules/show-all";
 @import "modules/video";
+@import "modules/mail";
 
 //      shop
 @import "modules/shop-item";
@@ -48,6 +53,7 @@
 //      order
 @import "modules/order-table";
 @import "modules/table-item";
+@import "modules/spinner";
 
 //      footer
 @import "modules/site-footer";
@@ -55,11 +61,18 @@
 @import "modules/footer-nav";
 
 
-//      popups
-@import "modules/order-popup";
-
 //      map
 @import "modules/map";
 
+
+
+
+//      popups
+@import "modules/order-popup";
+
+//      404
+@import "modules/page-404";
+
 //      instafeed
 @import "modules/instafeed";
+
