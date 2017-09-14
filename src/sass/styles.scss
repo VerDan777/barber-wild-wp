@@ -3,7 +3,7 @@
 // fonts
 
 @import "fonts/fonts";
-
+@import "fonts/icons";
 
 // normalize
 @import "normalize.css";
@@ -14,7 +14,6 @@
 @import "base/global";
 
 // modules
-
 @import "modules/_form";
 
 //      header
@@ -35,7 +34,6 @@
 @import "modules/description";
 @import "modules/show-all";
 @import "modules/video";
-
 
 //      shop
 @import "modules/shop-item";
@@ -63,9 +61,6 @@
 
 //      map
 @import "modules/map";
-
-
-
 
 //      popups
 @import "modules/order-popup";

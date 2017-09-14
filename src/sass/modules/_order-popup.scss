@@ -5,7 +5,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    // z-index: 9999;
+    z-index: 9999;
 
     // visual
     background-color: rgba($justSand, 0.6);
@@ -17,10 +17,6 @@
         // visual
         opacity: 1;
         visibility: visible;
-    }
-    &--404page {
-        
-        background: none;
     }
 
     &__content {
@@ -47,29 +43,11 @@
         visibility: hidden;
         transition: all 0.3s ease-out;
 
-        
-
         &--shown {
             // box model
             max-width: 800px;
             opacity: 1;
             visibility: visible;
-        }
-
-        &--404page {
-            //positioning
-            position: absolute;
-            top: 60%;
-
-            @include atTabletsPortrait {
-                //positioning
-                top: 50%;
-            }
-
-            @include atDesktop {
-                //positioning
-                top: 75%;
-            }
         }
     }
 
