@@ -1514,19 +1514,21 @@ body {
       background-image: url("./img/ingredients-deco.png"); } }
 
 .partners {
+  max-width: 1500px;
+  margin: 0 auto;
   text-align: center; }
   .partners__item {
     display: inline-block;
     vertical-align: middle;
-    width: 265px;
-    margin: 0 20px;
+    height: 120px;
+    margin: 40px;
     margin-bottom: 20px;
     opacity: 0.9;
     transition: opacity 0.3s ease-out; }
     .partners__item:hover {
       opacity: 0.7; }
     .partners__item img {
-      width: 100%; }
+      height: 100%; }
 
 .button {
   padding: 8px 25px;
@@ -2148,13 +2150,7 @@ body {
 
 .page-404 {
   position: relative;
-  z-index: 2;
-  height: calc(100vh - 480px);
-  margin-top: 80px;
-  margin-bottom: -200px; }
-  @media (min-width: 1200px) {
-    .page-404 {
-      height: calc(100vh - 480px); } }
+
   .page-404__title {
     margin: 0 0;
     font-family: "IntroBold";
@@ -2174,17 +2170,7 @@ body {
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #c7a166; }
-  .page-404__subtitle {
-    padding-bottom: 20px;
-    font-family: "IntroLight";
-    text-align: center; }
-  .page-404__item {
-    text-align: left;
-    font-family: "IntroLight";
-    font-size: 1.25rem; }
-    .page-404__item a {
-      color: #c7a166;
-      text-decoration: none; }
+
 
 .instafeed {
   display: flex;
