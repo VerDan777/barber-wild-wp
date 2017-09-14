@@ -99,10 +99,18 @@
             </header>
 
             <div class="partners">
-                <a class="partners__item" href="http://oldboybarbershop.com/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/oldboy.png"></a>
-                <a class="partners__item" href="http://www.salonborodach.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/borodach.png"></a>
-                <a class="partners__item" href="http://barberceh.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/ceh.png"></a>
-                <a class="partners__item" href="http://barbershopmagnum.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/magnum.png"></a>
+                <a class="partners__item" href="http://oldboybarbershop.com/"><img src="./img/partners/oldboy.png"></a>
+                <a class="partners__item" href="http://www.salonborodach.ru/"><img src="./img/partners/borodach.png"></a>
+                <a class="partners__item" href="http://barberceh.ru/"><img src="./img/partners/ceh.png"></a>
+                <a class="partners__item" href="http://barbershopmagnum.ru/"><img src="./img/partners/magnum.png"></a>
+                <a class="partners__item" href="#"><img src="./img/partners/usi.png"></a>
+                <a class="partners__item" href="#"><img src="./img/partners/borodise.png"></a>
+                <a class="partners__item" href="#"><img src="./img/partners/wrong-bar.png"></a>
+                <a class="partners__item" href="http://big-bro.pro"><img src="./img/partners/bigbro.png"></a>
+                <a class="partners__item" href="http://barberkontora.ru/"><img src="./img/partners/kontora.png"></a>
+                <a class="partners__item" href="http://barberfirma.ru/"><img src="./img/partners/firma.png"></a>
+            </div>
+
             </div>
         </section>
     </div>
