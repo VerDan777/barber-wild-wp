@@ -43,7 +43,7 @@
 
             <ul class="page-404__list">
                 <li class="page-404__item">
-                    <a href="<?php bloginfo('stylesheet_url');?>">Перейти к главной странице сайта</a>
+                    <a href="<?php echo esc_url(home_url('/')); ?>">Перейти к главной странице сайта</a>
                 </li>
                 <li class="page-404__item">Проверить правильность введенного адреса</li>
                 <li class="page-404__item">Вернуться туда, откуда пришли (<em>нажать кнопку «Назад» в своем браузере</em>)</li>
