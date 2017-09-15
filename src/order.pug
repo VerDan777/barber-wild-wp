@@ -59,7 +59,9 @@ html
                         label.form__icon 4
                         input.form__input(type="text", name="address", placeholder="Адрес доставки",
                                           data-validation="required" required) 
-
+                
+                map(name="m1")
+                    area(shape=rect coords="170 5 195 30" href="#clay")
                 fieldset.form__fieldset
                     table.order-table
                         tr
@@ -69,11 +71,14 @@ html
                             th Количество
                             th Цена
                             th Стоимость
-
+                    
                         mixin table-item(number, photoURL, title, price)
                             tr.table-item
                                 td.table-item__number= number
-                                td.table-item__image: img(src=photoURL)
+                                td.table-item__image
+                                    img#clay.table-item__img(src=photoURL usemap="#m1")
+                                    a.table-item__image-close(href="#")
+                                    img.table-item__image-expand(src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png")
                                 td.table-item__name= title
                                 td(data-th="Количество").table-item__count
                                     .spinner
