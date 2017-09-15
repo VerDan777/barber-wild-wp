@@ -110,7 +110,7 @@
                                 </a>
                             </td>
 
-                            <td class="table-item__count" data-th="Количество">
+                            <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                     <button class="spinner__button spinner__minus" type="button">–</button>
                                     <input class="spinner__input" name="<?php echo $item_form_name; ?>" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
