@@ -4,13 +4,27 @@
     z-index: 2;
 
     // box model
-    height: calc(100vh - 480px);
+    height: calc(100vh - 400px);
     margin-top: 80px;
-    margin-bottom: -200px;
-    // border: 1px solid red;
-    
+    margin-bottom: -100px;
+
+    @include atSmall {
+        // box model
+        margin-bottom: 15px;
+    }
+    @include atTabletsPortrait {
+        // box model
+        height: 100%;
+        margin-bottom: 40px;
+        
+    }
+    @include atTabletsLandscape {
+        // box model
+        margin-bottom: 55px;
+    } 
     @include atDesktop {
         // box model
+        margin-bottom: -200px;
         height: calc(100vh - 480px);
     }
 
@@ -46,11 +60,16 @@
         // box model
         max-width: 800px;
         margin: 0 auto;
-        padding: 40px;
+        padding: 20px;
 
         // visual
         background-color: rgba($white, 0.8);
         border: 1px solid $darkSand;
+
+        @include atTabletsPortrait {
+            //box model
+            padding: 40px;
+        }
     }
     
     &__subtitle {
@@ -60,6 +79,12 @@
         //typography
         font-family: $mainFont;
         text-align: center;
+        font-size: 1rem;
+
+        @include atTabletsPortrait {
+            //typography
+            font-size: 1.25rem;
+        }
     }
 
     &__list {
@@ -72,7 +97,14 @@
 
         //typography
         font-family: $mainFont;
-        font-size: 1.25rem;
+        font-size: 1rem;
+
+        @include atTabletsPortrait {
+            //box model
+
+            //typography
+            font-size: 1.25rem;
+        }
 
         a {
             // typography

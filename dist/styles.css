@@ -2151,11 +2151,22 @@ body {
 .page-404 {
   position: relative;
   z-index: 2;
-  height: calc(100vh - 480px);
+  height: calc(100vh - 400px);
   margin-top: 80px;
-  margin-bottom: -200px; }
+  margin-bottom: -100px; }
+  @media (max-width: 340px) {
+    .page-404 {
+      margin-bottom: 15px; } }
+  @media (min-width: 700px) {
+    .page-404 {
+      height: 100%;
+      margin-bottom: 40px; } }
+  @media (min-width: 900px) {
+    .page-404 {
+      margin-bottom: 55px; } }
   @media (min-width: 1200px) {
     .page-404 {
+      margin-bottom: -200px;
       height: calc(100vh - 480px); } }
   .page-404__title {
     margin: 0 0;
@@ -2173,17 +2184,27 @@ body {
   .page-404__content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #c7a166; }
+    @media (min-width: 700px) {
+      .page-404__content {
+        padding: 40px; } }
   .page-404__subtitle {
     padding-bottom: 20px;
     font-family: "IntroLight";
-    text-align: center; }
+    text-align: center;
+    font-size: 1rem; }
+    @media (min-width: 700px) {
+      .page-404__subtitle {
+        font-size: 1.25rem; } }
   .page-404__item {
     text-align: left;
     font-family: "IntroLight";
-    font-size: 1.25rem; }
+    font-size: 1rem; }
+    @media (min-width: 700px) {
+      .page-404__item {
+        font-size: 1.25rem; } }
     .page-404__item a {
       color: #c7a166;
       text-decoration: none; }
