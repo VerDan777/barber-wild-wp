@@ -1,8 +1,7 @@
-<?php 
+﻿<?php 
     /*
         Template Name: Order Page
     */
-
     get_header();
 ?>
 
@@ -62,14 +61,11 @@
                             $args = array(
                                 'category_name' => 'shop-item'
                             );
-
                             query_posts($args);
-
                             $counter = 1;
                             if (have_posts()) {
                                 while (have_posts()) {
                                     the_post();
-
                                     // vars
                                     $item_name          = get_field('item-name');
                                     $item_form_name     = get_field('item-form-name');
@@ -88,8 +84,11 @@
                                         case "hot":
                                             $item_name = $item_name ."<br><em>HOT</em>";
                                             break;
+                                        case "best seller":
+                                            $item_name = $item_name ."<br><em>Best Seller</em>";
+                                            break;
                                     }
-                        ?>
+                        ?>  
 
                         <tr class="table-item">
                             <td class="table-item__number">
@@ -101,7 +100,9 @@
                             </td>
 
                             <td class="table-item__image">
-                                <img src="<?php echo $item_image; ?>">
+                                <a class="popup" href="<?php echo $item_image ?>">
+                                    <img src="<?php echo $item_image; ?>">
+                                </a>
                             </td>
 
                             <td class="table-item__name">
@@ -137,7 +138,7 @@
                             <td class="table-item__reset"><a href="#" id="reset-form">Сбросить</a></td>
                             <td class="table-item__total">ИТОГО</td>
                             <td class="table-item__summ">0</td>
-                        </tr>
+                        </tr>or
                     </table>
                 </fieldset>
 
@@ -150,11 +151,14 @@
                 </div>
 
                 <div class="form__input-group">
-                    <input class="button" id="order-submit" type="submit" value="Подтвердить">
+                    <input class="button button--disabled" id="order-submit" type="submit" value="Подтвердить">
                 </div>
 
-                <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.</div>
+                <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br></div>
+                <p class="form__warning">Минимальная сумма оптового заказа от 4000 рублей.</p>
             </form>
+
+            
 
             <div id="form-output"></div>
             
@@ -166,15 +170,18 @@
 <div class="order-popup" id="order-popup">
     <div class="order-popup__content">
         <h2 class="order-popup__title">Отправка заказа</h2>
-        <p class="order-popup__text">   </p>
+        <p class="order-popup__text"></p>
         <div class="order-popup__progress"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/drum.png"></div>
         <a class="button order-popup__button" href="#" hidden>OK</a>
     </div>
 </div>
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
+<script src="<?php bloginfo('https://code.jquery.com/jquery-3.2.1.min.js'); ?>"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/jquery.magnific-popup.min.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/ImagePopup.js"></script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>
-
+<script src="<?php bloginfo('stylesheet_directory'); ?>/reset.js"></script>
 <?php 
     get_footer();
 ?>

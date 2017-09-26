@@ -2,11 +2,9 @@
     /*
         Template Name: Home Page
     */
-
     // vars
     $meta_description = get_field('meta-description');
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -101,7 +99,6 @@
                     'container'         => '',
                     'menu_class'        => 'main-menu'
                 );
-
                 wp_nav_menu($args);
             ?>
 
@@ -130,19 +127,15 @@
             $args = array(
                 'category_name' => 'featured-shop-item'
             );
-
             query_posts($args);
             $counter = 0;
-
             if (have_posts()) {
                 while(have_posts()) {
                     the_post();
-
                     // vars
                     $item_name          = get_field('item-name');
                     $item_short_desc    = get_field('short-description');
                     $item_image         = get_field('item-image');
-
                     // decoration
                     $deco_image         = get_field('deco-image');
                     $deco_top           = get_field('deco-top');
@@ -195,7 +188,7 @@
         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uho9zCQJc9M?autoplay=0&amp;showinfo=0&amp;controls=0"
             frameborder="0" allowfullscreen></iframe>
     </section>
-
+    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/best-seller.png">
 
 <?php
     get_footer();

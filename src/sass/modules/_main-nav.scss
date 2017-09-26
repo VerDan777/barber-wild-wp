@@ -43,6 +43,16 @@
         // visual
         cursor: pointer;
 
+        &--popup {
+            right: 15px;
+            top: 20px;
+            color: rgba(55, 48, 37, 0.75);
+            
+            @include atDesktop {
+                display: block;
+            }
+        }
+
         @include atDesktop {
             // box model
             display: none;
@@ -116,11 +126,23 @@
                 transform: rotate(45deg) scaleX(0.94);
 
                 // visual
-                background-color: $accentRed;
-                border-bottom: 1px solid #900000;
-                border-left: 1px solid #be6161;
-                border-right: 1px solid #5a0e0f;
+                background-color: rgba(55, 48, 37, 0.75);
+                border-bottom: 1px solid rgba(55, 48, 37, 0.75);
+                border-left: 1px solid rgba(55, 48, 37, 0.75);
+                border-right: 1px solid rgba(55, 48, 37, 0.75);
             }
+        &--close-x--popup {
+            &::before {
+                transform: rotate(45deg) scaleX(0.94);
+                
+                // visual
+                background-color:rgba(55, 48, 37, 0.75) ;
+                border-bottom: 1px solid rgba(55, 48, 37, 0.75);
+                border-left: 1px solid rgba(55, 48, 37, 0.75);
+                border-right: 1px solid rgba(55, 48, 37, 0.75);
+            }
+        }
+
 
             .main-nav__menu-icon__middle {
                 // positioning
@@ -129,7 +151,7 @@
                 
                 // visual
                 // opacity: 0;
-                background-color: $accentRed;
+                background-color: rgba(55, 48, 37, 0.75);
                 border-bottom: none;
                 border-left: none;
                 border-right: none;
@@ -140,12 +162,12 @@
                 transform: rotate(-45deg) scaleX(0.95);
 
                 // visual
-                background-color: $accentRed;
+                background-color: rgba(55, 48, 37, 0.75);
                 border-bottom: none;
-                border-left: 1px solid #5a0e0f;
-                border-right: 1px solid #be6161;
+                border-left: 1px solid rgba(55, 48, 37, 0.75);
+                border-right: 1px solid rgba(55, 48, 37, 0.75);
                 border-right: none;
-                border-top: 1px solid #be6161;
+                border-top: 1px solid rgba(55, 48, 37, 0.75);
             }
         }
     }

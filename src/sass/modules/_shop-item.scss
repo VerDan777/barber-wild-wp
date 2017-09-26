@@ -218,6 +218,10 @@
         // visual
         background-color: $accentRed;
         box-shadow: 0 0 10px rgba($darkestSand, 0.5);
+
+        &--sm {
+            font-size: 1.5rem;
+        }
     }
 
     @include atDesktop {

@@ -100,16 +100,31 @@
             </header>
 
             <div class="partners">
-                <a class="partners__item" href="http://oldboybarbershop.com"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/oldboy.png"></a>
+            <?php $args= array(
+                'category_name' => 'partners'
+            );
+            query_posts($args);
+            $counter=0;
+                if(have_posts()) {
+                    while(have_posts()) {
+                        the_post();
+
+                        //vars
+                        $partners__image = get_field('partner-image');
+                    }
+                }
+            ?>
+            
+                <a class="partners__item" href="http://barberfirma.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/firma.png"></a>
                 <a class="partners__item" href="http://www.salonborodach.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/borodach.png"></a>
                 <a class="partners__item" href="http://barberceh.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/ceh.png"></a>
                 <a class="partners__item" href="http://barbershopmagnum.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/magnum.png"></a>
-                <a class="partners__item" href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/usi.png"></a>
-                <a class="partners__item" href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/borodise.png"></a>
-                <a class="partners__item" href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/wrong-bar.png"></a>
+                <a class="partners__item" href="https://vk.com/usy_barbershop"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/usi.png"></a>
+                <a class="partners__item" href="https://vk.com/barbershop_borodise"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/borodise.png"></a>
+                <a class="partners__item" href="http://wrongbarber.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/wrong-barbershop.png"></a>
+                <a class="partners__item" href="http://oldboybarbershop.com"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/oldboy.png"></a>
                 <a class="partners__item" href="http://big-bro.pro"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/bigbro.png"></a>
                 <a class="partners__item" href="http://barberkontora.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/kontora.png"></a>
-                <a class="partners__item" href="http://barberfirma.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/firma.png"></a>
             </div>
 
             </div>

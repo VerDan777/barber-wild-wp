@@ -1,4 +1,4 @@
-import $ from "jquery";
+﻿import $ from "jquery";
 import Validator from "jquery-validation";
 
 class OrderFormSender {
@@ -91,6 +91,7 @@ class OrderFormSender {
 
         // Creating customer info
         let customer = {
+            title: this.orderForm.find("input[name=\"title\"]").val(),
             name: this.orderForm.find("input[name=\"fullname\"]").val(),
             phone: this.orderForm.find("input[name=\"phone\"]").val(),
             email: this.orderForm.find("input[name=\"email\"]").val(),
@@ -106,6 +107,9 @@ class OrderFormSender {
       <tr>
         <td height="100%">
           <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto; padding:0;">
+          <tr>
+          <h2>${customer.title}<h2>
+          </tr>
             <tr>
               <td id="table-container" style="background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;">
                 <h1>Заказ продуктов</h1>
@@ -150,12 +154,16 @@ class OrderFormSender {
         $("#order-form .table-item").each(function(index, row) {
             let $row = $(row);
             let $rowInput = $row.find(".spinner__input");
+            let $rowPrice = $row.find(".table-item__price");
+            let $rowTotalPrice = $row.find(".table-item__summ");
             // if ($rowInput.val() && $rowInput.val() * 1 > 0) {
             if ($rowInput.val()) {
                 $orderTable.append(`
                     <tr>
                         <td style="border: 1px solid #999999; padding: 5px 10px;">${$row.find(".table-item__name").html()}</td>
                         <td style="border: 1px solid #999999; padding: 5px 10px;">${$(row).find(".spinner__input").val()}</td>
+                        <td style="border: 1px solid #999999; padding: 5px 10px;">${$rowPrice}</td>
+                        <td style="border: 1px solid #999999; padding: 5px 10px;">${$rowTotalPrice.val()}</td>
                     </tr>
                 `);
             }
@@ -214,7 +222,7 @@ class OrderFormSender {
             $("#order-popup .order-popup__text").html("Проверьте соединение или попробуйте позже.");
             $("#order-popup .order-popup__progress").hide();
             $("#order-popup .order-popup__button").show();
-            // setTimeout(self.hidePopup, 2000);
+            
         }
     }
 }

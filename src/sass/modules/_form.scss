@@ -180,7 +180,7 @@
         font-family: $titleFont;
         font-family: $mainFont;
         font-size: 0.8rem;
-        line-height: 1.4;
+        line-height: 1.6;
 
         &--right {
             // box model
@@ -189,6 +189,24 @@
             text-align: right;
         }
 
+    }
+
+    &__warning {
+        // box model
+        padding: 2px;
+
+        // typography
+        color: $darkGrey;
+        visibility: hidden;
+
+        &--warn {
+            // typography
+            color: $accentRed;
+            
+            // visual
+            border: 2px solid $accentRed;
+            visibility: visible;
+        }
     }
 
     a {
@@ -200,4 +218,8 @@
             text-decoration: none;
         }
     }
+
+}
+#title {
+    display: none;
 }

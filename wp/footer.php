@@ -21,6 +21,11 @@
 <?php wp_footer(); ?>
 
 <script src="<?php bloginfo('stylesheet_directory'); ?>/scripts.js"></script>
+<!-- <script src="<?php bloginfo('https://code.jquery.com/jquery-3.2.1.min.js'); ?>"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/jquery.magnific-popup.min.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/ImagePopup.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/reset.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script> -->
 
 </body>
 

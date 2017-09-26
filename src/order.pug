@@ -5,7 +5,7 @@ html
         meta(name='viewport', content='width=device-width, initial-scale=1')
 
         title Barber WILD
-        
+        link(rel="stylesheet", href="magnific-popup.css")
         link(rel="stylesheet" href="styles.css")
 
 
@@ -29,17 +29,17 @@ html
 
             .hero
                 //- .hero__scene.scene
-
                 .hero__text-content
                     h1.hero__title Оформить заказ косметики
                     //- p.hero__text Barber WILD — это не только высококачественные средства ухода за бородой, усами и волосами для настоящих мужчин, но и истинный брутальный Дух Дикого Запада. Это то, что мы с особым старанием создали для самих себя — от барбера для барбера, и решили поделиться отличным результатом с вами!
-
     main.site-main: .wrapper
         section.site-section.site-section--partner-form
             form#order-form.form.form--order()
                 fieldset.form__fieldset
                     legend.form__legend Заказ 
-                
+                    div.form__input-group
+                        label.form__icon 0
+                        input#title(type="text" name="title")
                     div.form__input-group
                         label.form__icon 1
                         input.form__input(type="text", name="fullname", placeholder="Фамилия Имя Отчество",
@@ -59,9 +59,7 @@ html
                         label.form__icon 4
                         input.form__input(type="text", name="address", placeholder="Адрес доставки",
                                           data-validation="required" required) 
-                
-                map(name="m1")
-                    area(shape=rect coords="170 5 195 30" href="#clay")
+
                 fieldset.form__fieldset
                     table.order-table
                         tr
@@ -71,30 +69,32 @@ html
                             th Количество
                             th Цена
                             th Стоимость
-                    
-                        mixin table-item(number, photoURL, title, price)
+
+                        mixin table-item(number, photoURL,photoJpgURL,title, price)
                             tr.table-item
                                 td.table-item__number= number
                                 td.table-item__image
-                                    img#clay.table-item__img(src=photoURL usemap="#m1")
-                                    a.table-item__image-close(href="#")
-                                    img.table-item__image-expand(src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png")
+                                    a.popup(href=photoURL)
+                                     img(src=photoJpgURL)
                                 td.table-item__name= title
-                                td(data-th="Количество").table-item__count
+                                td(data-th="Кол-во").table-item__count
                                     .spinner
                                         button(type="button").spinner__button.spinner__minus –
                                         input(type="text" value="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57;").spinner__input
                                         button(type="button").spinner__button.spinner__plus +
                                 td(data-th="Цена").table-item__price= price
                                 td(data-th="Стоимость").table-item__cost 0
-                        +table-item("1", "./img/items/matt-clay.png", "Матирующая глина «Barber WILD»", "990")
-                        +table-item("2", "./img/items/pomade-juicy.png", "Помада для волос «Barber WILD» (Juicy)", "990")
-                        +table-item("3", "./img/items/pomade-ice-melon.png", "Помада для волос «Barber WILD» (Ice Melon)", "990")
-                        +table-item("4", "./img/items/beard-oil-idaho.png", "Масло для бороды «Barber WILD» (Idaho)", "990")
-                        +table-item("5", "./img/items/beard-oil-tennessee.png", "Масло для бороды «Barber WILD» (Tennessee)", "990")
-                        +table-item("6", "./img/items/shave-oil.png", "Масло для подбривания «Barber WILD»", "990")
-                        +table-item("7", "./img/items/balm.png", "Бальзам после бритья «Barber WILD»", "990")
-                        +table-item("8", "./img/items/soap.png", "Мыло для бритья «Barber WILD»", "890")
+                        +table-item("1", "./img/items/matt-clay.jpg","./img/items/matt-clay.png","Матирующая глина «Barber WILD»", "990")
+                        +table-item("2", "./img/items/pomade-juicy.jpg","./img/items/pomade-juicy.png", "Помада для волос «Barber WILD» (Juicy)", "990")
+                        +table-item("3", "./img/items/pomade-ice-melon.jpg","./img/items/pomade-ice-melon.png", "Помада для волос «Barber WILD» (Ice Melon)", "990")
+                        +table-item("4", "./img/items/beard-oil-idaho.jpg","./img/items/beard-oil-idaho.png", "Масло для бороды «Barber WILD» (Idaho)", "990")
+                        +table-item("5", "./img/items/beard-oil-tennessee.jpg", "./img/items/beard-oil-tennessee.png","Масло для бороды «Barber WILD» (Tennessee)", "990")
+                        +table-item("6", "./img/items/shave-oil.jpg","./img/items/shave-oil.png","Масло для подбривания «Barber WILD»", "990")
+                        +table-item("7", "./img/items/balm.jpg","./img/items/balm.png","Бальзам после бритья «Barber WILD»", "990")
+                        +table-item("8", "./img/items/soap.jpg","./img/items/soap.png","Мыло для бритья «Barber WILD»", "890")
+                        
+                        
+
 
                         tr.table-item
                             td(colspan="4")
@@ -130,4 +130,7 @@ html
             .order-popup__progress: img(src="./img/drum.png")
             a(href="#" hidden).button.order-popup__button OK
 
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script(src="jquery.magnific-popup.min.js")
     script(src="orders.js")
+    script(src="ImagePopup.js")

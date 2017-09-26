@@ -152,6 +152,8 @@
 
                 <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br>
                 Минимальная сумма оптового заказа от 4000 рублей.</div>
+                <p class="form__warning">Минимальная сумма оптового заказа от 4000 рублей.</p>
+
             </form>
 
             <div id="form-output"></div>
@@ -172,6 +174,7 @@
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
 <script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/reset.js"></script>
 
 <?php 
     get_footer();

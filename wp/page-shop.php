@@ -56,6 +56,9 @@
                 case "hot":
                     echo "<p class=\"shop-item__hot\">Hot</p>";
                     break;
+                case "best seller":
+                    echo "<p class=\"shop-item__hot shop-item__hot--sm\">Best</br>Seller</p>";
+                    break;
             }
         ?>
 

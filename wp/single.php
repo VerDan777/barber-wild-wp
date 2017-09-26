@@ -35,6 +35,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<?php bloginfo('stylesheet_directory'); ?>/favicon-32x32.png?v=2">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php bloginfo('stylesheet_directory'); ?>/favicon-16x16.png?v=2">
     <link rel="manifest" href="<?php bloginfo('stylesheet_directory'); ?>/manifest.json">
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/maginific-popup.css">
     <link rel="mask-icon" href="<?php bloginfo('stylesheet_directory'); ?>/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
 
@@ -130,7 +131,9 @@
             <article class="item">
                 <header class="item__header">
                     <div class="item__image">
-                        <img src="<?php echo $item_image ?>">
+                        <a class="popup" href="<?php echo $item_image?>">
+                            <img src="<?php echo $item_image ?>">
+                        </a>
                     </div>
                     <h1 class="item__title">
                         <?php echo $item_name; ?>

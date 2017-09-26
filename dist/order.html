@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Barber WILD</title>
+    <link rel="stylesheet" href="magnific-popup.css">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -35,6 +36,10 @@
           <fieldset class="form__fieldset">
             <legend class="form__legend">Заказ </legend>
             <div class="form__input-group">
+              <label class="form__icon">0</label>
+              <input id="title" type="text" name="title">
+            </div>
+            <div class="form__input-group">
               <label class="form__icon">1</label>
               <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество" data-validation="required" required>
             </div>
@@ -50,8 +55,7 @@
               <label class="form__icon">4</label>
               <input class="form__input" type="text" name="address" placeholder="Адрес доставки" data-validation="required" required>
             </div>
-          </fieldset><map name="m1">
-            <area coords="170 5 195 30" href="#clay"></map>
+          </fieldset>
           <fieldset class="form__fieldset">
             <table class="order-table">
               <tr>
@@ -64,9 +68,9 @@
               </tr>
                             <tr class="table-item">
                               <td class="table-item__number">1</td>
-                              <td class="table-item__image"><img class="table-item__img" id="clay" src="./img/items/matt-clay.png" usemap="#m1"><a class="table-item__image-close" href="#"></a><img class="table-item__image-expand" src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png"></td>
+                              <td class="table-item__image"><a class="popup" href="./img/items/matt-clay.jpg"><img src="./img/items/matt-clay.png"></a></td>
                               <td class="table-item__name">Матирующая глина «Barber WILD»</td>
-                              <td class="table-item__count" data-th="Количество">
+                              <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                   <button class="spinner__button spinner__minus" type="button">–</button>
                                   <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
@@ -78,9 +82,9 @@
                             </tr>
                             <tr class="table-item">
                               <td class="table-item__number">2</td>
-                              <td class="table-item__image"><img class="table-item__img" id="clay" src="./img/items/pomade-juicy.png" usemap="#m1"><a class="table-item__image-close" href="#"></a><img class="table-item__image-expand" src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png"></td>
+                              <td class="table-item__image"><a class="popup" href="./img/items/pomade-juicy.jpg"><img src="./img/items/pomade-juicy.png"></a></td>
                               <td class="table-item__name">Помада для волос «Barber WILD» (Juicy)</td>
-                              <td class="table-item__count" data-th="Количество">
+                              <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                   <button class="spinner__button spinner__minus" type="button">–</button>
                                   <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
@@ -92,9 +96,9 @@
                             </tr>
                             <tr class="table-item">
                               <td class="table-item__number">3</td>
-                              <td class="table-item__image"><img class="table-item__img" id="clay" src="./img/items/pomade-ice-melon.png" usemap="#m1"><a class="table-item__image-close" href="#"></a><img class="table-item__image-expand" src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png"></td>
+                              <td class="table-item__image"><a class="popup" href="./img/items/pomade-ice-melon.jpg"><img src="./img/items/pomade-ice-melon.png"></a></td>
                               <td class="table-item__name">Помада для волос «Barber WILD» (Ice Melon)</td>
-                              <td class="table-item__count" data-th="Количество">
+                              <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                   <button class="spinner__button spinner__minus" type="button">–</button>
                                   <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
@@ -106,9 +110,9 @@
                             </tr>
                             <tr class="table-item">
                               <td class="table-item__number">4</td>
-                              <td class="table-item__image"><img class="table-item__img" id="clay" src="./img/items/beard-oil-idaho.png" usemap="#m1"><a class="table-item__image-close" href="#"></a><img class="table-item__image-expand" src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png"></td>
+                              <td class="table-item__image"><a class="popup" href="./img/items/beard-oil-idaho.jpg"><img src="./img/items/beard-oil-idaho.png"></a></td>
                               <td class="table-item__name">Масло для бороды «Barber WILD» (Idaho)</td>
-                              <td class="table-item__count" data-th="Количество">
+                              <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                   <button class="spinner__button spinner__minus" type="button">–</button>
                                   <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
@@ -120,9 +124,9 @@
                             </tr>
                             <tr class="table-item">
                               <td class="table-item__number">5</td>
-                              <td class="table-item__image"><img class="table-item__img" id="clay" src="./img/items/beard-oil-tennessee.png" usemap="#m1"><a class="table-item__image-close" href="#"></a><img class="table-item__image-expand" src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png"></td>
+                              <td class="table-item__image"><a class="popup" href="./img/items/beard-oil-tennessee.jpg"><img src="./img/items/beard-oil-tennessee.png"></a></td>
                               <td class="table-item__name">Масло для бороды «Barber WILD» (Tennessee)</td>
-                              <td class="table-item__count" data-th="Количество">
+                              <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                   <button class="spinner__button spinner__minus" type="button">–</button>
                                   <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
@@ -134,9 +138,9 @@
                             </tr>
                             <tr class="table-item">
                               <td class="table-item__number">6</td>
-                              <td class="table-item__image"><img class="table-item__img" id="clay" src="./img/items/shave-oil.png" usemap="#m1"><a class="table-item__image-close" href="#"></a><img class="table-item__image-expand" src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png"></td>
+                              <td class="table-item__image"><a class="popup" href="./img/items/shave-oil.jpg"><img src="./img/items/shave-oil.png"></a></td>
                               <td class="table-item__name">Масло для подбривания «Barber WILD»</td>
-                              <td class="table-item__count" data-th="Количество">
+                              <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                   <button class="spinner__button spinner__minus" type="button">–</button>
                                   <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
@@ -148,9 +152,9 @@
                             </tr>
                             <tr class="table-item">
                               <td class="table-item__number">7</td>
-                              <td class="table-item__image"><img class="table-item__img" id="clay" src="./img/items/balm.png" usemap="#m1"><a class="table-item__image-close" href="#"></a><img class="table-item__image-expand" src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png"></td>
+                              <td class="table-item__image"><a class="popup" href="./img/items/balm.jpg"><img src="./img/items/balm.png"></a></td>
                               <td class="table-item__name">Бальзам после бритья «Barber WILD»</td>
-                              <td class="table-item__count" data-th="Количество">
+                              <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                   <button class="spinner__button spinner__minus" type="button">–</button>
                                   <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
@@ -162,9 +166,9 @@
                             </tr>
                             <tr class="table-item">
                               <td class="table-item__number">8</td>
-                              <td class="table-item__image"><img class="table-item__img" id="clay" src="./img/items/soap.png" usemap="#m1"><a class="table-item__image-close" href="#"></a><img class="table-item__image-expand" src="http://icons.iconarchive.com/icons/icons8/ios7/16/Editing-Expand-icon.png"></td>
+                              <td class="table-item__image"><a class="popup" href="./img/items/soap.jpg"><img src="./img/items/soap.png"></a></td>
                               <td class="table-item__name">Мыло для бритья «Barber WILD»</td>
-                              <td class="table-item__count" data-th="Количество">
+                              <td class="table-item__count" data-th="Кол-во">
                                 <div class="spinner">
                                   <button class="spinner__button spinner__minus" type="button">–</button>
                                   <input class="spinner__input" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
@@ -206,5 +210,8 @@
       <div class="order-popup__progress"><img src="./img/drum.png"></div><a class="button order-popup__button" href="#" hidden>OK</a>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="jquery.magnific-popup.min.js"></script>
   <script src="orders.js"></script>
+  <script src="ImagePopup.js"></script>
 </html>
