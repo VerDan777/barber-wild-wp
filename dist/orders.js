@@ -12413,6 +12413,7 @@
 	                    email: (0, _jquery2.default)("input.form__input[name='email']").val(),
 	                    address: (0, _jquery2.default)("input.form__input[name='address']").val(),
 	                    bshop: (0, _jquery2.default)("input.form__input[name='bshop']").val(),
+	                    index: (0, _jquery2.default)("input.form__input[name='index']").val(),
 	                    delivery: (0, _jquery2.default)("")
 	                };
 
@@ -12431,6 +12432,7 @@
 	                (0, _jquery2.default)("input.form__input[name='email']").val(contacts.email);
 	                (0, _jquery2.default)("input.form__input[name='address']").val(contacts.address);
 	                (0, _jquery2.default)("input.form__input[name='bshop']").val(contacts.bshop);
+	                (0, _jquery2.default)("input.form__input[name='index']").val(contacts.index);
 	            }
 	        }
 	    }]);

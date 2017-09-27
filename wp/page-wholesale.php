@@ -27,10 +27,14 @@
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">4</label>
-                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
+                        <input class="form__input" type="text" name="index" placeholder="Почтовый индекс">
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">5</label>
+                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
+                    </div>
+                    <div class="form__input-group">
+                        <label class="form__icon">6</label>
                         <input class="form__input" type="text" name="bshop" placeholder="Барбершоп">
                     </div>
 
@@ -171,7 +175,7 @@
 </div>
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
-<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js?v=2"></script>
 
 <?php 
     get_footer();
