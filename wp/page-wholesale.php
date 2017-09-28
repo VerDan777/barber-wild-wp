@@ -175,7 +175,7 @@
 </div>
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
-<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js?v=2"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js?v=3"></script>
 
 <?php 
     get_footer();
