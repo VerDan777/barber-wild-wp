@@ -44,12 +44,60 @@
         cursor: pointer;
 
         &--popup {
-            right: 15px;
-            top: 20px;
-            color: rgba(55, 48, 37, 0.75);
+                // positioning
+            position: absolute;
+            z-index: 3;
             
-            @include atDesktop {
-                display: block;
+            // box model
+            height: 30px;
+            width: 30px;
+            // border: 1px solid red;
+
+        // visual
+            cursor: pointer;
+            right: 4px;
+            top: 13px;
+            color: rgba(55, 48, 37, 0.75);
+            display: block;
+            &::before {
+                content: "";
+    
+                // positioning
+                position: absolute;
+                left: 0;
+                top: 0;
+                transform-origin: 0 50%;
+    
+                // box model
+                height: 3px;
+                width: 25px;
+    
+                // visual
+                background-color: #d3d1d1;
+                border-bottom: 1px solid #4f5554;
+                border-left: 1px solid #adaba8;
+                border-right: 1px solid #adaba8;
+                transition: all 0.3s ease-out;
+            }
+            &::after {
+                content: "";
+    
+                // positioning
+                position: absolute;
+                left: 0;
+                top: 17px;
+                transform-origin: 0 50%;
+    
+                // box model
+                height: 3px;
+                width: 25px;
+    
+                // visual
+                background-color: #d3d1d1;
+                border-bottom: 1px solid #4f5554;
+                border-left: 1px solid #adaba8;
+                border-right: 1px solid #adaba8;
+                transition: all 0.3s ease-out;
             }
         }
 

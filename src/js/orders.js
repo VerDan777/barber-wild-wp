@@ -6,3 +6,4 @@ import ImagePopup from "./modules/ImagePopup.js";
 const orderCalc = new OrderCalculator();
 const orderSender = new OrderFormSender();
 const contactsStorage = new ContactsStorage();
+const imagepopup = new ImagePopup();

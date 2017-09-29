@@ -9,8 +9,8 @@ $__smtp = array(
     'nickname'  => 'Barber WILD',
     'password'  => 'oldboy21',
     'addreply'  => 'barberwild@gmail.com',
-    'replyto'   => 'barberwild@gmail.com',
-    'mailto'    => 'bwildorders@gmail.com'
+    'replyto'   => 'bwildorders@gmail.com',
+    'mailto'    => 'barberwild@gmail.com'
 );
 
 

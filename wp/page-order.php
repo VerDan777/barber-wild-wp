@@ -100,9 +100,7 @@
                             </td>
 
                             <td class="table-item__image">
-                                <a class="popup" href="<?php echo $item_image ?>">
-                                    <img src="<?php echo $item_image; ?>">
-                                </a>
+                                <img class="popup" src="<?php echo $item_image; ?>">
                             </td>
 
                             <td class="table-item__name">
@@ -178,7 +176,7 @@
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
 <script src="<?php bloginfo('https://code.jquery.com/jquery-3.2.1.min.js'); ?>"></script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/jquery.magnific-popup.min.js"></script>
+<!-- <script src="<?php bloginfo('stylesheet_directory'); ?>/jquery.magnific-popup.min.js"></script> -->
 <script src="<?php bloginfo('stylesheet_directory'); ?>/ImagePopup.js"></script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/reset.js"></script>

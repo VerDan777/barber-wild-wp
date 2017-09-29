@@ -74,8 +74,7 @@ html
                             tr.table-item
                                 td.table-item__number= number
                                 td.table-item__image
-                                    a.popup(href=photoURL)
-                                     img(src=photoJpgURL)
+                                    img(src=photoJpgURL)
                                 td.table-item__name= title
                                 td(data-th="Кол-во").table-item__count
                                     .spinner
@@ -131,6 +130,6 @@ html
             a(href="#" hidden).button.order-popup__button OK
 
     script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-    script(src="jquery.magnific-popup.min.js")
+    //- script(src="jquery.magnific-popup.min.js")
     script(src="orders.js")
     script(src="ImagePopup.js")
