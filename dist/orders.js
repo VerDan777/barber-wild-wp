@@ -10565,7 +10565,11 @@
 
 	                _jquery2.default.each(elementIds, function (index, value) {
 	                    var id = (0, _jquery2.default)(value).html();
-	                    (0, _jquery2.default)(value).parent().find(".table-item__count input").val(saveObj[id]);
+	                    if (saveObj[id]) {
+	                        (0, _jquery2.default)(value).parent().find(".table-item__count input").val(saveObj[id]);
+	                    } else {
+	                        (0, _jquery2.default)(value).parent().find(".table-item__count input").val(0);
+	                    }
 	                });
 	            }
 	        }

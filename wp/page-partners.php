@@ -9,9 +9,9 @@
 <main class="site-main">
     <div class="wrapper">
         <section class="site-section description description--partners">
-            <p>Уже несколько сотен барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.</p>
+            <p>Уже несколько сотен барбершопов регулярно используют Barber WILD в своей работе, и новые заявки на сотрудничество все продолжают поступать.</p>
 
-            <p>Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.</p>
+            <p>Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber WILD в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.</p>
 
             <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST" id="partners-form">
                 <fieldset class="form__fieldset">
@@ -65,13 +65,13 @@
             <article class="feature">
                 <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/free-shipping.png"></div>
                 <h2 class="feature__title">Бесплатная доставка</h2>
-                <p class="feature__text">От 13000 р. Оперативно отправляем заказ транспортной компанией или Почтой России.</p>
+                <p class="feature__text">От 15000 р. Оперативно отправляем заказ транспортной компанией.</p>
             </article>
 
             <article class="feature">
                 <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/memorable-brand.png"></div>
                 <h2 class="feature__title">Запоминаемый бренд</h2>
-                <p class="feature__text">Барбершопы по всей России регулярно применяют Barber Wild в своей работе.</p>
+                <p class="feature__text">Барбершопы по всей России регулярно применяют Barber WILD в своей работе.</p>
             </article>
 
             <article class="feature">
@@ -89,7 +89,7 @@
             <article class="feature">
                 <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/good-prices.png"></div>
                 <h2 class="feature__title">Выгодные цены</h2>
-                <p class="feature__text">Прайс на продукцию Barber Wild значительно выгоднее и гибче, чем цены конкурентов.</p>
+                <p class="feature__text">Прайс на продукцию Barber WILD значительно выгоднее и гибче, чем цены конкурентов.</p>
             </article>
         </section>
     </div>

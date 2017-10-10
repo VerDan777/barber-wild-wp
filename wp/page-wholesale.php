@@ -40,13 +40,13 @@
 
                     <div class="form__input-group form__input-group--left">
                         <label class="form__group-label">Способ доставки:</label>
-                        <label class="form__label">
+                        <!-- <label class="form__label">
                             <input type="radio" name="delivery" value="Russian Post" checked>
                             Почта России 
-                        </label>
+                        </label> -->
                         <label class="form__label">
-                            <input type="radio" name="delivery" value="EMS">
-                            Курьерская служба EMS
+                            <input type="radio" name="delivery" value="EMS" checked>
+                            Курьерская служба EMS (По Москве — 400 руб., по России — 800 руб., за рубеж — 1300 руб. Бесплатная доставка по России от 15 000 рублей.)
                         </label>
                     </div>
                 </fieldset>
@@ -154,7 +154,8 @@
                     <input class="button" id="order-submit" type="submit" value="Подтвердить">
                 </div>
 
-                <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br>
+                <div class="form__text">
+                <!-- Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br> -->
                 <span class="form__warning">Минимальная сумма оптового заказа от 4000 рублей.</span></div>
             </form>
 
@@ -175,7 +176,7 @@
 </div>
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
-<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js?v=3"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js?v=4"></script>
 
 <?php 
     get_footer();
