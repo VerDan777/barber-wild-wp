@@ -12,7 +12,7 @@ class Basket {
         button.on("click",addToCard);
 
         //Opening basket
-        buttonClear.on("click",opeCart);
+        buttonClear.on("click",openCart);
 
         //Remove basket
         buttonClear.on("click",(e)=> {

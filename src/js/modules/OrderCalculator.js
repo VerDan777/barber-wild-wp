@@ -15,6 +15,10 @@ class OrderCalculator {
         this.orderButton = $("#order-submit");
         this.priceWarning = $(".form__warning");
 
+        // other elements
+        this.orderButton = $("#order-submit");
+        this.priceWarning = $(".form__warning");
+
         // spinner elements
         this.decButtons = $(".spinner__minus");
         this.incButtons = $(".spinner__plus");
@@ -132,15 +136,18 @@ class OrderCalculator {
             summ += parseInt($(val).html());
         });
         this.summLabel.html(summ);
-        this.summLabel.addClass("table-item__summ--warn");
-        this.orderButton.addClass("button--disabled");
-        this.orderButton.attr("disabled", true);
-        this.priceWarning.addClass("form__warning--warn");
-        this.summLabel.removeClass("table-item__summ--warn");
-        this.orderButton.removeClass("button--disabled");
-        this.orderButton.attr("disabled", false);
-        this.priceWarning.removeClass("form__warning--warn");
-    
+
+        if (summ < this.minOrderValue) {
+            this.summLabel.addClass("table-item__summ--warn");
+            this.orderButton.addClass("button--disabled");
+            this.orderButton.attr("disabled", true);
+            this.priceWarning.addClass("form__warning--warn");
+        } else {
+            this.summLabel.removeClass("table-item__summ--warn");
+            this.orderButton.removeClass("button--disabled");
+            this.orderButton.attr("disabled", false);
+            this.priceWarning.removeClass("form__warning--warn");
+        }
     }
 }
 

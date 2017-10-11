@@ -27,10 +27,14 @@
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">4</label>
-                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
+                        <input class="form__input" type="text" name="index" placeholder="Почтовый индекс">
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">5</label>
+                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
+                    </div>
+                    <div class="form__input-group">
+                        <label class="form__icon">6</label>
                         <input class="form__input" type="text" name="bshop" placeholder="Барбершоп">
                     </div>
 
@@ -151,9 +155,8 @@
                 </div>
 
                 <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br>
-                Минимальная сумма оптового заказа от 4000 рублей.</div>
-                <p class="form__warning">Минимальная сумма оптового заказа от 4000 рублей.</p>
 
+                <span class="form__warning">Минимальная сумма оптового заказа от 4000 рублей.</span></div>
             </form>
 
             <div id="form-output"></div>
@@ -173,8 +176,7 @@
 </div>
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
-<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/reset.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js?v=3"></script>
 
 <?php 
     get_footer();

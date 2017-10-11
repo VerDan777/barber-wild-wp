@@ -1,4 +1,3 @@
-
 <?php 
     /*
         Template Name: Partners Page
@@ -100,21 +99,6 @@
             </header>
 
             <div class="partners">
-            <?php $args= array(
-                'category_name' => 'partners'
-            );
-            query_posts($args);
-            $counter=0;
-                if(have_posts()) {
-                    while(have_posts()) {
-                        the_post();
-
-                        //vars
-                        $partners__image = get_field('partner-image');
-                    }
-                }
-            ?>
-            
                 <a class="partners__item" href="http://barberfirma.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/firma.png"></a>
                 <a class="partners__item" href="http://www.salonborodach.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/borodach.png"></a>
                 <a class="partners__item" href="http://barberceh.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/ceh.png"></a>

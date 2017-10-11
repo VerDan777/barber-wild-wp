@@ -1,5 +1,4 @@
-
-    module.exports = [{
+[{
             "featureType": "all",
             "elementType": "labels.text.fill",
             "stylers": [{

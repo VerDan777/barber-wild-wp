@@ -1,5 +1,16 @@
+function initMap() {
+    var mapStyles;
+    var infowindow = new google.maps.InfoWindow();
+    var LatLng = {lat: 54.717592, lng: 20.497258};
 
-    module.exports = [{
+    var map = new google.maps.Map(document.querySelector('.map'), {
+        zoom: 4,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true,
+        scrollwheel: false,
+        center: LatLng,
+        suppressInfoWindows: true,
+        styles:[{
             "featureType": "all",
             "elementType": "labels.text.fill",
             "stylers": [{
@@ -157,4 +168,41 @@
                 }
             ]
         }
-    ];
+    ]
+})
+$.getJSON('data.json', function(data) {
+    $.each(data.branches, function (key, data) {
+        
+                var latLng = new google.maps.LatLng(data.lat, data.lng);
+
+                var BarberWildImg = new google.maps.MarkerImage (
+                    './img/icons/BarberWildImg.png',
+                    new google.maps.Size(32,32),
+                    new google.maps.Point(0,0),
+                    new google.maps.Point(16,32)
+                );
+        
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.BOUNCE,
+                    raiseOnDrag: false,
+                    icon: BarberWildImg,
+                    title: data.title
+                });
+        
+                var details = data.title + ", " + data.description + ".";
+
+                bindInfoWindow(marker, map, infowindow, details);
+         
+            });
+        
+    });
+    function bindInfoWindow(marker, map, infowindow, strDescription) {
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.setContent(strDescription);
+            infowindow.open(map, marker);
+        });
+    }
+}

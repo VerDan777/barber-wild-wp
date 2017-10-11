@@ -20,7 +20,7 @@
         margin: 0 -20px;
         padding: 20px;
 
-        // visual
+    // visual
         background-color: transparent;
         border: none;
 
@@ -197,15 +197,12 @@
 
         // typography
         color: $darkGrey;
-        visibility: hidden;
-
         &--warn {
             // typography
             color: $accentRed;
             
             // visual
             border: 2px solid $accentRed;
-            visibility: visible;
         }
     }
 

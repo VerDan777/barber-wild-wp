@@ -1,0 +1,23 @@
+  {
+    "branches" : [
+    {
+         "title": "BarberWild KLD",
+         "description": "BW KLD",
+         "lat": 54.717592,
+         "lng": 20.497258
+    },
+     {
+         "title": "BarberWild KLD Artilleriyskaya",
+         "description": "BW KLD Artilleriyskaya",
+         "lat": 53.229520,
+         "lng": -4.129987
+     },
+     {
+         "title": "Cardiff Metropolitan University",
+         "website": "www.cardiffmet.ac.uk",
+         "phone": "+44 (0)2920 416 138", 
+         "lat": 51.482708,
+         "lng": -3.165881
+     }
+    ]
+ }

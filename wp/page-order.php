@@ -152,8 +152,9 @@
                     <input class="button button--disabled" id="order-submit" type="submit" value="Подтвердить">
                 </div>
 
-                <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br></div>
-                <p class="form__warning">Минимальная сумма оптового заказа от 4000 рублей.</p>
+                <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br>
+                <span class="form__warning">Минимальная сумма оптового заказа от 4000 рублей.</span></div>
+                </div>
             </form>
 
             
@@ -175,11 +176,7 @@
 </div>
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
-<script src="<?php bloginfo('https://code.jquery.com/jquery-3.2.1.min.js'); ?>"></script>
-<!-- <script src="<?php bloginfo('stylesheet_directory'); ?>/jquery.magnific-popup.min.js"></script> -->
-<script src="<?php bloginfo('stylesheet_directory'); ?>/ImagePopup.js"></script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/reset.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js?v=1"></script>
 <?php 
     get_footer();
 ?>

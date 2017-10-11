@@ -568,12 +568,10 @@ body {
       text-align: right; }
   .form__warning {
     padding: 2px;
-    color: #121212;
-    visibility: hidden; }
+    color: #121212; }
     .form__warning--warn {
       color: #d11500;
-      border: 2px solid #d11500;
-      visibility: visible; }
+      border: 2px solid #d11500; }
   .form a {
     color: #c7a166; }
     .form a:hover {
@@ -1754,12 +1752,10 @@ body {
       text-align: right; }
   .form__warning {
     padding: 2px;
-    color: #121212;
-    visibility: hidden; }
+    color: #121212; }
     .form__warning--warn {
       color: #d11500;
-      border: 2px solid #d11500;
-      visibility: visible; }
+      border: 2px solid #d11500; }
   .form a {
     color: #c7a166; }
     .form a:hover {
