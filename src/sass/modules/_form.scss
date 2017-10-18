@@ -199,6 +199,10 @@
         color: $darkGrey;
 
         &--warn {
+            // box model
+            display: inline-block;
+            padding: 5px 15px;
+
             // typography
             color: $accentRed;
             
