@@ -26,6 +26,10 @@ class ContactsStorage {
                 email: $("input.form__input[name='email']").val(),
                 address: $("input.form__input[name='address']").val(),
                 bshop: $("input.form__input[name='bshop']").val(),
+<<<<<<< HEAD
+=======
+                index: $("input.form__input[name='index']").val(),
+>>>>>>> 2ed1ee31200eabc9e408f9f6be6cf0900f01f94e
                 delivery: $("")
             };
             
@@ -43,6 +47,10 @@ class ContactsStorage {
             $("input.form__input[name='email']").val(contacts.email);
             $("input.form__input[name='address']").val(contacts.address);
             $("input.form__input[name='bshop']").val(contacts.bshop);
+<<<<<<< HEAD
+=======
+            $("input.form__input[name='index']").val(contacts.index);
+>>>>>>> 2ed1ee31200eabc9e408f9f6be6cf0900f01f94e
         }
     }
 }

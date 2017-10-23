@@ -1,4 +1,9 @@
 .partners {
+
+    // box model
+    max-width: 1500px;
+    margin: 0 auto;
+
     // typography
     text-align: center;
 
@@ -6,11 +11,13 @@
         // box model
         display: inline-block;
         vertical-align: middle;
-        width: 265px;
-        margin: 0 20px;
+
+        // width: 265px;
+        height: 120px;
+        margin: 40px;
         margin-bottom: 20px;
 
-        // visual
+        //visual
         opacity: 0.9;
         transition: opacity 0.3s ease-out;
 
@@ -21,7 +28,8 @@
 
         img {
             // box model
-            width: 100%;
+
+            height: 100%;
         }
     }
 }

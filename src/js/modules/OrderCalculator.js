@@ -3,11 +3,24 @@ import OrderStorage from "./OrderStorage.js";
 
 class OrderCalculator {
     constructor() {
+<<<<<<< HEAD
+=======
+        // general
+        this.minOrderValue = 4000;
+
+>>>>>>> 2ed1ee31200eabc9e408f9f6be6cf0900f01f94e
         // table elements
         this.countInputs = $(".table-item__count input");
         this.costLabels = $(".table-item__cost");
         this.summLabel = $(".table-item__summ");
 
+<<<<<<< HEAD
+=======
+        // other elements
+        this.orderButton = $("#order-submit");
+        this.priceWarning = $(".form__warning");
+
+>>>>>>> 2ed1ee31200eabc9e408f9f6be6cf0900f01f94e
         // spinner elements
         this.decButtons = $(".spinner__minus");
         this.incButtons = $(".spinner__plus");
@@ -107,10 +120,15 @@ class OrderCalculator {
         if (input) {
             this.calcInput(input);
         } else {
+<<<<<<< HEAD
             // console.log($('.table-item__count input'));
             var self = this;
             $.each($(".table-item__count input"), function(index, value) {
                 // console.log(value);
+=======
+            var self = this;
+            $.each($(".table-item__count input"), function(index, value) {
+>>>>>>> 2ed1ee31200eabc9e408f9f6be6cf0900f01f94e
                 self.calcInput($(value));
             });
         }
@@ -127,6 +145,21 @@ class OrderCalculator {
             summ += parseInt($(val).html());
         });
         this.summLabel.html(summ);
+<<<<<<< HEAD
+=======
+
+        if (summ < this.minOrderValue) {
+            this.summLabel.addClass("table-item__summ--warn");
+            this.orderButton.addClass("button--disabled");
+            this.orderButton.attr("disabled", true);
+            this.priceWarning.addClass("form__warning--warn");
+        } else {
+            this.summLabel.removeClass("table-item__summ--warn");
+            this.orderButton.removeClass("button--disabled");
+            this.orderButton.attr("disabled", false);
+            this.priceWarning.removeClass("form__warning--warn");
+        }
+>>>>>>> 2ed1ee31200eabc9e408f9f6be6cf0900f01f94e
     }
 }
 

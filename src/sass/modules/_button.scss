@@ -74,4 +74,10 @@
         // visual
         border-radius: 40px;
     }
+
+
+    &--disabled {
+        // visual
+        opacity: 0.5;
+    }
 }
