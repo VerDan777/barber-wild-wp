@@ -1,0 +1,26 @@
+.wrapper {
+    // box model
+    margin: 0 15px;
+    
+    @include atDesktop {
+        // positioning
+        position: relative;
+        z-index: 1;
+        
+        // box model
+        width: 1080px;
+        margin: 0 auto;
+    }
+
+    &--flex {
+        // box model
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    &--center {
+        // typography
+        text-align: center;
+    }
+}

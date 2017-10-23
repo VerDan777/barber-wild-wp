@@ -1,0 +1,108 @@
+doctype html
+
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Barber Wild
+
+        meta(property="og:title" content="Главная")
+        meta(property="og:type" content="website")
+        meta(property="og:image" content="https://barberwild.com/assets/img/bnew_clay.png")
+        //- meta(property="og:image:width" content="1200")
+        //- meta(property="og:image:height" content="700")
+        meta(propepty="og:url" content="http://barberwild.com/index.html")
+
+        meta(property="og:description" content="Главная страница")
+        meta(propepty="og:locale" content="ru_RU")
+        meta(property="og:site_name" content="BarberWild")
+
+        link(rel="apple-touch-icon", sizes="180x180", href="/apple-touch-icon.png")
+        link(rel="icon", type="image/png", sizes="32x32", href="/favicon-32x32.png")
+        link(rel="icon", type="image/png", sizes="16x16", href="/favicon-16x16.png")
+        link(rel="manifest", href="/manifest.json")
+        link(rel="mask-icon", href="/safari-pinned-tab.svg", color="#5bbad5")
+        meta(name="theme-color", content="#ffffff")
+
+        link(rel="stylesheet" href="styles.css")
+
+    body
+        header.site-header
+            nav.main-nav
+                .logo: a(href="#") Barber WILD
+                    img(src="./img/logo.png")
+                    p.logo__motto всё, что нужно для твоей головы
+
+                //- .main-nav__menu-icon.main-nav__menu-icon--close-x
+                .main-nav__menu-icon
+                    .main-nav__menu-icon__middle
+
+                ul.main-menu
+                    - var list = ["Каталог", "Сотрудничество", "О компании"];
+                    - var links = ["shop.html", "partners.html", "about.html"];
+                    - for (var i = 0; i < 3; i++)
+                        li: a(href=links[i])= list[i]
+
+                    .main-menu__order: a(href="order.html").button Оформить заказ
+
+                    .main-menu__social.social
+                        a(href="#").icon-vkontakte VKontakte
+                        a(href="#").icon-facebook Faceboot
+                        a(href="#").icon-instagram Instagram
+                        a(href="#").icon-youtube-play YouTube
+                        a(href="#").icon-mail-alt Email
+
+                .cart: a(href="order.html") Оформить заказ
+
+                .for-owners: a(href="partners.html")
+                    img(src="./img/for-owners.gif")
+        
+            .hero
+                .hero__scene.scene.scene--main
+
+                .hero__text-content.hero__text-content--main
+                    h1.hero__title «Barber WILD»
+                    p.hero__subtitle — Мужская косметика с характером
+
+        main.site-main.site-main--no-bg
+            mixin shop-item-main(subClass, title1, title2, text, imgUrl, decoUrl)
+                article.shop-item-main(class= subClass)
+                    .shop-item-main__wrapper
+                        .shop-item-main__image: img(src= imgUrl)
+                        .shop-item-main__description
+                            h2.shop-item-main__title #{title1} <br> #{title2} 
+                            p.shop-item-main__text= text
+                            .shop-item-main__buttons
+                                a(href="#").button.button--right-m Подробнее
+                        .shop-item-main__deco: img(src= decoUrl)
+
+            +shop-item-main("shop-item-main--clay", "Матирующая глина", "«Barber WILD»", "Глина  Barber Wild создана на водной основе, поэтому не только несет пользу здоровью кожи и волос, но и значительно легче смывается водой. Пчелиный воск обладает влагоотталкивающей структурой, а исцеляющая энергия ценного масла арганы благотворно влияет на волосы и кожу головы, насыщая их питательными ингредиентами. Уникальная текстура помады Barber Wild после высыхания придает волосам роскошный матовый оттенок, сохраняющийся в течение всего дня.", "./img/items/matt-clay.png", "./img/items/clay-machine.jpg")
+            +shop-item-main("shop-item-main--oil shop-item-main--alt", "Масло для бороды", "«Barber WILD»", "Масло для бороды Barber Wild полностью состоит из высококачественных природных компонентов. Его основу составляют масла касторовых семян, миндаля и косточек винограда. Эти ингредиенты делают волосы послушными, они не колются, не путаются, и укладка становится легкой и приятной. Увлажненная кожа под бородой приобретает особенную мягкость и здоровый внешний вид.", "./img/items/beard-oil-idaho.png", "./img/items/hangmen.jpg")
+            +shop-item-main("shop-item-main--pomade", "Помада для волос", "«Barber WILD»", "Помада Barber Wild создана на водной основе, поэтому не только несет пользу здоровью кожи и волос, но и значительно легче смывается водой. Пчелиный воск обладает влагоотталкивающей структурой, а исцеляющая энергия ценного масла арганы благотворно влияет на волосы и кожу головы, насыщая их питательными ингредиентами. Уникальная текстура помады Barber Wild после высыхания придает волосам роскошный матовый оттенок, сохраняющийся в течение всего дня.", "./img/items/pomade-juicy.png",
+            "./img/items/pomade-deco.jpg")
+            +shop-item-main("shop-item-main--soap shop-item-main--alt", "Мыло «Barber WILD»", "", "Мыло для бритья Barber Wild сделано по крафтовому рецепту вручную. Его основу составляют натуральные масла, которые содержат впечатляющее изобилие витаминов А и Е, обеспечивают защиту кожи, насыщают ее влагой, и оказывают великолепный эффект регенерации. Особый ингредиент – белая глина эффективно, но мягко очищает поры, сужая их, а приятный успокаивающий аромат мыла и хорошее настроение способны сделать любой день лучшим.", "./img/items/soap.png",
+            "./img/items/witch.jpg")
+
+            .show-all: a(href="shop.html").button.button--red.button--big Все товары
+
+        section.video
+            iframe(width="100%" height="100%" src="https://www.youtube.com/embed/uho9zCQJc9M?autoplay=0&showinfo=0&controls=0" frameborder="0" allowfullscreen)
+            //- http://jsfiddle.net/fgkrj/
+            //- https://developers.google.com/youtube/iframe_api_reference?hl=ru#Getting_Started
+        
+        footer.site-footer
+            .site-footer__social
+                a(href="#").icon-vkontakte VKontakte
+                a(href="#").icon-facebook Faceboot
+                a(href="#").icon-instagram Instagram
+                a(href="#").icon-youtube-play YouTube
+                a(href="#").icon-mail-alt Email
+
+            nav.footer-nav: ul
+                - var list = ["Каталог", "Сотрудничество", "О компании"];
+                - var links = ["about.html", "shop.html", "partners.html"];
+                - for (var i = 0; i < 3; i++)
+                    li: a(href=links[i])= list[i]
+        
+        script(src="scripts.js")

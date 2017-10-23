@@ -1,0 +1,46 @@
+.site-header {
+    // positioning
+    position: relative;
+    z-index: 1;
+
+    // box model
+    height: 91vh;
+    width: 100%;
+    margin-bottom: 40px;
+
+    // visual
+    background-color: $darkGrey;
+    box-shadow: 0 2px 21px 0 rgba($darkestSand, 0.9);
+    overflow: hidden;
+
+    @include atTabletsLandscape {
+        // box model
+        height: 46.7vw;
+    }
+
+    @include atDesktop {
+        // box model
+        margin-bottom: 0;
+    }
+
+    &--inner {
+        // box model
+        // height: auto;
+        height: 450px;
+
+        @include atTabletsLandscape {
+            // box model
+            height: 450px;
+        }
+    }
+
+    &--map {
+        // box model
+        height: 450px;
+
+        @include atDesktop {
+            // box model
+            height: 100vh;
+        }
+    }
+}

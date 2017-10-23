@@ -1,0 +1,77 @@
+.button {
+    // box model
+    padding: 8px 25px;
+    padding-bottom: 6px;
+
+    // typography
+    color: $white;
+    font-family: $titleFont;
+    // font-family: $mainFont;
+    font-size: 1.125rem;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    // visual
+    background-color: $darkSand;
+    border-radius: 20px;
+    border: 1px solid $darkSand;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    outline: none;
+
+    &:hover {
+        // visual
+        background-color: $justSand;
+        border-color: $justSand;
+    }
+
+    &:active {
+        // typography
+        color: $darkSand;
+
+        // visual
+        background-color: $white;
+        border-color: $darkSand;
+    }
+
+    &--all {
+        // typography
+        color: rgba($darkestSand, 0.75);
+
+        // visual
+        background-color: $justSand;
+        border-color: rgba($darkestSand, 0.5);
+        
+        &:hover {
+            // typography
+            color: $white;
+            
+            // visual
+            border-color: rgba($darkSand, 1);
+            background-color: $darkSand;
+        }
+    }
+
+    &--red {
+        // visual
+        background-color: $accentRed;
+        border-color: $accentRed;
+
+        &:hover {
+            // typography
+            color: $accentRed;
+        }
+    }
+
+    &--big {
+        // box model
+        padding: 18px 65px;
+
+        // typography
+        // font-size: 1.5rem;
+
+        // visual
+        border-radius: 40px;
+    }
+}

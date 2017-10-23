@@ -1,0 +1,26 @@
+html {
+    // box model
+    box-sizing: border-box;
+
+    // visual
+    // overflow-x: hidden;
+}
+
+body {
+    // box model
+    margin: 0;
+    
+    // typography
+    font-size: $baseFontSize;
+
+    // visual
+    background-color: $lightSand;
+    background-color: #f9f2de;
+    overflow-x: hidden;
+}
+
+*, 
+*::before,
+*::after {
+    box-sizing: inherit;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Barber WILD</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header site-header--inner">
+      <nav class="main-nav">
+        <div class="logo"><a href="index.html">Barber WILD<img src="./img/logo.png">
+            <p class="logo__motto">всё, что нужно для твоей головы</p></a></div>
+        <div class="main-nav__menu-icon">
+          <div class="main-nav__menu-icon__middle"></div>
+        </div>
+        <ul class="main-menu">
+          <li><a href="shop.html">Каталог</a></li>
+          <li><a href="partners.html">Сотрудничество</a></li>
+          <li><a href="about.html">О компании</a></li>
+        </ul>
+        <div class="cart"><a href="order.html">Оформить заказ</a></div>
+      </nav>
+      <div class="hero">
+        <div class="hero__text-content">
+          <h1 class="hero__title">Сотрудничество<br> с «Barber WILD»</h1>
+          <p class="hero__text">Созданная профессиональными барберами, высококачественная линия мужской косметики Barber Wild имеет свою развивающуюся сеть продвижения, и активно распространяется по всей России уже два года. Несмотря на этот недолгий срок, аналоги косметики конкурентов уже отстают от нашего качества, при этом цены Barber Wild значительно выгоднее и гибче.</p>
+        </div>
+      </div>
+    </header>
+    <main class="site-main">
+      <div class="wrapper">
+        <section class="site-section description description--partners">
+          <p>Почти полсотни барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.</p>
+          <p>Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.</p>
+          <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST" id="partners-form">
+            <fieldset class="form__fieldset">
+              <legend class="form__legend">Заявка на сотрудничество </legend>
+              <div class="form__input-group">
+                <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество">
+              </div>
+              <div class="form__input-group">
+                <input class="form__input" type="text" name="phone" placeholder="Номер телефона">
+              </div>
+              <div class="form__input-group">
+                <input class="form__input" type="text" name="email" placeholder="Электронная почта">
+              </div>
+              <div class="form__input-group">
+                <input class="form__input" type="text" name="address" placeholder="Город">
+              </div>
+              <div class="form__input-group">
+                <input class="form__input" type="text" name="company" placeholder="Организация (барбершоп)">
+              </div>
+              <div class="form__input-group form__input-group--policy">
+                <label class="form__label">
+                  <p>
+                    <input class="form__checkbox" type="checkbox" name="policy" required><span>Я соглашаюсь с <a href="#">политикой конфиденциальности</a></span>
+                  </p>
+                </label>
+              </div>
+              <div class="form__input-group">
+                <input class="button" id="partners-submit" type="submit" value="Подтвердить">
+              </div>
+            </fieldset>
+          </form>
+        </section>
+        <section class="site-section site-section--selling-features">
+          <header class="site-section__header">
+            <h2 class="site-section__title">Почему нас выбирают</h2>
+          </header>
+                    <article class="feature">
+                      <div class="feature__image"><img src="./img/features/partner-benefits.png"></div>
+                      <h2 class="feature__title">Выгодное партнерство</h2>
+                      <p class="feature__text">Особые условия для постоянных партнеров, которые вас приятно удивят.</p>
+                    </article>
+                    <article class="feature">
+                      <div class="feature__image"><img src="./img/features/free-shipping.png"></div>
+                      <h2 class="feature__title">Бесплатная доставка</h2>
+                      <p class="feature__text">От 13000 р. Оперативно отправляем заказ транспортной компанией или Почтой России.</p>
+                    </article>
+                    <article class="feature">
+                      <div class="feature__image"><img src="./img/features/memorable-brand.png"></div>
+                      <h2 class="feature__title">Запоминаемый бренд</h2>
+                      <p class="feature__text">Барбершопы по всей России регулярно применяют Barber Wild в своей работе.</p>
+                    </article>
+                    <article class="feature">
+                      <div class="feature__image"><img src="./img/features/premium-quality.png"></div>
+                      <h2 class="feature__title">Высокое качество</h2>
+                      <p class="feature__text">Наша продукция занимает достойное место среди лучших брендов мужской косметики.</p>
+                    </article>
+                    <article class="feature">
+                      <div class="feature__image"><img src="./img/features/growing-stock.png"></div>
+                      <h2 class="feature__title">Растущий ассортимент</h2>
+                      <p class="feature__text">Постоянное расширение линейки продукции, включая создание новых ароматов.</p>
+                    </article>
+                    <article class="feature">
+                      <div class="feature__image"><img src="./img/features/good-prices.png"></div>
+                      <h2 class="feature__title">Выгодные цены</h2>
+                      <p class="feature__text">Прайс на продукцию Barber Wild значительно выгоднее и гибче, чем цены конкурентов.</p>
+                    </article>
+        </section>
+        <section class="site-section">
+          <header class="site-section__header">
+            <h2 class="site-section__title">Наши партнеры</h2>
+          </header>
+          <div class="partners"><a class="partners__item" href="#"><img src="./img/partners/oldboy.png"></a><a class="partners__item" href="#"><img src="./img/partners/ceh.png"></a><a class="partners__item" href="#"><img src="./img/partners/magnum.png"></a><a class="partners__item" href="#"><img src="./img/partners/borodach.png"></a></div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer__social"><a class="icon-vkontakte" href="#">VKontakte</a><a class="icon-facebook" href="#">Faceboot</a><a class="icon-instagram" href="#">Instagram</a><a class="icon-youtube-play" href="#">YouTube</a><a class="icon-mail-alt" href="#">Email</a></div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="about.html">Каталог</a></li>
+          <li><a href="shop.html">Сотрудничество</a></li>
+          <li><a href="partners.html">О компании</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <div class="order-popup" id="order-popup">
+      <div class="order-popup__content">
+        <h2 class="order-popup__title">Отправка заявки</h2>
+        <div class="order-popup__progress"><img src="./img/drum.png"></div><a class="button order-popup__button" href="#" hidden>OK</a>
+      </div>
+    </div>
+    <script src="partners.js"></script>
+  </body>
+</html>

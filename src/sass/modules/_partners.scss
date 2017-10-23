@@ -1,0 +1,27 @@
+.partners {
+    // typography
+    text-align: center;
+
+    &__item {
+        // box model
+        display: inline-block;
+        vertical-align: middle;
+        width: 265px;
+        margin: 0 20px;
+        margin-bottom: 20px;
+
+        // visual
+        opacity: 0.9;
+        transition: opacity 0.3s ease-out;
+
+        &:hover {
+            // visual
+            opacity: 0.7;
+        }
+
+        img {
+            // box model
+            width: 100%;
+        }
+    }
+}

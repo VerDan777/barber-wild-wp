@@ -1,0 +1,190 @@
+.item {
+    @include atDesktop {
+        // box model
+        margin: 0 60px;
+    }
+
+    &__header {
+        // positioning
+        position: relative;
+
+        // box model
+        margin-bottom: 40px;
+        padding: 40px 30px;
+        padding-top: 0;
+
+        // visual
+        background-color: rgba($white, 0.8);
+        border: 1px solid $justSand;
+
+        @include atTabletsPortrait {
+            // box model
+            padding-left: 350px;
+            padding-top: 20px;
+        }
+
+        @include atDesktop {
+            // box model
+            padding-left: 450px;
+            padding-top: 40px;
+        }
+    }
+
+    &__image {
+        // box model
+        width: 220px;
+        margin: 0 auto;
+
+        img {
+            // box model
+            height: 100%;
+            width: 100%;
+        }
+        
+        @include atTabletsPortrait {
+            // positioning
+            position: absolute;
+            left: 40px;
+            top: -10px;
+
+            // box model
+            margin: 0;
+            height: 260px;
+            width: 260px;
+        }
+
+        @include atDesktop {
+            // box model
+            height: 300px;
+            width: 300px;
+        }
+    }
+
+    &__title {
+        // typography
+        color: $darkestSand;
+        font-family: $mainFont;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1.4;
+
+        @include atDesktop {
+            // box model
+            margin-top: 0;
+
+            // typography
+            font-size: 2rem;
+        }
+    }
+
+    &__volume {
+        // typography
+        color: $darkSand;
+        font-family: $mainFont;
+        font-size: 1.125rem;
+    }
+
+    &__price {
+        // box model
+        display: inline-block;
+        margin: 0;
+        margin-bottom: 30px;
+        padding: 5px 20px;
+
+        // typography
+        color: $darkBlue;
+        font-family: $titleFont;
+        font-weight: 400;
+        font-size: 2rem;
+
+        // visual
+        background-color: $justSand;
+
+    }
+
+    &__description {
+        // box model
+        padding: 40px 30px;
+
+        // visual
+        background-color: rgba($white, 0.8);
+        border: 1px solid $justSand;
+
+        @include atDesktop {
+            // box model
+            padding: 80px;
+            padding-left: 120px;
+        }
+
+        p {
+            // typography
+            font-family: $mainFont;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+    }
+
+    &__subheading {
+        // typography
+        font-family: $mainFont;
+        font-size: 1.5rem;
+        font-weight: 400;
+
+        @include atDesktop {
+            // box model
+
+            // typography
+            font-size: 2rem;
+        }
+    }
+
+    &__text {
+        // typography
+        font-family: $mainFont;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.6;
+    }
+
+    &__ingredients {
+        @include atDesktop {
+            // positioning
+            position: relative;
+            left: -120px;
+
+            // box model
+            margin: 40px;
+            margin-left: -120px;
+            margin-right: -80px;
+            padding: 40px;
+            padding-left: 50%;
+
+            // visual
+            background-color: rgba($white, 0.8);
+            border: 1px solid $justSand;
+            box-shadow: 0 2px 14px 0 rgba($darkestSand, 0.1);
+            // overflow: hidden;
+        }
+    }
+
+    &__ingredients-deco {
+        // box model
+        display: none;
+
+        @include atDesktop {
+            // positioning
+            position: absolute;
+            left: 0;
+            bottom: -70px;
+
+            // box model
+            display: block;
+            height: 510px;
+            width: 376px;
+
+            // visual
+            background-image: url("./img/ingredients-deco.png");
+        }
+    }
+}

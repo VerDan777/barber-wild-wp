@@ -1,0 +1,125 @@
+doctype html
+
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Barber Wild
+
+        link(rel="stylesheet" href="styles.css")
+
+    body
+        header.site-header.site-header--inner
+            nav.main-nav
+                .logo: a(href="index.html") Barber WILD
+                    img(src="./img/logo.png")
+                    p.logo__motto всё, что нужно для твоей головы
+
+                .main-nav__menu-icon
+                    .main-nav__menu-icon__middle
+
+                ul.main-menu
+                    - var list = ["Каталог", "Сотрудничество", "О компании"];
+                    - var links = ["shop.html", "partners.html", "about.html"];
+                    - for (var i = 0; i < 3; i++)
+                        li: a(href=links[i])= list[i]
+
+                .cart: a(href="order.html") Оформить заказ
+            
+            .hero
+                //- .hero__scene.scene
+
+                .hero__text-content
+                    h1.hero__title Магазин «Barber WILD»
+                    p.hero__text Barber WILD — это не только высококачественные средства ухода за бородой, усами и волосами для настоящих мужчин, но и истинный брутальный дух Дикого Запада. Это то, что мы с особым старанием создали для самих себя — от барбера для барбера, и решили поделиться отличным результатом с вами!
+
+        main.site-main
+            .wrapper.wrapper--center
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/matt-clay.png")
+                    .shop-item__description
+                        h2.shop-item__title Матирующая глина <br> «Barber WILD»
+                        p.shop-item__volume Объем: 3.5 oz. | 100 g.
+                        p.shop-item__price 990 -
+                        p.shop-item__limited Limited<br>Edition
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/pomade-juicy.png")
+                    .shop-item__description
+                        h2.shop-item__title Помада для волос <br> «Barber WILD (Juicy)»
+                        p.shop-item__volume Объем: 3.5 oz. | 100 g.
+                        p.shop-item__price 990 -
+                        p.shop-item__new New
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/pomade-ice-melon.png")
+                    .shop-item__description
+                        h2.shop-item__title Помада для волос<br>«Barber WILD» (Ice Melon)
+                        p.shop-item__volume Объем: 3.5 oz. | 100 g.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/beard-oil-idaho.png")
+                    .shop-item__description Объем: 0.85 oz. | 25 ml.
+                        h2.shop-item__title Масло для бороды <br> «Barber WILD» (Idaho)
+                        p.shop-item__volume Объем: 0.85 oz. | 25 ml.
+                        p.shop-item__price 990 -
+                    .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/beard-oil-tennessee.png")
+                    .shop-item__description
+                        h2.shop-item__title Масло для бороды <br> «Barber WILD» (Tennessee)
+                        p.shop-item__volume бъем: 0.85 oz. | 25 ml.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/shave-oil.png")
+                    .shop-item__description
+                        h2.shop-item__title Масло для подбривания <br> «Barber WILD»
+                        p.shop-item__volume Объем: 1.86 oz. | 55 ml.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/balm.png")
+                    .shop-item__description
+                        h2.shop-item__title Бальзам после бритья <br> «Barber WILD»
+                        p.shop-item__volume Объем: 3.38 oz. | 100 ml.
+                        p.shop-item__price 990 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/soap.png")
+                    .shop-item__description
+                        h2.shop-item__title Мыло для бритья <br> «Barber WILD»
+                        p.shop-item__volume Объем: 3,5 oz. | 100 g.
+                        p.shop-item__price 890 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+
+        footer.site-footer
+            .site-footer__social
+                a(href="#").icon-vkontakte VKontakte
+                a(href="#").icon-facebook Faceboot
+                a(href="#").icon-instagram Instagram
+                a(href="#").icon-youtube-play YouTube
+                a(href="#").icon-mail-alt Email
+
+            nav.footer-nav: ul
+                - var list = ["Каталог", "Сотрудничество", "О компании"];
+                - var links = ["about.html", "shop.html", "partners.html"];
+                - for (var i = 0; i < 3; i++)
+                    li: a(href=links[i])= list[i]

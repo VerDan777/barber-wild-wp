@@ -1,0 +1,24 @@
+.show-all {
+    // positioning
+    position: relative;
+    z-index: 5;
+
+    // box model
+    height: 534px;
+    padding-top: 302px;
+
+    // typography
+    text-align: center;
+
+    // visual
+    background-image: url('./img/all.png');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    @include atDesktop {
+        // box model
+        margin-top: -140px;
+        margin-bottom: -100px;
+    }
+}

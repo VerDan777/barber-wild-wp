@@ -1,0 +1,77 @@
+.logo {
+    // positioning
+    position: relative;
+    z-index: 4;
+
+    // box model
+    display: inline-block;
+    vertical-align: top;
+
+    max-height: 75.2px;
+    max-width: 380.8px;
+
+    // typography
+    font-size: 0;
+
+    @include atDesktop {
+        // box model
+        // height: 75.2px;
+        width: 320px;
+    }
+
+    @include atDesktopLarge {
+        // box model
+        // max-height: 94px;
+        // max-width: 476px;
+        // height: 94px;
+        width: 320px;
+        // border: 1px solid red;
+    }
+
+    &__motto {
+        // box model
+        margin: 0;
+        padding: 0;
+        padding-top: 5px;
+
+        // typography
+        color: rgba($lightSand, 0.6);
+        color: $lightSand;
+        font-family: $titleFont;
+        // font-family: $mainFont;
+        font-size: 0.9375rem;
+        // text-align: center;
+
+        @include atSmall {
+            // typography
+            font-size: 0.875rem;
+        }
+
+        @include atTabletsPortrait {
+            // typography
+            font-size: 1rem;
+        }
+
+        @include atDesktop {
+            // typography
+            text-align: left;
+            font-size: 1.23rem;
+        }
+
+        @include atDesktopLarge {
+            // typography
+            // font-size: 1.375rem;
+        }
+    }
+
+    a {
+        // typography
+        text-decoration: none;
+    }
+    // 76777489
+
+    img {
+        // box model
+        width: 100%;
+    }
+}

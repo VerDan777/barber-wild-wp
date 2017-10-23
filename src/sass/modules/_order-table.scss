@@ -1,0 +1,35 @@
+.order-table {
+    // box model
+    width: 100%;
+    margin-bottom: 20px;
+
+    margin-top: 25px;
+
+    // table
+    border-collapse: collapse;
+
+    th {
+        // box model
+        display: none;
+        padding: 10px;
+
+
+        // typography
+        color: $darkSand;
+        font-family: $titleFont;
+        font-size: 1rem;
+
+        // visual
+        border-bottom: 1px solid $justSand;
+
+        @include atTabletsPortrait {
+            // box model
+            display: table-cell;
+        }
+    }
+
+    td {
+        // typography
+        font-size: 1rem;
+    }
+}

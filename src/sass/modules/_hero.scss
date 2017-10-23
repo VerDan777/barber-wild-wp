@@ -1,0 +1,126 @@
+.hero {
+    // positioning
+    position: absolute;
+    z-index: 1;
+
+    // box model
+    width: 100%;
+    height: 46.7vw;
+    height: 100%;
+
+    &__text-content {
+        // box model
+        padding-right: 10px;
+        
+        // positioning
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        z-index: 2;
+        
+        // box model
+        // width: 45%;
+
+        @include atTabletsLandscape {
+            // positioning
+            bottom: 40px;
+            left: auto;
+            right: 50px;
+
+            // box model
+            width: 45%;
+        }
+
+        @include atDesktop {
+            // positioning
+            right: 30px;
+            bottom: 25px;
+        }
+
+        @include atDesktopLarge {
+            // positioning
+            bottom: 40px;
+            right: 50px;
+        }
+
+        &--main {
+            @include atTabletsLandscape {
+                // box model
+                text-align: right;
+            }
+        }
+    }
+
+    &__title {
+        // box model
+        margin: 0;
+        padding: 0;
+        padding-bottom: 5px;
+
+        // typography
+        color: $darkSand;
+        font-family: $titleFont;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+
+        @include atTabletsLandscape {
+            // typography
+            font-size: 2.25rem;
+        }
+
+        @include atDesktop {
+            // typography
+            font-size: 3rem;
+        }
+
+        @include atDesktopLarge {
+            // typography
+            font-size: 4rem;
+        }
+    }
+
+    &__subtitle {
+        // box model
+        margin: 0;
+        padding: 0;
+
+        // typography
+        color: $darkSand;
+        font-family: $titleFont;
+        font-size: 1rem;
+        text-transform: uppercase;
+
+        @include atDesktop {
+            // typography
+            font-size: 1.125rem;
+        }
+
+        @include atDesktopLarge {
+            // box model
+            padding-right: 40px;
+            // padding-right: 30px;
+
+            // typography
+            font-size: 1.35rem;
+            // font-size: 1.4rem;
+        }
+    }
+
+    &__text {
+
+        // typography
+        color: $justSand;
+        color: $white;
+        color: $darkSand;
+        font-family: $titleFont;
+        font-family: $mainFont;
+        font-size: 1rem;
+        // font-size: 1rem;
+        line-height: 1.4;
+
+        @include atTabletsLandscape {
+            // typography
+            font-size: 1.125rem;
+        }
+    }
+}

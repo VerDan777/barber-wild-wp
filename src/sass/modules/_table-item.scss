@@ -1,0 +1,305 @@
+.table-item {
+    // box model
+    display: block;
+    margin-bottom: 20px;
+
+    // visual
+    border: 1px solid $justSand;
+
+    @include atTabletsPortrait {
+        // box model
+        display: table-row;
+        padding-bottom: 0;
+
+        // visual
+        border: none;
+    }
+
+    td {
+        // box model
+        // margin-top: 15px;
+        // padding: 15px 0;
+
+        // typography
+        font-family: $titleFont;
+
+        // visual
+        // border-top: 1px solid $justSand;
+
+        @include atTabletsPortrait {
+            // visual
+            border-bottom: 1px solid $justSand;
+        }
+    }
+
+    &__number {
+        // box model
+        display: none;
+        padding: 0 20px;
+
+        @include atTabletsPortrait {
+            // box model
+            display: table-cell;
+        }
+    }
+
+    &__id {
+        // box model
+        display: none;
+    }
+
+    &__image {
+        // positioning
+        position: relative;
+
+        // box model
+        display: inline-block;
+        vertical-align: middle;
+        height: 64px;
+        width: 64px;
+        margin-left: 5px;
+
+        // visual
+        border-top: 0;
+
+        img {
+            // box model
+            // display: block;
+            height: 64px;
+            width: 64px; 
+        }
+
+        @include atTabletsPortrait {
+            // box model
+            display: table-cell;
+            width: auto;
+        }
+    }
+
+    &__name {
+        // box model
+        display: inline-block;
+        vertical-align: middle;
+        // height: 64px;
+        width: calc(100% - 80px);
+        padding: 0 15px;
+        padding-left: 25px;
+        padding-top: 17px;
+        
+        // typography
+        font-family: $mainFont;
+        line-height: 1.4;
+        text-align: left;
+        
+        @include atTabletsPortrait {
+            // box model
+            display: table-cell;
+            vertical-align: middle;
+            width: auto;
+            
+            padding: 0 15px;
+        }
+        
+        a {
+            // typography
+            color: #000000;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            // typography
+            color: $darkSand;
+            text-decoration: underline;
+        }
+
+        em {
+            // typography
+            color: $accentRed;
+            font-style: normal;
+        }
+    }
+    
+    &__count {
+        // positioning
+        position: relative;
+
+        // box model
+        display: block;
+        margin-top: 15px;
+        padding: 15px 0;
+        padding-left: 40%;
+        padding-top: 0;
+
+        // typography
+        text-align: center;
+
+        // visual
+        border-top: 1px solid $justSand;
+
+        &::before {
+            content: attr(data-th);
+
+            // positioning
+            position: absolute;
+            left: 15px;
+            top: 22px;
+
+            // box model
+            display: inline-block;
+
+            // typography
+            color: $darkSand;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        @include atTabletsPortrait {
+            // box model
+            display: table-cell;
+            padding-left: 0;
+
+            &::before {
+                // box model
+                display: none;
+            }
+        }
+    }
+
+    &__price {
+        // positioning
+        position: relative;
+
+        // box model
+        display: block;
+        padding: 15px 0;
+        padding-left: 40%;
+        
+        // typography
+        // text-align: left;
+
+        // visual
+        border-top: 1px solid $justSand;
+
+
+        &::before {
+            content: attr(data-th);
+
+            // positioning
+            position: absolute;
+            left: 15px;
+            top: 15px;
+
+            // typography
+            color: $darkSand;
+            font-weight: 700;
+        }
+
+        @include atTabletsPortrait {
+            // box model
+            display: table-cell;
+            padding-left: 0;
+
+            &::before {
+                // box model
+                display: none;
+            }
+        }
+    }
+
+    &__cost {
+        // positioning
+        position: relative;
+
+        // box model
+        display: block;
+        padding: 15px 0;
+        padding-left: 40%;
+        
+        // typography
+        // text-align: left;
+
+        // visual
+        border-top: 1px solid $justSand;
+
+        &::before {
+            content: attr(data-th);
+
+            // positioning
+            position: absolute;
+            left: 15px;
+            top: 15px;
+
+            // typography
+            color: $darkSand;
+            font-weight: 700;
+        }
+
+        @include atTabletsPortrait {
+            // box model
+            display: table-cell;
+            padding-left: 0;
+
+            &::before {
+                // box model
+                display: none;
+            }
+        }
+    }
+
+    &__reset {
+        a {
+            // box model
+            display: inline-block;
+            width: 130px;
+            padding: 5px 0;
+
+            // typography
+            text-decoration: none;
+
+            // visual
+            border: 1px solid $justSand;
+            border-radius: 15px;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+                // typography
+                color: $white;
+
+                // visual
+                background-color: $accentRed;
+                border: 1px solid $accentRed;
+            }
+        }
+    }
+
+    &__total {
+        // box model
+        width: 40%;
+        padding-left: 15px;
+
+        // typography
+        font-weight: 700;
+        text-align: left;
+
+        @include atTabletsPortrait {
+            // box model
+            width: auto;
+        }
+    }
+
+    &__summ {
+        // box model
+        width: 60%;
+
+        padding: 10px;
+
+        // typography
+        font-weight: 700;
+        text-align: center;
+
+        @include atTabletsPortrait {
+            // box model
+            width: auto;
+        }
+    }
+}

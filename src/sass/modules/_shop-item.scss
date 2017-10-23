@@ -1,0 +1,255 @@
+.shop-item {
+    // box model
+    display: inline-block;
+    vertical-align: top;
+    max-width: 330px;
+    margin-bottom: 40px;
+
+    @include atTabletsPortrait {
+        // box model
+        margin: 0 15px;
+        margin-bottom: 40px;
+    }
+
+    @include atDesktop {
+        // box model
+        height: 460px;
+        margin-bottom: 60px;
+    }
+
+    a {
+        // typography
+        text-decoration: none;
+    }
+
+    &__wrapper {
+        // positioning
+        position: relative;
+
+        // box model
+        height: 100%;
+        padding: 0 20px;
+        padding-bottom: 40px;
+
+        // visual
+        background-color: $white;
+        border: 1px solid $justSand;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+
+        @include atDesktop {
+            // positioning
+            position: relative;
+            left: 0;
+            top: 0;
+
+            // box model
+            width: 330px;
+            padding-bottom: 0;
+
+            // visual
+            background-color: rgba($white, 0.8);
+        }
+    }
+
+    &__image {
+        // box model
+        padding: 20px;
+        padding-bottom: 50px;
+        padding-top: 0;
+
+        // visual
+        transition: all 0.3s ease-out;
+
+        img {
+            // box model
+            width: 100%;
+        }
+
+        @include atDesktop {
+            // box model
+            padding: 0;
+            padding-bottom: 30px;
+        }
+    }
+
+    &__description {
+        // box model
+        padding: 0 10px;
+    }
+
+    &__title {
+        // box model
+        margin: 0;
+        padding-bottom: 15px;
+
+        // typography
+        color: $darkBlue;
+        font-family: $mainFont;
+        font-family: $titleFont;
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.4;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    &__volume {
+        // box model
+        margin: 0;
+
+        // typography
+        color: $darkBlue;
+        font-family: $mainFont;
+        font-size: 1.125rem;
+        font-weight: 300;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    &__price {
+        // positioning
+        position: absolute;
+        right: 30px;
+        top: 240px;
+
+        // box model
+        margin: 0;
+        padding: 5px 20px;
+        padding-right: 17px;
+
+        // typography
+        color: $darkBlue;
+        font-family: $titleFont;
+        font-weight: 400;
+        font-size: 2rem;
+
+        // visual
+        background-color: $justSand;
+        transition: all 0.3s ease-out;
+
+        @include atSmall {
+            // positioning
+            top: 200px;
+        }
+
+        @include atTabletsPortrait {
+            // positioning
+            top: 240px;
+        }
+
+        @include atDesktop {
+            // positioning
+            bottom: 150px;
+            right: 30px;
+            top: auto;
+        }
+    }
+
+    &__buttons {
+        // box model
+        width: 100%;
+        margin-top: 45px;
+
+        // typography
+        text-align: center;
+
+        // visual
+        transition: top 0.3s 0.3s ease-in-out;
+
+        @include atDesktop {
+            // positioning
+            position: absolute;
+            left: 0;
+            top: 600px;
+
+            // box model
+            margin-top: 45px;
+        }
+    }
+
+    &__limited {
+        // positioning
+        position: absolute;
+        left: 0;
+        top: 20px;
+
+        // box model
+        display: block;
+        margin: 0;
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 12px;
+
+        // typography
+        color: $justSand;
+        font-family: $titleFont;
+        font-size: 1.25rem;
+        line-height: 0.9;
+        text-align: left;
+
+        // visual
+        background-color: $accentRed;
+        box-shadow: 0 0 10px rgba($darkestSand, 0.5);
+    }
+
+    &__new,
+    &__hot {
+        // positioning
+        position: absolute;
+        left: 0;
+        top: 20px;
+
+        // box model
+        display: block;
+        margin: 0;
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 12px;
+
+        // typography
+        color: $justSand;
+        font-family: $titleFont;
+        font-size: 2rem;
+        line-height: 1;
+        text-align: left;
+        text-transform: uppercase;
+
+        // visual
+        background-color: $accentRed;
+        box-shadow: 0 0 10px rgba($darkestSand, 0.5);
+    }
+
+    @include atDesktop {
+        &:hover {
+            .shop-item__wrapper {
+                // positioning
+                left: -50px;
+                top: -40px;
+                z-index: 5;
+
+                // box model
+                height: 550px;
+                width: 460px;
+                padding: 0 30px;
+            }
+
+            .shop-item__image {
+                // box model
+                margin: -20px;
+                margin-top: -50px;
+                padding: 30px;
+            }
+
+            .shop-item__price {
+                // positioning
+                bottom: 190px;
+            }
+
+            .shop-item__buttons {
+                // positioning
+                top: 450px;
+            }
+        }
+    }
+}

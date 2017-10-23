@@ -1,0 +1,69 @@
+doctype html
+
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+
+        title Barber Wild
+
+        link(rel="stylesheet" href="styles.css")
+
+    body
+        header.site-header.site-header--inner
+            nav.main-nav
+                .logo: a(href="index.html") Barber WILD
+                    img(src="./img/logo.png")
+                    p.logo__motto всё, что нужно для твоей головы
+
+                .main-nav__menu-icon
+                    .main-nav__menu-icon__middle
+
+                ul.main-menu
+                    - var list = ["Каталог", "Сотрудничество", "О компании"];
+                    - var links = ["shop.html", "partners.html", "about.html"];
+                    - for (var i = 0; i < 3; i++)
+                        li: a(href=links[i])= list[i]
+
+                .cart: a(href="order.html") Оформить заказ
+            
+            .hero
+                .hero__scene.scene(style="background-image: url('./img/matt-clay-bg.jpg'); background-position: center center; background-atachment: fixed;")
+
+                .hero__text-content
+                    h1.hero__title Матирующая глина<br> «Barber WILD»
+                    //- p.hero__text Глина Barber Wild создана на водной основе, поэтому не только несет пользу здоровью кожи и волос, но и значительно легче смывается водой. Пчелиный воск обладает влагоотталкивающей структурой, а исцеляющая энергия ценного масла арганы благотворно влияет на волосы и кожу головы, насыщая их питательными ингредиентами. Уникальная текстура помады Barber Wild после высыхания придает волосам роскошный матовый оттенок, сохраняющийся в течение всего дня.
+
+        main.site-main
+            .wrapper
+                article.item
+                    header.item__header
+                        .item__image: img(src="./img/items/matt-clay.png")
+                        h1.item__title Матирующая глина<br>«Barber WILD»
+                        p.item__volume Объем: 3.5 oz. | 100 g.
+                        p.item__price 990 -
+                        .item__buttons
+                            a(href='order.html').button.button--red Оформить заказ
+
+                    .item__description
+                        h2.item__subheading Описание:
+                        p.item__text Матирующая глина Barber Wild на водной основе естественно и ровно ложится на волосы, легко смывается водой и любым шампунем, благодаря чему волосы быстро восстанавливают свежий здоровый облик. Смесь из пчелиного и карнаубского воска обеспечивет прическе надежную фиксацию, не склеивая волосы и не утяжеляя их, дополняя свое действие уникальным матовым эффектом благодаря белой глине. Касторовое масло питает волосы, восстанавливая их и укрепляя, а пальмовая кислота, известная своим увлажняющим и смягчающим воздействием на кожу головы, при смывании бережно очищает ее.
+                        p.item__text Парфюмерная композиция с кумарином запоминается своим приятным сладковато-горьким ароматом, создающим едва ощутимый манящий шлейф. Глина Barber Wild имеет невероятную текстуру, позволяет просто и быстро придать прическе желаемую форму. Волосы выглядят ухоженными, при этом сохраняя естественный и натуральный вид. Проходит для волос и бороды любой длины.
+                        .item__ingredients
+                            .item__ingredients-deco
+                            h2.item__subheading Состав:
+                            p.item__text Вода, вазелин, белая глина, пчелиный воск, карнаубский воск, цетеарет-27, касторовое масло, масло семян, озокерит, глицерил стеарат, VP/VA, сополимеры PVP, гидрогенезированная пальмовая кислота, цетеарет-12, аскорбилпальмитат, бензоат натрия, дегидроацетовая кислота, метилпарабен, феноксиэтанол, краситель, парфюм, кумарин.
+                                     
+        footer.site-footer
+            .site-footer__social
+                a(href="#").icon-vkontakte VKontakte
+                a(href="#").icon-facebook Faceboot
+                a(href="#").icon-instagram Instagram
+                a(href="#").icon-youtube-play YouTube
+                a(href="#").icon-mail-alt Email
+
+            nav.footer-nav: ul
+                - var list = ["Каталог", "Сотрудничество", "О компании"];
+                - var links = ["about.html", "shop.html", "partners.html"];
+                - for (var i = 0; i < 3; i++)
+                    li: a(href=links[i])= list[i]

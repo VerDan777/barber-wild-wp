@@ -1,0 +1,1 @@
+"# Barber Wild Wordpress theme" 

@@ -1,0 +1,21 @@
+.video {
+    // positioning
+    position: relative;
+    z-index: 1;
+
+    // box model
+    display: none;
+
+    @include atDesktop {
+        // box model
+        display: block;
+        height: 675px;
+        width: 1200px;
+        margin: 0 auto;
+        margin-top: 140px;
+        padding: 5px;
+
+        // visual
+        border: 1px solid $darkSand;
+    }
+}

@@ -1,0 +1,38 @@
+.description {
+    // box model
+    margin-bottom: 40px;
+    padding: 30px;
+
+    // visual
+    background-color: rgba($white, 0.8);
+    border: 1px solid $justSand;
+
+    @include atDesktop {
+        // box model
+        margin-bottom: 80px;
+        padding: 40px 80px;
+    }
+
+    &--partners {
+        @include atTabletsLandscape {
+            // box model
+            padding-left: 45px;
+            padding-right: 55%;
+            // padding-right: calc(100% - 460px);
+            padding-top: 80px;
+            height: 600px;
+        }
+        
+        @include atDesktop {
+            // positioning
+            position: relative;
+
+            // box model
+            height: auto;
+            // margin-right: 60px;
+            padding-right: 55%;
+            padding-top: 40px;
+            margin-bottom: 340px;
+        }
+    }
+}
