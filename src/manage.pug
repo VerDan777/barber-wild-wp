@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="styles.css")
+        title Document
+    body(onload="geocodeAddress()")
+        header.site-header.site-header--map
+            nav.main-nav
+                .logo: a(href="index.html") Barber WILD
+                    img(src="./img/logo.png")
+                    p.logo__motto всё, что нужно для твоей головы
+
+                .main-nav__menu-icon
+                    .main-nav__menu-icon__middle
+
+                ul.main-menu
+                    - var list = ["Каталог", "Сотрудничество", "О компании"];
+                    - var links = ["shop.html", "partners.html", "about.html"];
+                    - for (var i = 0; i < 3; i++)
+                        li: a(href=links[i])= list[i]
+
+                .cart: a(href="order.html") Оформить заказ
+
+            .map#map
+        main.site-main: .wrapper
+            section.site-section.description
+                form#order-form.form.form--order()
+                    fieldset.form__fieldset
+                        legend.form__legend Филиалы
+                        div.form__input-group
+                            label.form__icon 0
+                            input#title(type="text" name="title")
+                        div.form__input-group
+                            label.form__icon 1
+                            input.form__input(type="text", name="BranchName", placeholder="Наименование", required)
+
+                        div.form__input-group
+                            label.form__icon 2
+                            input.form__input(type="text", name="description", placeholder="Описание", required)
+                            
+                        div.form__input-group
+                            label.form__icon 3
+                            input.form__input(type="text", name="phone", placeholder="Номер телефона", required) 
+
+                        div.form__input-group
+                            label.form__icon 4
+                            input.form__input(type="text", name="address", placeholder="Адрес" id="geocode", required)
+                        //- a(href="data:'+ data+ '" download="data.json").button.button--red#save Скачать
+                        input#submit(type="button" value="Geocode" onclick="geocodeAddress()")
+                        a.button.button--red#save(href="#") Выгрузить
+                        input.button.button--red#selectFiles(type="file" value="Загрузить")
+                        button.button#import Импорт
+                        a.button#download Скачать
+                        ul#newresult
+                        textarea#result(name="result", cols="30", rows="10")
+                        button.button.button--red#newSave Сохранить
+
+                        
+
+        script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyhtGU3ubgvnGhZbZv8anVMHp1091h3Ds&callback=initMap")
+        script(src="newmap.js")
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        script(src="manage.js")

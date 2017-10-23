@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Document</title>
+  </head>
+  <body onload="geocodeAddress()">
+    <header class="site-header site-header--map">
+      <nav class="main-nav">
+        <div class="logo"><a href="index.html">Barber WILD<img src="./img/logo.png"/>
+            <p class="logo__motto">всё, что нужно для твоей головы</p></a></div>
+        <div class="main-nav__menu-icon">
+          <div class="main-nav__menu-icon__middle"></div>
+        </div>
+        <ul class="main-menu">
+          <li><a href="shop.html">Каталог</a></li>
+          <li><a href="partners.html">Сотрудничество</a></li>
+          <li><a href="about.html">О компании</a></li>
+        </ul>
+        <div class="cart"><a href="order.html">Оформить заказ</a></div>
+      </nav>
+      <div class="map" id="map"></div>
+    </header>
+    <main class="site-main">
+      <div class="wrapper">
+        <section class="site-section description">
+          <form class="form form--order" id="order-form">
+            <fieldset class="form__fieldset">
+              <legend class="form__legend">Филиалы</legend>
+              <div class="form__input-group">
+                <label class="form__icon">0</label>
+                <input id="title" type="text" name="title"/>
+              </div>
+              <div class="form__input-group">
+                <label class="form__icon">1</label>
+                <input class="form__input" type="text" name="BranchName" placeholder="Наименование" required="required"/>
+              </div>
+              <div class="form__input-group">
+                <label class="form__icon">2</label>
+                <input class="form__input" type="text" name="description" placeholder="Описание" required="required"/>
+              </div>
+              <div class="form__input-group">
+                <label class="form__icon">3</label>
+                <input class="form__input" type="text" name="phone" placeholder="Номер телефона" required="required"/>
+              </div>
+              <div class="form__input-group">
+                <label class="form__icon">4</label>
+                <input class="form__input" type="text" name="address" placeholder="Адрес" id="geocode" required="required"/>
+              </div>
+              <input id="submit" type="button" value="Geocode" onclick="geocodeAddress()"/><a class="button button--red" id="save" href="#">Выгрузить</a>
+              <input class="button button--red" id="selectFiles" type="file" value="Загрузить"/>
+              <button class="button" id="import">Импорт</button><a class="button" id="download">Скачать</a>
+              <ul id="newresult"></ul>
+              <textarea id="result" name="result" cols="30" rows="10"></textarea>
+              <button class="button button--red" id="newSave">Сохранить</button>
+            </fieldset>
+          </form>
+        </section>
+      </div>
+    </main>
+    <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyhtGU3ubgvnGhZbZv8anVMHp1091h3Ds&amp;callback=initMap"></script>
+    <script src="newmap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="manage.js"></script>
+  </body>
+</html>

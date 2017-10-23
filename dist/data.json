@@ -1,23 +1,86 @@
-  {
-    "branches" : [
+[
     {
-         "title": "BarberWild KLD",
-         "description": "BW KLD",
-         "lat": 54.717592,
-         "lng": 20.497258
+      "title": "OldBoy barbershop Kalinigrad",
+      "phone": "89527961199",
+      "lat": 54.717592,
+      "lng": 20.497258,
+      "description": "Лучшие стрижки"
     },
-     {
-         "title": "BarberWild KLD Artilleriyskaya",
-         "description": "BW KLD Artilleriyskaya",
-         "lat": 53.229520,
-         "lng": -4.129987
-     },
-     {
-         "title": "Cardiff Metropolitan University",
-         "website": "www.cardiffmet.ac.uk",
-         "phone": "+44 (0)2920 416 138", 
-         "lat": 51.482708,
-         "lng": -3.165881
-     }
-    ]
- }
+   
+    {
+      "title": "OldBoy barbershop MSK",
+      "lat": 55.677284,
+      "lng": 37.537269,
+      "description": "Стрижки МСК"
+    },
+    {
+      "title": "Magnum",
+      "lat": 51.532529,
+      "lng": 46.028062,
+      "description": "Стрижки Саратов"
+    },
+    {
+      "title":"OldBoy MSK",
+      "lat":55.817283,
+      "lng":37.594199,
+      "description":"Стрижки МСК"
+    },
+    {
+      "title":"OldBoy MSK",
+      "lat":"55.689247",
+      "lng":"37.860186",
+      "description":"Стрижки МСК"
+    },
+    {
+      "title":"OldBoy SPB",
+      "lat":"59.914325",
+      "lng":"30.304924",
+      "description":"Стрижки SPB"
+    },
+    {
+      "title":"OldBoy EKB",
+      "lat":"56.795472",
+      "lng":"60.625039",
+      "description":"Стрижки EKB"
+    },
+    {
+      "title":"OldBoy RND",
+      "lat":"47.230369",
+      "lng":"39.725098",
+      "description":"Стрижки EKB"
+  
+    },
+    {
+      "title":"OldBoy DMD",
+      "lat":" 55.424663",
+      "lng":"37.758711",
+      "description":"Стрижки DMD"
+    },
+    {
+      "title":"OldBoy KRD",
+      "lat":"45.036177",
+      "lng":"38.981322",
+      "description":"Cтрижки KRD"
+    },
+    {
+  
+     "title":"OldBoy VLD",
+      "lat":"43.120974",
+      "lng":"131.887634",
+      "description":"Cтрижки VLD"
+    },
+    {
+     "title":"OldBoy VLD",
+      "lat":"43.120974",
+      "lng":"131.887634",
+      "description":"Cтрижки VLD"
+    },
+    {
+      "title":"OldBoy STR",
+      "lat": "45.012703" ,
+      "lng":"41.931325",
+      "description":"Cтрижки STR"
+      
+    }
+  
+  ]
