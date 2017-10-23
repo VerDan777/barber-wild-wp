@@ -27,22 +27,28 @@
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">4</label>
-                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
+
+                        <input class="form__input" type="text" name="index" placeholder="Почтовый индекс">
                     </div>
                     <div class="form__input-group">
                         <label class="form__icon">5</label>
+                        <input class="form__input" type="text" name="address" placeholder="Адрес доставки" required>
+                    </div>
+                    <div class="form__input-group">
+                        <label class="form__icon">6</label>
                         <input class="form__input" type="text" name="bshop" placeholder="Барбершоп">
                     </div>
 
                     <div class="form__input-group form__input-group--left">
                         <label class="form__group-label">Способ доставки:</label>
-                        <label class="form__label">
+
+                        <!-- <label class="form__label">
                             <input type="radio" name="delivery" value="Russian Post" checked>
                             Почта России 
-                        </label>
+                        </label> -->
                         <label class="form__label">
-                            <input type="radio" name="delivery" value="EMS">
-                            Курьерская служба EMS
+                            <input type="radio" name="delivery" value="EMS" checked>
+                            Курьерская служба EMS (По Москве — 400 руб., по России — 800 руб., за рубеж — 1300 руб. Бесплатная доставка по России от 15 000 рублей.)
                         </label>
                     </div>
                 </fieldset>
@@ -150,11 +156,12 @@
                     <input class="button" id="order-submit" type="submit" value="Подтвердить">
                 </div>
 
-                <div class="form__text">Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.</div>
-            </form>
 
+                <div class="form__text">
+                <!-- Бесплатная доставка Почтой России от 13&nbsp;000 рублей и курьерской службой от 30&nbsp;000 рублей.<br> -->
+                <span class="form__warning">Минимальная сумма оптового заказа от 4000 рублей. <br>(Без учета стоимости доставки).</span></div>
+            </form>
             <div id="form-output"></div>
-            
         </section>
 
     </div>
@@ -170,8 +177,8 @@
 </div>
 
 <!--<script src="<?php bloginfo('stylesheet_directory'); ?>/app.js"></script>-->
-<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js"></script>
 
+<script src="<?php bloginfo('stylesheet_directory'); ?>/orders.js?v=4"></script>
 <?php 
     get_footer();
 ?>

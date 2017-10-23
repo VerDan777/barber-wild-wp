@@ -3,10 +3,19 @@ import OrderStorage from "./OrderStorage.js";
 
 class OrderCalculator {
     constructor() {
+
+        // general
+        this.minOrderValue = 4000;
+
         // table elements
         this.countInputs = $(".table-item__count input");
         this.costLabels = $(".table-item__cost");
         this.summLabel = $(".table-item__summ");
+
+
+        // other elements
+        this.orderButton = $("#order-submit");
+        this.priceWarning = $(".form__warning");
 
         // spinner elements
         this.decButtons = $(".spinner__minus");
@@ -107,10 +116,8 @@ class OrderCalculator {
         if (input) {
             this.calcInput(input);
         } else {
-            // console.log($('.table-item__count input'));
             var self = this;
             $.each($(".table-item__count input"), function(index, value) {
-                // console.log(value);
                 self.calcInput($(value));
             });
         }
@@ -127,6 +134,19 @@ class OrderCalculator {
             summ += parseInt($(val).html());
         });
         this.summLabel.html(summ);
+
+
+        if (summ < this.minOrderValue) {
+            this.summLabel.addClass("table-item__summ--warn");
+            this.orderButton.addClass("button--disabled");
+            this.orderButton.attr("disabled", true);
+            this.priceWarning.addClass("form__warning--warn");
+        } else {
+            this.summLabel.removeClass("table-item__summ--warn");
+            this.orderButton.removeClass("button--disabled");
+            this.orderButton.attr("disabled", false);
+            this.priceWarning.removeClass("form__warning--warn");
+        }
     }
 }
 

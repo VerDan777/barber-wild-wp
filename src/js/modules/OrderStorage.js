@@ -31,7 +31,12 @@ class OrderStorage {
 
             $.each(elementIds, function(index, value) {
                 var id = $(value).html();
-                $(value).parent().find(".table-item__count input").val(saveObj[id]);
+
+                if (saveObj[id]) {
+                    $(value).parent().find(".table-item__count input").val(saveObj[id]);
+                } else {
+                    $(value).parent().find(".table-item__count input").val(0);
+                }
             });
         }
     }

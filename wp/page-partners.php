@@ -9,9 +9,10 @@
 <main class="site-main">
     <div class="wrapper">
         <section class="site-section description description--partners">
-            <p>Уже несколько сотен барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.</p>
 
-            <p>Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.</p>
+            <p>Уже несколько сотен барбершопов регулярно используют Barber WILD в своей работе, и новые заявки на сотрудничество все продолжают поступать.</p>
+
+            <p>Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber WILD в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.</p>
 
             <form class="form form--partners" action="https://formspree.io/bwildorders@gmail.com" method="POST" id="partners-form">
                 <fieldset class="form__fieldset">
@@ -65,13 +66,14 @@
             <article class="feature">
                 <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/free-shipping.png"></div>
                 <h2 class="feature__title">Бесплатная доставка</h2>
-                <p class="feature__text">От 13000 р. Оперативно отправляем заказ транспортной компанией или Почтой России.</p>
+
+                <p class="feature__text">От 15000 р. Оперативно отправляем заказ транспортной компанией.</p>
             </article>
 
             <article class="feature">
                 <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/memorable-brand.png"></div>
                 <h2 class="feature__title">Запоминаемый бренд</h2>
-                <p class="feature__text">Барбершопы по всей России регулярно применяют Barber Wild в своей работе.</p>
+      <p class="feature__text">Барбершопы по всей России регулярно применяют Barber WILD в своей работе.</p>
             </article>
 
             <article class="feature">
@@ -89,23 +91,30 @@
             <article class="feature">
                 <div class="feature__image"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/features/good-prices.png"></div>
                 <h2 class="feature__title">Выгодные цены</h2>
-                <p class="feature__text">Прайс на продукцию Barber Wild значительно выгоднее и гибче, чем цены конкурентов.</p>
+                <p class="feature__text">Прайс на продукцию Barber WILD значительно выгоднее и гибче, чем цены конкурентов.</p>
             </article>
         </section>
-
+    </div>
         <section class="site-section">
             <header class="site-section__header">
                 <h2 class="site-section__title">Наши партнеры</h2>
             </header>
 
             <div class="partners">
-                <a class="partners__item" href="http://oldboybarbershop.com/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/oldboy.png"></a>
+                <a class="partners__item" href="http://barberfirma.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/firma.png"></a>
                 <a class="partners__item" href="http://www.salonborodach.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/borodach.png"></a>
                 <a class="partners__item" href="http://barberceh.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/ceh.png"></a>
                 <a class="partners__item" href="http://barbershopmagnum.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/magnum.png"></a>
+                <a class="partners__item" href="https://vk.com/usy_barbershop"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/usi.png"></a>
+                <a class="partners__item" href="https://vk.com/barbershop_borodise"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/borodise.png"></a>
+                <a class="partners__item" href="http://wrongbarber.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/wrong-barbershop.png"></a>
+                <a class="partners__item" href="http://oldboybarbershop.com"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/oldboy.png"></a>
+                <a class="partners__item" href="http://big-bro.pro"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/bigbro.png"></a>
+                <a class="partners__item" href="http://barberkontora.ru/"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/partners/kontora.png"></a>
+            </div>
+
             </div>
         </section>
-    </div>
 </main>
 
 <div class="order-popup" id="order-popup">

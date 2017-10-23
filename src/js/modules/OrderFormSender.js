@@ -96,6 +96,8 @@ class OrderFormSender {
             email: this.orderForm.find("input[name=\"email\"]").val(),
             address: this.orderForm.find("input[name=\"address\"]").val(),
             bshop: this.orderForm.find("input[name=\"bshop\"]").val(),
+
+            index: this.orderForm.find("input[name=\"index\"]").val(),
             shipment: this.orderForm.find("input[name=\"delivery\"]:checked").val()
         };
 
@@ -121,6 +123,11 @@ class OrderFormSender {
                   <tr>
                     <td style="border: 1px solid #999999; padding: 5px 10px;">Электронная почта</td>
                     <td style="border: 1px solid #999999; padding: 5px 10px;"><a href="mailto:${customer.email}">${customer.email}</a></td>
+                  </tr>
+                  <tr>
+
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">Индекс</td>
+                    <td style="border: 1px solid #999999; padding: 5px 10px;">${customer.index}</td>
                   </tr>
                   <tr>
                     <td style="border: 1px solid #999999; padding: 5px 10px;">Адрес доставки</td>

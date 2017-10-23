@@ -94,10 +94,20 @@
 	    function OrderCalculator() {
 	        _classCallCheck(this, OrderCalculator);
 
+
+	        // general
+	        this.minOrderValue = 4000;
+
+
 	        // table elements
 	        this.countInputs = (0, _jquery2.default)(".table-item__count input");
 	        this.costLabels = (0, _jquery2.default)(".table-item__cost");
 	        this.summLabel = (0, _jquery2.default)(".table-item__summ");
+
+
+	        // other elements
+	        this.orderButton = (0, _jquery2.default)("#order-submit");
+	        this.priceWarning = (0, _jquery2.default)(".form__warning");
 
 	        // spinner elements
 	        this.decButtons = (0, _jquery2.default)(".spinner__minus");
@@ -204,10 +214,9 @@
 	            if (input) {
 	                this.calcInput(input);
 	            } else {
-	                // console.log($('.table-item__count input'));
+
 	                var self = this;
 	                _jquery2.default.each((0, _jquery2.default)(".table-item__count input"), function (index, value) {
-	                    // console.log(value);
 	                    self.calcInput((0, _jquery2.default)(value));
 	                });
 	            }
@@ -225,6 +234,19 @@
 	                summ += parseInt((0, _jquery2.default)(val).html());
 	            });
 	            this.summLabel.html(summ);
+
+
+	            if (summ < this.minOrderValue) {
+	                this.summLabel.addClass("table-item__summ--warn");
+	                this.orderButton.addClass("button--disabled");
+	                this.orderButton.attr("disabled", true);
+	                this.priceWarning.addClass("form__warning--warn");
+	            } else {
+	                this.summLabel.removeClass("table-item__summ--warn");
+	                this.orderButton.removeClass("button--disabled");
+	                this.orderButton.attr("disabled", false);
+	                this.priceWarning.removeClass("form__warning--warn");
+	            }
 	        }
 	    }]);
 
@@ -10548,7 +10570,12 @@
 
 	                _jquery2.default.each(elementIds, function (index, value) {
 	                    var id = (0, _jquery2.default)(value).html();
-	                    (0, _jquery2.default)(value).parent().find(".table-item__count input").val(saveObj[id]);
+
+	                    if (saveObj[id]) {
+	                        (0, _jquery2.default)(value).parent().find(".table-item__count input").val(saveObj[id]);
+	                    } else {
+	                        (0, _jquery2.default)(value).parent().find(".table-item__count input").val(0);
+	                    }
 	                });
 	            }
 	        }
@@ -10685,12 +10712,15 @@
 	                email: this.orderForm.find("input[name=\"email\"]").val(),
 	                address: this.orderForm.find("input[name=\"address\"]").val(),
 	                bshop: this.orderForm.find("input[name=\"bshop\"]").val(),
+
+	                index: this.orderForm.find("input[name=\"index\"]").val(),
 	                shipment: this.orderForm.find("input[name=\"delivery\"]:checked").val()
 	            };
 
 	            var phoneClean = customer.phone.replace(/[^0-9 +]+/g, "");
 
-	            var $fullOrder = (0, _jquery2.default)("\n            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin:0; padding:0; background-color: #e0ddd9; padding: 20px; font-family: Arial, sans-serif;\">\n      <tr>\n        <td height=\"100%\">\n          <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0 auto; padding:0;\">\n            <tr>\n              <td id=\"table-container\" style=\"background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;\">\n                <h1>\u0417\u0430\u043A\u0430\u0437 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u0432</h1>\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse;\">\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0424\u0430\u043C\u0438\u043B\u0438\u044F \u0418\u043C\u044F \u041E\u0442\u0447\u0435\u0441\u0442\u0432\u043E</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.name + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"tel:" + phoneClean + "\">" + customer.phone + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"mailto:" + customer.email + "\">" + customer.email + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0410\u0434\u0440\u0435\u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.address + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0411\u0430\u0440\u0431\u0435\u0440\u0448\u043E\u043F</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.bshop + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0421\u043F\u043E\u0441\u043E\u0431 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.shipment + "</td>\n                  </tr>\n                </table>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n        ");
+
+	            var $fullOrder = (0, _jquery2.default)("\n            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin:0; padding:0; background-color: #e0ddd9; padding: 20px; font-family: Arial, sans-serif;\">\n      <tr>\n        <td height=\"100%\">\n          <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0 auto; padding:0;\">\n            <tr>\n              <td id=\"table-container\" style=\"background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;\">\n                <h1>\u0417\u0430\u043A\u0430\u0437 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u0432</h1>\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse;\">\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0424\u0430\u043C\u0438\u043B\u0438\u044F \u0418\u043C\u044F \u041E\u0442\u0447\u0435\u0441\u0442\u0432\u043E</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.name + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"tel:" + phoneClean + "\">" + customer.phone + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"mailto:" + customer.email + "\">" + customer.email + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0418\u043D\u0434\u0435\u043A\u0441</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.index + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0410\u0434\u0440\u0435\u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.address + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0411\u0430\u0440\u0431\u0435\u0440\u0448\u043E\u043F</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.bshop + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0421\u043F\u043E\u0441\u043E\u0431 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.shipment + "</td>\n                  </tr>\n                </table>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n        ");
 
 	            // Creating order table
 	            var $orderTable = (0, _jquery2.default)("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse; margin-top: 20px;\"></table>");
@@ -12396,6 +12426,8 @@
 	                    email: (0, _jquery2.default)("input.form__input[name='email']").val(),
 	                    address: (0, _jquery2.default)("input.form__input[name='address']").val(),
 	                    bshop: (0, _jquery2.default)("input.form__input[name='bshop']").val(),
+
+	                    index: (0, _jquery2.default)("input.form__input[name='index']").val(),
 	                    delivery: (0, _jquery2.default)("")
 	                };
 
@@ -12414,6 +12446,7 @@
 	                (0, _jquery2.default)("input.form__input[name='email']").val(contacts.email);
 	                (0, _jquery2.default)("input.form__input[name='address']").val(contacts.address);
 	                (0, _jquery2.default)("input.form__input[name='bshop']").val(contacts.bshop);
+	                (0, _jquery2.default)("input.form__input[name='index']").val(contacts.index);
 	            }
 	        }
 	    }]);

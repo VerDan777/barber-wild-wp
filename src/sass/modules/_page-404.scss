@@ -1,0 +1,83 @@
+.page-404 {
+    // positioning
+    position: relative;
+    z-index: 2;
+
+    // box model
+    height: calc(100vh - 480px);
+    margin-top: 80px;
+    margin-bottom: -200px;
+    // border: 1px solid red;
+    
+    @include atDesktop {
+        // box model
+        height: calc(100vh - 480px);
+    }
+
+    &__header {
+
+    }
+
+    &__title {
+        // positioning
+        margin: 0 0;
+
+        // typography
+        font-family: $titleFont;
+        font-size: 6rem;
+        text-align: center;
+        
+        // visual
+        color: $darkSand;
+
+        @include atTabletsPortrait {
+
+            //typography
+            font-size: 15rem;
+        }
+        
+        @include atDesktop {
+            z-index: 0;
+            top: 49%;
+        }
+    }
+
+    &__content {
+        // box model
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+
+        // visual
+        background-color: rgba($white, 0.8);
+        border: 1px solid $darkSand;
+    }
+    
+    &__subtitle {
+        // box model
+        padding-bottom: 20px;
+
+        //typography
+        font-family: $mainFont;
+        text-align: center;
+    }
+
+    &__list {
+
+    }
+
+    &__item {
+        //box model
+        text-align: left;
+
+        //typography
+        font-family: $mainFont;
+        font-size: 1.25rem;
+
+        a {
+            // typography
+            color: $darkSand;
+            text-decoration: none;
+        }
+    }
+}

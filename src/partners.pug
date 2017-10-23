@@ -33,66 +33,73 @@ html
                     h1.hero__title Сотрудничество<br> с «Barber WILD»
                     p.hero__text Созданная профессиональными барберами, высококачественная линия мужской косметики Barber Wild имеет свою развивающуюся сеть продвижения, и активно распространяется по всей России уже два года. Несмотря на этот недолгий срок, аналоги косметики конкурентов уже отстают от нашего качества, при этом цены Barber Wild значительно выгоднее и гибче.
 
-        main.site-main: .wrapper
-            section.site-section.description.description--partners
-                p Почти полсотни барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.
 
-                p Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.
-                
-                form(action='https://formspree.io/bwildorders@gmail.com',method="POST")#partners-form.form.form--partners
-                    fieldset.form__fieldset
-                        legend.form__legend Заявка на сотрудничество 
-                        
-                        .form__input-group
-                            input.form__input(type="text",name="fullname",placeholder="Фамилия Имя Отчество") 
+        main.site-main
+            .wrapper
+                section.site-section.description.description--partners
+                    p Почти полсотни барбершопов регулярно используют Barber Wild в своей работе, и новые заявки на сотрудничество все продолжают поступать.
 
-                        .form__input-group
-                            input.form__input(type="text",name="phone",placeholder="Номер телефона") 
+                    p Если вы желаете стать официальным представителем нашего бренда, продавать и использовать косметику Barber Wild в вашем барбершопе, просто заполните заявку на сотрудничество, и вскоре мы свяжемся с вами, чтобы обсудить все вопросы.
+                    
+                    form(action='https://formspree.io/bwildorders@gmail.com',method="POST")#partners-form.form.form--partners
+                        fieldset.form__fieldset
+                            legend.form__legend Заявка на сотрудничество 
+                            
+                            .form__input-group
+                                input.form__input(type="text",name="fullname",placeholder="Фамилия Имя Отчество") 
 
-                        .form__input-group
-                            input.form__input(type="text",name="email",placeholder="Электронная почта") 
+                            .form__input-group
+                                input.form__input(type="text",name="phone",placeholder="Номер телефона") 
 
-                        .form__input-group
-                            input.form__input(type="text",name="address",placeholder="Город") 
+                            .form__input-group
+                                input.form__input(type="text",name="email",placeholder="Электронная почта") 
 
-                        .form__input-group
-                            input.form__input(type="text",name="company",placeholder="Организация (барбершоп)")
-                        .form__input-group.form__input-group--policy
-                            label.form__label: p
-                                input.form__checkbox(type="checkbox", name="policy", required) 
-                                span Я соглашаюсь с #[a(href="#") политикой конфиденциальности]
+                            .form__input-group
+                                input.form__input(type="text",name="address",placeholder="Город") 
 
-                        .form__input-group
-                            input#partners-submit.button(type="submit" value="Подтвердить")
+                            .form__input-group
+                                input.form__input(type="text",name="company",placeholder="Организация (барбершоп)")
+                            .form__input-group.form__input-group--policy
+                                label.form__label: p
+                                    input.form__checkbox(type="checkbox", name="policy", required) 
+                                    span Я соглашаюсь с #[a(href="#") политикой конфиденциальности]
 
-                        //- .form__text Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> #[a(href="#") политикой конфиденциальности]
+                            .form__input-group
+                                input#partners-submit.button(type="submit" value="Подтвердить")
+
+                            //- .form__text Нажимая кнопку «Подтвердить» вы соглашаетесь с<br> #[a(href="#") политикой конфиденциальности]
 
 
-            section.site-section.site-section--selling-features
-                header.site-section__header
-                    h2.site-section__title Почему нас выбирают
-                mixin feature(title,text,imgURL)
-                    article.feature
-                        .feature__image: img(src=imgURL)
-                        h2.feature__title= title
-                        p.feature__text= text
-                +feature("Выгодное партнерство","Особые условия для постоянных партнеров, которые вас приятно удивят.","./img/features/partner-benefits.png")
-                +feature("Бесплатная доставка","От 13000 р. Оперативно отправляем заказ транспортной компанией или Почтой России.","./img/features/free-shipping.png")
-                +feature("Запоминаемый бренд","Барбершопы по всей России регулярно применяют Barber Wild в своей работе.","./img/features/memorable-brand.png")
-                +feature("Высокое качество","Наша продукция занимает достойное место среди лучших брендов мужской косметики.","./img/features/premium-quality.png")
-                +feature("Растущий ассортимент","Постоянное расширение линейки продукции, включая создание новых ароматов.","./img/features/growing-stock.png")
-                +feature("Выгодные цены","Прайс на продукцию Barber Wild значительно выгоднее и гибче, чем цены конкурентов.","./img/features/good-prices.png")
+                section.site-section.site-section--selling-features
+                    header.site-section__header
+                        h2.site-section__title Почему нас выбирают
+                    mixin feature(title,text,imgURL)
+                        article.feature
+                            .feature__image: img(src=imgURL)
+                            h2.feature__title= title
+                            p.feature__text= text
+                    +feature("Выгодное партнерство","Особые условия для постоянных партнеров, которые вас приятно удивят.","./img/features/partner-benefits.png")
+                    +feature("Бесплатная доставка","От 13000 р. Оперативно отправляем заказ транспортной компанией или Почтой России.","./img/features/free-shipping.png")
+                    +feature("Запоминаемый бренд","Барбершопы по всей России регулярно применяют Barber Wild в своей работе.","./img/features/memorable-brand.png")
+                    +feature("Высокое качество","Наша продукция занимает достойное место среди лучших брендов мужской косметики.","./img/features/premium-quality.png")
+                    +feature("Растущий ассортимент","Постоянное расширение линейки продукции, включая создание новых ароматов.","./img/features/growing-stock.png")
+                    +feature("Выгодные цены","Прайс на продукцию Barber Wild значительно выгоднее и гибче, чем цены конкурентов.","./img/features/good-prices.png")
             
             section.site-section
                 header.site-section__header
                     h2.site-section__title Наши партнеры
-
                 .partners
                     a(href="#").partners__item: img(src="./img/partners/oldboy.png")
                     a(href="#").partners__item: img(src="./img/partners/ceh.png")
                     a(href="#").partners__item: img(src="./img/partners/magnum.png")
                     a(href="#").partners__item: img(src="./img/partners/borodach.png")
-
+                    a(href="#").partners__item: img(src="./img/partners/usi.png")
+                    a(href="#").partners__item: img(src="./img/partners/borodise.png")
+                    a(href="#").partners__item: img(src="./img/partners/wrong-bar.png")
+                    a(href="#").partners__item: img(src="./img/partners/bigbro.png")
+                    a(href="#").partners__item: img(src="./img/partners/kontora.png")
+                    a(href="#").partners__item: img(src="./img/partners/firma.png")
+                    
         footer.site-footer
             .site-footer__social
                 a(href="#").icon-vkontakte VKontakte

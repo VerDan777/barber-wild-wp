@@ -301,5 +301,11 @@
             // box model
             width: auto;
         }
+
+
+        &--warn {
+            // typography
+            color: $accentRed;
+        }
     }
 }
