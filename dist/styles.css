@@ -466,6 +466,9 @@ body {
 *::after {
   box-sizing: inherit; }
 
+strong {
+  font-weight: bold; }
+
 .form {
   padding: 25px;
   padding-bottom: 20px;
@@ -1521,6 +1524,78 @@ body {
       width: 376px;
       background-image: url("./img/ingredients-deco.png"); } }
 
+.barbershop-owner {
+  display: inline-block;
+  vertical-align: top;
+  height: 494px;
+  width: 330px;
+  margin: 0 15px;
+  background-image: url("./img/barbershop-owner-background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; }
+  @media (min-width: 1200px) {
+    .barbershop-owner {
+      height: 460px; } }
+  @media (min-width: 1800px) {
+    .barbershop-owner {
+      position: absolute;
+      top: 0;
+      left: 100%; } }
+  .barbershop-owner__content {
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 36px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20%;
+    text-align: center; }
+    @media (min-width: 1200px) {
+      .barbershop-owner__content {
+        padding-top: 15%; } }
+  .barbershop-owner__title {
+    padding-bottom: 45px;
+    margin: 0;
+    color: #373025;
+    font-family: "IntroBold";
+    font-weight: bold;
+    font-size: 2.25rem;
+    line-height: 0.9;
+    text-align: center;
+    text-transform: uppercase; }
+    .barbershop-owner__title small {
+      font-size: 0.7em;
+      font-weight: 100; }
+  .barbershop-owner__text {
+    padding: 0 30px;
+    padding-bottom: 65px;
+    margin: 0;
+    color: #373025;
+    font-family: "IntroBold";
+    font-size: 1.28rem;
+    font-weight: 100;
+    text-align: center;
+    text-transform: uppercase; }
+  .barbershop-owner__button {
+    z-index: 99;
+    display: inline-block;
+    padding: 18px 0;
+    width: 80%;
+    color: #373025;
+    font-family: "IntroBold";
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #f9f2de;
+    border-radius: 40px;
+    border: 1px solid #373025; }
+    .barbershop-owner__button:hover {
+      color: #f9f2de;
+      background-color: #c7a166;
+      transition: 0.3s ease-in-out all; }
+
 .partners {
   max-width: 1500px;
   margin: 0 auto;
@@ -1537,6 +1612,12 @@ body {
       opacity: 0.7; }
     .partners__item img {
       height: 100%; }
+
+.requisites {
+  text-align: center; }
+  .requisites__list {
+    width: 500px;
+    margin: 0 auto; }
 
 .button {
   padding: 8px 25px;
@@ -1574,7 +1655,7 @@ body {
     .button--red:hover {
       color: #d11500; }
   .button--big {
-    padding: 18px 65px;
+    padding: 18px 50px;
     border-radius: 40px; }
   .button--disabled {
     opacity: 0.5; }
@@ -1815,6 +1896,13 @@ body {
   display: block;
   margin-bottom: 20px;
   border: 1px solid #e9dcca; }
+  .table-item--unavailable {
+    opacity: 0.45; }
+  .table-item__status {
+    color: #c7a166;
+    font-family: "IntroLight" !important;
+    font-weight: 300;
+    transition: 0.3s ease-in all; }
   @media (min-width: 700px) {
     .table-item {
       display: table-row;
@@ -2223,3 +2311,14 @@ body {
       height: 100%;
       width: 100%;
       object-fit: cover; }
+      .gm-style-iw {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        background-color: #fff;
+        box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+        border: 2px solid #c7a166;
+        border-radius: 5px;
+     }
+     

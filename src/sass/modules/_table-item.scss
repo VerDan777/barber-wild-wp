@@ -2,6 +2,23 @@
     // box model
     display: block;
     margin-bottom: 20px;
+    
+    &--unavailable {
+        // visual
+        opacity: 0.45;
+    }
+
+    &__status {
+        // box model
+        
+        // typography
+        color: $darkSand;
+        font-family: $mainFont !important;
+        font-weight: 300;
+
+        // visual
+        transition: 0.3s ease-in all;
+    }
 
     // visual
     border: 1px solid $justSand;

@@ -109,6 +109,31 @@ html
                         p.shop-item__price 890 -
                         .shop-item__buttons
                             a(href="shop-item.html").button Подробнее
+                
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/soap.png")
+                    .shop-item__description
+                        h2.shop-item__title Мыло для бритья <br> «Barber WILD»
+                        p.shop-item__volume Объем: 3,5 oz. | 100 g.
+                        p.shop-item__price 890 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+                            
+                article.shop-item: .shop-item__wrapper
+                    .shop-item__image: img(src="./img/items/soap.png")
+                    .shop-item__description
+                        h2.shop-item__title Мыло для бритья <br> «Barber WILD»
+                        p.shop-item__volume Объем: 3,5 oz. | 100 g.
+                        p.shop-item__price 890 -
+                        .shop-item__buttons
+                            a(href="shop-item.html").button Подробнее
+
+                .barbershop-owner
+                    .barbershop-owner__content
+                        h3.barbershop-owner__title Владелец <small>Барбершопа?</small>
+                        p.barbershop-owner__text Специально для тебя у нас
+                        h3.barbershop-owner__title Особые условия
+                        a.barbershop-owner__button(href="#") Узнать больше
 
         footer.site-footer
             .site-footer__social
@@ -123,3 +148,6 @@ html
                 - var links = ["about.html", "shop.html", "partners.html"];
                 - for (var i = 0; i < 3; i++)
                     li: a(href=links[i])= list[i]
+
+script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+//- script(src="banner.js")

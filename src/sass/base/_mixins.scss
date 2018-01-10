@@ -30,6 +30,11 @@
     }
 }
 
+@mixin atDesktopSuperLarge {
+    @media (min-width: 1800px) {
+        @content;
+    }
+}
 
 // clearfix
 

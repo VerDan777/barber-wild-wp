@@ -1,0 +1,11 @@
+.requisites {
+    // box model
+    text-align: center;
+
+    &__list {
+        // box model
+        width: 500px;
+        margin: 0 auto;
+    }
+
+}

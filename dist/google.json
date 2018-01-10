@@ -1,0 +1,96 @@
+ [
+  {
+    "title": "OldBoy barbershop Kalinigrad",
+    "lat": 54.717592,
+    "lng": 20.497258,
+    "description": "Лучшие стрижки",
+    "WorkTime": "9:00 - 21:00"
+  },
+ 
+  {
+    "title": "OldBoy barbershop MSK",
+    "lat": 55.677284,
+    "lng": 37.537269,
+    "description": "Стрижки МСК",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+    "title": "Magnum",
+    "lat": 51.532529,
+    "lng": 46.028062,
+    "description": "Стрижки Саратов",
+    "WorkTime": "9:00 - 21:00"    
+  },
+  {
+    "title":"OldBoy MSK",
+    "lat":55.817283,
+    "lng":37.594199,
+    "description":"Стрижки МСК",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+    "title":"OldBoy MSK",
+    "lat":"55.689247",
+    "lng":"37.860186",
+    "description":"Стрижки МСК",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+    "title":"OldBoy SPB",
+    "lat":"59.914325",
+    "lng":"30.304924",
+    "description":"Стрижки SPB",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+    "title":"OldBoy EKB",
+    "lat":"56.795472",
+    "lng":"60.625039",
+    "description":"Стрижки EKB",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+    "title":"OldBoy RND",
+    "lat":"47.230369",
+    "lng":"39.725098",
+    "description":"Стрижки EKB",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+    "title":"OldBoy DMD",
+    "lat":" 55.424663",
+    "lng":"37.758711",
+    "description":"Стрижки DMD",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+    "title":"OldBoy KRD",
+    "lat":"45.036177",
+    "lng":"38.981322",
+    "description":"Cтрижки KRD",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+
+   "title":"OldBoy VLD",
+    "lat":"43.120974",
+    "lng":"131.887634",
+    "description":"Cтрижки VLD",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+   "title":"OldBoy VLD",
+    "lat":"43.120974",
+    "lng":"131.887634",
+    "description":"Cтрижки VLD",
+    "WorkTime": "9:00 - 21:00"
+  },
+  {
+    "title":"OldBoy STR",
+    "lat": "45.012703" ,
+    "lng":"41.931325",
+    "description":"Cтрижки STR",
+    "WorkTime": "9:00 - 21:00"
+  }
+
+]

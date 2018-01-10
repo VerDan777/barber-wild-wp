@@ -61,6 +61,21 @@ html
                 .section__content
                     .instafeed#instafeed
 
+            section.site-section.requisites
+                header.site-section__header
+                    h2.site-section__title Реквизиты
+                ul.requisites__list
+                    li.requisites__item
+                        p ИП Лазарев В.С
+                    li.requisites__item 
+                        p ИНН 390407596400
+                    li.requisites__item
+                        p ОГРН 317392600016310
+                    li.requisites__item
+                        p Адрес: 236022 г Калининград, ул. Театральная, 35, офис 616
+                    li.requisites__item
+                        p Телефон: +79527947836
+
         footer.site-footer
             .site-footer__social
                 a(href="#").icon-vkontakte VKontakte
@@ -70,9 +85,9 @@ html
                 a(href="#").icon-mail-alt Email
 
             nav.footer-nav: ul
-                - var list = ["Каталог", "Сотрудничество", "О компании"];
+                - var list = ["Каталог", "Сотрудничество", "О компании","Оплата", "Доставка"];
                 - var links = ["about.html", "shop.html", "partners.html"];
-                - for (var i = 0; i < 3; i++)
+                - for (var i = 0; i < 5; i++)
                     li: a(href=links[i])= list[i]
 
         script(src="instagram.js")

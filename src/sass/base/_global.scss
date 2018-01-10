@@ -13,7 +13,7 @@ body {
     // typography
     font-size: $baseFontSize;
 
-    // visual
+    // visuals
     background-color: $lightSand;
     background-color: #f9f2de;
     overflow-x: hidden;
@@ -23,4 +23,8 @@ body {
 *::before,
 *::after {
     box-sizing: inherit;
+}
+strong {
+    // typography
+    font-weight: bold;
 }

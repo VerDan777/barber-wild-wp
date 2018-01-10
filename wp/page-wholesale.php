@@ -12,7 +12,7 @@
         <section class="site-section site-section--partner-form">
             <form id="order-form" class="form form--order" action="https://formspree.io/bwildorders@gmail.com" method="POST">
                 <fieldset class="form__fieldset">
-                    <legend class="form__legend">Заказ </legend>
+                    <legend class="form__legend"> Оптовый заказ </legend>
                     <div class="form__input-group">
                         <label class="form__icon">1</label>
                         <input class="form__input" type="text" name="fullname" placeholder="Фамилия Имя Отчество" required>
@@ -149,7 +149,8 @@
                 <div id="errorBox" style="font-size: 16px;"></div>
 
                 <label class="form__input-group form__input-group--policy form__label">
-                    <input class="form__checkbox" type="checkbox" name="policy" required> <span>Я соглашаюсь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></span>
+                    <input class="form__checkbox" type="checkbox" name="policy" required> <span>Я соглашаюсь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a> и с условиями <a href="<?php echo esc_url(home_url('/')); ?>/delivery"> доставки и оплаты </a></span><br>
+                    <span>По всем вопросам писать на <a href="mailto: bwildorders@gmail.com">bwildorders@gmail.com</a></span>
                 </label>
 
                 <div class="form__input-group">

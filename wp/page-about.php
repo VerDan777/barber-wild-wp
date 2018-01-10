@@ -78,6 +78,20 @@
                 <div class="instafeed" id="instafeed"></div>
             </div>
         </section>
+        <section class="site-section">
+            <header class="site-section__header">
+                <h2 class="site-section__title"> Реквизиты</h2>
+            </header>
+            <div class="requisites">
+                <ul class="requisites__list">
+                    <li class="requisites__item"><p>ИП Лазарев В.С</p></li>
+                    <li class="requisites__item"><p>ИНН 390407596400</p></li>
+                    <li class="requisites__item"><p>ОГРН 317392600016310</p></li>
+                    <li class="requisites__item"><p>Адрес: 236022 г Калининград, ул. Театральная, 35, офис 616</p></li>
+                    <li class="requisites__item"><p>Телефон: +79527947836</p></li>
+                </ul>
+            </div>
+        </section>
     </div>
 
     <script src="<?php bloginfo('stylesheet_directory'); ?>/instagram.js"></script>

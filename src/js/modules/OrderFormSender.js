@@ -87,9 +87,9 @@ class OrderFormSender {
         this.showPopup();
 
         $("#form-output").css("font-size", "32px");
-
-
+        
         // Creating customer info
+        let orderTitle = $(".form__legend").html();
         let customer = {
             name: this.orderForm.find("input[name=\"fullname\"]").val(),
             phone: this.orderForm.find("input[name=\"phone\"]").val(),
@@ -110,7 +110,7 @@ class OrderFormSender {
           <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto; padding:0;">
             <tr>
               <td id="table-container" style="background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;">
-                <h1>Заказ продуктов</h1>
+                <h1>${orderTitle}продуктов</h1>
                 <table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width: 100%; border-collapse: collapse;">
                   <tr>
                     <td style="border: 1px solid #999999; padding: 5px 10px;">Фамилия Имя Отчество</td>

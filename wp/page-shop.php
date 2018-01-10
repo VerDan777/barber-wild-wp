@@ -66,11 +66,18 @@
             </div>
         </a>
         </article>
-
+        
         <?php
                 }
             }
         ?>
+        <div class="barbershop-owner">
+          <div class="barbershop-owner__content">
+            <h3 class="barbershop-owner__title">Владелец <small>Барбершопа?</small></h3>
+            <p class="barbershop-owner__text">Специально для тебя у нас</p>
+            <h3 class="barbershop-owner__title">Особые условия</h3><a class="barbershop-owner__button" href="">Узнать больше</a>
+          </div>
+        </div>
     </div>
 </main>
 

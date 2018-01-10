@@ -78,21 +78,22 @@
                                     $price              = get_field('price');
                                     $itemID             = get_the_ID();
                                     $ribbon             = get_field('ribbon');
+                                    $item_avaible       = get_field('item-avaible');
                                     
                                     switch($ribbon) {
                                         case "limited":
-                                            $item_name = $item_name ."<br><em>Limited Edition</em>";
-                                            break;
+                                        $item_name = $item_name ."<br><em>Limited Edition</em>";
+                                        break;
                                         case "new":
-                                            $item_name = $item_name ."<br><em>NEW</em>";
-                                            break;
+                                        $item_name = $item_name ."<br><em>NEW</em>";
+                                        break;
                                         case "hot":
                                             $item_name = $item_name ."<br><em>HOT</em>";
                                             break;
                                     }
-                        ?>
+                                    ?>
 
-                        <tr class="table-item">
+                        <tr class="table-item <?php if($item_avaible == "no") echo "table-item--unavailable"; ?>">
                             <td class="table-item__number">
                                 <?php echo $counter; ?>
                             </td>
@@ -111,20 +112,34 @@
                                 </a>
                             </td>
 
-                            <td class="table-item__count" data-th="Количество">
-                                <div class="spinner">
-                                    <button class="spinner__button spinner__minus" type="button">–</button>
-                                    <input class="spinner__input" name="<?php echo $item_form_name; ?>" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
-                                    <button class="spinner__button spinner__plus" type="button">+</button>
-                                    <button class="spinner__button spinner__clear" type="button">x</button>
-                                </div>
-                            </td>
+                            <?php
+                                if ($item_avaible == "no") {
+                            ?>
 
-                            <td class="table-item__price" data-th="Цена">
-                                <?php echo $price; ?>
-                            </td>
+                                <td class="table-item__status" colspan="3">Товара нет в наличии</td>
 
-                            <td class="table-item__cost" data-th="Стоимость">0</td>
+                            <?php
+                                } else {
+                            ?>
+
+                                <td class="table-item__count" data-th="Количество">
+                                    <div class="spinner">
+                                        <button class="spinner__button spinner__minus" type="button">–</button>
+                                        <input class="spinner__input" name="<?php echo $item_form_name; ?>" type="text" value="0" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57;">
+                                        <button class="spinner__button spinner__plus" type="button">+</button>
+                                        <button class="spinner__button spinner__clear" type="button">x</button>
+                                    </div>
+                                </td>
+    
+                                <td class="table-item__price" data-th="Цена">
+                                    <?php echo $price; ?>
+                                </td>
+    
+                                <td class="table-item__cost" data-th="Стоимость">0</td>
+
+                            <?php
+                                }
+                            ?>
                         </tr>
 
                         <?php
@@ -132,6 +147,7 @@
                                 }
                             }
                         ?>
+                        <script src="<?php bloginfo('stylesheet_directory');?>/items-sort.js"></script>
 
                         <tr class="table-item">
                             <td colspan="3"></td>
@@ -146,7 +162,7 @@
                             
                 <div class="form__input-group form__input-group--policy">
                     <label class="form__label">
-                        <input class="form__checkbox" type="checkbox" name="policy" required> <span>Я соглашаюсь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a></span>
+                        <input class="form__checkbox" type="checkbox" name="policy" required> <span>Я соглашаюсь с <a href="<?php echo esc_url(home_url('/')); ?>policy">политикой конфиденциальности</a> и с условиями <a href="<?php echo esc_url(home_url('/')); ?>delivery">доставки и оплаты</span>
                     </label>
                 </div>
 
@@ -170,7 +186,7 @@
 <div class="order-popup" id="order-popup">
     <div class="order-popup__content">
         <h2 class="order-popup__title">Отправка заказа</h2>
-        <p class="order-popup__text">   </p>
+        <p class="order-popup__text"> </p>
         <div class="order-popup__progress"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/drum.png"></div>
         <a class="button order-popup__button" href="#" hidden>OK</a>
     </div>
