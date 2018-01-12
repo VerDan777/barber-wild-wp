@@ -61,6 +61,10 @@
     &__fieldset {
         // visual
         border: none;
+
+        &--bgWhite {
+            background-color: #fff;
+        }
     }
 
     &__legend {

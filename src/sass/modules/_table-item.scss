@@ -2,6 +2,10 @@
     // box model
     display: block;
     margin-bottom: 20px;
+
+    &--center {
+        text-align: center;
+    }
     
     &--unavailable {
         // visual
@@ -39,6 +43,7 @@
 
         // typography
         font-family: $titleFont;
+        text-align: center;
 
         // visual
         // border-top: 1px solid $justSand;

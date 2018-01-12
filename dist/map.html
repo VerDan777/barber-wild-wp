@@ -22,57 +22,35 @@
         <div class="cart"><a href="order.html">Оформить заказ</a></div>
       </nav>
       <div class="map" id="map"></div>
-      <div class="hero">
-        <div class="hero__text-content">
-          <h1 class="hero__title">Точки продаж<br> «Barber WILD»</h1>
-        </div>
+      <div class="wrapper wrapper--center"><a class="button button--red button--block" href="#table">Все точки</a>
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="25px" height="25px">
+          <g></g>
+          <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" fill="#FFFFFF"></path>
+        </svg>
       </div>
     </header>
-    <main class="site-main">
+    <main class="site-main" id="table">
       <div class="wrapper">
+        <fieldset class="form__fieldset">
+          <legend class="form__legend">Таблица Филиалов</legend>
+          <div class="form__input-group">
+            <label class="form__icon">1</label>
+            <input class="form__input form__input--map" type="search" data-table="order-table" placeholder="Найти филиал">
+          </div>
+        </fieldset>
+        <fieldset class="form__fieldset form__fieldset--bgWhite">
+          <table class="order-table">
+            <tr>
+              <th>#</th>
+              <th>Название филиала</th>
+              <th>Город</th>
+              <th>Адрес</th>
+            </tr>
+          </table>
+        </fieldset>
         <section class="site-section description">
           <p>Идея создания мужской косметики Barber WILD пришла в 2015 году. Во время работы два приятеля барбера решили, что существующие средства для волос и бороды недостаточно хороши, и в 2016 году создали собственную линию, которая позволила им проявить свое мастерство в полной мере. Но не только профессиональный барбер — каждый мужчина, который заботится о своем здоровье и облике, может теперь по достоинству оценить качество нашей продукции, а также легко и быстро самостоятельно придать прическе, усам и бороде приятный вид.</p>
           <p>Все, что мы делаем — делаем с душой, начиная от бритья и стрижки, и заканчивая укладкой и уходом за бородой и волосами. Сегодня мы производим сертифицированные средства из натуральных высококлассных компонентов, поставляем их в лучшие барбершопы. Мы отлично разбираемся в своей работе, внимательно следим за качеством продукции и развиваем Barber WILD, создавая новые средства и улучшая существующие.</p>
-        </section>
-        <section class="site-section site-section--selling-features">
-          <header class="site-section__header">
-            <h2 class="site-section__title">Почему нас выбирают</h2>
-          </header>
-                    <article class="feature">
-                      <div class="feature__image"><img src="./img/features/barber-friendly.png"></div>
-                      <h2 class="feature__title">От барбера для барбера</h2>
-                      <p class="feature__text">В создании продукции принимают участие профессиональные барберы.</p>
-                    </article>
-                    <article class="feature">
-                      <div class="feature__image"><img src="./img/features/natural-components.png"></div>
-                      <h2 class="feature__title">Натуральные компоненты</h2>
-                      <p class="feature__text">Косметика оздоравливает кожу и волосы, насыщая их питательными ингредиентами.</p>
-                    </article>
-                    <article class="feature">
-                      <div class="feature__image"><img src="./img/features/ergonomic-pack.png"></div>
-                      <h2 class="feature__title">Удобная упаковка</h2>
-                      <p class="feature__text">Оптимально эргономичная емкость, практичная для использования и хранения.</p>
-                    </article>
-                    <article class="feature">
-                      <div class="feature__image"><img src="./img/features/wholesale-discounts.png"></div>
-                      <h2 class="feature__title">Оптовые скидки</h2>
-                      <p class="feature__text">Выгодные условия для наших постоянных партнеров и покупателей.</p>
-                    </article>
-                    <article class="feature">
-                      <div class="feature__image"><img src="./img/features/growing-popularity.png"></div>
-                      <h2 class="feature__title">Растущая популярность</h2>
-                      <p class="feature__text">Узнаваемый мужской бренд, получивший широкое распространение в барбершопах</p>
-                    </article>
-                    <article class="feature">
-                      <div class="feature__image"><img src="./img/features/wild-west.png"></div>
-                      <h2 class="feature__title">Дух дикого запада</h2>
-                      <p class="feature__text">Эффектный ореол свободы и мужественности, идеально подходящий каждому мужчине.</p>
-                    </article>
-        </section>
-        <section class="site-section">
-          <header class="site-section__header">
-            <h2 class="site-section__title">Контакты</h2>
-          </header>
         </section>
       </div>
     </main>
@@ -90,5 +68,6 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyhtGU3ubgvnGhZbZv8anVMHp1091h3Ds&amp;callback=initMap"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
     <script src="map.js"></script>
+    <script src="table.js"></script>
   </body>
 </html>
