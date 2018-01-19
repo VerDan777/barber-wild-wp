@@ -46,7 +46,7 @@
 
 	"use strict";
 
-	var _OrderCalculator = __webpack_require__(3);
+	var _OrderCalculator = __webpack_require__(4);
 
 	var _OrderCalculator2 = _interopRequireDefault(_OrderCalculator);
 
@@ -66,197 +66,7 @@
 
 /***/ }),
 /* 1 */,
-/* 2 */,
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _jquery = __webpack_require__(4);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _OrderStorage = __webpack_require__(5);
-
-	var _OrderStorage2 = _interopRequireDefault(_OrderStorage);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var OrderCalculator = function () {
-	    function OrderCalculator() {
-	        _classCallCheck(this, OrderCalculator);
-
-
-	        // general
-	        this.minOrderValue = 4000;
-
-
-	        // table elements
-	        this.countInputs = (0, _jquery2.default)(".table-item__count input");
-	        this.costLabels = (0, _jquery2.default)(".table-item__cost");
-	        this.summLabel = (0, _jquery2.default)(".table-item__summ");
-
-
-	        // other elements
-	        this.orderButton = (0, _jquery2.default)("#order-submit");
-	        this.priceWarning = (0, _jquery2.default)(".form__warning");
-
-	        // spinner elements
-	        this.decButtons = (0, _jquery2.default)(".spinner__minus");
-	        this.incButtons = (0, _jquery2.default)(".spinner__plus");
-	        this.clearButtons = (0, _jquery2.default)(".spinner__clear");
-	        this.clearAllButton = (0, _jquery2.default)("#reset-form");
-
-	        this.events();
-
-	        // storage
-	        this.storage = new _OrderStorage2.default();
-	        this.storage.loadSession();
-
-	        this.calcTotal();
-	    }
-
-	    _createClass(OrderCalculator, [{
-	        key: "events",
-	        value: function events() {
-	            var calc = this;
-	            var incInterval = void 0;
-	            var decInterval = void 0;
-
-	            this.countInputs.on("change", function (event) {
-	                this.calcTotal((0, _jquery2.default)(event.target));
-	                this.storage.saveSession();
-	            }.bind(this));
-
-	            this.incButtons.on("mousedown", function () {
-	                var input = (0, _jquery2.default)(this).parent().children("input");
-	                calc.incInput(input);
-	                incInterval = setInterval(function () {
-	                    calc.incInput(input);
-	                }, 250);
-	            });
-
-	            this.incButtons.on("mouseup", function () {
-	                // let input = $(this).parent().children("input");
-	                clearInterval(incInterval);
-	            });
-
-	            this.incButtons.on("mouseout", function () {
-	                // let input = $(this).parent().children("input");
-	                clearInterval(incInterval);
-	            });
-
-	            this.decButtons.on("mousedown", function () {
-	                var input = (0, _jquery2.default)(this).parent().children("input");
-	                calc.decInput(input);
-	                decInterval = setInterval(function () {
-	                    calc.decInput(input);
-	                }, 250);
-	            });
-
-	            this.decButtons.on("mouseup", function () {
-	                // let input = $(this).parent().children("input");
-	                clearInterval(decInterval);
-	            });
-
-	            this.decButtons.on("mouseout", function () {
-	                // let input = $(this).parent().children("input");
-	                clearInterval(decInterval);
-	            });
-
-	            this.clearButtons.on("click", function () {
-	                var input = (0, _jquery2.default)(this).parent().children("input");
-	                calc.clearInput(input);
-	            });
-
-	            this.clearAllButton.on("click", function (event) {
-	                // alert("adsf");
-	                event.preventDefault();
-	                // alert(calc.countInputs);
-	                _jquery2.default.each(calc.countInputs, function (index, value) {
-	                    calc.clearInput((0, _jquery2.default)(value));
-	                    // alert(value);
-	                });
-	            });
-	        }
-	    }, {
-	        key: "decInput",
-	        value: function decInput(input) {
-	            input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
-	            input.trigger("change");
-	            this.storage.saveSession();
-	        }
-	    }, {
-	        key: "incInput",
-	        value: function incInput(input) {
-	            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
-	            input.trigger("change");
-	            this.storage.saveSession();
-	        }
-	    }, {
-	        key: "clearInput",
-	        value: function clearInput(input) {
-	            input.val(0);
-	            input.trigger("change");
-	            this.storage.saveSession();
-	        }
-	    }, {
-	        key: "calcTotal",
-	        value: function calcTotal(input) {
-	            if (input) {
-	                this.calcInput(input);
-	            } else {
-
-	                var self = this;
-	                _jquery2.default.each((0, _jquery2.default)(".table-item__count input"), function (index, value) {
-	                    self.calcInput((0, _jquery2.default)(value));
-	                });
-	            }
-	        }
-	    }, {
-	        key: "calcInput",
-	        value: function calcInput(input) {
-	            var price = parseInt(input.parent().parent().parent().children(".table-item__price").html());
-	            var count = parseInt(input.val());
-	            var cost = input.parent().parent().parent().children(".table-item__cost");
-	            cost.html(price * count);
-
-	            var summ = 0;
-	            _jquery2.default.each(this.costLabels, function (i, val) {
-	                summ += parseInt((0, _jquery2.default)(val).html());
-	            });
-	            this.summLabel.html(summ);
-
-
-	            if (summ < this.minOrderValue) {
-	                this.summLabel.addClass("table-item__summ--warn");
-	                this.orderButton.addClass("button--disabled");
-	                this.orderButton.attr("disabled", true);
-	                this.priceWarning.addClass("form__warning--warn");
-	            } else {
-	                this.summLabel.removeClass("table-item__summ--warn");
-	                this.orderButton.removeClass("button--disabled");
-	                this.orderButton.attr("disabled", false);
-	                this.priceWarning.removeClass("form__warning--warn");
-	            }
-	        }
-	    }]);
-
-	    return OrderCalculator;
-	}();
-
-	exports.default = OrderCalculator;
-
-/***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10515,6 +10325,191 @@
 
 
 /***/ }),
+/* 3 */,
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _OrderStorage = __webpack_require__(5);
+
+	var _OrderStorage2 = _interopRequireDefault(_OrderStorage);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var OrderCalculator = function () {
+	    function OrderCalculator() {
+	        _classCallCheck(this, OrderCalculator);
+
+	        // general
+	        this.minOrderValue = 4000;
+
+	        // table elements
+	        this.countInputs = (0, _jquery2.default)(".table-item__count input");
+	        this.costLabels = (0, _jquery2.default)(".table-item__cost");
+	        this.summLabel = (0, _jquery2.default)(".table-item__summ");
+
+	        // other elements
+	        this.orderButton = (0, _jquery2.default)("#order-submit");
+	        this.priceWarning = (0, _jquery2.default)(".form__warning");
+
+	        // spinner elements
+	        this.decButtons = (0, _jquery2.default)(".spinner__minus");
+	        this.incButtons = (0, _jquery2.default)(".spinner__plus");
+	        this.clearButtons = (0, _jquery2.default)(".spinner__clear");
+	        this.clearAllButton = (0, _jquery2.default)("#reset-form");
+
+	        this.events();
+
+	        // storage
+	        this.storage = new _OrderStorage2.default();
+	        this.storage.loadSession();
+
+	        this.calcTotal();
+	    }
+
+	    _createClass(OrderCalculator, [{
+	        key: "events",
+	        value: function events() {
+	            var calc = this;
+	            var incInterval = void 0;
+	            var decInterval = void 0;
+
+	            this.countInputs.on("change", function (event) {
+	                this.calcTotal((0, _jquery2.default)(event.target));
+	                this.storage.saveSession();
+	            }.bind(this));
+
+	            this.incButtons.on("mousedown", function () {
+	                var input = (0, _jquery2.default)(this).parent().children("input");
+	                calc.incInput(input);
+	                incInterval = setInterval(function () {
+	                    calc.incInput(input);
+	                }, 250);
+	            });
+
+	            this.incButtons.on("mouseup", function () {
+	                // let input = $(this).parent().children("input");
+	                clearInterval(incInterval);
+	            });
+
+	            this.incButtons.on("mouseout", function () {
+	                // let input = $(this).parent().children("input");
+	                clearInterval(incInterval);
+	            });
+
+	            this.decButtons.on("mousedown", function () {
+	                var input = (0, _jquery2.default)(this).parent().children("input");
+	                calc.decInput(input);
+	                decInterval = setInterval(function () {
+	                    calc.decInput(input);
+	                }, 250);
+	            });
+
+	            this.decButtons.on("mouseup", function () {
+	                // let input = $(this).parent().children("input");
+	                clearInterval(decInterval);
+	            });
+
+	            this.decButtons.on("mouseout", function () {
+	                // let input = $(this).parent().children("input");
+	                clearInterval(decInterval);
+	            });
+
+	            this.clearButtons.on("click", function () {
+	                var input = (0, _jquery2.default)(this).parent().children("input");
+	                calc.clearInput(input);
+	            });
+
+	            this.clearAllButton.on("click", function (event) {
+	                // alert("adsf");
+	                event.preventDefault();
+	                // alert(calc.countInputs);
+	                _jquery2.default.each(calc.countInputs, function (index, value) {
+	                    calc.clearInput((0, _jquery2.default)(value));
+	                    // alert(value);
+	                });
+	            });
+	        }
+	    }, {
+	        key: "decInput",
+	        value: function decInput(input) {
+	            input.val(parseInt(input.val()) > 0 ? parseInt(input.val()) - 1 : 0);
+	            input.trigger("change");
+	            this.storage.saveSession();
+	        }
+	    }, {
+	        key: "incInput",
+	        value: function incInput(input) {
+	            input.val(parseInt(input.val()) < 200 ? parseInt(input.val()) + 1 : 200);
+	            input.trigger("change");
+	            this.storage.saveSession();
+	        }
+	    }, {
+	        key: "clearInput",
+	        value: function clearInput(input) {
+	            input.val(0);
+	            input.trigger("change");
+	            this.storage.saveSession();
+	        }
+	    }, {
+	        key: "calcTotal",
+	        value: function calcTotal(input) {
+	            if (input) {
+	                this.calcInput(input);
+	            } else {
+	                var self = this;
+	                _jquery2.default.each((0, _jquery2.default)(".table-item__count input"), function (index, value) {
+	                    self.calcInput((0, _jquery2.default)(value));
+	                });
+	            }
+	        }
+	    }, {
+	        key: "calcInput",
+	        value: function calcInput(input) {
+	            var price = parseInt(input.parent().parent().parent().children(".table-item__price").html());
+	            var count = parseInt(input.val());
+	            var cost = input.parent().parent().parent().children(".table-item__cost");
+	            cost.html(price * count);
+
+	            var summ = 0;
+	            _jquery2.default.each(this.costLabels, function (i, val) {
+	                summ += parseInt((0, _jquery2.default)(val).html());
+	            });
+	            this.summLabel.html(summ);
+
+	            if (summ < this.minOrderValue) {
+	                this.summLabel.addClass("table-item__summ--warn");
+	                this.orderButton.addClass("button--disabled");
+	                this.orderButton.attr("disabled", true);
+	                this.priceWarning.addClass("form__warning--warn");
+	            } else {
+	                this.summLabel.removeClass("table-item__summ--warn");
+	                this.orderButton.removeClass("button--disabled");
+	                this.orderButton.attr("disabled", false);
+	                this.priceWarning.removeClass("form__warning--warn");
+	            }
+	        }
+	    }]);
+
+	    return OrderCalculator;
+	}();
+
+	exports.default = OrderCalculator;
+
+/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10526,7 +10521,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _jquery = __webpack_require__(4);
+	var _jquery = __webpack_require__(2);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -10598,7 +10593,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _jquery = __webpack_require__(4);
+	var _jquery = __webpack_require__(2);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -10706,6 +10701,7 @@
 	            (0, _jquery2.default)("#form-output").css("font-size", "32px");
 
 	            // Creating customer info
+	            var orderTitle = (0, _jquery2.default)(".form__legend").html();
 	            var customer = {
 	                name: this.orderForm.find("input[name=\"fullname\"]").val(),
 	                phone: this.orderForm.find("input[name=\"phone\"]").val(),
@@ -10719,8 +10715,7 @@
 
 	            var phoneClean = customer.phone.replace(/[^0-9 +]+/g, "");
 
-
-	            var $fullOrder = (0, _jquery2.default)("\n            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin:0; padding:0; background-color: #e0ddd9; padding: 20px; font-family: Arial, sans-serif;\">\n      <tr>\n        <td height=\"100%\">\n          <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0 auto; padding:0;\">\n            <tr>\n              <td id=\"table-container\" style=\"background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;\">\n                <h1>\u0417\u0430\u043A\u0430\u0437 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u0432</h1>\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse;\">\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0424\u0430\u043C\u0438\u043B\u0438\u044F \u0418\u043C\u044F \u041E\u0442\u0447\u0435\u0441\u0442\u0432\u043E</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.name + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"tel:" + phoneClean + "\">" + customer.phone + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"mailto:" + customer.email + "\">" + customer.email + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0418\u043D\u0434\u0435\u043A\u0441</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.index + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0410\u0434\u0440\u0435\u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.address + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0411\u0430\u0440\u0431\u0435\u0440\u0448\u043E\u043F</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.bshop + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0421\u043F\u043E\u0441\u043E\u0431 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.shipment + "</td>\n                  </tr>\n                </table>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n        ");
+	            var $fullOrder = (0, _jquery2.default)("\n            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"margin:0; padding:0; background-color: #e0ddd9; padding: 20px; font-family: Arial, sans-serif;\">\n      <tr>\n        <td height=\"100%\">\n          <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0 auto; padding:0;\">\n            <tr>\n              <td id=\"table-container\" style=\"background-color: #f1f1f1; max-width:600px; margin: 0 auto; padding: 20px; border-radius: 5px;\">\n                <h1>" + orderTitle + "\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u0432</h1>\n                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse;\">\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0424\u0430\u043C\u0438\u043B\u0438\u044F \u0418\u043C\u044F \u041E\u0442\u0447\u0435\u0441\u0442\u0432\u043E</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.name + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"tel:" + phoneClean + "\">" + customer.phone + "</a></td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\"><a href=\"mailto:" + customer.email + "\">" + customer.email + "</a></td>\n                  </tr>\n                  <tr>\n\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0418\u043D\u0434\u0435\u043A\u0441</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.index + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0410\u0434\u0440\u0435\u0441 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.address + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0411\u0430\u0440\u0431\u0435\u0440\u0448\u043E\u043F</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.bshop + "</td>\n                  </tr>\n                  <tr>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">\u0421\u043F\u043E\u0441\u043E\u0431 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438</td>\n                    <td style=\"border: 1px solid #999999; padding: 5px 10px;\">" + customer.shipment + "</td>\n                  </tr>\n                </table>\n              </td>\n            </tr>\n          </table>\n        </td>\n      </tr>\n    </table>\n        ");
 
 	            // Creating order table
 	            var $orderTable = (0, _jquery2.default)("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:0; padding:0; width: 100%; border-collapse: collapse; margin-top: 20px;\"></table>");
@@ -10801,16 +10796,16 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery Validation Plugin v1.16.0
+	 * jQuery Validation Plugin v1.17.0
 	 *
-	 * http://jqueryvalidation.org/
+	 * https://jqueryvalidation.org/
 	 *
-	 * Copyright (c) 2016 Jörn Zaefferer
+	 * Copyright (c) 2017 Jörn Zaefferer
 	 * Released under the MIT license
 	 */
 	(function( factory ) {
 		if ( true ) {
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(4)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else if (typeof module === "object" && module.exports) {
 			module.exports = factory( require( "jquery" ) );
 		} else {
@@ -10820,7 +10815,7 @@
 
 	$.extend( $.fn, {
 
-		// http://jqueryvalidation.org/validate/
+		// https://jqueryvalidation.org/validate/
 		validate: function( options ) {
 
 			// If nothing is selected, return nothing; can't chain anyway
@@ -10846,9 +10841,10 @@
 			if ( validator.settings.onsubmit ) {
 
 				this.on( "click.validate", ":submit", function( event ) {
-					if ( validator.settings.submitHandler ) {
-						validator.submitButton = event.target;
-					}
+
+					// Track the used submit button to properly handle scripted
+					// submits later.
+					validator.submitButton = event.currentTarget;
 
 					// Allow suppressing validation by adding a cancel class to the submit button
 					if ( $( this ).hasClass( "cancel" ) ) {
@@ -10870,17 +10866,22 @@
 					}
 					function handle() {
 						var hidden, result;
-						if ( validator.settings.submitHandler ) {
-							if ( validator.submitButton ) {
 
-								// Insert a hidden input as a replacement for the missing submit button
-								hidden = $( "<input type='hidden'/>" )
-									.attr( "name", validator.submitButton.name )
-									.val( $( validator.submitButton ).val() )
-									.appendTo( validator.currentForm );
-							}
+						// Insert a hidden input as a replacement for the missing submit button
+						// The hidden input is inserted in two cases:
+						//   - A user defined a `submitHandler`
+						//   - There was a pending request due to `remote` method and `stopRequest()`
+						//     was called to submit the form in case it's valid
+						if ( validator.submitButton && ( validator.settings.submitHandler || validator.formSubmitted ) ) {
+							hidden = $( "<input type='hidden'/>" )
+								.attr( "name", validator.submitButton.name )
+								.val( $( validator.submitButton ).val() )
+								.appendTo( validator.currentForm );
+						}
+
+						if ( validator.settings.submitHandler ) {
 							result = validator.settings.submitHandler.call( validator, validator.currentForm, event );
-							if ( validator.submitButton ) {
+							if ( hidden ) {
 
 								// And clean up afterwards; thanks to no-block-scope, hidden can be referenced
 								hidden.remove();
@@ -10914,7 +10915,7 @@
 			return validator;
 		},
 
-		// http://jqueryvalidation.org/valid/
+		// https://jqueryvalidation.org/valid/
 		valid: function() {
 			var valid, validator, errorList;
 
@@ -10935,13 +10936,22 @@
 			return valid;
 		},
 
-		// http://jqueryvalidation.org/rules/
+		// https://jqueryvalidation.org/rules/
 		rules: function( command, argument ) {
 			var element = this[ 0 ],
 				settings, staticRules, existingRules, data, param, filtered;
 
 			// If nothing is selected, return empty object; can't chain anyway
-			if ( element == null || element.form == null ) {
+			if ( element == null ) {
+				return;
+			}
+
+			if ( !element.form && element.hasAttribute( "contenteditable" ) ) {
+				element.form = this.closest( "form" )[ 0 ];
+				element.name = this.attr( "name" );
+			}
+
+			if ( element.form == null ) {
 				return;
 			}
 
@@ -10969,9 +10979,6 @@
 					$.each( argument.split( /\s/ ), function( index, method ) {
 						filtered[ method ] = existingRules[ method ];
 						delete existingRules[ method ];
-						if ( method === "required" ) {
-							$( element ).removeAttr( "aria-required" );
-						}
 					} );
 					return filtered;
 				}
@@ -10991,7 +10998,6 @@
 				param = data.required;
 				delete data.required;
 				data = $.extend( { required: param }, data );
-				$( element ).attr( "aria-required", "true" );
 			}
 
 			// Make sure remote is at back
@@ -11008,18 +11014,18 @@
 	// Custom selectors
 	$.extend( $.expr.pseudos || $.expr[ ":" ], {		// '|| $.expr[ ":" ]' here enables backwards compatibility to jQuery 1.7. Can be removed when dropping jQ 1.7.x support
 
-		// http://jqueryvalidation.org/blank-selector/
+		// https://jqueryvalidation.org/blank-selector/
 		blank: function( a ) {
 			return !$.trim( "" + $( a ).val() );
 		},
 
-		// http://jqueryvalidation.org/filled-selector/
+		// https://jqueryvalidation.org/filled-selector/
 		filled: function( a ) {
 			var val = $( a ).val();
 			return val !== null && !!$.trim( "" + val );
 		},
 
-		// http://jqueryvalidation.org/unchecked-selector/
+		// https://jqueryvalidation.org/unchecked-selector/
 		unchecked: function( a ) {
 			return !$( a ).prop( "checked" );
 		}
@@ -11032,7 +11038,7 @@
 		this.init();
 	};
 
-	// http://jqueryvalidation.org/jQuery.validator.format/
+	// https://jqueryvalidation.org/jQuery.validator.format/
 	$.validator.format = function( source, params ) {
 		if ( arguments.length === 1 ) {
 			return function() {
@@ -11145,7 +11151,7 @@
 			}
 		},
 
-		// http://jqueryvalidation.org/jQuery.validator.setDefaults/
+		// https://jqueryvalidation.org/jQuery.validator.setDefaults/
 		setDefaults: function( settings ) {
 			$.extend( $.validator.defaults, settings );
 		},
@@ -11204,6 +11210,7 @@
 					// Set form expando on contenteditable
 					if ( !this.form && this.hasAttribute( "contenteditable" ) ) {
 						this.form = $( this ).closest( "form" )[ 0 ];
+						this.name = $( this ).attr( "name" );
 					}
 
 					var validator = $.data( this.form, "validator" ),
@@ -11228,13 +11235,9 @@
 				if ( this.settings.invalidHandler ) {
 					$( this.currentForm ).on( "invalid-form.validate", this.settings.invalidHandler );
 				}
-
-				// Add aria-required to any Static/Data/Class required fields before first validation
-				// Screen readers require this attribute to be present before the initial submission http://www.w3.org/TR/WCAG-TECHS/ARIA2.html
-				$( this.currentForm ).find( "[required], [data-rule-required], .required" ).attr( "aria-required", "true" );
 			},
 
-			// http://jqueryvalidation.org/Validator.form/
+			// https://jqueryvalidation.org/Validator.form/
 			form: function() {
 				this.checkForm();
 				$.extend( this.submitted, this.errorMap );
@@ -11254,7 +11257,7 @@
 				return this.valid();
 			},
 
-			// http://jqueryvalidation.org/Validator.element/
+			// https://jqueryvalidation.org/Validator.element/
 			element: function( element ) {
 				var cleanElement = this.clean( element ),
 					checkElement = this.validationTargetFor( cleanElement ),
@@ -11305,7 +11308,7 @@
 				return result;
 			},
 
-			// http://jqueryvalidation.org/Validator.showErrors/
+			// https://jqueryvalidation.org/Validator.showErrors/
 			showErrors: function( errors ) {
 				if ( errors ) {
 					var validator = this;
@@ -11331,7 +11334,7 @@
 				}
 			},
 
-			// http://jqueryvalidation.org/Validator.resetForm/
+			// https://jqueryvalidation.org/Validator.resetForm/
 			resetForm: function() {
 				if ( $.fn.resetForm ) {
 					$( this.currentForm ).resetForm();
@@ -11372,7 +11375,10 @@
 				var count = 0,
 					i;
 				for ( i in obj ) {
-					if ( obj[ i ] ) {
+
+					// This check allows counting elements with empty error
+					// message as invalid elements
+					if ( obj[ i ] !== undefined && obj[ i ] !== null && obj[ i ] !== false ) {
 						count++;
 					}
 				}
@@ -11437,6 +11443,7 @@
 					// Set form expando on contenteditable
 					if ( this.hasAttribute( "contenteditable" ) ) {
 						this.form = $( this ).closest( "form" )[ 0 ];
+						this.name = name;
 					}
 
 					// Select only the first element for each name, and only those with rules specified
@@ -11537,21 +11544,27 @@
 					} ).length,
 					dependencyMismatch = false,
 					val = this.elementValue( element ),
-					result, method, rule;
+					result, method, rule, normalizer;
 
-				// If a normalizer is defined for this element, then
-				// call it to retreive the changed value instead
+				// Prioritize the local normalizer defined for this element over the global one
+				// if the former exists, otherwise user the global one in case it exists.
+				if ( typeof rules.normalizer === "function" ) {
+					normalizer = rules.normalizer;
+				} else if (	typeof this.settings.normalizer === "function" ) {
+					normalizer = this.settings.normalizer;
+				}
+
+				// If normalizer is defined, then call it to retreive the changed value instead
 				// of using the real one.
 				// Note that `this` in the normalizer is `element`.
-				if ( typeof rules.normalizer === "function" ) {
-					val = rules.normalizer.call( element, val );
+				if ( normalizer ) {
+					val = normalizer.call( element, val );
 
 					if ( typeof val !== "string" ) {
 						throw new TypeError( "The normalizer should return a string value." );
 					}
 
-					// Delete the normalizer from rules to avoid treating
-					// it as a pre-defined method.
+					// Delete the normalizer from rules to avoid treating it as a pre-defined method.
 					delete rules.normalizer;
 				}
 
@@ -11891,6 +11904,15 @@
 				$( element ).removeClass( this.settings.pendingClass );
 				if ( valid && this.pendingRequest === 0 && this.formSubmitted && this.form() ) {
 					$( this.currentForm ).submit();
+
+					// Remove the hidden input that was used as a replacement for the
+					// missing submit button. The hidden input is added by `handle()`
+					// to ensure that the value of the used submit button is passed on
+					// for scripted submits triggered by this method
+					if ( this.submitButton ) {
+						$( "input:hidden[name='" + this.submitButton.name + "']", this.currentForm ).remove();
+					}
+
 					this.formSubmitted = false;
 				} else if ( !valid && this.pendingRequest === 0 && this.formSubmitted ) {
 					$( this.currentForm ).triggerHandler( "invalid-form", [ this ] );
@@ -12118,7 +12140,7 @@
 			return data;
 		},
 
-		// http://jqueryvalidation.org/jQuery.validator.addMethod/
+		// https://jqueryvalidation.org/jQuery.validator.addMethod/
 		addMethod: function( name, method, message ) {
 			$.validator.methods[ name ] = method;
 			$.validator.messages[ name ] = message !== undefined ? message : $.validator.messages[ name ];
@@ -12127,10 +12149,10 @@
 			}
 		},
 
-		// http://jqueryvalidation.org/jQuery.validator.methods/
+		// https://jqueryvalidation.org/jQuery.validator.methods/
 		methods: {
 
-			// http://jqueryvalidation.org/required-method/
+			// https://jqueryvalidation.org/required-method/
 			required: function( value, element, param ) {
 
 				// Check if dependency is met
@@ -12149,7 +12171,7 @@
 				return value.length > 0;
 			},
 
-			// http://jqueryvalidation.org/email-method/
+			// https://jqueryvalidation.org/email-method/
 			email: function( value, element ) {
 
 				// From https://html.spec.whatwg.org/multipage/forms.html#valid-e-mail-address
@@ -12159,7 +12181,7 @@
 				return this.optional( element ) || /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test( value );
 			},
 
-			// http://jqueryvalidation.org/url-method/
+			// https://jqueryvalidation.org/url-method/
 			url: function( value, element ) {
 
 				// Copyright (c) 2010-2013 Diego Perini, MIT licensed
@@ -12169,60 +12191,60 @@
 				return this.optional( element ) || /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i.test( value );
 			},
 
-			// http://jqueryvalidation.org/date-method/
+			// https://jqueryvalidation.org/date-method/
 			date: function( value, element ) {
 				return this.optional( element ) || !/Invalid|NaN/.test( new Date( value ).toString() );
 			},
 
-			// http://jqueryvalidation.org/dateISO-method/
+			// https://jqueryvalidation.org/dateISO-method/
 			dateISO: function( value, element ) {
 				return this.optional( element ) || /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test( value );
 			},
 
-			// http://jqueryvalidation.org/number-method/
+			// https://jqueryvalidation.org/number-method/
 			number: function( value, element ) {
 				return this.optional( element ) || /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test( value );
 			},
 
-			// http://jqueryvalidation.org/digits-method/
+			// https://jqueryvalidation.org/digits-method/
 			digits: function( value, element ) {
 				return this.optional( element ) || /^\d+$/.test( value );
 			},
 
-			// http://jqueryvalidation.org/minlength-method/
+			// https://jqueryvalidation.org/minlength-method/
 			minlength: function( value, element, param ) {
 				var length = $.isArray( value ) ? value.length : this.getLength( value, element );
 				return this.optional( element ) || length >= param;
 			},
 
-			// http://jqueryvalidation.org/maxlength-method/
+			// https://jqueryvalidation.org/maxlength-method/
 			maxlength: function( value, element, param ) {
 				var length = $.isArray( value ) ? value.length : this.getLength( value, element );
 				return this.optional( element ) || length <= param;
 			},
 
-			// http://jqueryvalidation.org/rangelength-method/
+			// https://jqueryvalidation.org/rangelength-method/
 			rangelength: function( value, element, param ) {
 				var length = $.isArray( value ) ? value.length : this.getLength( value, element );
 				return this.optional( element ) || ( length >= param[ 0 ] && length <= param[ 1 ] );
 			},
 
-			// http://jqueryvalidation.org/min-method/
+			// https://jqueryvalidation.org/min-method/
 			min: function( value, element, param ) {
 				return this.optional( element ) || value >= param;
 			},
 
-			// http://jqueryvalidation.org/max-method/
+			// https://jqueryvalidation.org/max-method/
 			max: function( value, element, param ) {
 				return this.optional( element ) || value <= param;
 			},
 
-			// http://jqueryvalidation.org/range-method/
+			// https://jqueryvalidation.org/range-method/
 			range: function( value, element, param ) {
 				return this.optional( element ) || ( value >= param[ 0 ] && value <= param[ 1 ] );
 			},
 
-			// http://jqueryvalidation.org/step-method/
+			// https://jqueryvalidation.org/step-method/
 			step: function( value, element, param ) {
 				var type = $( element ).attr( "type" ),
 					errorMessage = "Step attribute on input type " + type + " is not supported.",
@@ -12260,7 +12282,7 @@
 				return this.optional( element ) || valid;
 			},
 
-			// http://jqueryvalidation.org/equalTo-method/
+			// https://jqueryvalidation.org/equalTo-method/
 			equalTo: function( value, element, param ) {
 
 				// Bind to the blur event of the target in order to revalidate whenever the target field is updated
@@ -12273,7 +12295,7 @@
 				return value === target.val();
 			},
 
-			// http://jqueryvalidation.org/remote-method/
+			// https://jqueryvalidation.org/remote-method/
 			remote: function( value, element, param, method ) {
 				if ( this.optional( element ) ) {
 					return "dependency-mismatch";
@@ -12387,7 +12409,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _jquery = __webpack_require__(4);
+	var _jquery = __webpack_require__(2);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -12446,6 +12468,7 @@
 	                (0, _jquery2.default)("input.form__input[name='email']").val(contacts.email);
 	                (0, _jquery2.default)("input.form__input[name='address']").val(contacts.address);
 	                (0, _jquery2.default)("input.form__input[name='bshop']").val(contacts.bshop);
+
 	                (0, _jquery2.default)("input.form__input[name='index']").val(contacts.index);
 	            }
 	        }

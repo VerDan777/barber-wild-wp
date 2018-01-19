@@ -151,6 +151,14 @@
             background-color: rgba($justSand, 0.4);
             outline: none;
         }
+        &--map {
+            &:focus {
+                // visual
+                border: 1px solid $darkSand;
+                background-color: rgba(255, 255, 255, 0.8);
+                outline: none;
+            }
+        }
     }
 
     &__group-label {

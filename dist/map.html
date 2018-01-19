@@ -22,15 +22,18 @@
         <div class="cart"><a href="order.html">Оформить заказ</a></div>
       </nav>
       <div class="map" id="map"></div>
-      <div class="wrapper wrapper--center"><a class="button button--red button--block" href="#table">Все точки</a>
-        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="25px" height="25px">
-          <g></g>
-          <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" fill="#FFFFFF"></path>
-        </svg>
-      </div>
+      <div class="wrapper wrapper--center"><a class="button button--red button--block" href="#table">Все филиалы
+          <svg class="arrow arrow--left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="25px" height="25px">
+            <g></g>
+            <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" fill="#FFFFFF"></path>
+          </svg>
+          <svg class="arrow arrow--right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="25px" height="25px">
+            <g></g>
+            <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" fill="#FFFFFF"></path>
+          </svg></a></div>
     </header>
-    <main class="site-main" id="table">
-      <div class="wrapper">
+    <main class="site-main">
+      <div class="wrapper"><a class="button button--red button--map">К карте</a>
         <fieldset class="form__fieldset">
           <legend class="form__legend">Таблица Филиалов</legend>
           <div class="form__input-group">
@@ -42,16 +45,13 @@
           <table class="order-table">
             <tr>
               <th>#</th>
-              <th>Название филиала</th>
-              <th>Город</th>
-              <th>Адрес</th>
+              <th class="table-item__th">Название филиала</th>
+              <th class="table-item__th">Город</th>
+              <th class="table-item__th">Адрес</th>
+              <th class="table-item__th">Телефон</th>
             </tr>
           </table>
         </fieldset>
-        <section class="site-section description">
-          <p>Идея создания мужской косметики Barber WILD пришла в 2015 году. Во время работы два приятеля барбера решили, что существующие средства для волос и бороды недостаточно хороши, и в 2016 году создали собственную линию, которая позволила им проявить свое мастерство в полной мере. Но не только профессиональный барбер — каждый мужчина, который заботится о своем здоровье и облике, может теперь по достоинству оценить качество нашей продукции, а также легко и быстро самостоятельно придать прическе, усам и бороде приятный вид.</p>
-          <p>Все, что мы делаем — делаем с душой, начиная от бритья и стрижки, и заканчивая укладкой и уходом за бородой и волосами. Сегодня мы производим сертифицированные средства из натуральных высококлассных компонентов, поставляем их в лучшие барбершопы. Мы отлично разбираемся в своей работе, внимательно следим за качеством продукции и развиваем Barber WILD, создавая новые средства и улучшая существующие.</p>
-        </section>
       </div>
     </main>
     <footer class="site-footer">
@@ -68,6 +68,5 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyhtGU3ubgvnGhZbZv8anVMHp1091h3Ds&amp;callback=initMap"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
     <script src="map.js"></script>
-    <script src="table.js"></script>
   </body>
 </html>

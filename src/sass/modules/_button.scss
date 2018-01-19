@@ -64,12 +64,22 @@
         }
     }
 
+    &--map {
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 1;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        // transition: 0.3s ease-in-out all;
+    }
+
     &--big {
         // box model
         padding: 18px 50px;
-
-        // typography
-        // font-size: 1.5rem;
 
         // visual
         border-radius: 40px;
@@ -82,6 +92,11 @@
     }
 
     &--block {
-        padding-bottom: 25px;
+        padding: 8px 50px;
+        position: relative;
+        position: absolute;
+        top: -75px;
+        left: 50%;
+        transform: translate(-50%);
     }
 }

@@ -1,5 +1,6 @@
 const gulp = require("gulp");
 const webpack = require("webpack-stream");
+const webpack2 = require("webpack");
 
 const commonCfg = {
     entry: {
@@ -7,8 +8,9 @@ const commonCfg = {
         orders: "./src/js/orders.js",
         partners: "./src/js/partners.js",
         samples: "./src/js/samples.js",
-        map: "./src/js/map.js",
-        instagram: "./src/js/instagram"
+        map: "./src/js/FullMap.js",
+        instagram: "./src/js/instagram",
+        
     },
     output: {
         filename: "[name].js"

@@ -28,12 +28,15 @@ html
 
             .map#map
             .wrapper.wrapper--center
-                a.button.button--red.button--block(href="#table") Все точки
-                svg.arrow(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="25px" height="25px")
-                    g
-                    path(d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" fill="#FFFFFF")
-
-        main.site-main#table: .wrapper
+                a.button.button--red.button--block(href="#table") Все филиалы
+                    svg.arrow.arrow--left(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="25px" height="25px")
+                        g
+                        path(d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" fill="#FFFFFF")
+                    svg.arrow.arrow--right(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="25px" height="25px")
+                        g
+                        path(d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" fill="#FFFFFF")
+        main.site-main: .wrapper
+            a.button.button--red.button--map К карте
             fieldset.form__fieldset
                         legend.form__legend Таблица Филиалов
                     
@@ -45,26 +48,17 @@ html
 
                             tr
                                 th #
-                                th Название филиала
-                                th Город
-                                th Адрес
-
+                                th.table-item__th Название филиала
+                                th.table-item__th Город
+                                th.table-item__th Адрес
+                                th.table-item__th Телефон
                             mixin table-item(number, branch, city, address)
-                                    //- td.table-item__number= number
-                                    //- td.table-item__image.table-item__city= branch
-                                    //- td.table-item__name= city
-                                    //- td.table-item__name= address
-                            +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
-                            +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
-                            +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
-                            +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
-                            +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
-                            +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
-            
-            section.site-section.description
-                p Идея создания мужской косметики Barber WILD пришла в 2015 году. Во время работы два приятеля барбера решили, что существующие средства для волос и бороды недостаточно хороши, и в 2016 году создали собственную линию, которая позволила им проявить свое мастерство в полной мере. Но не только профессиональный барбер — каждый мужчина, который заботится о своем здоровье и облике, может теперь по достоинству оценить качество нашей продукции, а также легко и быстро самостоятельно придать прическе, усам и бороде приятный вид.
-
-                p Все, что мы делаем — делаем с душой, начиная от бритья и стрижки, и заканчивая укладкой и уходом за бородой и волосами. Сегодня мы производим сертифицированные средства из натуральных высококлассных компонентов, поставляем их в лучшие барбершопы. Мы отлично разбираемся в своей работе, внимательно следим за качеством продукции и развиваем Barber WILD, создавая новые средства и улучшая существующие.
+                                +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
+                                +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
+                                +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
+                                +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
+                                +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
+                                +table-item("1", "OldBoy KLD", "Калининград", "ул. Театральная 30")
 
         footer.site-footer
             .site-footer__social
@@ -84,5 +78,4 @@ html
         script(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyhtGU3ubgvnGhZbZv8anVMHp1091h3Ds&callback=initMap")
         script(src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js")
         script(src="map.js")
-        script(src="table.js")
          //- script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")

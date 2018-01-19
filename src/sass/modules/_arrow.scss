@@ -1,5 +1,27 @@
 .arrow {
     position: absolute;
-    bottom: -25px;
-    left: 530px;
+
+    &--left {
+        position: absolute;
+        left: 25px;
+        top: 25%;
+        transform: translate(-50%);
+
+        @include atTabletsPortrait {
+            top: 13%;
+            transform: translate(-50%);
+        }
+    }
+
+    &--right {
+        position: absolute;
+        right: 0px;
+        top: 25%;
+        transform: translate(-50%);
+
+        @include atTabletsPortrait {
+            top: 13%;
+            transform: translate(-50%);
+        }
+    }
 }

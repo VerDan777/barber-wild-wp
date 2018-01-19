@@ -1,0 +1,108 @@
+.gm-style-iw {
+
+    background: #fff;
+    box-shadow: -14px 0px 0px #fff, -14px 9px 0px #fff, -14px -8px 0px #fff, 15px -8px 0px #fff, 15px 9px 0px #fff;
+    // Фон
+    &::before {
+      content: '';
+      width: calc(100% + 29px);
+      height: calc(100% + 17px);
+      position: absolute;
+      text-align: center;
+      background: #fff;
+    }
+    
+    // Стрелочка
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+    //   border: 22px solid #c49a6c;
+      border-top-color: #fff;
+      z-index: 4;
+      position: absolute;
+      top: auto;
+      bottom: -53px;
+      margin: auto;
+    }
+  }
+  
+  .gm-style-iw {
+    overflow: visible !important;
+  
+    div {
+      overflow: visible !important;
+    }
+  }
+// .gm-style-iw + div img {
+//     // overflow: hidden !important;
+//     display: none;
+// }
+
+
+// .gm-style-iw + div {
+//     right: -30px !important;
+//     opacity: 1;
+// }
+
+.gm-style-iw + div::before {
+    content: "";
+      // positioning
+      position: absolute;
+      left: 5px;
+      top: 11px;
+  
+      transform-origin: 0 50%;
+  
+      // box model
+      display: block;
+      height: 2px;
+      width: 28px;
+      transform: rotate(-45deg);
+  
+      // visual
+      background-color: #c49a6c;
+      transition: all 0.3s ease-out;
+      opacity: 1;
+}
+.gm-style-iw + div::after {
+    content: "";
+
+    // positioning
+    position: absolute;
+    left: 5px;
+    top: 3px;
+
+    transform-origin: 0 50%;
+    transform: rotate(45deg);
+    
+    // box model
+    display: block;
+    height: 2px;
+    width: 28px;
+
+    // visual
+    background-color: #c49a6c;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+    
+}
+// .gm-style-iw div div{
+//     // overflow: hidden !important;
+//     height: 100% !important;
+//     width: auto !important;
+//     overflow: hidden !important;
+// }
+// .infowindow__img-container {
+
+// }
+
+// .gm-style div div div div div div div div {
+//     // background-color: #3C61AD !important;
+//     // padding: 20px;
+//     // margin: 15px;
+//     padding: 0;
+//     top: 0;
+//     // color: #fff;
+//     font-size: 16px;
+// }
