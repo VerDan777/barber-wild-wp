@@ -178,7 +178,7 @@
 	            height: 65,
 	            textColor: '#ffffff',
 	            anchorText: [5, 0],
-	            textSize: 10
+	            textSize: 14
 	        }];
 	        var markerCluster = new MarkerClusterer(map, markers, { styles: markerIcons });
 	    });
