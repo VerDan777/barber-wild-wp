@@ -44,7 +44,7 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _jquery = __webpack_require__(2);
 
@@ -53,6 +53,10 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var markers = [];
+
+	var popup = "\n    <div class=\"infowindow\">\n    <div>\n        <img class=\"infowindow__img\" src=\"./img/oldboy_logo.svg\" alt=\"pic\"/>\n    </div>\n        <div>\n            <h2 class=\"infowindow__title infowindow__mainTitle\" id=\"title\"></h3>\n            <h3 class=\"infowindow__title\" id=\"address\"></h3>\n            <h3 class=\"infowindow__title\" id=\"phone\"><a class=\"infowindow__link\" href=\"\"></a></h3>\n        </div>\n    <div class=\"infowindow__close\">\n        <?xml version=\"1.0\"?>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" width=\"16px\" height=\"16px\" viewBox=\"0 0 357 357\" style=\"enable-background:new 0 0 357 357;\" xml:space=\"preserve\" class=\"infowindow__close-img\"><g><g>\n        <g>\n            <polygon id=\"bg\" points=\"357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3     214.2,178.5   \" data-original=\"#000000\" class=\"active-path\" data-old_color=\"#c7a166\" fill=\"#c7a166\"/>\n        </g>\n    </g></g> </svg>\n    </div>\n    </div>\n";
+	(0, _jquery2.default)(".site-header--map").append(popup);
+	(0, _jquery2.default)(".infowindow").css("display", "none");
 
 	window.initMap = function () {
 	    // Create object map
@@ -67,6 +71,11 @@
 	        zoomControl: true,
 	        scaleControl: true,
 	        styles: __webpack_require__(3)
+	    });
+
+	    // Limit the zoom level
+	    google.maps.event.addListener(map, 'zoom_changed', function () {
+	        if (map.getZoom() < 3) map.setZoom(3);
 	    });
 
 	    // Parse external JSON
@@ -88,8 +97,15 @@
 	            marker.setIcon(iconFile);
 	            markers.push(marker);
 	            var infowindow = new google.maps.InfoWindow({
-	                content: '\n                    <h3 style="color: black;" >' + value.title + '</h3>\n                    '
+	                content: "\n                    <div class=\"infowindow\">\n                        <div>\n                            <img src=\"" + value.img + "\"/>\n                        </div>\n                        <div class=\"infowindow__content\">\n                            <h2 class=\"infowindow__title\" id=\"title\">" + value.title + "</h3>\n                            <h3 class=\"infowindow__title\" id=\"address\">" + value.address + "</h3>\n                            <h3 class=\"infowindow__title\" id=\"phone\">" + value.phone + "</h3>\n                        </div>\n                        <p class=\"close\">Close</p>\n                    </div>\n                    "
 	            });
+	            google.maps.event.addListener(infowindow, 'domready', function () {
+	                (0, _jquery2.default)('.infowindow').closest('.gm-style-iw').parent().addClass('custom-iw');
+	            });
+
+	            var popup = "\n            <div class=\"infowindow\">\n                <div>\n                <img class=\"infowindow__img\" src=\"" + value.img + "\"/>\n                </div>\n                <div>\n                    <h2 class=\"infowindow__title\">" + value.title + "</h3>\n                    <h3 class=\"infowindow__title\">" + value.address + "</h3>\n                    <h3 class=\"infowindow__title\"><a href=\"\">" + value.phone + "</h3>\n                </div>\n                <div class=\"infowindow__close\">Close</div>\n            </div>\n            ";
+	            (0, _jquery2.default)(".infowindow").find(".infowindow__img").attr("src", value.img);
+
 	            // Geolocation HTML5
 	            if (navigator.geolocation) {
 	                navigator.geolocation.getCurrentPosition(function (position) {
@@ -115,55 +131,16 @@
 
 	            // Event Listener on InfoWindow
 	            marker.addListener('click', function () {
-	                infowindow.open(map, marker);
+	                (0, _jquery2.default)(".infowindow").css("display", "flex");
+	                (0, _jquery2.default)(".infowindow").find(".infowindow__img").attr("src", value.img);
+	                (0, _jquery2.default)(".infowindow").find("#title").text(value.title);
+	                (0, _jquery2.default)(".infowindow").find(".infowindow__link").attr("href", value.phone);
+	                (0, _jquery2.default)(".infowindow").find("#address").text(value.address);
+	                (0, _jquery2.default)(".infowindow").find("#phone").text(value.phone);
 	            });
-	            google.maps.event.addListener(infowindow, 'domready', function () {
 
-	                // Reference to the DIV that wraps the bottom of infowindow
-	                var iwOuter = (0, _jquery2.default)('.gm-style-iw');
-
-	                /* Since this div is in a position prior to .gm-div style-iw.
-	                 * We use jQuery and create a iwBackground variable,
-	                 * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
-	                */
-	                var iwBackground = iwOuter.prev();
-
-	                // Removes background shadow DIV
-	                iwBackground.children(':nth-child(2)').css({ 'display': 'none' });
-
-	                // Removes white background DIV
-	                iwBackground.children(':nth-child(4)').css({ 'display': 'none' });
-
-	                // Moves the infowindow 115px to the right.
-
-	                // Moves the shadow of the arrow 76px to the left margin.
-	                iwBackground.children(':nth-child(1)').attr('style', function (i, s) {
-	                    return s + 'left: 76px !important;';
-	                });
-
-	                // Moves the arrow 76px to the left margin.
-	                iwBackground.children(':nth-child(3)').attr('style', function (i, s) {
-	                    return s + 'left: 76px !important;';
-	                });
-
-	                // Changes the desired tail shadow color.
-	                iwBackground.children(':nth-child(3)').find('div').children().css({ 'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px', 'z-index': '1' });
-
-	                // Reference to the div that groups the close button elements.
-	                var iwCloseBtn = iwOuter.next();
-
-	                // Apply the desired effect to the close button
-	                iwCloseBtn.css({ opacity: '1', right: '0px', top: '3px' });
-
-	                // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
-	                if ((0, _jquery2.default)('.iw-content').height() < 140) {
-	                    (0, _jquery2.default)('.iw-bottom-gradient').css({ display: 'none' });
-	                }
-
-	                // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
-	                iwCloseBtn.mouseout(function () {
-	                    (0, _jquery2.default)(this).css({ opacity: '1' });
-	                });
+	            (0, _jquery2.default)(".infowindow__close").click(function () {
+	                (0, _jquery2.default)(".infowindow").css("display", "none");
 	            });
 
 	            ////////////////////////// OnClick//////////////////////
@@ -176,7 +153,12 @@
 	                    var NewPosition = new google.maps.LatLng(markers[i].lat, markers[i].lng);
 	                    map.setCenter(NewPosition);
 	                    map.setZoom(15);
-	                    infowindow.open(map, marker);
+	                    (0, _jquery2.default)(".infowindow").css("display", "flex");
+	                    (0, _jquery2.default)(".infowindow").find(".infowindow__img").attr("src", value.img);
+	                    (0, _jquery2.default)(".infowindow").find("#title").text(value.title);
+	                    (0, _jquery2.default)(".infowindow").find("#address").text(value.address);
+	                    (0, _jquery2.default)(".infowindow").find("#phone").text(value.phone);
+	                    (0, _jquery2.default)(".infowindow").find(".infowindow__title a").attr("href", value.phone);
 	                    (0, _jquery2.default)("html, body").animate({
 	                        scrollTop: 0
 	                    }, 600);
@@ -187,18 +169,25 @@
 	            Phone.click(function (e) {
 	                e.stopPropagation();
 	            });
+
 	            //////////////////////////////////////////////////////////
 	        });
-	        var markerCluster = new MarkerClusterer(map, markers, {
-	            imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"
-	        });
+	        var markerIcons = [{
+	            url: './img/m3.png',
+	            width: 65,
+	            height: 65,
+	            textColor: '#ffffff',
+	            anchorText: [5, 0],
+	            textSize: 10
+	        }];
+	        var markerCluster = new MarkerClusterer(map, markers, { styles: markerIcons });
 	    });
 	};
 
 	// Fill content from JSON
 	_jquery2.default.getJSON('google.json', function (response) {
 	    _jquery2.default.each(response, function (i, value) {
-	        (0, _jquery2.default)('<tr class="table-item table-item--center "data-title=' + response[i].id + '>').html('\n            <td class=\'table-item__number\'>' + response[i].id + '</td>\n            <td class=\'table-item__image table-item__image--map\'>' + response[i].title + '</td>\n            <td class=\'table-item__name table-item__name--map table-item__city\'>' + response[i].city + '</td>\n            <td class=\'table-item__name table-item__name--map table-item__address\'>' + response[i].address + '</td>\n            <td class=\'table-item__name table-item__name--map table-item__phone-container href=\'tel:"+response[i].phone.replace(/[{()} -]/g,\'\')\'>\n                <a class=\'table-item__phone\' href=tel:"' + response[i].phone + '">' + response[i].phone + '</a></td>').appendTo('.order-table');
+	        (0, _jquery2.default)('<tr class="table-item table-item--center "data-title=' + response[i].id + '>').html("\n            <td class='table-item__number'>" + response[i].id + "</td>\n            <td class='table-item__image table-item__image--map'>" + response[i].title + "</td>\n            <td class='table-item__name table-item__name--map table-item__city'>" + response[i].city + "</td>\n            <td class='table-item__name table-item__name--map table-item__address'>" + response[i].address + "</td>\n            <td class='table-item__name table-item__name--map table-item__phone-container href='tel:\"+response[i].phone.replace(/[{()} -]/g,'')'>\n                <a class='table-item__phone' href=tel:\"" + response[i].phone + "\">" + response[i].phone + "</a></td>").appendTo('.order-table');
 	    });
 	});
 
@@ -223,7 +212,7 @@
 	        function _filter(row) {
 	            var text = row.textContent.toLowerCase(),
 	                val = _input.value.toLowerCase();
-	            row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+	            row.style.display = text.indexOf(val) === -1 ? "none" : 'table-row';
 	        }
 
 	        return {
@@ -243,7 +232,8 @@
 	    });
 	})(document);
 
-	(function () {
+	// Events
+	(0, _jquery2.default)(function () {
 	    var button = (0, _jquery2.default)(".button");
 	    var buttonMap = (0, _jquery2.default)(".button--map");
 
@@ -264,7 +254,7 @@
 	            buttonMap.css("display", "block");
 	        }
 	    });
-	})();
+	}());
 
 /***/ }),
 /* 1 */,
@@ -10617,6 +10607,22 @@
 	        "weight": 0.2
 	    }]
 	}, {
+	    "featureType": "road.highway",
+	    "elementType": "labels.text.fill",
+	    "stylers": [{
+	        "color": "#FFFFFF"
+	    }, {
+	        "lightness": 29
+	    }, {
+	        "weight": 1
+	    }]
+	}, {
+	    "featureType": "road.highway",
+	    "elementType": "labels.stroke.fill",
+	    "stylers": [{
+	        "hue": "#ff0000"
+	    }]
+	}, {
 	    "featureType": "road.arterial",
 	    "elementType": "geometry",
 	    "stylers": [{
@@ -10625,12 +10631,45 @@
 	        "lightness": 18
 	    }]
 	}, {
+	    "featureType": "road.arterial",
+	    "elementType": "labels.text.fill",
+	    "stylers": [{
+	        "color": "#FFFFFF"
+	    }, {
+	        "lightness": 18
+	    }, {
+	        "weight": 1
+	    }]
+	}, {
+	    "featureType": "road.arterial",
+	    "elementType": "labels.stroke.fill",
+	    "stylers": [{
+	        "hue": "#ff0000"
+	    }]
+	}, {
 	    "featureType": "road.local",
 	    "elementType": "geometry",
 	    "stylers": [{
 	        "color": "#000000"
 	    }, {
 	        "lightness": 16
+	    }]
+	}, {
+	    "featureType": "road.local",
+	    "elementType": "labels.text.fill",
+	    "stylers": [{
+	        "color": "#FFFFFF",
+	        "weight": "0.1"
+	    }, {
+	        "lightness": 16
+	    }, {
+	        "weight": 1
+	    }]
+	}, {
+	    "featureType": "road.local",
+	    "elementType": "labels.text.stroke",
+	    "stylers": [{
+	        "hue": "#ff0000"
 	    }]
 	}, {
 	    "featureType": "transit",

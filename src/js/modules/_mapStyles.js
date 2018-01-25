@@ -113,6 +113,28 @@ module.exports = [{
                 ]
             },
             {
+                "featureType": "road.highway",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "lightness": 29
+                    },
+                    {
+                        "weight": 1
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "labels.stroke.fill",
+                "stylers": [{
+                        "hue": "#ff0000"
+                    },
+                ]
+            },
+            {
                 "featureType": "road.arterial",
                 "elementType": "geometry",
                 "stylers": [{
@@ -120,6 +142,28 @@ module.exports = [{
                     },
                     {
                         "lightness": 18
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                        "color": "#FFFFFF"
+                    },
+                    {
+                        "lightness": 18
+                    },
+                    {
+                        "weight": 1
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.stroke.fill",
+                "stylers": [{
+                        "hue": "#ff0000"
                     }
                 ]
             },
@@ -133,6 +177,28 @@ module.exports = [{
                         "lightness": 16
                     }
                 ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                        "color": "#FFFFFF",
+                        "weight": "0.1"
+                    },
+                    {
+                        "lightness": 16
+                    },
+                    {
+                        "weight": 1
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "labels.text.stroke",
+                "stylers": [{
+                        "hue": "#ff0000"
+                    }]
             },
             {
                 "featureType": "transit",

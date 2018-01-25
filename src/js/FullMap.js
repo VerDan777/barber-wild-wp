@@ -1,6 +1,31 @@
 import $ from 'jquery';
 var markers = [];
 
+const popup = `
+    <div class="infowindow">
+    <div>
+        <img class="infowindow__img" src="./img/oldboy_logo.svg" alt="pic"/>
+    </div>
+        <div>
+            <h2 class="infowindow__title infowindow__mainTitle" id="title"></h3>
+            <h3 class="infowindow__title" id="address"></h3>
+            <h3 class="infowindow__title" id="phone"><a class="infowindow__link" href=""></a></h3>
+        </div>
+    <div class="infowindow__close">
+        <?xml version="1.0"?>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;" xml:space="preserve" class="infowindow__close-img"><g><g>
+        <g>
+            <polygon id="bg" points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3     214.2,178.5   " data-original="#000000" class="active-path" data-old_color="#c7a166" fill="#c7a166"/>
+        </g>
+    </g></g> </svg>
+    </div>
+    </div>
+`
+$(".site-header--map").append(popup)
+$(".infowindow").css("display", "none");
+
+
+
 window.initMap = function() {
     // Create object map
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -15,6 +40,12 @@ window.initMap = function() {
         scaleControl: true,
         styles: require('./modules/_mapStyles')
     })
+
+    // Limit the zoom level
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+        if (map.getZoom() < 3) map.setZoom(3);
+    });
+
 
     // Parse external JSON
     $.getJSON('google.json', function(data) {
@@ -37,9 +68,39 @@ window.initMap = function() {
             const infowindow = new google.maps.InfoWindow({
                 content:
                     `
-                    <h3 style="color: black;" >${value.title}</h3>
+                    <div class="infowindow">
+                        <div>
+                            <img src="${value.img}"/>
+                        </div>
+                        <div class="infowindow__content">
+                            <h2 class="infowindow__title" id="title">${value.title}</h3>
+                            <h3 class="infowindow__title" id="address">${value.address}</h3>
+                            <h3 class="infowindow__title" id="phone">${value.phone}</h3>
+                        </div>
+                        <p class="close">Close</p>
+                    </div>
                     `
             });
+            google.maps.event.addListener(infowindow, 'domready', function () {
+                $('.infowindow').closest('.gm-style-iw').parent().addClass('custom-iw');
+        
+            });
+
+            const popup = `
+            <div class="infowindow">
+                <div>
+                <img class="infowindow__img" src="${value.img}"/>
+                </div>
+                <div>
+                    <h2 class="infowindow__title">${value.title}</h3>
+                    <h3 class="infowindow__title">${value.address}</h3>
+                    <h3 class="infowindow__title"><a href="">${value.phone}</h3>
+                </div>
+                <div class="infowindow__close">Close</div>
+            </div>
+            `
+            $(".infowindow").find(".infowindow__img").attr("src",value.img);
+
             // Geolocation HTML5
             if(navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
@@ -60,7 +121,7 @@ window.initMap = function() {
 
             function handleLocationError(browserHasGeolocation,infowindow, pos) {
                 infowindow.setPosition(pos);
-                infowindow.setContent(browserHasGeolocation ? 
+                infowindow.setContent(browserHasGeolocation ?
                     'Ваше местоположение не найдено.':
                     'Ваше бразер не поддерживает геолокацию.'
                 );
@@ -68,52 +129,17 @@ window.initMap = function() {
 
             // Event Listener on InfoWindow
             marker.addListener('click', function() {
-                infowindow.open(map, marker);
+                $(".infowindow").css("display", "flex");
+                $(".infowindow").find(".infowindow__img").attr("src",value.img);
+                $(".infowindow").find("#title").text(value.title);
+                $(".infowindow").find(".infowindow__link").attr("href",value.phone);
+                $(".infowindow").find("#address").text(value.address);
+                $(".infowindow").find("#phone").text(value.phone);
             })
-            google.maps.event.addListener(infowindow, 'domready', function() {
 
-                // Reference to the DIV that wraps the bottom of infowindow
-                var iwOuter = $('.gm-style-iw');
-            
-                /* Since this div is in a position prior to .gm-div style-iw.
-                 * We use jQuery and create a iwBackground variable,
-                 * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
-                */
-                var iwBackground = iwOuter.prev();
-            
-                // Removes background shadow DIV
-                iwBackground.children(':nth-child(2)').css({'display' : 'none'});
-            
-                // Removes white background DIV
-                iwBackground.children(':nth-child(4)').css({'display' : 'none'});
-            
-                // Moves the infowindow 115px to the right.
-            
-                // Moves the shadow of the arrow 76px to the left margin.
-                iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
-            
-                // Moves the arrow 76px to the left margin.
-                iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
-            
-                // Changes the desired tail shadow color.
-                iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px', 'z-index' : '1'});
-            
-                // Reference to the div that groups the close button elements.
-                var iwCloseBtn = iwOuter.next();
-            
-                // Apply the desired effect to the close button
-                iwCloseBtn.css({opacity: '1', right: '0px', top: '3px'});
-            
-                // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
-                if($('.iw-content').height() < 140){
-                  $('.iw-bottom-gradient').css({display: 'none'});
-                }
-            
-                // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
-                iwCloseBtn.mouseout(function(){
-                  $(this).css({opacity: '1'});
-                });
-              });
+            $(".infowindow__close").click(function() {
+                $(".infowindow").css("display", "none");
+             })
 
 ////////////////////////// OnClick//////////////////////
            
@@ -125,7 +151,12 @@ window.initMap = function() {
                         var NewPosition = new google.maps.LatLng(markers[i].lat, markers[i].lng);
                         map.setCenter(NewPosition);
                         map.setZoom(15);
-                        infowindow.open(map, marker);
+                        $(".infowindow").css("display", "flex");
+                        $(".infowindow").find(".infowindow__img").attr("src",value.img);
+                        $(".infowindow").find("#title").text(value.title);
+                        $(".infowindow").find("#address").text(value.address);
+                        $(".infowindow").find("#phone").text(value.phone);
+                        $(".infowindow").find(".infowindow__title a").attr("href",value.phone);
                         $("html, body").animate({
                             scrollTop: 0
                         }, 600);
@@ -137,12 +168,19 @@ window.initMap = function() {
                 Phone.click(function(e) {
                     e.stopPropagation();
                 })
+
 //////////////////////////////////////////////////////////
                 
             })
-                var markerCluster = new MarkerClusterer(map, markers, {
-                    imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"
-                });
+            var markerIcons = [{
+                url: './img/m3.png',
+                width: 65,
+                height: 65,
+                textColor: '#ffffff',
+                anchorText: [5, 0],
+                textSize: 10
+            }];
+                var markerCluster = new MarkerClusterer(map, markers, {styles: markerIcons});
         })
 }
 
@@ -160,6 +198,8 @@ $.getJSON('google.json', function(response) {
                 <a class='table-item__phone' href=tel:"${response[i].phone}">${response[i].phone}</a></td>`).appendTo('.order-table')
    })
 });
+
+
 
 
 // Selected Branches
@@ -203,7 +243,8 @@ $.getJSON('google.json', function(response) {
     
     })(document);
 
-(function() {
+// Events
+$(function() {
     var button = $(".button");
     var buttonMap = $(".button--map");
 
@@ -224,7 +265,6 @@ $.getJSON('google.json', function(response) {
             buttonMap.css("display", "block");
         }
     })
-
 }())
 
 

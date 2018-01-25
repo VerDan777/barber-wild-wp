@@ -1,108 +1,151 @@
-.gm-style-iw {
-
-    background: #fff;
-    box-shadow: -14px 0px 0px #fff, -14px 9px 0px #fff, -14px -8px 0px #fff, 15px -8px 0px #fff, 15px 9px 0px #fff;
-    // Фон
-    &::before {
-      content: '';
-      width: calc(100% + 29px);
-      height: calc(100% + 17px);
-      position: absolute;
-      text-align: center;
-      background: #fff;
-    }
-    
-    // Стрелочка
-    &::after {
-      content: '';
-      width: 0;
-      height: 0;
-    //   border: 22px solid #c49a6c;
-      border-top-color: #fff;
-      z-index: 4;
-      position: absolute;
-      top: auto;
-      bottom: -53px;
-      margin: auto;
-    }
-  }
-  
-  .gm-style-iw {
-    overflow: visible !important;
-  
-    div {
-      overflow: visible !important;
-    }
-  }
-// .gm-style-iw + div img {
-//     // overflow: hidden !important;
-//     display: none;
-// }
-
-
-// .gm-style-iw + div {
-//     right: -30px !important;
-//     opacity: 1;
-// }
-
-.gm-style-iw + div::before {
-    content: "";
-      // positioning
-      position: absolute;
-      left: 5px;
-      top: 11px;
-  
-      transform-origin: 0 50%;
-  
-      // box model
-      display: block;
-      height: 2px;
-      width: 28px;
-      transform: rotate(-45deg);
-  
-      // visual
-      background-color: #c49a6c;
-      transition: all 0.3s ease-out;
-      opacity: 1;
+.custom-iw {
+  // positioning
+  position: relative;
 }
-.gm-style-iw + div::after {
-    content: "";
+
+.gm-style-iw {
+  // positioning
+  top: 1px !important;
+
+  // box model
+  height: 200px !important;
+  width: 300px !important;
+  display: flex;
+  justify-content: center;
+
+  // visual
+  border: none;
+  border-bottom: none;
+}
+
+.gm-style-iw + div {
+  // positioning
+  position: relative;
+  z-index: 999999;
+}
+
+.custom-iw>div:first-child>div:nth-child(2) {
+  // box model
+  display: none;
+}
+
+.gm-style-iw>div {
+  // box model
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  overflow: hidden !important;
+}
+
+.custom-iw>div:first-child>div:last-child {
+  // positioning
+  top:0px;
+  left:0 !important;
+  z-index:-1 !important;
+
+  // visual
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 6px;
+}
+
+.infowindow, .custom-iw>div:first-child>div:nth-child(n-1)>div>div, .custom-iw>div>div:last-child, .custom-iw .gm-style-iw, .custom-iw .gm-style-iw>div, .custom-iw .gm-style-iw>div>div {
+  // visual
+  background-color:#fff !important;
+}
+
+.infowindow {
+  // positioning
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  // box model
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  // visual
+  border: 3px solid #c7a166;
+  position: absolute;
+
+  @include atDesktop {
+    // positioning
+    top: 50%;
+    left: 80%;
+  }
+
+  &__img {
+    // box model
+    height: 125px;
+    width: 125px;
+
+    @include atDesktop {
+      // box model
+      height: 125px;
+      width: 125px;
+    }
+  }
+
+  &__content {
+    padding-left: 20px;
+  }
+
+  &__title {
+    // box model
+    margin-top: 0;
+    padding-left: 20px;
+
+    // typography
+    font-family: $mainFont;
+
+    &:last-child {
+      // box model
+      margin-bottom: 0;
+    }
+  }
+
+  &__mainTitle {
+    // typography
+    font-family: $titleFont;
+  }
+
+  &__close {
 
     // positioning
     position: absolute;
-    left: 5px;
-    top: 3px;
-
-    transform-origin: 0 50%;
-    transform: rotate(45deg);
-    
-    // box model
-    display: block;
-    height: 2px;
-    width: 28px;
+    top: 5px;
+    right: 5px;
 
     // visual
-    background-color: #c49a6c;
-    transition: all 0.3s ease-out;
-    opacity: 1;
-    
+    cursor: pointer;
+
+    &-img {
+      &:hover {
+        // visual
+        fill: red;
+      }
+    }
+
+    img {
+      // box model
+      height: 24px !important;
+      width: 24px !important;
+    }
+  }
+
 }
-// .gm-style-iw div div{
-//     // overflow: hidden !important;
-//     height: 100% !important;
-//     width: auto !important;
-//     overflow: hidden !important;
-// }
-// .infowindow__img-container {
 
-// }
-
-// .gm-style div div div div div div div div {
-//     // background-color: #3C61AD !important;
-//     // padding: 20px;
-//     // margin: 15px;
-//     padding: 0;
-//     top: 0;
-//     // color: #fff;
-//     font-size: 16px;
-// }
+.custom-iw>div:first-child>div:first-child {
+  // box model
+  display: none;
+}
+.infowindow__close-img:hover #bg {
+  // visual
+  fill: $accentRed;
+}
+.infowindow__close-img:hover #outline {
+  // visual
+  fill: $accentRed;
+}
